@@ -59,7 +59,7 @@
               <v-col cols="12" xs="12" sm="12" md="12">
                 <v-row class="ma-0 py-0" justify="end" align="center">
                   <v-col cols="auto">
-                    <v-btn rounded color="red">
+                    <v-btn rounded color="error darken-1">
                       Reset
                     </v-btn>
                   </v-col>
