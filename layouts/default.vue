@@ -1,93 +1,171 @@
 <template>
-  <v-app dark>
+  <v-app style="height:100vh" dark>
     <v-navigation-drawer
+      v-show="$nuxt.$vuetify.breakpoint.smAndDown"
       v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
+      absolute
+      temporary
     >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
+      <LayuoutSidebar
+        :menu-items="menuItems"
+        :menu-social-media="menuSocialMedia"
+      />
+    </v-navigation-drawer>
+    <v-container fluid class="fill-height">
+      <v-row align-center justify-center row class="fill-height">
+        <v-col
+          v-show="$nuxt.$vuetify.breakpoint.smAndDown"
+          dark
+          cols="12"
+          :style="$nuxt.$vuetify.breakpoint.smAndDown ? 'height:10%' : ''"
         >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
-    </v-app-bar>
-    <v-content>
-      <v-container>
-        <nuxt />
-      </v-container>
-    </v-content>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+          <v-toolbar>
+            <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+            <v-toolbar-title>İbrahim Turan</v-toolbar-title>
+          </v-toolbar>
+        </v-col>
+        <v-col
+          v-show="$nuxt.$vuetify.breakpoint.mdAndUp"
+          md="4"
+          lg="3"
+          xl="2"
+          class="fill-height"
+        >
+          <LayuoutSidebar
+            :menu-items="menuItems"
+            :menu-social-media="menuSocialMedia"
+          />
+        </v-col>
+        <v-col
+          md="8"
+          lg="9"
+          xl="10"
+          class="fill-height"
+          :style="$nuxt.$vuetify.breakpoint.smAndDown ? 'height:90%' : ''"
+        >
+          <v-row class="fill-height" no-gutters>
+            <v-col
+              v-show="$nuxt.$vuetify.breakpoint.mdAndUp"
+              cols="12"
+              style="height: 10%;"
+            >
+              <v-row justify="end" align="end" no-gutters class="fill-height">
+                <v-col>
+                  <h1 class="display-3 font-weight-black">
+                    İbrahim Turan
+                  </h1>
+                </v-col>
+              </v-row>
+            </v-col>
+            <v-col
+              cols="12"
+              :style="
+                $nuxt.$vuetify.breakpoint.mdAndUp ? 'height:85%' : 'height:95%'
+              "
+            >
+              <v-card
+                class="fill-height"
+                elevation="24"
+                style="overflow-y: auto;position: relative"
+              >
+                <router-view></router-view>
+              </v-card>
+            </v-col>
+            <v-col cols="12" style="height:5%">
+              <v-row justify="end" align="end" no-gutters class="fill-height">
+                <v-col>
+                  <v-footer padless class="pa-1" elevation="24">
+                    <v-col class="text-center caption py-0 my-0" cols="12">
+                      {{ new Date().getFullYear() }} —
+                      <strong>İbrahim Turan</strong>
+                    </v-col>
+                  </v-footer>
+                </v-col>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-app>
 </template>
 
 <script>
+import LayuoutSidebar from '../components/LayuoutSidebar.vue'
 export default {
+  components: {
+    LayuoutSidebar
+  },
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
+      menuItems: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          id: 0,
+          title: 'About',
+          icon: 'mdi-file-document-edit-outline',
+          link: '/about',
+          color: ''
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          id: 1,
+          title: 'Experience',
+          icon: 'mdi-file-code-outline',
+          link: '/experience',
+          color: ''
+        },
+        {
+          id: 4,
+          title: 'Contact',
+          icon: 'mdi-pencil-outline ',
+          link: '/contact',
+          color: ''
+        },
+        {
+          id: 5,
+          title: 'Blog',
+          icon: 'mdi-post-outline',
+          link: '/blog',
+          color: ''
         }
       ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      menuSocialMedia: [
+        {
+          id: 0,
+          icon: 'mdi-instagram',
+          link: 'https://www.instagram.com/_ibrahimturan',
+          color: '#E4405F'
+        },
+        {
+          id: 1,
+          icon: 'mdi-twitter',
+          link: 'https://www.twitter.com/_ibrahimturan',
+          color: '#1DA1F2'
+        },
+        {
+          id: 2,
+          icon: 'mdi-github',
+          link: 'https://www.github.com/turanibrahim',
+          color: ''
+        },
+        {
+          id: 3,
+          icon: 'mdi-linkedin',
+          link: 'https://www.linkedin.com/in/ibrahimturann/',
+          color: '#0077B5'
+        }
+      ],
+      isDark: false,
+      whichFlag: true,
+      drawer: false
     }
   }
 }
 </script>
+<style scoped>
+.theme--light.v-btn:hover::before {
+  opacity: 0.3;
+}
+.theme--dark.v-btn:hover::before {
+  opacity: 0.3;
+}
+</style>
