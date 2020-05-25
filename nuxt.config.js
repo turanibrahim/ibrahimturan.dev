@@ -83,5 +83,13 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '/',
+        component: resolve(__dirname, 'pages/About/index.vue')
+      })
+    }
   }
 }
