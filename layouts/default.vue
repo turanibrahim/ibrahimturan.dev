@@ -21,7 +21,7 @@
         >
           <v-toolbar>
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-            <v-toolbar-title>İbrahim Turan</v-toolbar-title>
+            <v-toolbar-title>{{ pageTitle }}</v-toolbar-title>
           </v-toolbar>
         </v-col>
         <v-col
@@ -51,8 +51,8 @@
             >
               <v-row justify="end" align="end" no-gutters class="fill-height">
                 <v-col>
-                  <h1 class="display-3 font-weight-black">
-                    İbrahim Turan
+                  <h1 class="display-3 font-weight-black pb-2">
+                    {{ pageTitle }}
                   </h1>
                 </v-col>
               </v-row>
@@ -91,6 +91,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import LayuoutSidebar from '../components/LayuoutSidebar.vue'
 export default {
   components: {
@@ -98,66 +99,17 @@ export default {
   },
   data() {
     return {
-      menuItems: [
-        {
-          id: 0,
-          title: 'About',
-          icon: 'mdi-file-document-edit-outline',
-          link: '/about',
-          color: ''
-        },
-        {
-          id: 1,
-          title: 'Experience',
-          icon: 'mdi-file-code-outline',
-          link: '/experience',
-          color: ''
-        },
-        {
-          id: 4,
-          title: 'Contact',
-          icon: 'mdi-pencil-outline ',
-          link: '/contact',
-          color: ''
-        },
-        {
-          id: 5,
-          title: 'Blog',
-          icon: 'mdi-post-outline',
-          link: '/blog',
-          color: ''
-        }
-      ],
-      menuSocialMedia: [
-        {
-          id: 0,
-          icon: 'mdi-instagram',
-          link: 'https://www.instagram.com/_ibrahimturan',
-          color: '#E4405F'
-        },
-        {
-          id: 1,
-          icon: 'mdi-twitter',
-          link: 'https://www.twitter.com/_ibrahimturan',
-          color: '#1DA1F2'
-        },
-        {
-          id: 2,
-          icon: 'mdi-github',
-          link: 'https://www.github.com/turanibrahim',
-          color: ''
-        },
-        {
-          id: 3,
-          icon: 'mdi-linkedin',
-          link: 'https://www.linkedin.com/in/ibrahimturann/',
-          color: '#0077B5'
-        }
-      ],
       isDark: false,
       whichFlag: true,
       drawer: false
     }
+  },
+  computed: {
+    ...mapState({
+      menuItems: (state) => state.layout.menuItems,
+      pageTitle: (state) => state.layout.pageTitle,
+      menuSocialMedia: (state) => state.layout.menuSocialMedia
+    })
   }
 }
 </script>

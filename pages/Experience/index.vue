@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   data: () => ({
     items: [
@@ -53,6 +55,17 @@ export default {
         company: 'Narven Termal '
       }
     ]
-  })
+  }),
+  created() {
+    this.setPageTitle({ title: 'Experience' })
+  },
+  methods: {
+    redirectToMail() {
+      window.location.href = 'mailto:ibrahimturan002@gmail.com'
+    },
+    ...mapMutations({
+      setPageTitle: 'layout/setPageTitle'
+    })
+  }
 }
 </script>

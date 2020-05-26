@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import ContactSocialMedia from '../../components/ContactSocialMedia.vue'
 const simpleIcons = require('simple-icons')
 
@@ -118,10 +119,16 @@ export default {
       showEmail: false
     }
   },
+  created() {
+    this.setPageTitle({ title: 'Contact' })
+  },
   methods: {
     redirectToMail() {
       window.location.href = 'mailto:ibrahimturan002@gmail.com'
-    }
+    },
+    ...mapMutations({
+      setPageTitle: 'layout/setPageTitle'
+    })
   }
 }
 </script>

@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import AboutTechListItem from '../../components/AboutTechListItem'
 
 export default {
@@ -193,6 +194,14 @@ export default {
       about1:
         "I'm at the beginning of the full-stack developer path. I want to specialize in web programming as full-stack developer. I have quite a bit more interest and skills on Back-end development. If I need to specify in percentages of both front-end and back-end, I can say that I tend to 60% on back-end and 40% on front-end."
     }
+  },
+  created() {
+    this.setPageTitle({ title: 'İbrahim Turan' })
+  },
+  methods: {
+    ...mapMutations({
+      setPageTitle: 'layout/setPageTitle'
+    })
   }
 }
 </script>
