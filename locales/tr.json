@@ -1,0 +1,38 @@
+{
+  "links": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımda",
+    "experience": "Deneyim",
+    "contact": "İletişim",
+    "blog": "Blog",
+    "english": "English version",
+    "french": "French version"
+  },
+  "titles": {
+    "experience": "Deneyim",
+    "contact": "İletişim"
+  },
+  "contact": {
+    "findMe": "Beni bulabileceğin platformlar",
+    "contactMe": "İletişime geçmek için aşağıdaki formu kullanabilirsin",
+    "nameMinLength" : "İsim alanı en az 4 karakter olmalıdır!",
+    "nameRequired" : "İsim alanı zorunludur!",
+    "surnameMinLength" : "Soyisim alanı en az 4 karakter olmalıdır!",
+    "surnameRequired" : "Soyisim alanı zorunludur!",
+    "descriptionMinLength" : "Açıklama alanı en az 4 karakter olmalıdır!",
+    "descriptionRequired" : "Açıklama alanı zorunludur!",
+    "emailMustBeValid" : "E-posta adresi geçerli olmalıdır!",
+    "emailRequired" : "E-posta adresi alanı zorunludur!",
+    "name": "İsim",
+    "surname": "Soyisim",
+    "email": "E-posta",
+    "description": "Açıklama",
+    "send": "Gönder",
+    "reset": "Sıfırla",
+    "successMessage": "İletişim formu başarılı şekilde yollandı. En yakında dönüş yapacağım :)",
+    "close": "Kapat"
+  },
+  "experience": {
+    "current": "Şu Anda"
+  }
+}

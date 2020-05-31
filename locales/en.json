@@ -1,0 +1,38 @@
+{
+  "links": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "contact": "Contact",
+    "blog": "Blog",
+    "english": "English version",
+    "french": "French version"
+  },
+  "titles": {
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "contact": {
+    "findMe": "You could find me on",
+    "contactMe": "You could contact me via form below",
+    "nameMinLength" : "Name must be at least 4 characters long!",
+    "nameRequired" : "Name is required!",
+    "surnameMinLength" : "Surname must be at least 4 characters long!",
+    "surnameRequired" : "Surname is required!",
+    "descriptionMinLength" : "Description must be at least 4 characters long!",
+    "descriptionRequired" : "Description is required!",
+    "emailMustBeValid" : "E-mail must be valid!",
+    "emailRequired" : "E-mail is required!",
+    "name": "Name",
+    "surname": "Surname",
+    "email": "E-mail",
+    "description": "Description",
+    "send": "Send",
+    "reset": "Reset",
+    "successMessage": "Contact form sent successfully. I will be reply ASAP :)",
+    "close": "Close"
+  },
+  "experience": {
+    "current": "Current"
+  }
+}
