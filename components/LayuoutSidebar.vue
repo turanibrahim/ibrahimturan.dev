@@ -32,10 +32,10 @@
             :large="$nuxt.$vuetify.breakpoint.mdAndUp"
             class="pl-2"
             nuxt
-            :to="item.link"
+            :to="$i18n.path(item.link)"
           >
             <v-icon class="pr-1">{{ item.icon }}</v-icon>
-            {{ item.title }}
+            {{ $t(item.title) }}
           </v-btn>
         </v-col>
       </v-row>
@@ -46,15 +46,15 @@
     >
       <v-row
         align="center"
-        justify="center"
+        justify="space-around"
         class="py-0 my-0"
         style="width:100%"
       >
         <v-col
-          v-for="item in menuSocialMedia"
+          v-for="item in socialMedias"
           :key="item.id"
-          class="shrink"
           align="center"
+          class="px-0"
         >
           <v-btn
             rounded
@@ -64,26 +64,26 @@
             class="pl-1"
             @click="redirectTo(item.link)"
           >
-            <v-icon class="pr-1">{{ item.icon }}</v-icon>
+            <v-icon class="pr-1">{{ icons.get(item.name).path }}</v-icon>
           </v-btn>
         </v-col>
         <v-col cols="12" class="pt-0 pb-1">
           <v-divider></v-divider>
         </v-col>
         <v-col cols="6" align="center" class="py-1">
-          <v-avatar size="36" tile @click="whichFlag = !whichFlag">
-            <v-img
-              v-if="whichFlag"
-              src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/facebook/230/flag-for-turkey_1f1f9-1f1f7.png"
-            ></v-img>
-            <v-img
-              v-else
-              src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/facebook/230/flag-for-united-states_1f1fa-1f1f8.png"
-            ></v-img>
-          </v-avatar>
+          <v-btn
+            class="font-weight-black"
+            text
+            medium
+            rounded
+            @click="changeRoute()"
+          >
+            <v-icon class="pr-1">mdi-translate</v-icon>
+            {{ locale == 'en' ? 'TR' : 'EN' }}
+          </v-btn>
         </v-col>
         <v-col align="center" cols="6" class="py-1">
-          <v-btn icon medium rounded @click="changeTheme()">
+          <v-btn text medium rounded @click="changeTheme()">
             <v-icon v-if="!isDark">mdi-weather-night</v-icon>
             <v-icon v-else>mdi-white-balance-sunny</v-icon>
           </v-btn>
@@ -94,18 +94,27 @@
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex'
+const simpleIcons = require('simple-icons')
+
 export default {
   props: {
     // eslint-disable-next-line vue/require-default-prop
     menuItems: Array,
     // eslint-disable-next-line vue/require-default-prop
-    menuSocialMedia: Array
+    socialMedias: Array
   },
   data() {
     return {
       whichFlag: false,
-      isDark: false
+      isDark: false,
+      icons: simpleIcons
     }
+  },
+  computed: {
+    ...mapState({
+      locale: (state) => state.locale
+    })
   },
   methods: {
     redirectTo(link) {
@@ -114,7 +123,19 @@ export default {
     changeTheme() {
       this.$nuxt.$vuetify.theme.dark = !this.$nuxt.$vuetify.theme.dark
       this.isDark = !this.isDark
-    }
+    },
+    changeRoute() {
+      if (this.locale === 'tr') {
+        this.$nuxt.$router.push(
+          this.$nuxt.$route.fullPath.replace(/^\/[^/]+/, '')
+        )
+      } else {
+        this.$nuxt.$router.push(`/tr` + this.$nuxt.$route.fullPath)
+      }
+    },
+    ...mapMutations({
+      changeLanguage: 'SET_LANG'
+    })
   }
 }
 </script>
