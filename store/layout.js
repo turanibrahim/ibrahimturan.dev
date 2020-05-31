@@ -3,59 +3,35 @@ export const state = () => ({
   menuItems: [
     {
       id: 0,
-      title: 'About',
+      title: 'links.about',
       icon: 'mdi-file-document-edit-outline',
-      link: '/about',
+      link: 'about',
       color: ''
     },
     {
       id: 1,
-      title: 'Experience',
+      title: 'links.experience',
       icon: 'mdi-file-code-outline',
-      link: '/experience',
+      link: 'experience',
       color: ''
     },
     {
       id: 4,
-      title: 'Contact',
+      title: 'links.contact',
       icon: 'mdi-pencil-outline ',
-      link: '/contact',
+      link: 'contact',
       color: ''
     },
     {
       id: 5,
-      title: 'Blog',
+      title: 'links.blog',
       icon: 'mdi-post-outline',
-      link: '/blog',
+      link: 'blog',
       color: ''
     }
   ],
-  menuSocialMedia: [
-    {
-      id: 0,
-      icon: 'mdi-instagram',
-      link: 'https://www.instagram.com/_ibrahimturan',
-      color: '#E4405F'
-    },
-    {
-      id: 1,
-      icon: 'mdi-twitter',
-      link: 'https://www.twitter.com/_ibrahimturan',
-      color: '#1DA1F2'
-    },
-    {
-      id: 2,
-      icon: 'mdi-github',
-      link: 'https://www.github.com/turanibrahim',
-      color: ''
-    },
-    {
-      id: 3,
-      icon: 'mdi-linkedin',
-      link: 'https://www.linkedin.com/in/ibrahimturann/',
-      color: '#0077B5'
-    }
-  ]
+  socialMedias: [],
+  loading: false
 })
 
 export const getters = {
@@ -65,9 +41,27 @@ export const getters = {
 export const mutations = {
   setPageTitle(state, payload) {
     state.pageTitle = payload.title
+  },
+  SET_SOCIAL_MEDIAS(state, payload) {
+    state.socialMedias = payload
+  },
+  SET_LOADING(state, payload) {
+    state.loading = payload
   }
 }
 
 export const actions = {
-  //
+  async fetchSocialMedias({ commit }) {
+    await this.$axios
+      .$get('/api/contact/socialMedias')
+      .then((response) => {
+        commit('SET_SOCIAL_MEDIAS', response)
+      })
+      .catch((err) => {
+        commit('SET_SOCIAL_MEDIAS', err)
+      })
+  },
+  sendContactForm({ commit }, payload) {
+    return this.$axios.$post('/api/contact/contactForm/create', payload)
+  }
 }
