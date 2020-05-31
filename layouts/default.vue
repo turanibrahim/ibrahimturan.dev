@@ -6,10 +6,7 @@
       absolute
       temporary
     >
-      <LayuoutSidebar
-        :menu-items="menuItems"
-        :menu-social-media="menuSocialMedia"
-      />
+      <LayuoutSidebar :menu-items="menuItems" :social-medias="socialMedias" />
     </v-navigation-drawer>
     <v-container fluid class="fill-height">
       <v-row align-center justify-center row class="fill-height">
@@ -31,9 +28,9 @@
           xl="2"
           class="fill-height"
         >
-          <LayuoutSidebar
+          <layuout-sidebar
             :menu-items="menuItems"
-            :menu-social-media="menuSocialMedia"
+            :social-medias="socialMedias"
           />
         </v-col>
         <v-col
@@ -91,8 +88,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import LayuoutSidebar from '../components/LayuoutSidebar.vue'
+
 export default {
   components: {
     LayuoutSidebar
@@ -108,7 +106,15 @@ export default {
     ...mapState({
       menuItems: (state) => state.layout.menuItems,
       pageTitle: (state) => state.layout.pageTitle,
-      menuSocialMedia: (state) => state.layout.menuSocialMedia
+      socialMedias: (state) => state.layout.socialMedias
+    })
+  },
+  created() {
+    this.fetchSocialMedias()
+  },
+  methods: {
+    ...mapActions({
+      fetchSocialMedias: 'layout/fetchSocialMedias'
     })
   }
 }
