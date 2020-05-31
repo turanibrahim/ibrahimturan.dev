@@ -30,14 +30,15 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/i18n.js', '~/plugins/vuelidate'],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/moment'
   ],
   /*
    ** Nuxt.js modules
@@ -50,10 +51,23 @@ export default {
     '@nuxtjs/dotenv'
   ],
   /*
+   ** Moment module configuration
+   */
+  moment: {
+    defaultLocale: 'en',
+    locales: ['tr']
+  },
+  /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: { proxy: true },
+  proxy: {
+    '/api/': {
+      target: 'http://localhost:3000/api/',
+      pathRewrite: { '^/api/': '' }
+    }
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -85,11 +99,18 @@ export default {
     extend(config, ctx) {}
   },
   router: {
+    middleware: 'i18n',
     extendRoutes(routes, resolve) {
-      routes.push({
-        path: '/',
-        component: resolve(__dirname, 'pages/About/index.vue')
-      })
+      routes.push(
+        {
+          path: '/',
+          component: resolve(__dirname, 'pages/_lang/About/index.vue')
+        },
+        {
+          path: '/tr',
+          component: resolve(__dirname, 'pages/_lang/About/index.vue')
+        }
+      )
     }
   }
 }
