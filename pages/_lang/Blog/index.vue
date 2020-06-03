@@ -1,7 +1,7 @@
 <template>
   <v-row no-gutters justify="center" align="center" class="fill-height">
     <v-col cols="auto">
-      <h1 class="display-4 font-weight-black">Will be there ASAP</h1>
+      <h1 class="display-1 font-weight-bold">{{ $t('blog.thereSoon') }}</h1>
     </v-col>
   </v-row>
 </template>
