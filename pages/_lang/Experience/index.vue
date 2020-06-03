@@ -21,6 +21,11 @@
             }}
           </span>
         </template>
+        <template v-if="item.logo" v-slot:icon>
+          <v-avatar size="75">
+            <img :src="item.logo" />
+          </v-avatar>
+        </template>
         <div class="py-4">
           <h2 :class="`headline font-weight-bold ${setColor(item.id)}--text`">
             {{ item.title }}
