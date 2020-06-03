@@ -29,10 +29,13 @@
     "description": "Açıklama",
     "send": "Gönder",
     "reset": "Sıfırla",
-    "successMessage": "İletişim formu başarılı şekilde yollandı. En yakında dönüş yapacağım :)",
+    "successMessage": "İletişim formu başarılı şekilde yollandı. En yakın zamanda dönüş yapacağım :)",
     "close": "Kapat"
   },
   "experience": {
     "current": "Şu Anda"
+  },
+  "blog": {
+    "thereSoon":  "Blog en yakın zamanda burada olacak"
   }
 }
