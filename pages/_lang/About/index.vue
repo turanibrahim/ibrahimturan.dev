@@ -13,10 +13,7 @@
           :class="$nuxt.$vuetify.theme.dark ? 'paragraph-dark' : 'paragraph'"
           class="pa-2"
         >
-          <div
-            class="body-1 font-weight-black"
-            v-html="section.description"
-          ></div>
+          <div class="body-1" v-html="section.description"></div>
         </div>
       </v-col>
       <v-col v-if="section.icons" cols="12" class="pt-0 mt-0">
