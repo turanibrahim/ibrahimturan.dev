@@ -53,15 +53,15 @@ export const mutations = {
 export const actions = {
   async fetchSocialMedias({ commit }) {
     await this.$axios
-      .$get('/api/contact/socialMedias')
+      .$get('/api/socialMedia')
       .then((response) => {
-        commit('SET_SOCIAL_MEDIAS', response)
+        commit('SET_SOCIAL_MEDIAS', response.data)
       })
       .catch((err) => {
         commit('SET_SOCIAL_MEDIAS', err)
       })
   },
   sendContactForm({ commit }, payload) {
-    return this.$axios.$post('/api/contact/contactForm/create', payload)
+    return this.$axios.$post('/api/contactForm/', payload)
   }
 }

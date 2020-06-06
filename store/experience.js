@@ -22,7 +22,7 @@ export const actions = {
     await this.$axios
       .$get(`/api/experience/${rootState.locale}`)
       .then((response) => {
-        commit('SET_EXPERIENCES', response)
+        commit('SET_EXPERIENCES', response.data)
         commit('SET_LOADING', false)
       })
       .catch((err) => {
