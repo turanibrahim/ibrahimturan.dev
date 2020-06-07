@@ -31,7 +31,8 @@ export const state = () => ({
     }
   ],
   socialMedias: [],
-  loading: false
+  loading: false,
+  metaData: null
 })
 
 export const getters = {
@@ -47,6 +48,9 @@ export const mutations = {
   },
   SET_LOADING(state, payload) {
     state.loading = payload
+  },
+  SET_META_DATA(state, payload) {
+    state.metaData = payload
   }
 }
 
@@ -63,5 +67,12 @@ export const actions = {
   },
   sendContactForm({ commit }, payload) {
     return this.$axios.$post('/api/contactForm/', payload)
+  },
+  fetchMetaData({ commit }, payload) {
+    this.$axios
+      .$get(`/api/meta/${payload.path}/${payload.lang}`)
+      .then((response) => {
+        commit('SET_META_DATA', response.data)
+      })
   }
 }
