@@ -113,11 +113,13 @@ export default {
       routes.push(
         {
           path: '/',
-          component: resolve(__dirname, 'pages/_lang/About/index.vue')
+          component: resolve(__dirname, 'pages/_lang/About/index.vue'),
+          name: 'home'
         },
         {
           path: '/tr',
-          component: resolve(__dirname, 'pages/_lang/About/index.vue')
+          component: resolve(__dirname, 'pages/_lang/About/index.vue'),
+          name: 'lang-Home'
         }
       )
     }
