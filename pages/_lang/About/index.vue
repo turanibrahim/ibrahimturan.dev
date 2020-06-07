@@ -62,7 +62,8 @@ export default {
     ...mapState({
       sections: (state) => state.about.sections,
       loading: (state) => state.about.loading,
-      locale: (state) => state.locale
+      locale: (state) => state.locale,
+      metaData: (state) => state.layout.metaData
     })
   },
   watch: {
@@ -72,6 +73,7 @@ export default {
   },
   created() {
     this.setPageTitle({ title: 'İbrahim Turan' })
+    this.fetchMetaData({ path: 'about', lang: this.locale })
     this.fetchSections()
   },
   methods: {
@@ -79,8 +81,22 @@ export default {
       setPageTitle: 'layout/setPageTitle'
     }),
     ...mapActions({
-      fetchSections: 'about/fetchSections' // map `this.add()` to `this.$store.dispatch('increment')`
+      fetchSections: 'about/fetchSections',
+      fetchMetaData: 'layout/fetchMetaData' // map `this.add()` to `this.$store.dispatch('increment')`
     })
+  },
+  head() {
+    return {
+      title: this.metaData.title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: this.metaData.hid,
+          name: this.metaData.name,
+          content: this.metaData.description
+        }
+      ]
+    }
   }
 }
 </script>

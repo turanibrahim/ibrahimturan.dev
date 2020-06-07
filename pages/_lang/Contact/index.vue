@@ -131,7 +131,9 @@ export default {
   computed: {
     ...mapState({
       locale: (state) => state.locale,
-      socialMedia: (state) => state.layout.socialMedias
+      socialMedia: (state) => state.layout.socialMedias,
+      loading: (state) => state.about.loading,
+      metaData: (state) => state.layout.metaData
     }),
     nameErrors() {
       const errors = []
@@ -173,6 +175,7 @@ export default {
   },
   created() {
     this.setPageTitle({ title: this.$t('titles.contact') })
+    this.fetchMetaData({ path: 'contact', lang: this.locale })
     this.fetchSocialMedias()
   },
   methods: {
@@ -184,7 +187,8 @@ export default {
     }),
     ...mapActions({
       fetchSocialMedias: 'layout/fetchSocialMedias',
-      sendContactForm: 'layout/sendContactForm'
+      sendContactForm: 'layout/sendContactForm',
+      fetchMetaData: 'layout/fetchMetaData'
     }),
     resetForm() {
       this.name = null
@@ -207,6 +211,19 @@ export default {
           }
         })
       }
+    }
+  },
+  head() {
+    return {
+      title: this.metaData.title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: this.metaData.hid,
+          name: this.metaData.name,
+          content: this.metaData.description
+        }
+      ]
     }
   }
 }
