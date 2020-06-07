@@ -20,7 +20,7 @@ export const actions = {
   async fetchSections({ commit, rootState }) {
     commit('SET_LOADING', true)
     await this.$axios
-      .$get(`/api/aboutSection/${rootState.locale}`)
+      .$get(`/api/aboutSection/?lang=${rootState.locale}`)
       .then((response) => {
         commit('SET_SECTIONS', response.data)
         commit('SET_LOADING', false)
