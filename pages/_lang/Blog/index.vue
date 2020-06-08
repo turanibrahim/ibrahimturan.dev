@@ -1,15 +1,29 @@
 <template>
-  <v-row no-gutters justify="center" align="center" class="fill-height">
-    <v-col cols="auto">
-      <h1 class="display-1 font-weight-bold">{{ $t('blog.thereSoon') }}</h1>
+  <v-row justify="start" align="start" class="ma-0  ">
+    <v-col cols="12">
+      <blog-filter></blog-filter>
+    </v-col>
+    <v-col v-for="n in 6" :key="n" md="6" lg="6" xl="4">
+      <blog-post-item></blog-post-item>
+    </v-col>
+    <v-col cols="12">
+      <blog-pagination></blog-pagination>
     </v-col>
   </v-row>
 </template>
 
 <script>
 import { mapMutations, mapActions, mapState } from 'vuex'
+import BlogPostItem from '../../../components/BlogPostItem'
+import BlogFilter from '../../../components/BlogFilter'
+import BlogPagination from '../../../components/BlogPagination'
 
 export default {
+  components: {
+    BlogPostItem,
+    BlogFilter,
+    BlogPagination
+  },
   computed: {
     ...mapState({
       loading: (state) => state.about.loading,
@@ -17,8 +31,13 @@ export default {
       metaData: (state) => state.layout.metaData
     })
   },
+  watch: {
+    locale(newLocale, oldLocale) {
+      this.setPageTitle({ title: this.$t('titles.blog') })
+    }
+  },
   created() {
-    this.setPageTitle({ title: 'Blog' })
+    this.setPageTitle({ title: this.$t('titles.blog') })
     this.fetchMetaData({ path: 'blog', lang: this.locale })
   },
   methods: {
