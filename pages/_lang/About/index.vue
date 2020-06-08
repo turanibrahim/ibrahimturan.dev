@@ -47,7 +47,7 @@
 
 <script>
 import { mapMutations, mapState, mapActions } from 'vuex'
-import AboutTechListItem from '../../../components/AboutTechListItem'
+import AboutTechListItem from '~/components/AboutTechListItem'
 
 export default {
   components: {

@@ -94,7 +94,7 @@
 <script>
 import { required, minLength, email } from 'vuelidate/lib/validators'
 import { mapMutations, mapState, mapActions } from 'vuex'
-import ContactSocialMedia from '../../../components/ContactSocialMedia.vue'
+import ContactSocialMedia from '~/components/ContactSocialMedia.vue'
 
 export default {
   components: {
