@@ -48,9 +48,9 @@
             />
           </v-col>
           <v-col
-            md="grow"
-            lg="grow"
-            xl="grow"
+            :md="!isHidden ? 8 : 'grow'"
+            :lg="!isHidden ? 9 : 'grow'"
+            :xl="!isHidden ? 10 : 'grow'"
             class="fill-height"
             :style="$nuxt.$vuetify.breakpoint.smAndDown ? 'height:90%' : ''"
           >
