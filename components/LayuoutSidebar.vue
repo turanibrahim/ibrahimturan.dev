@@ -1,55 +1,82 @@
 <template>
-  <v-card class="fill-height" elevation="24">
+  <v-navigation-drawer
+    v-model="showSideBar"
+    :permanent="$nuxt.$vuetify.breakpoint.smAndUp"
+    :mini-variant="isMiniVariant"
+    class="fill-height v-card"
+    :temporary="$nuxt.$vuetify.breakpoint.smAndDown"
+    :absolute="$nuxt.$vuetify.breakpoint.smAndDown"
+  >
     <v-img
+      v-show="!isMiniVariant"
       src="https://images.unsplash.com/photo-1487149506474-cbf9196c4f9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2010&q=80"
     >
-      <v-row align="center" class="fill-height">
-        <v-col align="center" cols="12">
-          <v-avatar class="profile" size="164">
-            <img
-              src="https://pbs.twimg.com/profile_images/1243619088976556032/23WEBaWr_400x400.jpg"
-              alt="İbrahim"
-            />
-          </v-avatar>
+      <v-row no-gutters justify="center" align="center">
+        <v-col cols="11">
+          <v-row align="center" class="fill-height">
+            <v-col align="center" cols="12">
+              <v-avatar class="profile" size="164">
+                <img
+                  src="https://pbs.twimg.com/profile_images/1243619088976556032/23WEBaWr_400x400.jpg"
+                  alt="İbrahim"
+                />
+              </v-avatar>
+            </v-col>
+            <v-col class="py-0" cols="10">
+              <v-card-title class="white--text text-center pt-0" align="center">
+                <h3 class="text-center">İbrahim Turan</h3>
+              </v-card-title>
+              <v-card-subtitle class="white--text">
+                <h4>Web Developer</h4>
+              </v-card-subtitle>
+            </v-col>
+          </v-row>
         </v-col>
-        <v-col class="py-0">
-          <v-card-title class="white--text text-center pt-0" align="center">
-            <h3 class="text-center">İbrahim Turan</h3>
-          </v-card-title>
-          <v-card-subtitle class="white--text">
-            <h4>Web Developer/Computer Engineer</h4>
-          </v-card-subtitle>
-        </v-col>
-      </v-row>
-    </v-img>
-    <v-card-text>
-      <v-row align="center" justify="center">
-        <v-col v-for="item in menuItems" :key="item.id" sm="12" align="start">
+        <v-col cols="1">
           <v-btn
-            rounded
-            text
-            :color="item.color"
-            :large="$nuxt.$vuetify.breakpoint.mdAndUp"
-            class="pl-2"
-            nuxt
-            :to="$i18n.path(item.link)"
+            icon
+            class="white--text text-center pr-2"
+            @click="
+              $nuxt.$vuetify.breakpoint.smAndUp
+                ? changeMiniVariant(!isMiniVariant)
+                : changeSideVisibility(false)
+            "
           >
-            <v-icon class="pr-1">{{ item.icon }}</v-icon>
-            {{ $t(item.title) }}
+            <v-icon x-large>mdi-chevron-left</v-icon>
           </v-btn>
         </v-col>
       </v-row>
-    </v-card-text>
-    <v-card-actions
-      class="py-0 my-0"
-      style="bottom:0px;position: absolute; width:100%"
-    >
-      <v-row
-        align="center"
-        justify="space-around"
-        class="py-0 my-0"
-        style="width:100%"
+    </v-img>
+
+    <v-list dense nav>
+      <v-list-item
+        v-show="isMiniVariant"
+        @click="changeMiniVariant(!isMiniVariant)"
       >
+        <v-list-item-icon>
+          <v-icon>mdi-chevron-right</v-icon>
+        </v-list-item-icon>
+      </v-list-item>
+
+      <v-divider v-show="isMiniVariant"></v-divider>
+      <v-list-item
+        v-for="item in menuItems"
+        :key="item.id"
+        link
+        :to="$i18n.path(item.link)"
+        :color="item.color"
+      >
+        <v-list-item-icon>
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title>{{ $t(item.title) }}</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+    <v-card-actions class="py-0 my-0" style="bottom:0px;position: absolute">
+      <v-row align="center" justify="space-around" class="py-0 my-0">
         <v-col
           v-for="item in socialMedias"
           :key="item.id"
@@ -67,10 +94,10 @@
             <v-icon class="pr-1">{{ icons.get(item.name).path }}</v-icon>
           </v-btn>
         </v-col>
-        <v-col cols="12" class="pt-0 pb-1">
+        <v-col v-show="!isMiniVariant" cols="12" class="pt-0 pb-1">
           <v-divider></v-divider>
         </v-col>
-        <v-col cols="6" align="center" class="py-1">
+        <v-col v-show="!isMiniVariant" cols="6" align="center" class="py-1">
           <v-btn
             class="font-weight-black"
             text
@@ -82,7 +109,7 @@
             {{ locale == 'en' ? 'TR' : 'EN' }}
           </v-btn>
         </v-col>
-        <v-col align="center" cols="6" class="py-1">
+        <v-col v-show="!isMiniVariant" align="center" cols="6" class="py-1">
           <v-btn text medium rounded @click="changeTheme()">
             <v-icon v-if="!isDark">mdi-weather-night</v-icon>
             <v-icon v-else>mdi-white-balance-sunny</v-icon>
@@ -90,7 +117,7 @@
         </v-col>
       </v-row>
     </v-card-actions>
-  </v-card>
+  </v-navigation-drawer>
 </template>
 
 <script>
@@ -113,8 +140,17 @@ export default {
   },
   computed: {
     ...mapState({
-      locale: (state) => state.locale
-    })
+      locale: (state) => state.locale,
+      isMiniVariant: (state) => state.layout.isMiniVariant
+    }),
+    showSideBar: {
+      get() {
+        return this.$nuxt.$store.state.layout.showSideBar
+      },
+      set(value) {
+        this.$nuxt.$store.commit('layout/SET_SIDEBAR_VISIBILITY', value)
+      }
+    }
   },
   methods: {
     redirectTo(link) {
@@ -134,7 +170,9 @@ export default {
       }
     },
     ...mapMutations({
-      changeLanguage: 'SET_LANG'
+      changeLanguage: 'SET_LANG',
+      changeMiniVariant: 'layout/SET_MINIVARIANT',
+      changeSideVisibility: 'layout/SET_SIDEBAR_VISIBILITY'
     })
   }
 }
