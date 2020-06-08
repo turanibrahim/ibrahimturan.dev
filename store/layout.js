@@ -32,7 +32,14 @@ export const state = () => ({
   ],
   socialMedias: [],
   loading: false,
-  metaData: null
+  metaData: {
+    title: 'İbrahim Turan',
+    name: '',
+    description: '',
+    hid: ''
+  },
+  isMiniVariant: true,
+  showSideBar: false
 })
 
 export const getters = {
@@ -51,6 +58,12 @@ export const mutations = {
   },
   SET_META_DATA(state, payload) {
     state.metaData = payload
+  },
+  SET_MINIVARIANT(state, payload) {
+    state.isMiniVariant = payload
+  },
+  SET_SIDEBAR_VISIBILITY(state, payload) {
+    state.showSideBar = payload
   }
 }
 
@@ -68,8 +81,8 @@ export const actions = {
   sendContactForm({ commit }, payload) {
     return this.$axios.$post('/api/contactForm/', payload)
   },
-  fetchMetaData({ commit }, payload) {
-    this.$axios
+  async fetchMetaData({ commit }, payload) {
+    await this.$axios
       .$get(`/api/meta/${payload.path}/${payload.lang}`)
       .then((response) => {
         commit('SET_META_DATA', response.data)
