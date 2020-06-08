@@ -10,7 +10,8 @@
   },
   "titles": {
     "experience": "Experience",
-    "contact": "Contact"
+    "contact": "Contact",
+    "blog": "Blog Posts"
   },
   "contact": {
     "findMe": "You could find me on",
@@ -36,6 +37,17 @@
     "current": "Current"
   },
   "blog": {
-    "thereSoon":  "Will be here ASAP"
+    "thereSoon":  "Will be here ASAP",
+    "filter":  "Filter",
+    "search": "Search",
+    "orderBy": "Order By",
+    "latest": "Latest",
+    "mostLiked": "Most liked",
+    "oldest": "Oldest",
+    "mostViewed": "Most viewed",
+    "turkish": "Turkish",
+    "english": "English",
+    "all": "All",
+    "language": "Language"
   }
 }

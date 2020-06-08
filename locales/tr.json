@@ -10,7 +10,8 @@
   },
   "titles": {
     "experience": "Deneyim",
-    "contact": "İletişim"
+    "contact": "İletişim",
+    "blog": "Blog Yazıları"
   },
   "contact": {
     "findMe": "Beni bulabileceğin platformlar",
@@ -36,6 +37,17 @@
     "current": "Şu Anda"
   },
   "blog": {
-    "thereSoon":  "Blog en yakın zamanda burada olacak"
+    "thereSoon":  "Blog en yakın zamanda burada olacak",
+    "filter":  "Filtre",
+    "search": "Ara",
+    "orderBy": "Sırala",
+    "latest": "Son eklenen",
+    "mostLiked": "En çok beğenilen",
+    "oldest": "En eski",
+    "mostViewed": "En çok okunan",
+    "turkish": "Türkçe",
+    "english": "İngilizce",
+    "all": "Hepsi",
+    "language": "Dil"
   }
 }
