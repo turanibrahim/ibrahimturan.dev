@@ -1,11 +1,13 @@
 <template>
   <v-navigation-drawer
     v-model="showSideBar"
-    :permanent="$nuxt.$vuetify.breakpoint.smAndUp"
+    :permanent="$nuxt.$vuetify.breakpoint.mdAndUp"
     :mini-variant="isMiniVariant"
-    class="fill-height v-card"
+    class="fill-height v-card__tile"
     :temporary="$nuxt.$vuetify.breakpoint.smAndDown"
     :absolute="$nuxt.$vuetify.breakpoint.smAndDown"
+    app
+    width="300"
   >
     <v-img
       v-show="!isMiniVariant"
@@ -37,7 +39,7 @@
             icon
             class="white--text text-center pr-2"
             @click="
-              $nuxt.$vuetify.breakpoint.smAndUp
+              $nuxt.$vuetify.breakpoint.mdAndUp
                 ? changeMiniVariant(!isMiniVariant)
                 : changeSideVisibility(false)
             "
@@ -48,7 +50,7 @@
       </v-row>
     </v-img>
 
-    <v-list dense nav>
+    <v-list dense nav rounded>
       <v-list-item
         v-show="isMiniVariant"
         @click="changeMiniVariant(!isMiniVariant)"
@@ -75,7 +77,10 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
-    <v-card-actions class="py-0 my-0" style="bottom:0px;position: absolute">
+    <v-card-actions
+      class="py-0 my-0 px-3"
+      style="bottom:0px;position: absolute"
+    >
       <v-row align="center" justify="space-around" class="py-0 my-0">
         <v-col
           v-for="item in socialMedias"

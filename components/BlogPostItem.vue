@@ -1,6 +1,6 @@
 <template>
   <div id="blog-slide-group">
-    <v-card class="mx-auto" max-width="600">
+    <v-card class="mx-auto">
       <v-img
         src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
         height="200px"
