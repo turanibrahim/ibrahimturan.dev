@@ -1,33 +1,35 @@
 <template>
   <div v-if="!loading">
-    <v-row v-for="section in sections" :key="section.id" wrap no-gutters>
-      <v-col v-if="section.title" cols="12">
-        <div class="mx-2 px-2">
-          <h1>
-            {{ section.title }}
-          </h1>
-        </div>
-      </v-col>
-      <v-col v-if="section.description" cols="12" class="pt-3">
-        <div
-          :class="$nuxt.$vuetify.theme.dark ? 'paragraph-dark' : 'paragraph'"
-          class="pa-2"
-        >
-          <div class="body-1" v-html="section.description"></div>
-        </div>
-      </v-col>
-      <v-col v-if="section.icons" cols="12" class="pt-0 mt-0">
-        <v-row justify="space-around" align="start" class="pa-4" no-gutters>
-          <v-col v-for="item in section.icons" :key="item.name" cols="auto">
-            <AboutTechListItem
-              :color="item.color"
-              :name="item.name"
-              :progress="item.progress"
-            />
-          </v-col>
-        </v-row>
-      </v-col>
-    </v-row>
+    <v-container fluid class="pa-2">
+      <v-row v-for="section in sections" :key="section.id" wrap no-gutters>
+        <v-col v-if="section.title" cols="12">
+          <div class="mx-2 px-2">
+            <h1>
+              {{ section.title }}
+            </h1>
+          </div>
+        </v-col>
+        <v-col v-if="section.description" cols="12" class="pt-3">
+          <div
+            :class="$nuxt.$vuetify.theme.dark ? 'paragraph-dark' : 'paragraph'"
+            class="pa-2"
+          >
+            <div class="body-1" v-html="section.description"></div>
+          </div>
+        </v-col>
+        <v-col v-if="section.icons" cols="12" class="pt-0 mt-0">
+          <v-row justify="space-around" align="start" class="pa-4" no-gutters>
+            <v-col v-for="item in section.icons" :key="item.name" cols="auto">
+              <AboutTechListItem
+                :color="item.color"
+                :name="item.name"
+                :progress="item.progress"
+              />
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
   <div v-else class="fill-height">
     <v-row class="fill-height" justify="center" align="center" no-gutters>

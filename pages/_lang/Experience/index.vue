@@ -1,7 +1,7 @@
 <template>
   <div v-if="!loading">
     <v-timeline
-      :class="$nuxt.$vuetify.breakpoint.mdAndUp ? 'px-4 mt-4' : 'pr-2'"
+      :class="$nuxt.$vuetify.breakpoint.mdAndUp ? 'px-3' : 'pr-2'"
       :dense="$nuxt.$vuetify.breakpoint.smAndDown"
     >
       <v-timeline-item
