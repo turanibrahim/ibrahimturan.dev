@@ -22,7 +22,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald:wght@500&display=swap'
+          'https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald:wght@500&display=swap?family=Fira+Code&display=swap&family=Open+Sans&display=swap'
       }
     ]
   },
@@ -37,13 +37,17 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/i18n.js', '~/plugins/vuelidate'],
+  plugins: [
+    '~/plugins/i18n.js',
+    '~/plugins/vuelidate',
+    '~/plugins/vue-showdown'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/moment'
   ],
