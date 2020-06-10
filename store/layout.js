@@ -38,7 +38,7 @@ export const state = () => ({
     description: '',
     hid: ''
   },
-  isMiniVariant: true,
+  isMiniVariant: false,
   showSideBar: false
 })
 
