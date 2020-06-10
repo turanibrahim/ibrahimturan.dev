@@ -1,76 +1,39 @@
 <template>
   <v-app>
-    <div v-if="!loading" style="height:100vh">
-      <layuout-sidebar
-        v-if="$nuxt.$vuetify.breakpoint.smAndDown"
-        :menu-items="menuItems"
-        :social-medias="socialMedias"
-      />
-      <v-container
-        fluid
-        class="fill-height"
-        :class="$nuxt.$vuetify.breakpoint.smAndDown ? 'py-0' : ''"
-      >
-        <v-row
-          align-center
-          justify-center
-          row
-          class="fill-height"
-          style="overflow-y:auto"
-        >
-          <v-col
-            v-if="$nuxt.$vuetify.breakpoint.smAndUp"
-            md="auto"
-            lg="auto"
-            xl="auto"
-            transition="scroll-x-transition"
-          >
-            <layuout-sidebar
-              v-if="$nuxt.$vuetify.breakpoint.smAndUp"
-              :menu-items="menuItems"
-              :social-medias="socialMedias"
-            />
-          </v-col>
-          <v-col
-            md="grow"
-            lg="grow"
-            xl="grow"
+    <div v-if="!loading">
+      <layuout-sidebar :menu-items="menuItems" :social-medias="socialMedias" />
+      <v-content style="min-height: 100vh;">
+        <v-container fluid class="fill-height pa-0">
+          <v-row
+            style="display: flex; flex-direction: column"
             class="fill-height"
-            :style="
-              $nuxt.$vuetify.breakpoint.smAndDown
-                ? 'height:90%'
-                : 'display: flex; flex-direction: column; align-items: stretch;'
-            "
+            no-gutters
           >
-            <h1 v-if="!isMiniVariant" class="display-2 font-weight-bold pb-3">
-              <v-icon
-                v-if="$nuxt.$vuetify.breakpoint.smAndDown"
-                @click="changeSideVisibility(true)"
-              >
-                mdi-chevron-right
-              </v-icon>
-              {{ pageTitle }}
-            </h1>
-            <v-card
-              elevation="24"
-              style="overflow-y: scroll"
-              class="fill-height"
-            >
+            <v-col v-if="pageTitle" cols="auto">
+              <span id="header" class="display-2 font-weight-bold">
+                <v-icon
+                  v-if="$nuxt.$vuetify.breakpoint.smAndDown"
+                  @click="changeSideVisibility(true)"
+                >
+                  mdi-chevron-right
+                </v-icon>
+                {{ pageTitle }}
+              </span>
+            </v-col>
+            <v-col cols="grow" class="fill-height">
               <router-view></router-view>
-            </v-card>
-            <v-footer
-              padless
-              class="pa-1 mt-2 justify-end align-end"
-              elevation="24"
-            >
-              <v-col class="text-center caption py-0 my-0" cols="12">
-                {{ new Date().getFullYear() }} —
-                <strong>İbrahim Turan</strong>
-              </v-col>
-            </v-footer>
-          </v-col>
-        </v-row>
-      </v-container>
+            </v-col>
+            <v-col cols="auto">
+              <v-footer padless class="pa-1">
+                <v-col class="text-center caption py-0 my-0" cols="12">
+                  {{ new Date().getFullYear() }} —
+                  <strong>İbrahim Turan</strong>
+                </v-col>
+              </v-footer>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-content>
     </div>
     <div v-else class="fill-height">
       <v-row class="fill-height" justify="center" align="center" no-gutters>
@@ -90,6 +53,7 @@
 </template>
 
 <script>
+/* eslint-disable prettier/prettier */
 import { mapState, mapActions, mapMutations } from 'vuex'
 import LayuoutSidebar from '../components/LayuoutSidebar.vue'
 
@@ -129,11 +93,13 @@ export default {
   }
 }
 </script>
-<style scoped>
-.theme--light.v-btn:hover::before {
-  opacity: 0.3;
-}
-.theme--dark.v-btn:hover::before {
-  opacity: 0.3;
+<style>
+#header {
+  box-shadow: 10px -20px 10px hsl(144, 100%, 76%) inset;
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 600;
+  gap: normal;
+  margin: 10px;
 }
 </style>
