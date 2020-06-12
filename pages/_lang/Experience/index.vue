@@ -82,30 +82,41 @@ export default {
         'cyan',
         'orange',
         'teal'
-      ]
+      ],
+      loading: true
     }
   },
   computed: {
     ...mapState({
       locale: (state) => state.locale,
-      experiences: (state) => state.experience.experiences,
-      loading: (state) => state.experience.loading
+      experiences: (state) => state.experience.experiences
     })
   },
   watch: {
-    locale(newLocale, oldLocale) {
+    async locale(newLocale, oldLocale) {
       this.setPageTitle({ title: this.$t('titles.experience') })
-      this.fetchExperiences()
+      try {
+        this.loading = true
+        await this.fetchExperiences()
+      } catch (e) {
+        console.log(e)
+      } finally {
+        this.loading = false
+      }
     }
   },
-  created() {
+  async created() {
     this.setPageTitle({ title: this.$t('titles.experience') })
-    this.fetchExperiences()
+    try {
+      this.loading = true
+      await this.fetchExperiences()
+    } catch (e) {
+      console.log(e)
+    } finally {
+      this.loading = false
+    }
   },
   methods: {
-    redirectToMail() {
-      window.location.href = 'mailto:ibrahimturan002@gmail.com'
-    },
     ...mapMutations({
       setPageTitle: 'layout/setPageTitle'
     }),

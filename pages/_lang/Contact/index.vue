@@ -125,14 +125,14 @@ export default {
       surname: null,
       email: null,
       description: null,
-      successMessage: false
+      successMessage: false,
+      loading: true
     }
   },
   computed: {
     ...mapState({
       locale: (state) => state.locale,
       socialMedia: (state) => state.layout.socialMedias,
-      loading: (state) => state.about.loading,
       metaData: (state) => state.layout.metaData
     }),
     nameErrors() {
@@ -173,10 +173,16 @@ export default {
       this.setPageTitle({ title: this.$t('titles.contact') })
     }
   },
-  created() {
+  async created() {
     this.setPageTitle({ title: this.$t('titles.contact') })
-    this.fetchMetaData({ path: 'contact', lang: this.locale })
-    this.fetchSocialMedias()
+    try {
+      await this.fetchMetaData({ path: 'contact', lang: this.locale })
+      await this.fetchSocialMedias()
+    } catch (e) {
+      console.log(e)
+    } finally {
+      this.loading = false
+    }
   },
   methods: {
     redirectToMail() {

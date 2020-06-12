@@ -57,26 +57,41 @@ export default {
   },
   data() {
     return {
-      //
+      loading: true
     }
   },
   computed: {
     ...mapState({
       sections: (state) => state.about.sections,
-      loading: (state) => state.about.loading,
       locale: (state) => state.locale,
       metaData: (state) => state.layout.metaData
     })
   },
   watch: {
-    locale(newLocale, oldLocale) {
-      this.fetchSections()
+    async locale(newLocale, oldLocale) {
+      const vm = this
+      this.fetchMetaData({ path: 'about', lang: this.locale })
+      try {
+        vm.loading = true
+        await this.fetchSections()
+      } catch (e) {
+        console.log(e)
+      } finally {
+        vm.loading = false
+      }
     }
   },
-  created() {
+  async created() {
     this.setPageTitle({ title: 'İbrahim Turan' })
-    this.fetchMetaData({ path: 'about', lang: this.locale })
-    this.fetchSections()
+    try {
+      this.loading = true
+      await this.fetchMetaData({ path: 'about', lang: this.locale })
+      await this.fetchSections()
+    } catch (e) {
+      console.log(e)
+    } finally {
+      this.loading = false
+    }
   },
   methods: {
     ...mapMutations({
