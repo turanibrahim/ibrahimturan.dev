@@ -1,14 +1,31 @@
 <template>
-  <div v-if="!loading" id="blog">
-    <v-row justify="start" align="start" class="ma-0" wrap>
+  <div v-if="!pageLoading" id="blog">
+    <v-row justify="start" align="start" class="ma-0 pa-1" wrap>
       <v-col cols="12">
         <blog-filter></blog-filter>
       </v-col>
-      <v-col v-for="n in 20" :key="n" md="6" lg="6" xl="4">
-        <blog-post-item></blog-post-item>
+    </v-row>
+    <v-row
+      v-if="!filteredPostsLoading"
+      justify="start"
+      align="start"
+      class="ma-0 pa-1"
+      wrap
+    >
+      <v-col v-for="post in posts" :key="post.id" md="6" lg="6" xl="4">
+        <blog-post-item :post="post"></blog-post-item>
       </v-col>
-      <v-col cols="12">
-        <blog-pagination></blog-pagination>
+    </v-row>
+    <v-row justify="start" align="start" class="ma-0 pa-1" wrap>
+      <v-col v-if="loading || filteredPostsLoading" cols="12">
+        <div class="text-center">
+          <v-progress-circular
+            :size="70"
+            :width="7"
+            color="primary"
+            indeterminate
+          ></v-progress-circular>
+        </div>
       </v-col>
     </v-row>
   </div>
@@ -31,38 +48,87 @@
 <script>
 import { mapMutations, mapActions, mapState } from 'vuex'
 import BlogFilter from '~/components/BlogFilter'
-import BlogPagination from '~/components/BlogPagination'
 import BlogPostItem from '~/components/BlogPostItem'
 
 export default {
   components: {
     BlogPostItem,
-    BlogFilter,
-    BlogPagination
+    BlogFilter
+  },
+  data() {
+    return {
+      bottom: false,
+      pageLoading: true,
+      loading: false
+    }
   },
   computed: {
     ...mapState({
-      loading: (state) => state.about.loading,
       locale: (state) => state.locale,
-      metaData: (state) => state.layout.metaData
+      metaData: (state) => state.layout.metaData,
+      posts: (state) => state.blog.posts,
+      postMeta: (state) => state.blog.postMeta,
+      filteredPostsLoading: (state) => state.blog.filteredPostsLoading
     })
   },
   watch: {
     locale(newLocale, oldLocale) {
       this.setPageTitle({ title: this.$t('titles.blog') })
+    },
+    bottom(bottom) {
+      if (
+        bottom &&
+        this.postMeta.current_page < this.postMeta.last_page &&
+        !this.loading
+      ) {
+        try {
+          this.loading = true
+          this.addPosts()
+        } catch (e) {
+          console.log(e)
+        } finally {
+          this.loading = false
+        }
+      }
     }
   },
   async created() {
+    this.pageLoading = true
     this.setPageTitle({ title: this.$t('titles.blog') })
-    await this.fetchMetaData({ path: 'blog', lang: this.locale })
+    try {
+      await this.fetchMetaData({ path: 'blog', lang: this.locale })
+    } catch (e) {
+      console.log(e)
+    } finally {
+      this.pageLoading = false
+    }
+    try {
+      await this.fetchPosts()
+    } catch (e) {
+      console.log(e)
+    }
+    // eslint-disable-next-line nuxt/no-globals-in-created
+    window.addEventListener('scroll', () => {
+      this.bottom = this.bottomVisible()
+    })
   },
   methods: {
     ...mapMutations({
-      setPageTitle: 'layout/setPageTitle'
+      setPageTitle: 'layout/setPageTitle',
+      setPosts: 'blog/SET_POSTS',
+      setPostMeta: 'blog/SET_POST_META'
     }),
     ...mapActions({
-      fetchMetaData: 'layout/fetchMetaData'
-    })
+      fetchMetaData: 'layout/fetchMetaData',
+      fetchPosts: 'blog/fetchPosts',
+      addPosts: 'blog/addPosts'
+    }),
+    bottomVisible() {
+      return (
+        document.documentElement.scrollTop + window.innerHeight ===
+        document.documentElement.offsetHeight
+      )
+    }
   },
   head() {
     return {
