@@ -1,39 +1,32 @@
 <template>
   <div id="blog-slide-group">
     <v-card class="mx-auto">
-      <v-img
-        src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-        height="200px"
-      ></v-img>
+      <v-img v-if="post.image" :src="url + post.image" height="200px"></v-img>
 
       <v-card-title style="cursor: pointer;" @click="openPost(1)">
-        Top western road trips
+        {{ post.title }}
       </v-card-title>
 
       <v-card-text class="pb-0">
         <v-row>
           <v-col cols="12">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac
-            laoreet ex. Class aptent taciti sociosqu ad litora torquent per
-            conubia nostra, per inceptos himenaeos. Morbi tempus pretium
-            feugiat. Phasellus et nulla leo. Nullam facilisis risus non est
-            fermentum, at semper sapien blandit.
+            {{ post.description }}
           </v-col>
           <v-col cols="auto" class="font-weight-bold overline pr-1">
             <v-icon>mdi-thumb-up-outline</v-icon>
-            16
+            {{ post.thumbsUps }}
           </v-col>
           <v-col cols="auto" class="font-weight-bold overline pr-1">
             <v-icon>mdi-heart-outline</v-icon>
-            16
+            {{ post.hearts }}
           </v-col>
           <v-col cols="auto" class="font-weight-bold overline pr-1">
             <v-icon>mdi-eye-outline</v-icon>
-            16
+            {{ post.viewCount }}
           </v-col>
           <v-spacer></v-spacer>
           <v-col cols="auto" class="font-weight-bold overline">
-            05/12/2020 Pazartesi
+            {{ $nuxt.$moment(post.created_at).format('DD MM YYYY') }}
           </v-col>
         </v-row>
       </v-card-text>
@@ -43,12 +36,16 @@
 
 <script>
 export default {
+  props: {
+    post: Object
+  },
   data: () => ({
-    show: false
+    show: false,
+    url: process.env.URL
   }),
   methods: {
     openPost(id) {
-      window.location.href = `/blog/post/${id}`
+      this.$nuxt.$router.push(`/blog/post/${this.post.id}`)
     }
   }
 }
