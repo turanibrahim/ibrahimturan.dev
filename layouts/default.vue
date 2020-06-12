@@ -3,36 +3,34 @@
     <div v-if="!loading">
       <layuout-sidebar :menu-items="menuItems" :social-medias="socialMedias" />
       <v-content style="min-height: 100vh;">
-        <v-container fluid class="fill-height pa-0">
-          <v-row
-            style="display: flex; flex-direction: column"
-            class="fill-height"
-            no-gutters
-          >
-            <v-col v-if="pageTitle" cols="auto">
-              <span id="header" class="display-2 font-weight-bold">
-                <v-icon
-                  v-if="$nuxt.$vuetify.breakpoint.smAndDown"
-                  @click="changeSideVisibility(true)"
-                >
-                  mdi-chevron-right
-                </v-icon>
-                {{ pageTitle }}
-              </span>
-            </v-col>
-            <v-col cols="grow" class="fill-height">
-              <router-view></router-view>
-            </v-col>
-            <v-col cols="auto">
-              <v-footer padless class="pa-1">
-                <v-col class="text-center caption py-0 my-0" cols="12">
-                  {{ new Date().getFullYear() }} —
-                  <strong>İbrahim Turan</strong>
-                </v-col>
-              </v-footer>
-            </v-col>
-          </v-row>
-        </v-container>
+        <v-row
+          style="display: flex; flex-direction: column"
+          class="fill-height"
+          no-gutters
+        >
+          <v-col v-if="pageTitle" cols="auto">
+            <span id="header" class="display-2 font-weight-bold">
+              <v-icon
+                v-if="$nuxt.$vuetify.breakpoint.smAndDown"
+                @click="changeSideVisibility(true)"
+              >
+                mdi-chevron-right
+              </v-icon>
+              {{ pageTitle }}
+            </span>
+          </v-col>
+          <v-col cols="grow" class="fill-height">
+            <router-view></router-view>
+          </v-col>
+          <v-col cols="auto">
+            <v-footer padless class="pa-1">
+              <v-col class="text-center caption py-0 my-0" cols="12">
+                {{ new Date().getFullYear() }} —
+                <strong>İbrahim Turan</strong>
+              </v-col>
+            </v-footer>
+          </v-col>
+        </v-row>
       </v-content>
     </div>
     <div v-else class="fill-height">
@@ -95,7 +93,7 @@ export default {
 </script>
 <style>
 #header {
-  box-shadow: 10px -20px 10px hsl(144, 100%, 76%) inset;
+  box-shadow: 0px -20px 0px hsl(144, 100%, 76%) inset;
   display: inline-block;
   font-size: 32px;
   font-weight: 600;
