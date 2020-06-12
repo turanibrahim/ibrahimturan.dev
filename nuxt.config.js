@@ -72,7 +72,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: { proxy: true },
+  axios: {
+    proxy: true
+  },
 
   proxy: {
     '/api/': {
@@ -124,8 +126,21 @@ export default {
           path: '/tr',
           component: resolve(__dirname, 'pages/_lang/About/index.vue'),
           name: 'lang-Home'
+        },
+        {
+          path: '/blog/post/:id',
+          component: resolve(__dirname, 'pages/_lang/Blog/post.vue'),
+          name: 'post'
+        },
+        {
+          path: '/tr/blog/post/:id',
+          component: resolve(__dirname, 'pages/_lang/Blog/post.vue'),
+          name: 'lang-Post'
         }
       )
     }
+  },
+  env: {
+    url: process.env.URL
   }
 }
