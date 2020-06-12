@@ -49,5 +49,8 @@
     "english": "English",
     "all": "All",
     "language": "Language"
+  },
+  "layout": {
+    "pageNotFound": "Page not found :("
   }
 }

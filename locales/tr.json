@@ -49,5 +49,8 @@
     "english": "İngilizce",
     "all": "Hepsi",
     "language": "Dil"
+  },
+  "layout": {
+    "pageNotFound": "Aradığınız sayfa bulanamadı :("
   }
 }
