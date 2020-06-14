@@ -74,8 +74,6 @@ export default {
       try {
         vm.loading = true
         await this.fetchSections()
-      } catch (e) {
-        console.log(e)
       } finally {
         vm.loading = false
       }
@@ -83,19 +81,20 @@ export default {
   },
   async created() {
     this.setPageTitle({ title: 'İbrahim Turan' })
+    this.setPageTitleImage('/img/5.jpg')
     try {
       this.loading = true
-      await this.fetchMetaData({ path: 'about', lang: this.locale })
-      await this.fetchSections()
-    } catch (e) {
-      console.log(e)
+      if (!this.fetchMetaData)
+        await this.fetchMetaData({ path: 'about', lang: this.locale })
+      if (this.sections.length === 0) await this.fetchSections()
     } finally {
       this.loading = false
     }
   },
   methods: {
     ...mapMutations({
-      setPageTitle: 'layout/setPageTitle'
+      setPageTitle: 'layout/setPageTitle',
+      setPageTitleImage: 'layout/SET_PAGE_TITLE_IMAGE'
     }),
     ...mapActions({
       fetchSections: 'about/fetchSections',
