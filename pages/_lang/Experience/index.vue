@@ -98,8 +98,6 @@ export default {
       try {
         this.loading = true
         await this.fetchExperiences()
-      } catch (e) {
-        console.log(e)
       } finally {
         this.loading = false
       }
@@ -107,18 +105,18 @@ export default {
   },
   async created() {
     this.setPageTitle({ title: this.$t('titles.experience') })
+    this.setPageTitleImage('/img/6.jpg')
     try {
       this.loading = true
-      await this.fetchExperiences()
-    } catch (e) {
-      console.log(e)
+      if (this.experiences.length === 0) await this.fetchExperiences()
     } finally {
       this.loading = false
     }
   },
   methods: {
     ...mapMutations({
-      setPageTitle: 'layout/setPageTitle'
+      setPageTitle: 'layout/setPageTitle',
+      setPageTitleImage: 'layout/SET_PAGE_TITLE_IMAGE'
     }),
     ...mapActions({
       fetchExperiences: 'experience/fetchExperiences'
