@@ -39,7 +39,10 @@ export const state = () => ({
     hid: ''
   },
   isMiniVariant: false,
-  showSideBar: false
+  showSideBar: false,
+  pageTitleImage: '',
+  headerLoading: false,
+  pageLoading: false
 })
 
 export const getters = {
@@ -64,6 +67,15 @@ export const mutations = {
   },
   SET_SIDEBAR_VISIBILITY(state, payload) {
     state.showSideBar = payload
+  },
+  SET_PAGE_TITLE_IMAGE(state, payload) {
+    state.pageTitleImage = payload
+  },
+  SET_HEADER_LOADING(state, payload) {
+    state.headerLoading = payload
+  },
+  SET_PAGE_LOADING(state, payload) {
+    state.pageLoading = payload
   }
 }
 
