@@ -3,27 +3,44 @@
     <div v-if="!loading">
       <layuout-sidebar :menu-items="menuItems" :social-medias="socialMedias" />
       <v-content style="min-height: 100vh;">
+        <v-progress-linear
+          v-show="pageLoading"
+          indeterminate
+          color="green"
+        ></v-progress-linear>
         <v-row
           style="display: flex; flex-direction: column"
           class="fill-height"
           no-gutters
         >
-          <v-col v-if="pageTitle" cols="auto">
-            <span id="header" class="display-2 font-weight-bold">
-              <v-icon
-                v-if="$nuxt.$vuetify.breakpoint.smAndDown"
-                @click="changeSideVisibility(true)"
-              >
-                mdi-chevron-right
-              </v-icon>
-              {{ pageTitle }}
-            </span>
+          <v-col cols="auto">
+            <v-parallax height="350" :src="url + pageTitleImage">
+              <v-row no-gutters justify="start" align="end">
+                <v-col cols="12" class="py-2">
+                  <v-skeleton-loader
+                    v-if="headerLoading"
+                    type="heading"
+                  ></v-skeleton-loader>
+                  <v-card v-else color="rgb(255,255,255, .4)">
+                    <span id="header" class="display-2 black--text">
+                      <v-icon
+                        v-if="$nuxt.$vuetify.breakpoint.smAndDown"
+                        @click="changeSideVisibility(true)"
+                      >
+                        mdi-chevron-right
+                      </v-icon>
+                      {{ pageTitle }}
+                    </span>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-parallax>
           </v-col>
           <v-col cols="grow" class="fill-height">
             <router-view></router-view>
           </v-col>
           <v-col cols="auto">
-            <v-footer padless class="pa-1">
+            <v-footer padless class="pa-1" color="secondary" dark>
               <v-col class="text-center caption py-0 my-0" cols="12">
                 {{ new Date().getFullYear() }} —
                 <strong>İbrahim Turan</strong>
@@ -63,7 +80,8 @@ export default {
     return {
       isDark: false,
       whichFlag: true,
-      loading: true
+      loading: true,
+      url: process.env.URL
     }
   },
   computed: {
@@ -72,7 +90,10 @@ export default {
       pageTitle: (state) => state.layout.pageTitle,
       socialMedias: (state) => state.layout.socialMedias,
       isMiniVariant: (state) => state.layout.isMiniVariant,
-      showSideBar: (state) => state.layout.showSideBar
+      showSideBar: (state) => state.layout.showSideBar,
+      pageTitleImage: (state) => state.layout.pageTitleImage,
+      headerLoading: (state) => state.layout.headerLoading,
+      pageLoading: (state) => state.layout.headerLoading
     })
   },
   created() {
@@ -93,7 +114,6 @@ export default {
 </script>
 <style>
 #header {
-  box-shadow: 0px -20px 0px hsl(144, 100%, 76%) inset;
   display: inline-block;
   font-size: 32px;
   font-weight: 600;
