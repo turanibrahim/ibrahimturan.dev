@@ -59,12 +59,12 @@
               <v-col cols="12" xs="12" sm="12" md="12">
                 <v-row class="ma-0 py-0" justify="end" align="center">
                   <v-col cols="auto">
-                    <v-btn rounded color="error darken-1" @click="resetForm()">
+                    <v-btn rounded color="error" @click="resetForm()">
                       {{ $t('contact.reset') }}
                     </v-btn>
                   </v-col>
                   <v-col cols="auto" @click="sendForm()">
-                    <v-btn rounded color="success darken-2">
+                    <v-btn rounded color="success">
                       {{ $t('contact.send') }}
                     </v-btn>
                   </v-col>
@@ -175,11 +175,11 @@ export default {
   },
   async created() {
     this.setPageTitle({ title: this.$t('titles.contact') })
+    this.setPageTitleImage('/img/7.jpg')
     try {
-      await this.fetchMetaData({ path: 'contact', lang: this.locale })
-      await this.fetchSocialMedias()
-    } catch (e) {
-      console.log(e)
+      if (!this.fetchMetaData)
+        await this.fetchMetaData({ path: 'contact', lang: this.locale })
+      if (this.socialMedia.length === 0) await this.fetchSocialMedias()
     } finally {
       this.loading = false
     }
@@ -189,7 +189,8 @@ export default {
       window.location.href = 'mailto:ibrahimturan002@gmail.com'
     },
     ...mapMutations({
-      setPageTitle: 'layout/setPageTitle'
+      setPageTitle: 'layout/setPageTitle',
+      setPageTitleImage: 'layout/SET_PAGE_TITLE_IMAGE'
     }),
     ...mapActions({
       fetchSocialMedias: 'layout/fetchSocialMedias',
