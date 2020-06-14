@@ -1,7 +1,5 @@
-import colors from 'vuetify/es5/util/colors'
-
 export default {
-  mode: 'universal',
+  mode: 'spa',
   /*
    ** Headers of the page
    */
@@ -93,13 +91,22 @@ export default {
       dark: false,
       themes: {
         dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          primary: '#23314A',
+          secondary: '#963D5A',
+          accent: '#86BBD8',
+          error: '#CC2936',
+          warning: '#F4743B',
+          info: '#FAB3A9',
+          success: '#70AE6E'
+        },
+        light: {
+          primary: '#23314A',
+          secondary: '#963D5A',
+          accent: '#86BBD8',
+          error: '#CC2936',
+          warning: '#F4743B',
+          info: '#FAB3A9',
+          success: '#70AE6E'
         }
       }
     }
