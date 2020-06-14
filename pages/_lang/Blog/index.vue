@@ -5,19 +5,13 @@
         <blog-filter></blog-filter>
       </v-col>
     </v-row>
-    <v-row
-      v-if="!filteredPostsLoading"
-      justify="start"
-      align="start"
-      class="ma-0 pa-1"
-      wrap
-    >
+    <v-row justify="start" align="start" class="ma-0 pa-1" wrap>
       <v-col v-for="post in posts" :key="post.id" md="6" lg="6" xl="4">
         <blog-post-item :post="post"></blog-post-item>
       </v-col>
     </v-row>
     <v-row justify="start" align="start" class="ma-0 pa-1" wrap>
-      <v-col v-if="loading || filteredPostsLoading" cols="12">
+      <v-col v-if="loading" cols="12">
         <div class="text-center">
           <v-progress-circular
             :size="70"
@@ -67,15 +61,14 @@ export default {
       locale: (state) => state.locale,
       metaData: (state) => state.layout.metaData,
       posts: (state) => state.blog.posts,
-      postMeta: (state) => state.blog.postMeta,
-      filteredPostsLoading: (state) => state.blog.filteredPostsLoading
+      postMeta: (state) => state.blog.postMeta
     })
   },
   watch: {
     locale(newLocale, oldLocale) {
       this.setPageTitle({ title: this.$t('titles.blog') })
     },
-    bottom(bottom) {
+    async bottom(bottom) {
       if (
         bottom &&
         this.postMeta.current_page < this.postMeta.last_page &&
@@ -83,9 +76,7 @@ export default {
       ) {
         try {
           this.loading = true
-          this.addPosts()
-        } catch (e) {
-          console.log(e)
+          await this.fetchPosts({ nextPage: true })
         } finally {
           this.loading = false
         }
@@ -95,17 +86,18 @@ export default {
   async created() {
     this.pageLoading = true
     this.setPageTitle({ title: this.$t('titles.blog') })
+    this.setPageTitleImage('/img/8.jpg')
     try {
-      await this.fetchMetaData({ path: 'blog', lang: this.locale })
-    } catch (e) {
-      console.log(e)
+      if (!this.fetchMetaData) {
+        await this.fetchMetaData({ path: 'blog', lang: this.locale })
+      }
     } finally {
       this.pageLoading = false
     }
-    try {
-      await this.fetchPosts()
-    } catch (e) {
-      console.log(e)
+    if (this.posts.length === 0) {
+      this.loading = true
+      await this.fetchPosts({ nextPage: false })
+      this.loading = false
     }
     // eslint-disable-next-line nuxt/no-globals-in-created
     window.addEventListener('scroll', () => {
@@ -116,7 +108,8 @@ export default {
     ...mapMutations({
       setPageTitle: 'layout/setPageTitle',
       setPosts: 'blog/SET_POSTS',
-      setPostMeta: 'blog/SET_POST_META'
+      setPostMeta: 'blog/SET_POST_META',
+      setPageTitleImage: 'layout/SET_PAGE_TITLE_IMAGE'
     }),
     ...mapActions({
       fetchMetaData: 'layout/fetchMetaData',
