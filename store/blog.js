@@ -15,8 +15,7 @@ export const state = () => ({
       value: 'latest'
     },
     search: ''
-  },
-  filteredPostsLoading: false
+  }
 })
 
 export const getters = {
@@ -25,9 +24,6 @@ export const getters = {
 
 export const mutations = {
   SET_POSTS(state, payload) {
-    state.posts = payload
-  },
-  ADD_POSTS(state, payload) {
     state.posts = state.posts.concat(payload)
   },
   SET_POST(state, payload) {
@@ -47,48 +43,34 @@ export const mutations = {
   },
   SET_SEARCH_FILTER(state, payload) {
     state.filters.search = payload
-  },
-  SET_POSTS_LOADING(state, payload) {
-    state.postsLoading = payload
-  },
-  SET_FILTERED_POSTS_LOADING(state, payload) {
-    state.filteredPostsLoading = payload
   }
 }
 
 export const actions = {
-  async fetchPosts({ commit, state }) {
-    commit('SET_FILTERED_POSTS_LOADING', true)
+  async fetchPosts({ commit, state }, payload) {
+    const page = state.postMeta.current_page ? state.postMeta.current_page : 1
+    const nextPage =
+      state.postMeta.current_page < state.postMeta.last_page
+        ? state.postMeta.current_page + 1
+        : null
+    const orderColumn = state.filters.orderBy.column
+    const orderBy = state.filters.orderBy.orderBy
+    const search = state.filters.search
+    const lang = state.filters.language.value
+
     await this.$axios
       .$get(
-        `/api/post?page=1&lang=${state.filters.language.value}&orderColumn=${state.filters.orderBy.column}&orderBy=${state.filters.orderBy.orderBy}&search=${state.filters.search}`
+        `/api/post?page=${
+          payload.nextPage ? nextPage : page
+        }&lang=${lang}&orderColumn=${orderColumn}&orderBy=${orderBy}&search=${search}`
       )
       .then((response) => {
         commit('SET_POST_META', response.meta)
         commit('SET_POSTS', response.data)
       })
-    commit('SET_FILTERED_POSTS_LOADING', false)
-  },
-  addPosts({ commit, state }) {
-    if (state.postMeta.current_page < state.postMeta.last_page) {
-      commit('SET_POSTS_LOADING', true)
-      this.$axios
-        .$get(
-          `/api/post?page=${state.postMeta.current_page + 1}&orderColumn=${
-            state.filters.orderBy.column
-          }&orderBy=${state.filters.orderBy.orderBy}&search=${
-            state.filters.search
-          }`
-        )
-        .then((response) => {
-          commit('SET_POST_META', response.meta)
-          commit('ADD_POSTS', response.data)
-        })
-      commit('SET_POSTS_LOADING', false)
-    }
   },
   async fetchPost({ commit }, payload) {
-    await this.$axios.$get(`/api/post/${payload}`).then((post, err) => {
+    await this.$axios.$get(`/api/post/${payload}`).then((post) => {
       return this.$axios
         .$get(`/api/post/getMdFile/${post.data.mdFile}`)
         .then((mdFile) => {
@@ -97,9 +79,16 @@ export const actions = {
         })
     })
   },
-  sendReadCount({state}, payload) {
-    return this.$axios.$get(`/api/post/${payload}`).then((post, err) => {
-      //
+  async sendReadCount({ commit, dispatch }, payload) {
+    const ipAddress = await this.$axios.$get(
+      'https://api.ipify.org?format=json'
+    )
+    const data = {
+      ipAddress: ipAddress.ip,
+      postId: payload
+    }
+    return this.$axios.$post('/api/postView/increase', { data }).then(() => {
+      commit('SET_POSTS', [])
     })
   }
 }
