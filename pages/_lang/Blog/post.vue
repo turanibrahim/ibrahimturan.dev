@@ -1,43 +1,9 @@
 <template>
   <div v-if="!loading" id="blog-post">
     <v-container fluid class="pa-0">
-      <v-row no-gutters justify="center" align="start" wrap>
-        <v-col cols="12">
-          <v-card flat tile class="d-flex">
-            <v-img
-              max-height="500"
-              :src="
-                `https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png`
-              "
-              :lazy-src="
-                `https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png`
-              "
-              class="grey lighten-2"
-            >
-              <template v-slot:placeholder>
-                <v-row class="fill-height ma-0" align="center" justify="center">
-                  <v-progress-circular
-                    indeterminate
-                    color="grey lighten-5"
-                  ></v-progress-circular>
-                </v-row>
-              </template>
-            </v-img>
-          </v-card>
-        </v-col>
+      <v-row no-gutters justify="center" align="start" class="pt-2">
         <v-col cols="12" sm="12" md="10" lg="8">
           <v-row no-gutters>
-            <v-col cols="12">
-              <span id="header" class="display-2">
-                <v-icon
-                  v-if="$nuxt.$vuetify.breakpoint.smAndDown"
-                  @click="changeSideVisibility(true)"
-                >
-                  mdi-chevron-right
-                </v-icon>
-                {{ post.title }}
-              </span>
-            </v-col>
             <v-col class="align-end text-right justify-center px-2" cols="12">
               <span class="body-2">
                 {{ $nuxt.$moment(post.created_at).format('DD MMMM YYYY') }}
@@ -118,21 +84,23 @@ export default {
   watch: {
     async locale(newLocale, oldLocale) {
       try {
-        this.loading = true
-        this.setPageTitle({ title: '' })
+        this.setHeaderLoading(true)
         await this.fetchPost(this.$nuxt.$route.params.id)
       } catch (e) {
         this.$nuxt.$router.push('/blog')
       } finally {
         this.loading = false
+        this.setHeaderLoading(false)
       }
     }
   },
   async created() {
     try {
       this.loading = true
-      this.setPageTitle({ title: '' })
+      this.setHeaderLoading(true)
       await this.fetchPost(this.$nuxt.$route.params.id)
+      this.setPageTitleImage(this.post.image)
+      this.setPageTitle({ title: this.post.title })
       const metaData = {
         title: this.post.title,
         name: this.post.title,
@@ -145,14 +113,17 @@ export default {
       this.loading = false
     } finally {
       this.loading = false
+      this.setHeaderLoading(false)
     }
-    this.sendReadCount()
+    this.sendReadCount(this.$nuxt.$route.params.id)
   },
   methods: {
     ...mapMutations({
       setPageTitle: 'layout/setPageTitle',
       setMetaData: 'layout/SET_META_DATA',
-      changeSideVisibility: 'layout/SET_SIDEBAR_VISIBILITY'
+      changeSideVisibility: 'layout/SET_SIDEBAR_VISIBILITY',
+      setPageTitleImage: 'layout/SET_PAGE_TITLE_IMAGE',
+      setHeaderLoading: 'layout/SET_HEADER_LOADING'
     }),
     ...mapActions({
       fetchPost: 'blog/fetchPost',
@@ -256,11 +227,5 @@ h6 {
 }
 #mark-down blockquote {
   content: '\201D';
-}
-#header {
-  box-shadow: 0px -20px 0px hsl(144, 100%, 76%) inset;
-  display: inline-block;
-  gap: normal;
-  margin: 8px;
 }
 </style>
