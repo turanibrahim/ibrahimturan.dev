@@ -152,6 +152,7 @@ export default {
     url: process.env.URL
   },
   googleAnalytics: {
-    id: 'UA-169371621-1'
+    id: 'UA-169371621-1',
+    debug: { sendHitTask: true }
   }
 }
