@@ -40,7 +40,7 @@
             <router-view></router-view>
           </v-col>
           <v-col cols="auto">
-            <v-footer padless class="pa-1" color="secondary" dark>
+            <v-footer padless class="pa-1" color="secondary" dark width="100%">
               <v-col class="text-center caption py-0 my-0" cols="12">
                 {{ new Date().getFullYear() }} —
                 <strong>İbrahim Turan</strong>

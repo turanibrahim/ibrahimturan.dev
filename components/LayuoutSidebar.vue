@@ -3,9 +3,8 @@
     v-model="showSideBar"
     :permanent="$nuxt.$vuetify.breakpoint.mdAndUp"
     :mini-variant="isMiniVariant"
-    class="fill-height v-card__tile"
+    class="fill-height"
     :temporary="$nuxt.$vuetify.breakpoint.smAndDown"
-    :absolute="$nuxt.$vuetify.breakpoint.smAndDown"
     app
     width="300"
   >
@@ -14,20 +13,18 @@
         <v-col cols="grow">
           <v-row align="center" class="fill-height">
             <v-col align="center" cols="12">
-              <v-avatar class="profile" size="180">
+              <v-avatar class="profile ml-9" size="148">
                 <img
                   src="https://pbs.twimg.com/profile_images/1243619088976556032/23WEBaWr_400x400.jpg"
                   alt="İbrahim"
                 />
               </v-avatar>
             </v-col>
-            <v-col class="py-0" cols="10">
-              <v-card-title class="text-center py-0 mb-3" align="center">
-                <h3 class="text-center">İbrahim Turan</h3>
-              </v-card-title>
-              <v-card-subtitle class="pb-2">
-                <h4>Web Developer</h4>
-              </v-card-subtitle>
+            <v-col class="by-1 mx-2 pt-0" cols="grow">
+              <h2 class="font-weight-bold pb-0">İbrahim Turan</h2>
+              <h4 class="font-weight-thin font-italic pb-0 pt-1">
+                Web Developer
+              </h4>
             </v-col>
           </v-row>
         </v-col>
