@@ -22,7 +22,7 @@
               </v-avatar>
             </v-col>
             <v-col class="py-0" cols="10">
-              <v-card-title class="text-center py-0 mb-1" align="center">
+              <v-card-title class="text-center py-0 mb-3" align="center">
                 <h3 class="text-center">İbrahim Turan</h3>
               </v-card-title>
               <v-card-subtitle class="pb-2">
