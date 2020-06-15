@@ -22,7 +22,7 @@
               </v-avatar>
             </v-col>
             <v-col class="py-0" cols="10">
-              <v-card-title class="text-center py-0" align="center">
+              <v-card-title class="text-center py-0 mb-1" align="center">
                 <h3 class="text-center">İbrahim Turan</h3>
               </v-card-title>
               <v-card-subtitle class="pb-2">
@@ -45,7 +45,7 @@
           </v-btn>
         </v-col>
       </v-row>
-      <v-divider color="white" class="mx-2" dark></v-divider>
+      <v-divider color="white" class="mx-2 mb-0 pb-0" dark></v-divider>
       <v-list dense nav rounded>
         <v-list-item
           v-show="isMiniVariant"
@@ -55,7 +55,12 @@
             <v-icon>mdi-chevron-right</v-icon>
           </v-list-item-icon>
         </v-list-item>
-        <v-divider v-show="isMiniVariant" color="white" dark></v-divider>
+        <v-divider
+          v-show="isMiniVariant"
+          color="white"
+          dark
+          class="mb-1"
+        ></v-divider>
         <v-list-item
           v-for="item in menuItems"
           :key="item.id"
