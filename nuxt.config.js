@@ -47,7 +47,8 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     // '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    '@nuxtjs/google-analytics'
   ],
   /*
    ** Nuxt.js modules
@@ -149,5 +150,8 @@ export default {
   },
   env: {
     url: process.env.URL
+  },
+  googleAnalytics: {
+    id: 'UA-169371621-1'
   }
 }
