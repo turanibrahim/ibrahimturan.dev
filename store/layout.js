@@ -82,7 +82,7 @@ export const mutations = {
 export const actions = {
   async fetchSocialMedias({ commit }) {
     await this.$axios
-      .$get('/api/socialMedia')
+      .$get('/api/socialmedia')
       .then((response) => {
         commit('SET_SOCIAL_MEDIAS', response.data)
       })
@@ -91,11 +91,11 @@ export const actions = {
       })
   },
   sendContactForm({ commit }, payload) {
-    return this.$axios.$post('/api/contactForm/', payload)
+    return this.$axios.$post('/api/contactfroms/', payload)
   },
   async fetchMetaData({ commit }, payload) {
     await this.$axios
-      .$get(`/api/meta/${payload.path}/${payload.lang}`)
+      .$get(`/api/metas/${payload.path}/${payload.lang}`)
       .then((response) => {
         commit('SET_META_DATA', response.data)
       })

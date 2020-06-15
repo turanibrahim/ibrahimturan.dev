@@ -15,7 +15,7 @@ export const mutations = {
 export const actions = {
   async fetchSections({ commit, rootState }) {
     await this.$axios
-      .$get(`/api/aboutSection/?lang=${rootState.locale}`)
+      .$get(`/api/aboutsections/?lang=${rootState.locale}`)
       .then((response) => {
         commit('SET_SECTIONS', response.data)
       })

@@ -15,7 +15,7 @@ export const mutations = {
 export const actions = {
   async fetchExperiences({ commit, rootState }) {
     await this.$axios
-      .$get(`/api/experience/?lang=${rootState.locale}`)
+      .$get(`/api/experiences/?lang=${rootState.locale}`)
       .then((response) => {
         commit('SET_EXPERIENCES', response.data)
       })
