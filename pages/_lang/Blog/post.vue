@@ -10,7 +10,7 @@
               </span>
               <span class="body-2">
                 <v-icon>mdi-eye</v-icon>
-                {{ post.viewCount + 1 }}
+                {{ post.viewCount }}
               </span>
             </v-col>
           </v-row>
@@ -25,15 +25,46 @@
             <v-row no-gutters justify="space-around" align="center">
               <v-col cols="auto">
                 {{ post.hearts }}
-                <v-btn icon color="white"><v-icon>mdi-heart</v-icon></v-btn>
+                <v-btn
+                  icon
+                  color="white"
+                  @click="
+                    sendPostVote({
+                      postId: $nuxt.$route.params.id,
+                      voteType: 3
+                    })
+                  "
+                >
+                  <v-icon>mdi-heart</v-icon>
+                </v-btn>
               </v-col>
               <v-col cols="auto">
                 {{ post.thumbsUps }}
-                <v-btn icon color="white"><v-icon>mdi-thumb-up</v-icon></v-btn>
+                <v-btn
+                  icon
+                  color="white"
+                  @click="
+                    sendPostVote({
+                      postId: $nuxt.$route.params.id,
+                      voteType: 1
+                    })
+                  "
+                >
+                  <v-icon>mdi-thumb-up</v-icon>
+                </v-btn>
               </v-col>
               <v-col cols="auto">
-                <v-btn icon color="white">
-                  {{ post.thumbsDowns }}
+                {{ post.thumbsDowns }}
+                <v-btn
+                  icon
+                  color="white"
+                  @click="
+                    sendPostVote({
+                      postId: $nuxt.$route.params.id,
+                      voteType: 2
+                    })
+                  "
+                >
                   <v-icon>mdi-thumb-down</v-icon>
                 </v-btn>
               </v-col>
@@ -115,7 +146,7 @@ export default {
       this.loading = false
       this.setHeaderLoading(false)
     }
-    this.sendReadCount(this.$nuxt.$route.params.id)
+    this.sendPostView(this.$nuxt.$route.params.id)
   },
   methods: {
     ...mapMutations({
@@ -127,7 +158,8 @@ export default {
     }),
     ...mapActions({
       fetchPost: 'blog/fetchPost',
-      sendReadCount: 'blog/sendReadCount'
+      sendPostView: 'blog/sendPostView',
+      sendPostVote: 'blog/sendPostVote'
     })
   },
   head() {
