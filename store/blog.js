@@ -118,7 +118,7 @@ export const actions = {
     return await this.$axios
       .$post(`/api/posts/${payload.postId}/votes`, data)
       .then((response) => {
-        if (response.data.updated) {
+        if (response.updated) {
           commit('SET_POSTS', [])
           commit('INCREASE_POST_VOTE', payload.voteType)
         }
