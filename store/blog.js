@@ -43,6 +43,20 @@ export const mutations = {
   },
   SET_SEARCH_FILTER(state, payload) {
     state.filters.search = payload
+  },
+  INCREASE_POST_VIEW(state) {
+    state.post.viewCount++
+  },
+  INCREASE_POST_VOTE(state, payload) {
+    if (payload === 1) {
+      state.post.thumbsUps++
+    }
+    if (payload === 2) {
+      state.post.thumbsDowns++
+    }
+    if (payload === 3) {
+      state.post.hearts++
+    }
   }
 }
 
@@ -60,7 +74,7 @@ export const actions = {
 
     await this.$axios
       .$get(
-        `/api/post?page=${
+        `/api/posts?page=${
           payload.nextPage ? nextPage : page
         }&lang=${lang}&orderColumn=${orderColumn}&orderBy=${orderBy}&search=${search}`
       )
@@ -70,16 +84,16 @@ export const actions = {
       })
   },
   async fetchPost({ commit }, payload) {
-    await this.$axios.$get(`/api/post/${payload}`).then((post) => {
+    await this.$axios.$get(`/api/posts/${payload}`).then((post) => {
       return this.$axios
-        .$get(`/api/post/getMdFile/${post.data.mdFile}`)
+        .$get(`api/posts/mdfile/${post.data.mdFile}`)
         .then((mdFile) => {
           commit('SET_MD_FILE', mdFile)
           commit('SET_POST', post.data)
         })
     })
   },
-  async sendReadCount({ commit, dispatch }, payload) {
+  async sendPostView({ commit }, payload) {
     const ipAddress = await this.$axios.$get(
       'https://api.ipify.org?format=json'
     )
@@ -87,8 +101,27 @@ export const actions = {
       ipAddress: ipAddress.ip,
       postId: payload
     }
-    return this.$axios.$post('/api/postView/increase', { data }).then(() => {
+    return this.$axios.$post(`/api/posts/${payload}/views`, data).then(() => {
       commit('SET_POSTS', [])
+      commit('INCREASE_POST_VIEW')
     })
+  },
+  async sendPostVote({ commit }, payload) {
+    const ipAddress = await this.$axios.$get(
+      'https://api.ipify.org?format=json'
+    )
+    const data = {
+      ipAddress: ipAddress.ip,
+      postId: payload.postId,
+      voteType: payload.voteType
+    }
+    return await this.$axios
+      .$post(`/api/posts/${payload.postId}/votes`, data)
+      .then((response) => {
+        if (response.data.updated) {
+          commit('SET_POSTS', [])
+          commit('INCREASE_POST_VOTE', payload.voteType)
+        }
+      })
   }
 }
