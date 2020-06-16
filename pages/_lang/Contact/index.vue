@@ -177,8 +177,7 @@ export default {
     this.setPageTitle({ title: this.$t('titles.contact') })
     this.setPageTitleImage('/img/7.jpg')
     try {
-      if (!this.fetchMetaData)
-        await this.fetchMetaData({ path: 'contact', lang: this.locale })
+      await this.fetchMetaData({ path: 'contact', lang: this.locale })
       if (this.socialMedia.length === 0) await this.fetchSocialMedias()
     } finally {
       this.loading = false

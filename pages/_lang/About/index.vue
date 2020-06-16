@@ -84,9 +84,8 @@ export default {
     this.setPageTitleImage('/img/5.jpg')
     try {
       this.loading = true
-      if (!this.fetchMetaData)
-        await this.fetchMetaData({ path: 'about', lang: this.locale })
-      if (this.sections.length === 0) await this.fetchSections()
+      await this.fetchMetaData({ path: 'about', lang: this.locale })
+      await this.fetchSections()
     } finally {
       this.loading = false
     }
