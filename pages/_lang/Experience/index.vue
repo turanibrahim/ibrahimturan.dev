@@ -89,7 +89,8 @@ export default {
   computed: {
     ...mapState({
       locale: (state) => state.locale,
-      experiences: (state) => state.experience.experiences
+      experiences: (state) => state.experience.experiences,
+      metaData: (state) => state.layout.metaData
     })
   },
   watch: {
@@ -97,6 +98,7 @@ export default {
       this.setPageTitle({ title: this.$t('titles.experience') })
       try {
         this.loading = true
+        await this.fetchMetaData({ path: 'experience', lang: this.locale })
         await this.fetchExperiences()
       } finally {
         this.loading = false
@@ -108,7 +110,8 @@ export default {
     this.setPageTitleImage('/img/6.jpg')
     try {
       this.loading = true
-      if (this.experiences.length === 0) await this.fetchExperiences()
+      await this.fetchMetaData({ path: 'experience', lang: this.locale })
+      await this.fetchExperiences()
     } finally {
       this.loading = false
     }
@@ -119,10 +122,24 @@ export default {
       setPageTitleImage: 'layout/SET_PAGE_TITLE_IMAGE'
     }),
     ...mapActions({
-      fetchExperiences: 'experience/fetchExperiences'
+      fetchExperiences: 'experience/fetchExperiences',
+      fetchMetaData: 'layout/fetchMetaData'
     }),
     setColor(id) {
       return this.colors[this.colors.length % id]
+    }
+  },
+  head() {
+    return {
+      title: this.metaData.title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: this.metaData.hid,
+          name: this.metaData.name,
+          content: this.metaData.description
+        }
+      ]
     }
   }
 }
