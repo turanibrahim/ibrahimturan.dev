@@ -15,7 +15,8 @@ export const state = () => ({
       value: 'latest'
     },
     search: ''
-  }
+  },
+  postsLoading: false
 })
 
 export const getters = {
@@ -57,30 +58,45 @@ export const mutations = {
     if (payload === 3) {
       state.post.hearts++
     }
+  },
+  RESET_POSTS(state) {
+    state.posts = []
+  },
+  SET_POSTS_LOADING(state, payload) {
+    state.postsLoading = payload
   }
 }
 
 export const actions = {
   async fetchPosts({ commit, state }, payload) {
-    const page = state.postMeta.current_page ? state.postMeta.current_page : 1
-    const nextPage =
-      state.postMeta.current_page < state.postMeta.last_page
-        ? state.postMeta.current_page + 1
-        : null
+    let page = 1
     const orderColumn = state.filters.orderBy.column
     const orderBy = state.filters.orderBy.orderBy
     const search = state.filters.search
     const lang = state.filters.language.value
 
-    await this.$axios
+    if (state.postMeta.current_page) {
+      page = state.postMeta.current_page
+    }
+    if (
+      payload.nextPage &&
+      state.postMeta.current_page < state.postMeta.last_page
+    ) {
+      page = state.postMeta.current_page + 1
+    }
+    if (payload.filter) {
+      page = 1
+      commit('RESET_POSTS')
+    }
+    commit('SET_POSTS_LOADING', true)
+    return await this.$axios
       .$get(
-        `/api/posts?page=${
-          payload.nextPage ? nextPage : page
-        }&lang=${lang}&orderColumn=${orderColumn}&orderBy=${orderBy}&search=${search}`
+        `/api/posts?page=${page}&lang=${lang}&orderColumn=${orderColumn}&orderBy=${orderBy}&search=${search}`
       )
       .then((response) => {
         commit('SET_POST_META', response.meta)
         commit('SET_POSTS', response.data)
+        commit('SET_POSTS_LOADING', false)
       })
   },
   async fetchPost({ commit }, payload) {
@@ -101,10 +117,14 @@ export const actions = {
       ipAddress: ipAddress.ip,
       postId: payload
     }
-    return this.$axios.$post(`/api/posts/${payload}/views`, data).then(() => {
-      commit('SET_POSTS', [])
-      commit('INCREASE_POST_VIEW')
-    })
+    return this.$axios
+      .$post(`/api/posts/${payload}/views`, data)
+      .then((response) => {
+        if (response.updated) {
+          commit('SET_POSTS', [])
+          commit('INCREASE_POST_VOTE', payload.voteType)
+        }
+      })
   },
   async sendPostVote({ commit }, payload) {
     const ipAddress = await this.$axios.$get(
