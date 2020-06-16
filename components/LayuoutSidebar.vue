@@ -43,15 +43,14 @@
         </v-col>
       </v-row>
       <v-divider color="white" class="mx-2 mb-0 pb-0" dark></v-divider>
-      <v-list dense nav rounded>
-        <v-list-item
+      <v-list dense nav rounded :class="isMiniVariant ? 'pt-0' : ''">
+        <v-app-bar-nav-icon
           v-show="isMiniVariant"
+          large
+          class="my-1"
           @click="changeMiniVariant(!isMiniVariant)"
         >
-          <v-list-item-icon>
-            <v-icon>mdi-chevron-right</v-icon>
-          </v-list-item-icon>
-        </v-list-item>
+        </v-app-bar-nav-icon>
         <v-divider
           v-show="isMiniVariant"
           color="white"
@@ -59,11 +58,14 @@
           class="mb-1"
         ></v-divider>
         <v-list-item
-          v-for="item in menuItems"
+          v-for="(item, i) in menuItems"
           :key="item.id"
           link
           :to="$i18n.path(item.link)"
           :color="item.color"
+          :class="
+            $nuxt.$route.path === '/' && i === 0 ? 'v-list-item--active' : ''
+          "
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
