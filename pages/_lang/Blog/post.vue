@@ -1,10 +1,15 @@
 <template>
-  <div v-if="!loading" id="blog-post">
-    <v-container fluid class="pa-0">
-      <v-row no-gutters justify="center" align="start" class="pt-2">
-        <v-col cols="12" sm="12" md="10" lg="8">
-          <v-row no-gutters>
-            <v-col class="align-end text-right justify-center px-2" cols="12">
+  <v-container fluid class="pa-0">
+    <v-row no-gutters justify="center" align="start" class="pt-2">
+      <v-col cols="12" sm="12" md="10" lg="8">
+        <v-row no-gutters justify="end" align="end">
+          <v-col class="text-right px-2" cols="auto">
+            <v-skeleton-loader
+              :loading="loading"
+              type="text"
+              width="100%"
+              :min-width="$nuxt.$vuetify.breakpoint.mdAndUp ? '20vh' : '30vh'"
+            >
               <span class="body-2">
                 {{ $nuxt.$moment(post.created_at).format('DD MMMM YYYY') }}
               </span>
@@ -12,87 +17,80 @@
                 <v-icon>mdi-eye</v-icon>
                 {{ post.viewCount }}
               </span>
-            </v-col>
-          </v-row>
-        </v-col>
-        <v-col cols="12" sm="12" md="10" lg="8">
+            </v-skeleton-loader>
+          </v-col>
+        </v-row>
+      </v-col>
+      <v-col cols="12" sm="12" md="10" lg="8">
+        <v-skeleton-loader
+          :loading="loading"
+          type="paragraph@2, image, card-heading, image, card-heading, text@2"
+          width="100%"
+          class="pa-2"
+        >
           <v-container fluid class="pa-0">
             <VueShowdown id="mark-down" class="pa-2" :markdown="markdown" />
           </v-container>
-        </v-col>
-        <v-col cols="12" sm="10" md="10" lg="8" class="py-2">
-          <v-toolbar dense short color="success" class="white--text">
-            <v-row no-gutters justify="space-around" align="center">
-              <v-col cols="auto">
-                {{ post.hearts }}
-                <v-btn
-                  icon
-                  color="white"
-                  @click="
-                    sendPostVote({
-                      postId: $nuxt.$route.params.id,
-                      voteType: 3
-                    })
-                  "
-                >
-                  <v-icon>mdi-heart</v-icon>
-                </v-btn>
-              </v-col>
-              <v-col cols="auto">
-                {{ post.thumbsUps }}
-                <v-btn
-                  icon
-                  color="white"
-                  @click="
-                    sendPostVote({
-                      postId: $nuxt.$route.params.id,
-                      voteType: 1
-                    })
-                  "
-                >
-                  <v-icon>mdi-thumb-up</v-icon>
-                </v-btn>
-              </v-col>
-              <v-col cols="auto">
-                {{ post.thumbsDowns }}
-                <v-btn
-                  icon
-                  color="white"
-                  @click="
-                    sendPostVote({
-                      postId: $nuxt.$route.params.id,
-                      voteType: 2
-                    })
-                  "
-                >
-                  <v-icon>mdi-thumb-down</v-icon>
-                </v-btn>
-              </v-col>
-              <v-col cols="auto">
-                <v-btn icon color="white">
-                  <v-icon>mdi-share</v-icon>
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-toolbar>
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
-  <div v-else class="fill-height">
-    <v-row class="fill-height" justify="center" align="center" no-gutters>
-      <v-col cols="12">
-        <div class="text-center">
-          <v-progress-circular
-            :size="70"
-            :width="7"
-            color="primary"
-            indeterminate
-          ></v-progress-circular>
-        </div>
+        </v-skeleton-loader>
+      </v-col>
+      <v-col cols="12" sm="10" md="10" lg="8" class="py-2">
+        <v-toolbar dense short color="success" class="white--text">
+          <v-row no-gutters justify="space-around" align="center">
+            <v-col cols="auto">
+              {{ post.hearts }}
+              <v-btn
+                icon
+                color="white"
+                @click="
+                  sendPostVote({
+                    postId: $nuxt.$route.params.id,
+                    voteType: 3
+                  })
+                "
+              >
+                <v-icon>mdi-heart</v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="auto">
+              {{ post.thumbsUps }}
+              <v-btn
+                icon
+                color="white"
+                @click="
+                  sendPostVote({
+                    postId: $nuxt.$route.params.id,
+                    voteType: 1
+                  })
+                "
+              >
+                <v-icon>mdi-thumb-up</v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="auto">
+              {{ post.thumbsDowns }}
+              <v-btn
+                icon
+                color="white"
+                @click="
+                  sendPostVote({
+                    postId: $nuxt.$route.params.id,
+                    voteType: 2
+                  })
+                "
+              >
+                <v-icon>mdi-thumb-down</v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="auto">
+              <v-btn icon color="white">
+                <v-icon>mdi-share</v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-toolbar>
       </v-col>
     </v-row>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -118,7 +116,7 @@ export default {
         this.setHeaderLoading(true)
         await this.fetchPost(this.$nuxt.$route.params.id)
       } catch (e) {
-        this.$nuxt.$router.push('/blog')
+        this.$nuxt.$router.push('/FourOFour')
       } finally {
         this.loading = false
         this.setHeaderLoading(false)
