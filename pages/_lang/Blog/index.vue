@@ -11,7 +11,7 @@
       </v-col>
     </v-row>
     <v-row justify="start" align="start" class="ma-0 pa-1" wrap>
-      <v-col v-if="loading" cols="12">
+      <v-col v-if="postsLoading" cols="12">
         <div class="text-center">
           <v-progress-circular
             :size="70"
@@ -52,8 +52,7 @@ export default {
   data() {
     return {
       bottom: false,
-      pageLoading: true,
-      loading: false
+      pageLoading: true
     }
   },
   computed: {
@@ -61,7 +60,8 @@ export default {
       locale: (state) => state.locale,
       metaData: (state) => state.layout.metaData,
       posts: (state) => state.blog.posts,
-      postMeta: (state) => state.blog.postMeta
+      postMeta: (state) => state.blog.postMeta,
+      postsLoading: (state) => state.blog.postsLoading
     })
   },
   watch: {
@@ -75,29 +75,24 @@ export default {
         !this.loading
       ) {
         try {
-          this.loading = true
           await this.fetchPosts({ nextPage: true })
         } finally {
-          this.loading = false
         }
       }
     }
   },
   async created() {
+    console.log(this.postsLoading)
     this.pageLoading = true
     this.setPageTitle({ title: this.$t('titles.blog') })
     this.setPageTitleImage('/img/8.jpg')
     try {
-      if (!this.fetchMetaData) {
-        await this.fetchMetaData({ path: 'blog', lang: this.locale })
+      await this.fetchMetaData({ path: 'blog', lang: this.locale })
+      if (this.posts.length === 0) {
+        await this.fetchPosts({ nextPage: false })
       }
     } finally {
       this.pageLoading = false
-    }
-    if (this.posts.length === 0) {
-      this.loading = true
-      await this.fetchPosts({ nextPage: false })
-      this.loading = false
     }
     // eslint-disable-next-line nuxt/no-globals-in-created
     window.addEventListener('scroll', () => {
