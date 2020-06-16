@@ -6,7 +6,7 @@
         <v-progress-linear
           v-show="pageLoading"
           indeterminate
-          color="green"
+          color="primary"
         ></v-progress-linear>
         <v-row
           style="display: flex; flex-direction: column"
@@ -14,27 +14,58 @@
           no-gutters
         >
           <v-col cols="auto">
-            <v-parallax height="350" :src="url + pageTitleImage">
-              <v-row no-gutters justify="start" align="end">
-                <v-col cols="12" class="py-2">
-                  <v-skeleton-loader
-                    v-if="headerLoading"
-                    type="heading"
-                  ></v-skeleton-loader>
-                  <v-card v-else color="rgb(255,255,255, .4)">
-                    <span id="header" class="display-2 black--text">
-                      <v-icon
-                        v-if="$nuxt.$vuetify.breakpoint.smAndDown"
-                        @click="changeSideVisibility(true)"
-                      >
-                        mdi-chevron-right
-                      </v-icon>
+            <v-parallax
+              v-if="!headerLoading"
+              :height="$nuxt.$vuetify.breakpoint.mdAndUp ? '350' : '250'"
+              :src="url + pageTitleImage"
+            >
+              <v-row class="px-2" justify="start" align="end">
+                <v-col cols="auto" class="py-2">
+                  <v-card color="rgb(255,255,255, .6)">
+                    <h1 class="display-2 black--text pa-2">
                       {{ pageTitle }}
-                    </span>
+                    </h1>
                   </v-card>
                 </v-col>
               </v-row>
             </v-parallax>
+            <v-card
+              v-else
+              color="secondary"
+              tile
+              :height="$nuxt.$vuetify.breakpoint.mdAndUp ? '350' : '250'"
+            >
+              <v-row
+                justify="start"
+                align="start"
+                no-gutters
+                class="fill-height flex-column"
+              >
+                <v-col cols="grow" class="text-center">
+                  <v-row
+                    no-gutters
+                    justify="center"
+                    align="center"
+                    class="fill-height"
+                  >
+                    <v-progress-circular
+                      :size="50"
+                      width="3"
+                      color="primary"
+                      indeterminate
+                      class="mt-10"
+                    ></v-progress-circular>
+                  </v-row>
+                </v-col>
+                <v-col cols="auto" class="pa-2" style="width:100%">
+                  <v-skeleton-loader
+                    type="heading"
+                    width="100%"
+                    min-width="150px"
+                  ></v-skeleton-loader>
+                </v-col>
+              </v-row>
+            </v-card>
           </v-col>
           <v-col cols="grow" class="fill-height">
             <router-view></router-view>
@@ -46,6 +77,29 @@
                 <strong>İbrahim Turan</strong>
               </v-col>
             </v-footer>
+          </v-col>
+        </v-row>
+        <v-row
+          v-if="$nuxt.$vuetify.breakpoint.smAndDown"
+          no-gutters
+          justify="start"
+          align="start"
+          style="height:0px"
+        >
+          <v-col cols="auto" class="mt-2">
+            <v-app-bar
+              color="secondary"
+              dark
+              collapse
+              short
+              fixed
+              class="mt-5"
+              width="fit-content"
+            >
+              <v-app-bar-nav-icon
+                @click="changeSideVisibility(true)"
+              ></v-app-bar-nav-icon>
+            </v-app-bar>
           </v-col>
         </v-row>
       </v-content>
@@ -112,12 +166,9 @@ export default {
   }
 }
 </script>
+
 <style>
-#header {
-  display: inline-block;
-  font-size: 32px;
-  font-weight: 600;
-  gap: normal;
-  margin: 10px;
+.v-parallax__content{
+  padding: 0px !important;
 }
 </style>
