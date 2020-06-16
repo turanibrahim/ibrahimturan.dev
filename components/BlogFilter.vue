@@ -23,7 +23,7 @@
                 single-line
                 dense
                 return-object
-                @input="fetchPosts()"
+                @input="fetchPosts({ filter: true })"
               ></v-select>
             </v-col>
             <v-col class="d-flex" cols="12" sm="3">
@@ -39,7 +39,7 @@
                 single-line
                 dense
                 return-object
-                @input="fetchPosts()"
+                @input="fetchPosts({ filter: true })"
               ></v-select>
             </v-col>
             <v-col cols="24" sm="6" md="6">
@@ -51,7 +51,7 @@
                 prepend-icon="mdi-magnify"
                 single-line
                 dense
-                @keyup.enter="fetchPosts()"
+                @keyup.enter="fetchPosts({ filter: true })"
               ></v-text-field>
             </v-col>
           </v-row>
@@ -79,14 +79,14 @@ export default {
           id: 3,
           text: this.$t('blog.mostLiked'),
           orderBy: 'desc',
-          column: 'like',
+          column: 'thumbs_ups',
           value: 'mostLiked'
         },
         {
           id: 2,
           text: this.$t('blog.mostViewed'),
           orderBy: 'desc',
-          column: 'viewCount',
+          column: 'thumbs_ups',
           value: 'mostViewed'
         },
         {
