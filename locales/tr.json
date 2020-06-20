@@ -50,7 +50,10 @@
     "all": "Hepsi",
     "language": "Dil",
     "comments": "Yorumlar",
-    "comment": "Yorum"
+    "comment": "Yorum",
+    "successMessage": "Yorum başarılı şekilde gönderildi.",
+    "reply": "Cevapla",
+    "writeComment": "Yorum yaz"
   },
   "layout": {
     "pageNotFound": "Aradığınız sayfa bulanamadı :(",

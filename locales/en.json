@@ -50,7 +50,10 @@
     "all": "All",
     "language": "Language",
     "comments": "Comments",
-    "comment": "Comment"
+    "comment": "Comment",
+    "successMessage": "Comment has been send successfully.",
+    "reply": "Reply",
+    "writeComment": "Write comment"
   },
   "layout": {
     "pageNotFound": "Page not found :(",
