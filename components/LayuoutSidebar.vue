@@ -13,9 +13,12 @@
         <v-col cols="grow">
           <v-row align="center" class="fill-height">
             <v-col align="center" cols="12">
-              <v-avatar class="profile ml-9" size="148">
+              <v-avatar
+                class="profile ml-9"
+                :size="$nuxt.$vuetify.breakpoint.mdAndUp ? '196' : '128'"
+              >
                 <img
-                  src="https://pbs.twimg.com/profile_images/1243619088976556032/23WEBaWr_400x400.jpg"
+                  src="https://pbs.twimg.com/profile_images/1272350313014591491/0BikcqQ-_400x400.jpg"
                   alt="İbrahim"
                 />
               </v-avatar>
