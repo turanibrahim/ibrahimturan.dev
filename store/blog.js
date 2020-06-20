@@ -16,11 +16,24 @@ export const state = () => ({
     },
     search: ''
   },
-  postsLoading: false
+  postsLoading: false,
+  newCommentBottomSheet: false,
+  commentsLoading: false,
+  comments: [],
+  commentsMeta: {
+    current_page: 0
+  },
+  commentId: '',
+  commentSending: false,
+  showSuccessMessage: false
 })
 
 export const getters = {
-  //
+  getCommentById: (state) => {
+    return state.comments
+      ? state.comments.find((comment) => comment.id === state.commentId)
+      : null
+  }
 }
 
 export const mutations = {
@@ -64,6 +77,31 @@ export const mutations = {
   },
   SET_POSTS_LOADING(state, payload) {
     state.postsLoading = payload
+  },
+  SET_NEW_COMMENT_BOTTOM_SHEET(state, payload) {
+    state.newCommentBottomSheet = payload
+  },
+  SET_COMMENTS(state, payload) {
+    state.comments = state.comments.concat(payload)
+  },
+  SET_COMMENTS_META(state, payload) {
+    state.commentsMeta = payload
+  },
+  SET_COMMENTS_LOADING(state, payload) {
+    state.commentsLoading = payload
+  },
+  SET_COMMENT_ID(state, payload) {
+    state.commentId = payload
+  },
+  SET_COMMENT_SENDING(state, payload) {
+    state.commentSending = payload
+  },
+  SET_SUCCESS_MESSAGE(state, payload) {
+    state.showSuccessMessage = payload
+  },
+  RESET_COMMENTS(state) {
+    state.comments = []
+    state.commentsMeta = ''
   }
 }
 
@@ -143,5 +181,32 @@ export const actions = {
           commit('INCREASE_POST_VOTE', payload.voteType)
         }
       })
+  },
+  async fetchComments({ commit, state }, payload) {
+    commit('SET_COMMENTS_LOADING', true)
+    return await this.$axios
+      .$get(
+        `/api/posts/${state.post.id}/comments?page=${state.commentsMeta
+          .current_page + 1}`
+      )
+      .then((comments) => {
+        commit('SET_COMMENTS_META', comments.meta)
+        commit('SET_COMMENTS', comments.data)
+        commit('SET_COMMENTS_LOADING', false)
+      })
+  },
+  async sendComment({ commit, state }, payload) {
+    commit('SET_COMMENT_SENDING', true)
+    return await new Promise((resolve, reject) => {
+      this.$axios
+        .$post(`/api/posts/${state.post.id}/comments/`, payload)
+        .then((response) => {
+          if (response.data) {
+            commit('SET_NEW_COMMENT_BOTTOM_SHEET', false)
+            commit('SET_COMMENT_SENDING', false)
+            resolve({ success: true })
+          }
+        })
+    })
   }
 }

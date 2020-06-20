@@ -48,9 +48,15 @@
     "turkish": "Türkçe",
     "english": "İngilizce",
     "all": "Hepsi",
-    "language": "Dil"
+    "language": "Dil",
+    "comments": "Yorumlar",
+    "comment": "Yorum",
+    "successMessage": "Yorum başarılı şekilde gönderildi.",
+    "reply": "Cevapla",
+    "writeComment": "Yorum yaz"
   },
   "layout": {
-    "pageNotFound": "Aradığınız sayfa bulanamadı :("
+    "pageNotFound": "Aradığınız sayfa bulanamadı :(",
+    "close": "Kapat"
   }
 }

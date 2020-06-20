@@ -89,17 +89,91 @@
           </v-row>
         </v-toolbar>
       </v-col>
+      <v-col cols="12" sm="10" md="10" lg="8" class="py-2">
+        <v-row no-gutters justify="start" align="center" class="px-1">
+          <v-col cols="auto">
+            <h1>{{ $t('blog.comments') }}</h1>
+          </v-col>
+          <v-col cols="grow">
+            <v-row no-gutters justify="end" align="center">
+              <v-col cols="auto">
+                <v-btn
+                  rounded
+                  outlined
+                  small
+                  color="secondary"
+                  @click="openNewComment()"
+                >
+                  {{ $t('blog.writeComment') }}
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+        <v-row class="pa-2" no-gutters>
+          <v-col
+            v-for="comment in comments"
+            :key="comment.id"
+            cols="12"
+            class="py-2"
+          >
+            <blog-post-comment :comment="comment"></blog-post-comment>
+          </v-col>
+        </v-row>
+      </v-col>
+      <v-col
+        v-show="commentsLoading"
+        cols="12"
+        sm="10"
+        md="10"
+        lg="8"
+        class="py-2"
+      >
+        <v-row justify="center" align="center" no-gutters>
+          <v-col cols="12">
+            <div class="text-center">
+              <v-progress-circular
+                :size="50"
+                :width="3"
+                color="primary"
+                indeterminate
+              ></v-progress-circular>
+            </div>
+          </v-col>
+        </v-row>
+      </v-col>
     </v-row>
+    <blog-post-new-comment></blog-post-new-comment>
+    <v-snackbar
+      v-model="successMessage"
+      color="success"
+      multi-line
+      :timeout="new Number(5000)"
+      top
+      vertical
+    >
+      <span class="font-weight-black">{{ $t('blog.successMessage') }}</span>
+      <v-btn class="pt-0 mt-0" small dark text @click="successMessage = false">
+        {{ $t('contact.close') }}
+      </v-btn>
+    </v-snackbar>
   </v-container>
 </template>
 
 <script>
 import { mapMutations, mapActions, mapState } from 'vuex'
+import BlogPostComment from '~/components/BlogPostComment'
+import BlogPostNewComment from '~/components/BlogPostNewComment'
 
 export default {
+  components: {
+    BlogPostComment,
+    BlogPostNewComment
+  },
   data() {
     return {
-      loading: true
+      loading: true,
+      bottom: false
     }
   },
   computed: {
@@ -107,8 +181,20 @@ export default {
       locale: (state) => state.locale,
       post: (state) => state.blog.post,
       markdown: (state) => state.blog.mdFile,
-      metaData: (state) => state.layout.metaData
-    })
+      metaData: (state) => state.layout.metaData,
+      commentsLoading: (state) => state.blog.commentsLoading,
+      comments: (state) => state.blog.comments,
+      commentsMeta: (state) => state.blog.commentsMeta,
+      showSuccessMessage: (state) => state.blog.showSuccessMessage
+    }),
+    successMessage: {
+      set(successMessage) {
+        this.setSuccessMessage(successMessage)
+      },
+      get() {
+        return this.showSuccessMessage
+      }
+    }
   },
   watch: {
     async locale(newLocale, oldLocale) {
@@ -120,6 +206,19 @@ export default {
       } finally {
         this.loading = false
         this.setHeaderLoading(false)
+        this.resetComments()
+      }
+    },
+    async bottom(bottom) {
+      if (
+        (bottom &&
+          !this.commentsLoading &&
+          // eslint-disable-next-line camelcase
+          this.commentsMeta?.last_page > this.commentsMeta?.current_page) ||
+        // eslint-disable-next-line camelcase
+        (bottom && !this.commentsMeta?.last_page)
+      ) {
+        await this.fetchComments()
       }
     }
   },
@@ -145,6 +244,11 @@ export default {
       this.setHeaderLoading(false)
     }
     this.sendPostView(this.$nuxt.$route.params.id)
+
+    // eslint-disable-next-line nuxt/no-globals-in-created
+    window.addEventListener('scroll', () => {
+      this.bottom = this.bottomVisible()
+    })
   },
   methods: {
     ...mapMutations({
@@ -152,13 +256,28 @@ export default {
       setMetaData: 'layout/SET_META_DATA',
       changeSideVisibility: 'layout/SET_SIDEBAR_VISIBILITY',
       setPageTitleImage: 'layout/SET_PAGE_TITLE_IMAGE',
-      setHeaderLoading: 'layout/SET_HEADER_LOADING'
+      setHeaderLoading: 'layout/SET_HEADER_LOADING',
+      setCommentId: 'blog/SET_COMMENT_ID',
+      openBottomSheet: 'blog/SET_NEW_COMMENT_BOTTOM_SHEET',
+      setSuccessMessage: 'blog/SET_SUCCESS_MESSAGE',
+      resetComments: 'blog/RESET_COMMENTS'
     }),
     ...mapActions({
       fetchPost: 'blog/fetchPost',
       sendPostView: 'blog/sendPostView',
-      sendPostVote: 'blog/sendPostVote'
-    })
+      sendPostVote: 'blog/sendPostVote',
+      fetchComments: 'blog/fetchComments'
+    }),
+    bottomVisible() {
+      return (
+        document.documentElement.scrollTop + window.innerHeight ===
+        document.documentElement.offsetHeight
+      )
+    },
+    openNewComment() {
+      this.setCommentId(null)
+      this.openBottomSheet(true)
+    }
   },
   head() {
     return {

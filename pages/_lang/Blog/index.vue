@@ -82,7 +82,6 @@ export default {
     }
   },
   async created() {
-    console.log(this.postsLoading)
     this.pageLoading = true
     this.setPageTitle({ title: this.$t('titles.blog') })
     this.setPageTitleImage('/img/8.jpg')

@@ -48,9 +48,15 @@
     "turkish": "Turkish",
     "english": "English",
     "all": "All",
-    "language": "Language"
+    "language": "Language",
+    "comments": "Comments",
+    "comment": "Comment",
+    "successMessage": "Comment has been send successfully.",
+    "reply": "Reply",
+    "writeComment": "Write comment"
   },
   "layout": {
-    "pageNotFound": "Page not found :("
+    "pageNotFound": "Page not found :(",
+    "close": "Close"
   }
 }
