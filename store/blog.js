@@ -19,11 +19,13 @@ export const state = () => ({
   postsLoading: false,
   newCommentBottomSheet: false,
   commentsLoading: false,
-  comments: '',
+  comments: [],
   commentsMeta: {
     current_page: 0
   },
-  commentId: ''
+  commentId: '',
+  commentSending: false,
+  showSuccessMessage: false
 })
 
 export const getters = {
@@ -80,14 +82,26 @@ export const mutations = {
     state.newCommentBottomSheet = payload
   },
   SET_COMMENTS(state, payload) {
-    state.comments = payload.data
-    state.commentsMeta = payload.meta
+    state.comments = state.comments.concat(payload)
+  },
+  SET_COMMENTS_META(state, payload) {
+    state.commentsMeta = payload
   },
   SET_COMMENTS_LOADING(state, payload) {
     state.commentsLoading = payload
   },
   SET_COMMENT_ID(state, payload) {
     state.commentId = payload
+  },
+  SET_COMMENT_SENDING(state, payload) {
+    state.commentSending = payload
+  },
+  SET_SUCCESS_MESSAGE(state, payload) {
+    state.showSuccessMessage = payload
+  },
+  RESET_COMMENTS(state) {
+    state.comments = []
+    state.commentsMeta = ''
   }
 }
 
@@ -176,18 +190,23 @@ export const actions = {
           .current_page + 1}`
       )
       .then((comments) => {
-        commit('SET_COMMENTS', comments)
+        commit('SET_COMMENTS_META', comments.meta)
+        commit('SET_COMMENTS', comments.data)
         commit('SET_COMMENTS_LOADING', false)
       })
   },
   async sendComment({ commit, state }, payload) {
-    return await this.$axios
-      .$post(`/api/posts/${state.post.id}/comments/`, payload)
-      .then((response) => {
-        if (response.status) {
-          commit('SET_POSTS', [])
-          commit('INCREASE_POST_VOTE', payload.voteType)
-        }
-      })
+    commit('SET_COMMENT_SENDING', true)
+    return await new Promise((resolve, reject) => {
+      this.$axios
+        .$post(`/api/posts/${state.post.id}/comments/`, payload)
+        .then((response) => {
+          if (response.data) {
+            commit('SET_NEW_COMMENT_BOTTOM_SHEET', false)
+            commit('SET_COMMENT_SENDING', false)
+            resolve({ success: true })
+          }
+        })
+    })
   }
 }
