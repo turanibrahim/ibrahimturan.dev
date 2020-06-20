@@ -8,9 +8,8 @@
         <v-col cols="12" class="">
           <v-sheet
             v-if="replyComment"
-            color="blue-grey lighten-4"
+            color="blockquoteGray"
             class="text-left py-1 px-2"
-            light
           >
             <h4 class="font-weight">
               {{ replyComment.name }}
@@ -63,7 +62,7 @@
               </v-btn>
             </v-col>
             <v-col cols="auto" @click="sendForm()">
-              <v-btn rounded color="success">
+              <v-btn rounded color="success" :loading="commentSending">
                 {{ $t('contact.send') }}
               </v-btn>
             </v-col>
@@ -76,7 +75,7 @@
 
 <script>
 import { required, minLength, email } from 'vuelidate/lib/validators'
-import { mapMutations, mapState, mapGetters } from 'vuex'
+import { mapMutations, mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   validations: {
@@ -106,13 +105,16 @@ export default {
   }),
   computed: {
     ...mapState({
-      newCommentBottomSheet: (state) => state.blog.newCommentBottomSheet
+      newCommentBottomSheet: (state) => state.blog.newCommentBottomSheet,
+      commentId: (state) => state.blog.commentId,
+      commentSending: (state) => state.blog.commentSending
     }),
     ...mapGetters({
       replyComment: 'blog/getCommentById'
     }),
     sheet: {
       set(sheet) {
+        this.$v.$reset()
         this.seNewCommentBottomSheet(sheet)
       },
       get() {
@@ -155,9 +157,14 @@ export default {
   methods: {
     ...mapMutations({
       seNewCommentBottomSheet: 'blog/SET_NEW_COMMENT_BOTTOM_SHEET',
-      setCommentId: 'blog/SET_COMMENT_ID'
+      setCommentId: 'blog/SET_COMMENT_ID',
+      setSuccessMessage: 'blog/SET_SUCCESS_MESSAGE'
+    }),
+    ...mapActions({
+      sendComment: 'blog/sendComment'
     }),
     resetForm() {
+      this.$v.$reset()
       this.name = ''
       this.surname = ''
       this.email = ''
@@ -166,16 +173,18 @@ export default {
     sendForm() {
       this.$v.$touch()
       if (!this.$v.$invalid) {
-        this.sendContactForm({
+        this.sendComment({
+          post_id: this.$nuxt.$route.params.id,
           name: this.name,
           surname: this.surname,
           email: this.email,
-          comment: this.comment
-        }).then((resolve, reject) => {
-          if (resolve) {
-            this.successMessage = true
-            this.resetForm()
+          comment: this.comment,
+          reply_to: this.commentId ? this.commentId : null
+        }).then((response) => {
+          if (response) {
+            this.setSuccessMessage(true)
           }
+          this.resetForm()
         })
       }
     }
