@@ -16,11 +16,22 @@ export const state = () => ({
     },
     search: ''
   },
-  postsLoading: false
+  postsLoading: false,
+  newCommentBottomSheet: false,
+  commentsLoading: false,
+  comments: '',
+  commentsMeta: {
+    current_page: 0
+  },
+  commentId: ''
 })
 
 export const getters = {
-  //
+  getCommentById: (state) => {
+    return state.comments
+      ? state.comments.find((comment) => comment.id === state.commentId)
+      : null
+  }
 }
 
 export const mutations = {
@@ -64,6 +75,19 @@ export const mutations = {
   },
   SET_POSTS_LOADING(state, payload) {
     state.postsLoading = payload
+  },
+  SET_NEW_COMMENT_BOTTOM_SHEET(state, payload) {
+    state.newCommentBottomSheet = payload
+  },
+  SET_COMMENTS(state, payload) {
+    state.comments = payload.data
+    state.commentsMeta = payload.meta
+  },
+  SET_COMMENTS_LOADING(state, payload) {
+    state.commentsLoading = payload
+  },
+  SET_COMMENT_ID(state, payload) {
+    state.commentId = payload
   }
 }
 
@@ -139,6 +163,28 @@ export const actions = {
       .$post(`/api/posts/${payload.postId}/votes`, data)
       .then((response) => {
         if (response.updated) {
+          commit('SET_POSTS', [])
+          commit('INCREASE_POST_VOTE', payload.voteType)
+        }
+      })
+  },
+  async fetchComments({ commit, state }, payload) {
+    commit('SET_COMMENTS_LOADING', true)
+    return await this.$axios
+      .$get(
+        `/api/posts/${state.post.id}/comments?page=${state.commentsMeta
+          .current_page + 1}`
+      )
+      .then((comments) => {
+        commit('SET_COMMENTS', comments)
+        commit('SET_COMMENTS_LOADING', false)
+      })
+  },
+  async sendComment({ commit, state }, payload) {
+    return await this.$axios
+      .$post(`/api/posts/${state.post.id}/comments/`, payload)
+      .then((response) => {
+        if (response.status) {
           commit('SET_POSTS', [])
           commit('INCREASE_POST_VOTE', payload.voteType)
         }
