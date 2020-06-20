@@ -211,12 +211,11 @@ export default {
     },
     async bottom(bottom) {
       if (
-        (bottom &&
-          !this.commentsLoading &&
-          // eslint-disable-next-line camelcase
-          this.commentsMeta?.last_page > this.commentsMeta?.current_page) ||
+        bottom &&
+        !this.commentsLoading &&
         // eslint-disable-next-line camelcase
-        (bottom && !this.commentsMeta?.last_page)
+        (this.commentsMeta?.last_page > this.commentsMeta?.current_page ||
+          !this.commentsMeta.last_page)
       ) {
         await this.fetchComments()
       }

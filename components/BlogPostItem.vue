@@ -45,7 +45,7 @@ export default {
   }),
   methods: {
     openPost(id) {
-      this.$nuxt.$router.push(this.$i18n.path(`/blog/post/${this.post.id}`))
+      this.$nuxt.$router.push(this.$i18n.path(`blog/post/${this.post.id}`))
     }
   }
 }
