@@ -98,7 +98,8 @@ export default {
           error: '#CC2936',
           warning: '#F4743B',
           info: '#FAB3A9',
-          success: '#70AE6E'
+          success: '#70AE6E',
+          blockquoteGray: '#37474F'
         },
         light: {
           primary: '#23314A',
@@ -107,7 +108,8 @@ export default {
           error: '#CC2936',
           warning: '#F4743B',
           info: '#FAB3A9',
-          success: '#70AE6E'
+          success: '#70AE6E',
+          blockquoteGray: '#CFD8DC'
         }
       }
     }
