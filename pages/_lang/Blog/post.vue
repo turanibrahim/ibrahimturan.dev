@@ -90,7 +90,7 @@
         </v-toolbar>
       </v-col>
       <v-col cols="12" sm="10" md="10" lg="8" class="py-2">
-        <v-row no-gutters justify="start" align="center">
+        <v-row no-gutters justify="start" align="center" class="px-1">
           <v-col cols="auto">
             <h1>{{ $t('blog.comments') }}</h1>
           </v-col>
@@ -100,10 +100,11 @@
                 <v-btn
                   rounded
                   outlined
+                  small
                   color="secondary"
                   @click="openNewComment()"
                 >
-                  Reply
+                  {{ $t('blog.writeComment') }}
                 </v-btn>
               </v-col>
             </v-row>
@@ -143,6 +144,19 @@
       </v-col>
     </v-row>
     <blog-post-new-comment></blog-post-new-comment>
+    <v-snackbar
+      v-model="successMessage"
+      color="success"
+      multi-line
+      :timeout="new Number(5000)"
+      top
+      vertical
+    >
+      <span class="font-weight-black">{{ $t('blog.successMessage') }}</span>
+      <v-btn class="pt-0 mt-0" small dark text @click="successMessage = false">
+        {{ $t('contact.close') }}
+      </v-btn>
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -170,8 +184,17 @@ export default {
       metaData: (state) => state.layout.metaData,
       commentsLoading: (state) => state.blog.commentsLoading,
       comments: (state) => state.blog.comments,
-      commentsMeta: (state) => state.blog.commentsMeta
-    })
+      commentsMeta: (state) => state.blog.commentsMeta,
+      showSuccessMessage: (state) => state.blog.showSuccessMessage
+    }),
+    successMessage: {
+      set(successMessage) {
+        this.setSuccessMessage(successMessage)
+      },
+      get() {
+        return this.showSuccessMessage
+      }
+    }
   },
   watch: {
     async locale(newLocale, oldLocale) {
@@ -183,14 +206,17 @@ export default {
       } finally {
         this.loading = false
         this.setHeaderLoading(false)
+        this.resetComments()
       }
     },
     async bottom(bottom) {
       if (
         (bottom &&
-          this.commentsMeta.currentPage < this.commentsMeta.last_page) ||
+          !this.commentsLoading &&
+          // eslint-disable-next-line camelcase
+          this.commentsMeta?.last_page > this.commentsMeta?.current_page) ||
         // eslint-disable-next-line camelcase
-        !this.commentsMeta?.last_page
+        (bottom && !this.commentsMeta?.last_page)
       ) {
         await this.fetchComments()
       }
@@ -232,7 +258,9 @@ export default {
       setPageTitleImage: 'layout/SET_PAGE_TITLE_IMAGE',
       setHeaderLoading: 'layout/SET_HEADER_LOADING',
       setCommentId: 'blog/SET_COMMENT_ID',
-      openBottomSheet: 'blog/SET_NEW_COMMENT_BOTTOM_SHEET'
+      openBottomSheet: 'blog/SET_NEW_COMMENT_BOTTOM_SHEET',
+      setSuccessMessage: 'blog/SET_SUCCESS_MESSAGE',
+      resetComments: 'blog/RESET_COMMENTS'
     }),
     ...mapActions({
       fetchPost: 'blog/fetchPost',
