@@ -1,0 +1,17 @@
+.v-card {
+  @apply flex shadow p-3 flex-col;
+  height: var(--v-card-height);
+  width: var(--v-card-width);
+
+  &__title {
+    @apply text-xl flex-shrink;
+  }
+
+  &__content {
+    @apply flex text-base flex-grow;
+  }
+
+  &__actions {
+    @apply justify-end flex-shrink flex py-3;
+  }
+}
