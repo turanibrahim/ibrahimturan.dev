@@ -1,23 +1,28 @@
 module.exports = {
   root: true,
   env: {
-    browser: true,
-    node: true
-  },
-  parserOptions: {
-    parser: 'babel-eslint'
+    node: true,
   },
   extends: [
-    '@nuxtjs',
-    'prettier',
-    'prettier/vue',
-    'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
+    'plugin:vue/vue3-essential',
+    '@vue/airbnb',
   ],
-  plugins: [
-    'prettier'
-  ],
-  // add your custom rules here
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
   rules: {
-  }
-}
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+  },
+  overrides: [
+    {
+      files: [
+        '**/__tests__/*.{j,t}s?(x)',
+        '**/tests/unit/**/*.spec.{j,t}s?(x)',
+      ],
+      env: {
+        jest: true,
+      },
+    },
+  ],
+};
