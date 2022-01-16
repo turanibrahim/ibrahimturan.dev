@@ -65,7 +65,7 @@ const technologies = [
 
 <style lang="scss">
 .v-technologies-section {
-  @apply grid grid-cols-1 container md:px-20 md:my-20 items-center p-5;
+  @apply container md:px-20 items-center p-5;
 
   &__title {
     @apply text-5xl mb-5;
