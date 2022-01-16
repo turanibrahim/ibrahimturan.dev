@@ -16,13 +16,13 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  isLink: {
+  link: {
     type: Boolean,
-    default: false,
+    default: true,
   },
 });
 
-const component = props.isLink ? 'a' : 'button';
+const component = props.link ? 'a' : 'button';
 </script>
 
 <style lang="scss">
