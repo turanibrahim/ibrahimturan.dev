@@ -26,4 +26,4 @@ pnpm-debug.log*
 /.firebase
 
 # ENV
-*.env
+.env
