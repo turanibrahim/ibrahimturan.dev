@@ -1,54 +1,49 @@
 <script setup>
+import { defineProps, defineAsyncComponent } from 'vue';
 import VAvatar from '@/components/atoms/VAvatar.vue';
 import VLink from '@/components/atoms/VLink.vue';
-import VLinkedinIcon from '@/components/atoms/VLinkedinIcon.vue';
-import VTwitterIcon from '@/components/atoms/VTwitterIcon.vue';
-import VGithubIcon from '@/components/atoms/VGithubIcon.vue';
-import VDevtoIcon from '@/components/atoms/VDevtoIcon.vue';
 
-const socialMedia = [
-  {
-    name: 'Linkedin',
-    component: VLinkedinIcon,
-    link: 'https://www.linkedin.com/in/ibrahimturann/',
+const props = defineProps({
+  profilePicture: {
+    type: String,
+    required: true,
   },
-  {
-    name: 'Twitter',
-    component: VTwitterIcon,
-    link: 'https://twitter.com/_ibrahimturan',
+  socialMedia: {
+    type: Array,
+    required: true,
   },
-  {
-    name: 'Github',
-    component: VGithubIcon,
-    link: 'https://github.com/turanibrahim',
-  },
-  {
-    name: 'Dev.to',
-    component: VDevtoIcon,
-    link: 'https://dev.to/_ibrahimturan',
-  },
-];
-
-const profilePictureURL = new URL('/src/assets/profile-picture.png', import.meta.url).href;
+});
+const socialMediaComponents = props.socialMedia.map((item) => ({
+  ...item,
+  component: defineAsyncComponent(
+    () => import(`../atoms/${item.componentName}.vue`),
+  ),
+}));
+const avatarSrc = new URL(`../../assets/${props.profilePicture}`, import.meta.url).href;
 </script>
 
 <template>
   <v-avatar
     class="mb-10"
-    :src="profilePictureURL"
+    :src="avatarSrc"
     width="400"
     height="400"
     alt="Profile Picture"
-  ></v-avatar>
+  />
 
   <div>
     <v-link
-      v-for="item in socialMedia"
+      v-for="item in socialMediaComponents"
       :key="item.name"
       component="a"
-      :href="item.link"
+      :href="item.url"
     >
-      <component :is="item.component" class="m-1" heihght="25" widht="25"></component>
+      <component
+        :is="item.component"
+        class="m-1"
+        heihght="25"
+        widht="25"
+      />
       {{ item.name }}
     </v-link>
   </div>
