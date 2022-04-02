@@ -6,6 +6,10 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - live
+env:
+  VITE_GOOGLE_ANALYTICS_API_KEY: ${{ secrets.VITE_GOOGLE_ANALYTICS_API_KEY }}
+  VITE_GOOGLE_ANALYTICS_APP_ID: ${{ secrets.VITE_GOOGLE_ANALYTICS_APP_ID }}
+  VITE_GOOGLE_ANALYTICS_MEASUREMENT_ID: ${{ secrets.VITE_GOOGLE_ANALYTICS_MEASUREMENT_ID }}
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
