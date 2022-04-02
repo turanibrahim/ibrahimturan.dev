@@ -14,15 +14,6 @@ export default defineConfig({
       extensions: ['vue', 'md'],
     }),
   ],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `
-              @import "./src/assets/styles/main.scss";
-            `,
-      },
-    },
-  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
