@@ -1,8 +1,18 @@
+<template>
+  <div class="home-page">
+    <v-about-me-section></v-about-me-section>
+
+    <v-technologies-section></v-technologies-section>
+  </div>
+</template>
+
 <script setup>
-import HelloWorld from '../components/HelloWorld.vue'
+import VAboutMeSection from '@/components/organisms/VAboutMeSection.vue';
+import VTechnologiesSection from '@/components/organisms/VTechnologiesSection.vue';
 </script>
 
-<template>
-  <img alt="Vue logo" src="../assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
-</template>
+<style lang="scss">
+.home-page {
+  @apply grid h-full justify-center gap-4 bg-blue-50;
+}
+</style>
