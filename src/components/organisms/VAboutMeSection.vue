@@ -33,14 +33,14 @@ const { about } = defineProps({
 
 <style lang="scss">
 .about-me {
-  @apply grid grid-cols-1 container md:px-20 md:my-20 md:grid-cols-3 items-center p-5 gap-4;
+  @apply flex flex-col md:flex-row container md:px-20 md:my-20 p-5 gap-4;
 
   &__sidebar {
-    @apply col-span-1;
+    @apply md:px-10 md:basis-1/3;
   }
 
   &__content {
-    @apply col-span-2;
+    @apply md:basis-2/3;
   }
 }
 </style>

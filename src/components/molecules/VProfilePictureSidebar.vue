@@ -31,7 +31,7 @@ const avatarSrc = new URL(`../../assets/${props.profilePicture}`, import.meta.ur
     alt="Profile Picture"
   />
 
-  <div>
+  <div class="social-media__container">
     <v-link
       v-for="item in socialMediaComponents"
       :key="item.name"
@@ -48,3 +48,13 @@ const avatarSrc = new URL(`../../assets/${props.profilePicture}`, import.meta.ur
     </v-link>
   </div>
 </template>
+
+<style lang="scss">
+.about-me__sidebar {
+  .social-media {
+    &__container {
+      @apply flex flex-row flex-wrap mt-5;
+    }
+  }
+}
+</style>
