@@ -1,19 +1,35 @@
+<script setup>
+import { defineProps } from 'vue';
+import VProfilePictureSidebar from '@/components/molecules/VProfilePictureSidebar.vue';
+import VIntroductionSection from '@/components/molecules/VIntroductionSection.vue';
+
+const { about } = defineProps({
+  about: {
+    type: Object,
+    required: true,
+  },
+});
+</script>
+
 <template>
   <div class="about-me">
     <div class="about-me__sidebar">
-      <v-profile-picture-sidebar></v-profile-picture-sidebar>
+      <v-profile-picture-sidebar
+        :social-media="about.socialMedia"
+        :profile-picture="about.profilePicture"
+      />
     </div>
 
     <div class="about-me__content">
-      <v-introduction-section></v-introduction-section>
+      <v-introduction-section
+        :title="about.title"
+        :firm-logo="about.firmLogo"
+        :name="about.name"
+        :introduce-text="about.introduceText"
+      />
     </div>
   </div>
 </template>
-
-<script setup>
-import VProfilePictureSidebar from '@/components/molecules/VProfilePictureSidebar.vue';
-import VIntroductionSection from '@/components/molecules/VIntroductionSection.vue';
-</script>
 
 <style lang="scss">
 .about-me {
