@@ -18,6 +18,12 @@ body {
 }
 
 .home-page {
-  @apply grid h-full justify-center gap-4;
+  @apply flex flex-col h-full items-center;
 }
 </style>
+
+<route lang="yaml">
+name: HomePage
+meta:
+requiresAuth: true
+</route>
