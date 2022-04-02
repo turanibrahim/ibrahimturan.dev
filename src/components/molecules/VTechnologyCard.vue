@@ -1,14 +1,6 @@
-<template>
-  <div class="v-technology-card">
-    <component :is="icon" class="v-technology-card__icon" :width="width" :height="height"></component>
-    <span class="v-technology-card__name">
-      <slot></slot>
-    </span>
-  </div>
-</template>
-
 <script setup>
 import { defineAsyncComponent, defineProps } from 'vue';
+
 const props = defineProps({
   icon: {
     type: String,
@@ -16,26 +8,36 @@ const props = defineProps({
   },
   width: {
     type: String,
-    default: '75'
+    default: '75',
   },
   height: {
     type: String,
-    default: '75'
+    default: '75',
   },
-})
-
-const icon = defineAsyncComponent(() => import(`@/components/atoms/V${props.icon}Icon.vue`));
-
+});
+const icon = defineAsyncComponent(() => import(`../atoms/V${props.icon}Icon.vue`));
 </script>
+
+<template>
+  <div class="v-technology-card">
+    <component
+      :is="icon"
+      class="v-technology-card__icon"
+      :width="width"
+      :height="height"
+    />
+    <span class="v-technology-card__name">
+      <slot />
+    </span>
+  </div>
+</template>
 
 <style lang="scss">
 .v-technology-card {
   @apply flex flex-col p-5 items-center;
-
   &__icon {
     @apply justify-self-center;
   }
-
   &__name {
     @apply py-2 font-medium text-lg text-gray-600;
   }

@@ -1,23 +1,45 @@
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  introduceText: {
+    type: String,
+    required: true,
+  },
+  firmLogo: {
+    type: String,
+    required: true,
+  },
+});
+const {
+  title, name, introduceText, firmLogo,
+} = props;
+</script>
+
 <template>
   <div class="introduction-section__title">
-    İbrahim Turan
+    {{ name }}
   </div>
   <div class="introduction-section__subtitle">
-    Frontend Developer at
+    {{ title }}
 
     <img
       class="introduction-section__company"
       width="220"
-      src="https://www.vivense.de/img/vivense-de-logo.bdacabb1.svg" alt="firm"
-    />
+      :src="firmLogo"
+      alt="firm-logo"
+    >
   </div>
   <div class="introduction-section__description">
-    Frontend developer with almost 2 years experience.
-    Interesting everything related to software.
-    Like to be practical and work solution oriented.
-    Have high communications skills and always open to innovations.
-    Current tech stack based on Javascript frameworks like Nuxt.js,
-    Vue.js, Vuetify, React-Native, Feathers.js.
+    {{ introduceText }}
   </div>
 </template>
 

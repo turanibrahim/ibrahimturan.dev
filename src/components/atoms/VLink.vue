@@ -1,13 +1,3 @@
-<template>
-  <component :is="component"
-    :href="props.href"
-    class="inline-flex justify-center hover:bg-indigo-100 p-1 font-bold rounded"
-    target="_blank"
-  >
-    <slot></slot>
-  </component>
-</template>
-
 <script setup>
 import { defineProps } from 'vue';
 
@@ -25,8 +15,20 @@ const props = defineProps({
 const component = props.link ? 'a' : 'button';
 </script>
 
+<template>
+  <component
+    :is="component"
+    :href="props.href"
+    class="v-link"
+    target="_blank"
+  >
+    <slot />
+  </component>
+</template>
+
 <style lang="scss">
 .v-link {
-  @apply inline-flex justify-center hover:bg-indigo-100 p-1 font-bold rounded
+  @apply flex-shrink inline-flex items-center gap-1
+    justify-center hover:bg-indigo-100 p-1 font-bold rounded;
 }
 </style>
