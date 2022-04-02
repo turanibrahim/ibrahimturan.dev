@@ -1,14 +1,20 @@
 <template>
   <div class="v-technology-card">
-    <component :is="icon" class="v-technology-card__icon" :width="width" :height="height"></component>
+    <component
+      :is="icon"
+      class="v-technology-card__icon"
+      :width="width"
+      :height="height"
+    />
     <span class="v-technology-card__name">
-      <slot></slot>
+      <slot />
     </span>
   </div>
 </template>
 
 <script setup>
 import { defineAsyncComponent, defineProps } from 'vue';
+
 const props = defineProps({
   icon: {
     type: String,
@@ -16,15 +22,15 @@ const props = defineProps({
   },
   width: {
     type: String,
-    default: '75'
+    default: '75',
   },
   height: {
     type: String,
-    default: '75'
+    default: '75',
   },
-})
+});
 
-const icon = defineAsyncComponent(() => import(`@/components/atoms/V${props.icon}Icon.vue`));
+const icon = defineAsyncComponent(() => import(`../atoms/V${props.icon}Icon.vue`));
 
 </script>
 
