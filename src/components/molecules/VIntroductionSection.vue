@@ -33,7 +33,7 @@ const {
 
     <img
       class="introduction-section__company"
-      width="220"
+      width="auto"
       :src="firmLogo"
       alt="firm-logo"
     >
@@ -46,19 +46,21 @@ const {
 <style lang="scss">
 .introduction-section {
   &__title {
-    @apply text-8xl my-3
+    @apply text-4xl my-3
   }
 
   &__subtitle {
-    @apply text-5xl text-gray-600
+    @apply text-xl text-gray-600 flex flex-nowrap
   }
 
   &__company {
-    @apply inline px-3
+    @apply inline px-3 text-xl shrink self-end;
+    width: auto;
+    height: 1.5rem;
   }
 
   &__description {
-    @apply text-xl mt-6 text-gray-500 tracking-wide
+    @apply mt-6 text-gray-500 tracking-wide
   }
 }
 </style>
