@@ -1,13 +1,3 @@
-<template>
-  <img
-    class="v-avatar"
-    :src="props.src"
-    :alt="props.alt"
-    :width="props.height"
-    :height="props.width"
-  />
-</template>
-
 <script setup>
 import { defineProps } from 'vue';
 
@@ -30,6 +20,16 @@ const props = defineProps({
   },
 });
 </script>
+
+<template>
+  <img
+    class="v-avatar"
+    :src="props.src"
+    :alt="props.alt"
+    :width="props.height"
+    :height="props.width"
+  >
+</template>
 
 <style lang="scss">
 .v-avatar {

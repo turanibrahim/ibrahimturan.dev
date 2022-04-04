@@ -24,10 +24,8 @@ const avatarSrc = new URL(`../../assets/${props.profilePicture}`, import.meta.ur
 
 <template>
   <v-avatar
-    class="mb-10"
+    class="v-avatar"
     :src="avatarSrc"
-    width="400"
-    height="400"
     alt="Profile Picture"
   />
 
@@ -51,6 +49,20 @@ const avatarSrc = new URL(`../../assets/${props.profilePicture}`, import.meta.ur
 
 <style lang="scss">
 .about-me__sidebar {
+  .v-avatar {
+    @apply mx-auto;
+
+    @media (max-width: 639px) {
+      height: 200px;
+      width: 200px;
+    }
+
+    @media (min-width: 640px) {
+      height: auto;
+      width: 100%;
+    }
+  }
+
   .social-media {
     &__container {
       @apply flex flex-row flex-wrap mt-5;
