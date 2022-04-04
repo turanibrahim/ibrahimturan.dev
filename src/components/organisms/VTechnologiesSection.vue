@@ -1,21 +1,3 @@
-<template>
-  <div class="v-technologies-section">
-    <div class="v-technologies-section__title">Technologies I similar with</div>
-
-    <div class="v-technologies-section__container">
-      <v-technology-card
-        v-for="tech in technologies"
-        :key="tech.name"
-        width="75"
-        height="75"
-        :icon="tech.icon"
-      >
-        {{ tech.name }}
-      </v-technology-card>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import VTechnologyCard from '@/components/molecules/VTechnologyCard.vue';
 
@@ -63,12 +45,32 @@ const technologies = [
 ];
 </script>
 
+<template>
+  <div class="v-technologies-section">
+    <div class="v-technologies-section__title">
+      Technologies I similar with
+    </div>
+
+    <div class="v-technologies-section__container">
+      <v-technology-card
+        v-for="tech in technologies"
+        :key="tech.name"
+        width="44"
+        height="75"
+        :icon="tech.icon"
+      >
+        {{ tech.name }}
+      </v-technology-card>
+    </div>
+  </div>
+</template>
+
 <style lang="scss">
 .v-technologies-section {
-  @apply grid grid-cols-1 container md:px-20 md:my-20 items-center p-5;
+  @apply grid grid-cols-1 container md:px-20 items-center p-5;
 
   &__title {
-    @apply text-5xl mb-5;
+    @apply text-4xl mb-5;
   }
 
   &__container {
