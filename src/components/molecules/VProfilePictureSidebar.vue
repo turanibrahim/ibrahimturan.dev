@@ -58,6 +58,7 @@ const avatarSrc = new URL(`../../assets/${props.profilePicture}`, import.meta.ur
     }
 
     @media (min-width: 640px) {
+      max-width: 200px;
       height: auto;
       width: 100%;
     }

@@ -1,48 +1,15 @@
 <script setup>
+import { defineProps } from 'vue';
 import VTechnologyCard from '@/components/molecules/VTechnologyCard.vue';
 
-const technologies = [
-  {
-    name: 'Javascript',
-    icon: 'Javascript',
+const props = defineProps({
+  technologies: {
+    type: Array,
+    default: () => ([]),
   },
-  {
-    name: 'Vue.js',
-    icon: 'Vue',
-  },
-  {
-    name: 'Nuxt.js',
-    icon: 'Nuxtjs',
-  },
-  {
-    name: 'Vuetify',
-    icon: 'Vuetify',
-  },
-  {
-    name: 'React.js',
-    icon: 'React',
-  },
-  {
-    name: 'Redux',
-    icon: 'Redux',
-  },
-  {
-    name: 'Docker',
-    icon: 'Docker',
-  },
-  {
-    name: 'MongoDB',
-    icon: 'MongoDB',
-  },
-  {
-    name: 'Nginx',
-    icon: 'Nginx',
-  },
-  {
-    name: 'Heroku',
-    icon: 'Heroku',
-  },
-];
+});
+
+const { technologies } = props;
 </script>
 
 <template>
