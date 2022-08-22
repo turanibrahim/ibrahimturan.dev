@@ -1,8 +1,8 @@
 {
 	"name": "İbrahim Turan",
 	"title": "Frontend Developer at",
-	"firmLogo": "https://www.vivense.de/img/vivense-de-logo.bdacabb1.svg",
-	"introduceText": "Frontend developer with almost 2 years experience. Interesting everything related to software. Like to be practical and work solution oriented. Have high communications skills and always open to innovations. Current tech stack based on Javascript frameworks like Nuxt.js, Vue.js, Vuetify, React-Native, Feathers.js.",
+	"firmLogo": "https://cdn.thehub21.com/logo-v2.png",
+	"introduceText": "Working as Frontend Developer almost 3 years. Interest everything related to software. Like being practical and work solution oriented. Have high communications skills and always curious about the cutting-edge technologies. Current tech stack based on JavaScript frameworks like Vue.js, React/React-Native, Feathers.js. Nowadays, discovering tools and technologies like AWS, TailwindCSS, Vite.js.",
 	"profilePicture": "profile-picture.png",
 	"socialMedia": [
 		{
@@ -66,6 +66,26 @@
 		{
 			"name": "Heroku",
 			"icon": "Heroku"
+		},
+		{
+			"name": "Vercel",
+			"icon": "Vercel"
+		},
+		{
+			"name": "Firebase",
+			"icon": "Firebase"
+		},
+		{
+			"name": "Tailwind CSS",
+			"icon": "Tailwind"
+		},
+		{
+			"name": "Vite.js",
+			"icon": "Vite"
+		},
+		{
+			"name": "AWS",
+			"icon": "Aws"
 		}
 	]
 }

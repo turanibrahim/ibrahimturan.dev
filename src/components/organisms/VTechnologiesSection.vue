@@ -34,7 +34,7 @@ const { technologies } = props;
 
 <style lang="scss">
 .v-technologies-section {
-  @apply grid grid-cols-1 container md:px-20 items-center p-5;
+  @apply grid grid-cols-1 container items-center mt-20;
 
   &__title {
     @apply text-4xl mb-5;
