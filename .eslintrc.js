@@ -1,6 +1,8 @@
 module.exports = {
+  root: true,
   env: {
-    node: true,
+    es2021: true,
+    'vue/setup-compiler-macros': true,
   },
   extends: [
     'eslint:recommended',
@@ -14,12 +16,30 @@ module.exports = {
       order: ['script', 'template', 'style'],
     }],
     'vue/multi-word-component-names': 'off',
+    'max-len': ['error', {
+      tabWidth: 2,
+      ignoreTrailingComments: true,
+      ignoreUrls: true,
+      ignoreStrings: true,
+      ignoreTemplateLiterals: true,
+      ignoreRegExpLiterals: true,
+    }],
+    'vue/max-attributes-per-line': ['error', {
+      singleline: {
+        max: 4,
+      },
+      multiline: {
+        max: 1,
+      },
+    }],
+    'import/prefer-default-export': 'off',
   },
   settings: {
     'import/resolver': {
       alias: {
         map: [
           ['@', './src'],
+          ['@ui', './src/components/ui'],
         ],
         extensions: ['.js', '.vue'],
       },

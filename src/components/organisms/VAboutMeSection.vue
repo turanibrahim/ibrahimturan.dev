@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from 'vue';
 import VProfilePictureSidebar from '@/components/molecules/VProfilePictureSidebar.vue';
 import VIntroductionSection from '@/components/molecules/VIntroductionSection.vue';
 
