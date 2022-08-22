@@ -66,7 +66,7 @@ const avatarSrc = new URL(`../../assets/${props.profilePicture}`, import.meta.ur
 
   .social-media {
     &__container {
-      @apply flex flex-row flex-wrap mt-5;
+      @apply flex flex-row flex-wrap mt-5 gap-2 justify-evenly;
     }
   }
 }

@@ -29,7 +29,9 @@ const {
     {{ name }}
   </div>
   <div class="introduction-section__subtitle">
-    {{ title }}
+    <span>
+      {{ title }}
+    </span>
 
     <img
       class="introduction-section__company"
@@ -46,21 +48,21 @@ const {
 <style lang="scss">
 .introduction-section {
   &__title {
-    @apply text-4xl my-3
+    @apply text-5xl mb-5
   }
 
   &__subtitle {
-    @apply text-xl text-gray-600 flex flex-nowrap
+    @apply text-xl text-gray-600 flex flex-nowrap items-center
   }
 
   &__company {
-    @apply inline px-3 text-xl shrink self-end;
+    @apply inline px-3 text-xl shrink;
     width: auto;
-    height: 1.5rem;
+    height: 1rem;
   }
 
   &__description {
-    @apply mt-6 text-gray-500 tracking-wide
+    @apply mt-4 text-gray-500 tracking-wide
   }
 }
 </style>
