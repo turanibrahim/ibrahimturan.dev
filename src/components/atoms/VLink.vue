@@ -29,6 +29,6 @@ const component = props.link ? 'a' : 'button';
 <style lang="scss">
 .v-link {
   @apply flex-shrink inline-flex items-center gap-1
-    justify-center hover:bg-indigo-100 p-1 font-bold rounded;
+    justify-center hover:bg-indigo-100 px-2 py-1 font-bold rounded;
 }
 </style>

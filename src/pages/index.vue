@@ -18,7 +18,7 @@ body {
 }
 
 .home-page {
-  @apply flex flex-col h-full items-center mt-20;
+  @apply flex flex-col h-full items-center mt-20 container mx-auto px-10;
 }
 </style>
 
