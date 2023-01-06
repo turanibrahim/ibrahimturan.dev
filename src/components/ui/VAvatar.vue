@@ -26,8 +26,8 @@ const props = defineProps({
     class="v-avatar"
     :src="props.src"
     :alt="props.alt"
-    :width="props.height"
-    :height="props.width"
+    :width="props.width"
+    :height="props.height"
   >
 </template>
 

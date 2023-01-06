@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps, defineAsyncComponent } from 'vue';
-import VAvatar from '@/components/atoms/VAvatar.vue';
+import VAvatar from '@/components/ui/VAvatar.vue';
 import VLink from '@/components/atoms/VLink.vue';
 
 const props = defineProps({

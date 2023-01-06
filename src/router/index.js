@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-// eslint-disable-next-line import/no-unresolved
-import routes from '~pages';
+import routes from '@/router/routes';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
