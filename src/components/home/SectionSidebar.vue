@@ -5,14 +5,16 @@ import VLinkedinIcon from '@/components/atoms/VLinkedinIcon.vue';
 import VTwitterIcon from '@/components/atoms/VTwitterIcon.vue';
 import VDevtoIcon from '@/components/atoms/VDevtoIcon.vue';
 import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
-
-const avatarSrc = new URL('../../assets/profile-picture.png', import.meta.url).href;
 </script>
 
 <template>
   <div class="section-sidebar">
     <div class="flex justify-center text-center">
-      <v-avatar alt="Profile Image" :src="avatarSrc" width="200" />
+      <v-avatar
+        alt="Profile Image"
+        src="https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/4d99c629-bdf3-48a9-88aa-616e2a35522f.png"
+        width="200"
+      />
     </div>
 
     <h1 class="text-3xl xl:text-4xl font-bold mt-7 text-primary">
@@ -23,12 +25,26 @@ const avatarSrc = new URL('../../assets/profile-picture.png', import.meta.url).h
     </h2>
 
     <div class="mt-8">
-      <div class="mt-3">
+      <div>
+        <h3 class="text-primary font-bold text-lg mb-2">
+          Company
+        </h3>
+
+        <a href="https://thehub21.com/" target="_blank">
+          <img
+            class="h-5"
+            src="https://cdn.thehub21.com/logo-v2.png"
+            alt="hub21 logo"
+            height="25"
+          >
+        </a>
+      </div>
+      <div class="mt-5">
         <h3 class="text-primary font-bold text-lg">
           Social Media
         </h3>
 
-        <div class="flex pt-2 gap-2">
+        <div class="flex mt-1 gap-2">
           <v-button
             href="https://www.linkedin.com/in/ibrahimturann/"
             variant="icon"

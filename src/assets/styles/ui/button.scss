@@ -82,7 +82,7 @@
 }
 
 .btn-icon {
-  @apply rounded-full bg-transparent border-transparent p-2.5 hover:bg-opacity-10;
+  @apply rounded-full bg-transparent border-transparent p-2.5 hover:bg-opacity-0;
 
   &.btn-sm {
     @apply p-2
