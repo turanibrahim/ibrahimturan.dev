@@ -2,16 +2,12 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import Pages from 'vite-plugin-pages';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   plugins: [
     vue({
       reactivityTransform: true,
-    }),
-    Pages({
-      extensions: ['vue', 'md'],
     }),
     VitePWA({
       registerType: 'autoUpdate',
@@ -46,7 +42,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '~/': `${path.resolve(__dirname, 'src')}/`,
     },
+  },
+  server: {
+    port: 8080,
   },
 });

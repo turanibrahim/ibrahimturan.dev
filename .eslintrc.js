@@ -1,15 +1,18 @@
 module.exports = {
   root: true,
   env: {
-    es2021: true,
+    browser: true,
+    es2022: true,
     'vue/setup-compiler-macros': true,
   },
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     'airbnb-base',
-    'plugin:vuejs-accessibility/recommended',
   ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+  },
   rules: {
     'vue/no-setup-props-destructure': 'off',
     'vue/component-tags-order': ['error', {
@@ -33,12 +36,14 @@ module.exports = {
       },
     }],
     'import/prefer-default-export': 'off',
+    'import/no-named-as-default': 'off',
   },
   settings: {
     'import/resolver': {
       alias: {
         map: [
-          ['~', './src'],
+          ['@', './src'],
+          ['@ui', './src/components/ui'],
         ],
         extensions: ['.js', '.vue'],
       },
