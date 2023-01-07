@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue';
+import { format, formatDistance } from 'date-fns';
 
 const props = defineProps({
   title: { type: String, default: null },
@@ -11,8 +12,16 @@ const props = defineProps({
   endDate: { type: [String, Date], default: null },
 });
 
+const duration = computed(() => {
+  if (props.endDate) {
+    return formatDistance(new Date(props.endDate), new Date(props.startDate));
+  }
+
+  return formatDistance(new Date(), new Date(props.startDate));
+});
+const formattedDate = (date) => format(new Date(date), 'MMM yyyy');
 const endDateLabel = computed(() => (
-  props.endDate || 'Present'
+  props.endDate ? formattedDate(props.endDate) : 'Present'
 ));
 </script>
 
@@ -42,8 +51,10 @@ const endDateLabel = computed(() => (
             <div class="text-lg mb-1">
               {{ props.company }}
             </div>
-            <div class="text-sm text-gray-600">
-              {{ props.startDate }} - {{ endDateLabel }}
+            <div class="text-sm text-gray-600 capitalize">
+              {{ formattedDate(props.startDate) }}
+              -
+              {{ endDateLabel }} | {{ duration }}
             </div>
           </div>
         </div>
