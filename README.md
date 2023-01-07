@@ -14,3 +14,5 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 - [] Add project details page
 - [] Add other software related skills. (Gitflow, agile, scrum etc.)
 - [] Add blog posts list
+- [] Add typescript
+- [] Add unit tests.
