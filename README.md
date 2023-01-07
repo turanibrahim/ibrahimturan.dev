@@ -5,3 +5,12 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 ## Recommended IDE Setup
 
 - [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+
+## TODO
+
+- [] Update buttons with better design and functionality.
+- [] Remove all the hardcoded data, move data central place.
+- [] Add projects section
+- [] Add project details page
+- [] Add other software related skills. (Gitflow, agile, scrum etc.)
+- [] Add blog posts list
