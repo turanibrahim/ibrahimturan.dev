@@ -1,18 +1,19 @@
 <script setup>
 import VAvatar from '@/components/ui/VAvatar.vue';
 import VButton from '@/components/ui/VButton.vue';
-import VLinkedinIcon from '@/components/atoms/VLinkedinIcon.vue';
-import VTwitterIcon from '@/components/atoms/VTwitterIcon.vue';
-import VDevtoIcon from '@/components/atoms/VDevtoIcon.vue';
+import VLinkedinIcon from '@/components/icons/VLinkedinIcon.vue';
+import VTwitterIcon from '@/components/icons/VTwitterIcon.vue';
+import VDevtoIcon from '@/components/icons/VDevtoIcon.vue';
 import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
 </script>
 
 <template>
   <div class="section-sidebar">
-    <div class="flex justify-center text-center">
+    <div class="flex justify-center">
       <v-avatar
+        class="object-cover"
         alt="Profile Image"
-        src="https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/4d99c629-bdf3-48a9-88aa-616e2a35522f.png"
+        src="https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/48f3b57b-375b-42f9-8710-24d010d62ee1.png"
         width="200"
       />
     </div>
@@ -78,7 +79,7 @@ import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
         <span class="inline-flex gap-2 items-center">
           <envelope-icon class="h4 w-4" />
 
-          <a href="mailto:hello@ibrahimturan.com">
+          <a class="break-all" href="mailto:hello@ibrahimturan.com">
             hello@ibrahimturan.com
           </a>
         </span>
@@ -91,7 +92,7 @@ import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
         <span class="inline-flex gap-2 items-center">
           <link-icon class="h4 w-4" />
 
-          <a href="https://github.com/turanibrahim">
+          <a class="break-all" href="https://github.com/turanibrahim">
             https://github.com/turanibrahim
           </a>
         </span>

@@ -15,7 +15,7 @@ const props = defineProps({
     default: '75',
   },
 });
-const icon = defineAsyncComponent(() => import(`../atoms/V${props.icon}Icon.vue`));
+const icon = defineAsyncComponent(() => import(`../icons/V${props.icon}Icon.vue`));
 </script>
 
 <template>
