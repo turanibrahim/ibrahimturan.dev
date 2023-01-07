@@ -71,10 +71,11 @@ const technologies = [
       Technologies
     </h1>
 
-    <div class="flex flex-wrap">
+    <div class="grid grid-cols-12 gap-0">
       <v-technology-card
         v-for="tech in technologies"
         :key="tech.name"
+        class="col-span-3 sm:col-span-3 md:col-span-2 xl:col-span-1"
         width="25"
         height="25"
         :icon="tech.icon"
@@ -84,7 +85,3 @@ const technologies = [
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-
-</style>
