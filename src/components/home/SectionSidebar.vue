@@ -5,6 +5,11 @@ import VLinkedinIcon from '@/components/icons/VLinkedinIcon.vue';
 import VTwitterIcon from '@/components/icons/VTwitterIcon.vue';
 import VDevtoIcon from '@/components/icons/VDevtoIcon.vue';
 import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
+import { useUserStore } from '@/stores/userStore';
+import { computed } from 'vue';
+
+const userStore = useUserStore();
+const userInfo = computed(() => userStore.userInfo);
 </script>
 
 <template>
@@ -13,16 +18,16 @@ import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
       <v-avatar
         class="object-cover"
         alt="Profile Image"
-        src="https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/48f3b57b-375b-42f9-8710-24d010d62ee1.png"
+        :src="userInfo.profileImg"
         width="200"
       />
     </div>
 
     <h1 class="text-3xl xl:text-4xl font-bold mt-7 text-primary">
-      Ibrahim Turan
+      {{ userInfo.name }} {{ userInfo.surname }}
     </h1>
     <h2 class="text-xl xl:text-2xl font-semibold mt-2 text-primary-500">
-      Software Engineer
+      {{ userInfo.title }}
     </h2>
 
     <div class="mt-8">
@@ -31,11 +36,11 @@ import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
           Company
         </h3>
 
-        <a href="https://thehub21.com/" target="_blank">
+        <a :href="userInfo.companyUrl" target="_blank">
           <img
             class="h-5"
-            src="https://cdn.thehub21.com/logo-v2.png"
-            alt="hub21 logo"
+            :src="userInfo.companyLogo"
+            :alt="`${userInfo.company} Logo`"
             height="25"
           >
         </a>
@@ -47,25 +52,28 @@ import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
 
         <div class="flex mt-1 gap-2">
           <v-button
-            href="https://www.linkedin.com/in/ibrahimturann/"
+            :href="userInfo.linkedin"
             variant="icon"
             target="_blank"
+            rel="nofollow"
           >
             <v-linkedin-icon height="25" width="25" />
           </v-button>
 
           <v-button
-            href="https://twitter.com/_ibrahimturan"
+            :href="userInfo.twitter"
             variant="icon"
             target="_blank"
+            rel="nofollow"
           >
             <v-twitter-icon height="25" width="25" />
           </v-button>
 
           <v-button
-            href="https://dev.to/_ibrahimturan"
+            :href="userInfo.devto"
             variant="icon"
             target="_blank"
+            rel="nofollow"
           >
             <v-devto-icon height="25" width="25" />
           </v-button>
@@ -79,8 +87,8 @@ import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
         <span class="inline-flex gap-2 items-center">
           <envelope-icon class="h4 w-4" />
 
-          <a class="break-all" href="mailto:hello@ibrahimturan.com">
-            hello@ibrahimturan.com
+          <a class="break-all" :href="`mailto:${userInfo.email}`">
+            {{ userInfo.email }}
           </a>
         </span>
       </div>
@@ -92,8 +100,8 @@ import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
         <span class="inline-flex gap-2 items-center">
           <link-icon class="h4 w-4" />
 
-          <a class="break-all" href="https://github.com/turanibrahim">
-            https://github.com/turanibrahim
+          <a class="break-all" :href="userInfo.github" rel="nofollow">
+            {{ userInfo.github }}
           </a>
         </span>
       </div>
@@ -104,7 +112,7 @@ import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
 
         <span class="inline-flex gap-2 items-center">
           <map-pin-icon class="h4 w-4" />
-          Bolu, Turkey
+          {{ userInfo.location }}
         </span>
       </div>
     </div>

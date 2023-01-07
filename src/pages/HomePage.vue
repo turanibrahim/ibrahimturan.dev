@@ -4,6 +4,12 @@ import SectionAbout from '@/components/home/SectionAbout.vue';
 import SectionExperience from '@/components/home/SectionExperience.vue';
 import SectionEducation from '@/components/home/SectionEducation.vue';
 import SectionTechnologies from '@/components/home/SectionTechnologies.vue';
+import { useUserStore } from '@/stores/userStore';
+
+const userStore = useUserStore();
+
+userStore.fetchUserInfo();
+userStore.fetchUserExperience();
 </script>
 
 <template>
@@ -20,15 +26,7 @@ import SectionTechnologies from '@/components/home/SectionTechnologies.vue';
         >
           <section-about
             title="About"
-            :description="`
-              Frontend Developer with more than 3 years of experience.
-              Have a strong interest in all aspects of software development.
-              Combine's solution-oriented working with excellent communication.
-              Always curious to discover new things and currently exploring
-              technologies such as AWS, TailwindCSS, Typescript, and Vite.js.
-              Have experience variety of JavaScript frameworks
-              such as Vue.js, React/React-Native and Node.js.
-            `"
+            :description="userStore.userInfo.introduction"
           />
 
           <section-experience />

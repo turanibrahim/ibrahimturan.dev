@@ -12,6 +12,7 @@
     "@heroicons/vue": "^2.0.13",
     "date-fns": "^2.29.3",
     "firebase": "^9.15.0",
+    "pinia": "^2.0.28",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },

@@ -1,4 +1,7 @@
 <script setup>
+import { useUserStore } from '@/stores/userStore';
+
+const userStore = useUserStore();
 </script>
 
 <template>
@@ -19,17 +22,19 @@
 
         <div class="basis-auto">
           <h4 class="font-bold text-xl">
-            Sakarya University
+            {{ userStore.education.university }}
           </h4>
           <div class="text-lg mb-1">
-            Computer Engineering
+            {{ userStore.education.department }}
           </div>
           <div class="text-sm text-gray-600">
-            2016 - 2023
+            {{ userStore.education.startYear }}
+            -
+            {{ userStore.education.endYear }}
           </div>
 
           <div class="text-gray-600 mt-2">
-            Sakarya, Turkey
+            {{ userStore.education.location }}
           </div>
         </div>
       </div>

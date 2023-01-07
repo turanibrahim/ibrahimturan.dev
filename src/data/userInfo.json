@@ -1,0 +1,25 @@
+{
+  "userInfo": {
+    "name": "Ibrahim",
+    "surname": "Turan",
+    "title": "Software Engineer",
+    "company": "Hub21",
+    "companyLogo": "https://cdn.thehub21.com/logo-v2.png",
+    "companyUrl": "https://thehub21.com/",
+    "introduction": "Frontend Developer with more than 3 years of experience. Have a strong interest in all aspects of software development. Combine's solution-oriented working with excellent communication. Always curious to discover new things and currently exploring technologies such as AWS, TailwindCSS, Typescript, and Vite.js. Have experience variety of JavaScript frameworks such as Vue.js, React/React-Native and Node.js.",
+    "email": "hello@ibrahimturan.com",
+    "github": "https://github.com/turanibrahim",
+    "location": "Bolu, Turkey",
+    "profileImg": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/48f3b57b-375b-42f9-8710-24d010d62ee1.png",
+    "linkedin": "https://www.linkedin.com/in/ibrahimturann/",
+    "twitter": "https://twitter.com/_ibrahimturan",
+    "devto": "https://dev.to/_ibrahimturan",
+    "education": {
+      "university": "Sakarya University",
+      "department": "Computer Engineering",
+      "startYear": "2016",
+      "endYear": "2020",
+      "location": "Sakarya, Turkey"
+    }
+  }
+}

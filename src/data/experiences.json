@@ -1,0 +1,38 @@
+{
+  "experiences": [
+    {
+      "title": "Frontend Developer",
+      "company": "Hub21",
+      "startDate": "2022-06-01T21:00:00.000Z",
+      "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e8cd7708-5f71-4010-8ec4-c2a404f72b0b.jpeg",
+      "location": "London, England, United Kingdom\n"
+    },
+    {
+      "title": "Frontend Developer",
+      "company": "Vivense",
+      "startDate": "2021-08-23T12:00:00.000Z",
+      "endDate": "2021-05-31T12:00:00.000Z",
+      "description": "- Made contributions Vivense e-commerce websites and internal ERP project written with Vue.js.<br>- Mostly worked on Basket, Checkout, Accounting, Order and Customer services.<br>- Gained experience about working with different professions that related to software development process and being part of distributed systems.<br>- Lastly became familiar with remote work, agile methodologies, responsive design and UX best practices.",
+      "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/83edda06-9f6e-42bd-ac14-0b886ad094eb.jpeg",
+      "location": "Istanbul, Turkey"
+    },
+    {
+      "title": "Frontend Developer",
+      "company": "reybex Cloud ERP",
+      "startDate": "2020-06-01T12:00:00.000Z",
+      "endDate": "2021-08-20T12:00:00.000Z",
+      "description": "- Developed reybex Mobile, reybex Hand Terminal, reybex B2B Shop projects from the ground up. Also made contributions to main project reybex. Besides responsible for reybex Sales Person mobile app.<br>- Used javascript frameworks like Nuxt.js, Vue.js, React-Native, Feathers.js, Socket.io.<br>- As a summary of reybex adventure, developed three projects on the ground up and contributed other reybex projects. Reviewed almost 250 MR's and made about 2.5k contributions to all of reybex internal projects in one year.",
+      "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e415df9b-4c7c-4cfb-a057-709a70e3ba4f.jpeg",
+      "location": "Sakarya, Turkey"
+    },
+    {
+      "title": "Fullstack Intern",
+      "company": "BGS Bireysel Gelişim İnteraktif Sis. A.Ş\n",
+      "startDate": "2020-01-01T12:00:00.000Z",
+      "endDate": "2021-03-31T12:00:00.000Z",
+      "description": "- Worked on the main project named EYSIS. This project based on Phalcon PHP Framework, MySQL database on the backend side and Vue, Vuetify on the client side.<br>- Integrated all active development process into Docker. Besides that, worked on Linux computers, gained experience on git.",
+      "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e8cd7708-5f71-4010-8ec4-c2a404f72b0b.jpeg",
+      "location": "Sakarya, Turkey"
+    }
+  ]
+}
