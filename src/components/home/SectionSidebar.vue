@@ -26,7 +26,7 @@ const userInfo = computed(() => userStore.userInfo);
     <h1 class="text-3xl xl:text-4xl font-bold mt-7 text-primary">
       {{ userInfo.name }} {{ userInfo.surname }}
     </h1>
-    <h2 class="text-xl xl:text-2xl font-semibold mt-2 text-primary-500">
+    <h2 class="text-lg xl:text-xl font-semibold mt-2 text-primary-600">
       {{ userInfo.title }}
     </h2>
 
@@ -38,7 +38,7 @@ const userInfo = computed(() => userStore.userInfo);
 
         <a :href="userInfo.companyUrl" target="_blank">
           <img
-            class="h-5"
+            class="h-5 inline"
             :src="userInfo.companyLogo"
             :alt="`${userInfo.company} Logo`"
             height="25"
@@ -50,7 +50,7 @@ const userInfo = computed(() => userStore.userInfo);
           Social Media
         </h3>
 
-        <div class="flex mt-1 gap-2">
+        <div class="flex mt-1 gap-2 justify-center lg:justify-start">
           <v-button
             :href="userInfo.linkedin"
             variant="icon"

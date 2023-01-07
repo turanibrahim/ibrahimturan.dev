@@ -14,15 +14,24 @@ userStore.fetchUserExperience();
 
 <template>
   <div class="home-page h-full">
-    <div class="container mx-auto">
-      <div class="grid grid grid-cols-12 gap-0">
-        <div class="col-span-12 md:col-span-4">
-          <section-sidebar class="xl:px-10" />
+    <div class="hidden lg:block fixed left-0 top-0 w-screen">
+      <div class="lg:container grid grid-cols-12 md:px-4">
+        <div class="col-span-5 lg:col-span-4">
+          <section-sidebar class="xl:px-10 my-5 rounded-xl shadow-lg" />
+        </div>
+      </div>
+    </div>
+    <div class="lg:container">
+      <div class="grid grid-cols-12 gap-0">
+        <div class="col-span-12 sm:col-span-5 lg:col-span-4">
+          <section-sidebar
+            class="block lg:hidden xl:px-10 sm:min-h-screen text-center"
+          />
         </div>
 
         <div
-          class="col-span-12 md:col-span-8 py-14 px-4
-            xl:px-8 md:h-screen overflow-auto"
+          class="col-span-12 sm:col-span-7 lg:col-span-8 py-14 px-4
+            xl:px-8 sm:h-screen sm:overflow-auto lg:h-auto md:px-6"
         >
           <section-about
             title="About"
