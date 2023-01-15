@@ -13,7 +13,7 @@ userStore.fetchUserExperience();
 </script>
 
 <template>
-  <main class="home-page h-full my-7">
+  <main class="home-page h-full py-7">
     <div class="container">
       <div class="flex justify-center">
         <div class="basis-full lg:basis-4/5 xl:basis-2/3">
