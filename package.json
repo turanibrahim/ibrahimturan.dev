@@ -1,6 +1,7 @@
 {
   "name": "ibrahimturan",
   "private": true,
+  "type": "module",
   "version": "1.1.1",
   "scripts": {
     "dev": "vite",
@@ -10,6 +11,7 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.7",
     "@heroicons/vue": "^2.0.13",
+    "daisyui": "^2.46.1",
     "date-fns": "^2.29.3",
     "firebase": "^9.15.0",
     "pinia": "^2.0.28",

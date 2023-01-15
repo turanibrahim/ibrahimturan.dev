@@ -5,7 +5,7 @@ const userStore = useUserStore();
 </script>
 
 <template>
-  <div class="section-education">
+  <section class="section-education">
     <h1 class="font-bold text-4xl mb-5 mt-10">
       Education
     </h1>
@@ -39,5 +39,5 @@ const userStore = useUserStore();
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>

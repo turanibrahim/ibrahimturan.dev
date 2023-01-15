@@ -66,7 +66,7 @@ const technologies = [
 </script>
 
 <template>
-  <div class="section-technologies">
+  <section class="section-technologies">
     <h1 class="font-bold text-4xl mb-3 mt-10">
       Technologies
     </h1>
@@ -75,7 +75,7 @@ const technologies = [
       <v-technology-card
         v-for="tech in technologies"
         :key="tech.name"
-        class="col-span-3 sm:col-span-3 md:col-span-2 xl:col-span-1"
+        class="col-span-3 sm:col-span-3 md:col-span-2 xl:col-span-auto"
         width="25"
         height="25"
         :icon="tech.icon"
@@ -83,5 +83,5 @@ const technologies = [
         {{ tech.name }}
       </v-technology-card>
     </div>
-  </div>
+  </section>
 </template>

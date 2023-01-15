@@ -7,8 +7,8 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:vue/vue3-recommended',
     'airbnb-base',
+    'plugin:vue/vue3-strongly-recommended',
   ],
   parserOptions: {
     ecmaVersion: 'latest',

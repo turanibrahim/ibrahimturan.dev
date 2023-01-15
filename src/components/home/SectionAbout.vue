@@ -6,7 +6,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="section-about">
+  <section class="section-about">
     <h3 class="font-bold text-4xl mb-3">
       {{ props.title }}
     </h3>
@@ -14,5 +14,5 @@ const props = defineProps({
     <p class="text-gray-700">
       {{ props.description }}
     </p>
-  </div>
+  </section>
 </template>

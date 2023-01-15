@@ -6,7 +6,7 @@
 
 <style lang="scss">
 .default-layout {
-  @apply text-gray-800 min-h-screen bg-accent-50;
+  @apply text-gray-800 min-h-screen bg-gray-50;
 
   scrollbar-color: #C3D0DF transparent;
   scrollbar-width: thin;

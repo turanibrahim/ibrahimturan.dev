@@ -39,7 +39,7 @@ const icon = defineAsyncComponent(() => import(`../icons/V${props.icon}Icon.vue`
     @apply justify-self-center;
   }
   &__name {
-    @apply py-2 font-medium  text-gray-600;
+    @apply py-2 text-center font-medium  text-gray-600;
   }
 }
 </style>

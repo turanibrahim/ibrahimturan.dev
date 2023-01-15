@@ -6,7 +6,7 @@ const userStore = useUserStore();
 </script>
 
 <template>
-  <div class="section-experience">
+  <section class="section-experience">
     <h1 class="font-bold text-4xl mb-5 mt-10">
       Experience
     </h1>
@@ -26,5 +26,5 @@ const userStore = useUserStore();
         :location="experience.location"
       />
     </template>
-  </div>
+  </section>
 </template>
