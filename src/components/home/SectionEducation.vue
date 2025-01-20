@@ -1,16 +1,17 @@
 <script setup>
 import { useUserStore } from '@/stores/userStore';
+import VSectionTitle from '@/components/atoms/VSectionTitle.vue';
 
 const userStore = useUserStore();
 </script>
 
 <template>
-  <section class="section-education">
-    <h1 class="font-bold text-4xl mb-5 mt-10">
+  <section class="section-education mt-10 lg:mt-16">
+    <v-section-title element="h3">
       Education
-    </h1>
+    </v-section-title>
 
-    <div class="flex flex-col gap-10">
+    <div class="flex flex-col gap-10 mt-4">
       <div class="flex gap-4">
         <div class="basis-auto shrink-0">
           <img

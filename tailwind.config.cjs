@@ -9,7 +9,7 @@ module.exports = {
       'sm': '0.25rem',
       DEFAULT: '0.50rem',
       'md': '0.75rem',
-      'lg': '0.1rem',
+      'lg': '1rem',
       'xl': '1.5rem',
       '2xl': '2rem',
       '3xl': '3rem',
@@ -64,5 +64,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [require('daisyui')],
+  plugins: [require('@tailwindcss/typography'), require('daisyui')],
 };

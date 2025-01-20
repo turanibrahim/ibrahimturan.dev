@@ -1,5 +1,6 @@
 <script setup>
 import VTechnologyCard from '@/components/home/CardTechnology.vue';
+import VSectionTitle from '@/components/atoms/VSectionTitle.vue';
 
 const technologies = [
   {
@@ -66,18 +67,15 @@ const technologies = [
 </script>
 
 <template>
-  <section class="section-technologies">
-    <h1 class="font-bold text-4xl mb-3 mt-10">
+  <section class="section-technologies mt-10 lg:mt-16">
+    <v-section-title element="h3">
       Technologies
-    </h1>
+    </v-section-title>
 
-    <div class="grid grid-cols-12 gap-0">
+    <div class="flex flex-wrap gap-3 mt-3">
       <v-technology-card
         v-for="tech in technologies"
         :key="tech.name"
-        class="col-span-3 sm:col-span-3 md:col-span-2 xl:col-span-auto"
-        width="25"
-        height="25"
         :icon="tech.icon"
       >
         {{ tech.name }}

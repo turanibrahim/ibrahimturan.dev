@@ -6,6 +6,7 @@ import VLinkedinIcon from '@/components/icons/VLinkedinIcon.vue';
 import VTwitterIcon from '@/components/icons/VTwitterIcon.vue';
 import VDevtoIcon from '@/components/icons/VDevtoIcon.vue';
 import { LinkIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/vue/20/solid';
+import VSectionTitle from '@/components/atoms/VSectionTitle.vue';
 
 const userStore = useUserStore();
 
@@ -14,25 +15,38 @@ const userInfo = computed(() => userStore.userInfo);
 
 <template>
   <section
-    class="section-hero flex flex-col md:flex-row
-      gap-5 lg:gap-10 md:items-center"
+    class="section-hero"
   >
+    <div class="flex justify-center md:justify-start shrink">
+      <div class="[perspective:1000px]">
+        <img
+          class="profile-image"
+          :src="userInfo.profileImg"
+          alt="Profile Image"
+        >
+      </div>
+    </div>
     <div class="flex-1 order-1 md:order-0">
-      <h1 class="text-4xl lg:text-5xl font-extrabold text-primary">
+      <v-section-title element="h1">
         Ibrahim Turan
-      </h1>
+      </v-section-title>
 
-      <h2 class="text-xl lg:text-2xl font-bold text-secondary">
+      <v-section-title class="text-secondary font-semibold" element="h3">
         Software Engineer
-      </h2>
+      </v-section-title>
 
-      <div class="flex flex-wrap mt-2">
+      <div class="inline-flex gap-2 items-center mt-3">
+        <map-pin-icon class="h-6 w-6" /> Ankara, Turkey
+      </div>
+
+      <div class="flex flex-wrap bg-gray-100 rounded-lg px-4 py-2 mt-5 w-fit print:hidden">
         <v-button
           :href="userInfo.linkedin"
           variant="ghost"
           shape="circle"
           target="_blank"
           rel="nofollow"
+          class="transition-transform transform hover:scale-125"
         >
           <v-linkedin-icon height="25" width="25" />
         </v-button>
@@ -43,6 +57,7 @@ const userInfo = computed(() => userStore.userInfo);
           shape="circle"
           target="_blank"
           rel="nofollow"
+          class="transition-transform transform hover:scale-125"
         >
           <v-twitter-icon height="25" width="25" />
         </v-button>
@@ -53,44 +68,42 @@ const userInfo = computed(() => userStore.userInfo);
           shape="circle"
           target="_blank"
           rel="nofollow"
+          class="transition-transform transform hover:scale-125"
         >
           <v-devto-icon height="25" width="25" />
         </v-button>
-      </div>
 
-      <div class="flex flex-col">
-        <div class="inline-flex gap-2 items-center mt-3">
+        <v-button
+          :href="`mailto:${userInfo.email}`"
+          variant="ghost"
+          shape="circle"
+          rel="nofollow"
+          class="transition-transform transform hover:scale-125"
+        >
           <envelope-icon class="h6 w-6" />
+        </v-button>
 
-          <a class="break-all" :href="`mailto:${userInfo.email}`">
-            {{ userInfo.email }}
-          </a>
-        </div>
-        <div class="inline-flex gap-2 items-center mt-3">
+        <v-button
+          :href="userInfo.github"
+          variant="ghost"
+          shape="circle"
+          target="_blank"
+          rel="nofollow"
+          class="transition-transform transform hover:scale-125"
+        >
           <link-icon class="h6 w-6" />
-
-          <a class="break-all" :href="userInfo.github" rel="nofollow">
-            {{ userInfo.github }}
-          </a>
-        </div>
-
-        <div class="inline-flex gap-2 items-center mt-3">
-          <map-pin-icon class="h-6 w-6" />
-          {{ userInfo.location }}
-        </div>
+        </v-button>
       </div>
-    </div>
-
-    <div class="flex-1 order-0 md:order-1 self-center">
-      <img
-        class="h-60 md:h-full"
-        :src="userInfo.profileImg"
-        alt="Profile Image"
-      >
     </div>
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.section-hero {
+  @apply flex flex-col md:flex-row print:flex-row gap-5 lg:gap-10 md:items-center mt-5 md:mt-10;
 
+  .profile-image {
+    @apply h-[250px] print:h-[150px] rounded-full aspect-square border-[10px] border-orange-200 object-cover bg-orange-50 transition-all duration-500 hover:[transform:rotateY(360deg)];
+  }
+}
 </style>

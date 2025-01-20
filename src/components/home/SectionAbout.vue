@@ -1,4 +1,6 @@
 <script setup>
+import VSectionTitle from '@/components/atoms/VSectionTitle.vue';
+
 const props = defineProps({
   title: { type: String, default: null },
   description: { type: String, default: null },
@@ -7,9 +9,9 @@ const props = defineProps({
 
 <template>
   <section class="section-about">
-    <h3 class="font-bold text-4xl mb-3">
+    <v-section-title element="h3">
       {{ props.title }}
-    </h3>
+    </v-section-title>
 
     <p class="text-gray-700">
       {{ props.description }}

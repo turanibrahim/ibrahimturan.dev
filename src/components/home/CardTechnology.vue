@@ -34,12 +34,12 @@ const icon = defineAsyncComponent(() => import(`../icons/V${props.icon}Icon.vue`
 
 <style lang="scss">
 .v-technology-card {
-  @apply flex flex-col p-5 items-center;
+  @apply flex px-3 text-xs items-center bg-secondary text-white rounded-lg gap-1;
   &__icon {
-    @apply justify-self-center;
+    @apply justify-self-center w-4 h-4;
   }
   &__name {
-    @apply py-2 text-center font-medium  text-gray-600;
+    @apply py-2 text-center ;
   }
 }
 </style>

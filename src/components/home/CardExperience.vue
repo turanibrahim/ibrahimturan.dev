@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { format, formatDistance } from 'date-fns';
+import VSectionTitle from '@/components/atoms/VSectionTitle.vue';
 
 const props = defineProps({
   title: { type: String, default: null },
@@ -45,12 +46,12 @@ const endDateLabel = computed(() => (
           >
 
           <div>
-            <h4 class="font-bold text-xl">
+            <v-section-title class="!pb-0.5" element="h6">
               {{ props.title }}
-            </h4>
-            <div class="text-lg mb-1">
+            </v-section-title>
+            <v-section-title class="!pb-0.5 !font-normal" element="h6">
               {{ props.company }}
-            </div>
+            </v-section-title>
             <div class="text-sm text-gray-600 capitalize">
               {{ formattedDate(props.startDate) }}
               -
