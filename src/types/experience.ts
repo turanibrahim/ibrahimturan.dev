@@ -3,7 +3,7 @@ export interface Experience {
   company: string;
   startDate: string;
   endDate?: string;
-  description: string;
+  description?: string;
   companyLogo: string;
   location: string;
 }

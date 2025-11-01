@@ -4,7 +4,7 @@ import ExperienceCard from '@/components/molecules/experience-card.vue';
 import experiencesData from '@/data/experiences.json';
 import type { Experience } from '@/types/experience';
 
-const experiences = computed<Experience[]>(() => experiencesData.experiences);
+const experiences = computed(() => experiencesData.experiences as Experience[]);
 </script>
 
 <template>
