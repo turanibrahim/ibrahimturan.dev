@@ -5,6 +5,7 @@ import VAvatar from '@/components/atoms/v-avatar.vue';
 import VCard from '@/components/atoms/v-card.vue';
 import VPrismBackground from '@/components/atoms/v-prism-background.vue';
 import VBlurText from '@/components/atoms/v-blur-text.vue';
+import VHeading from '@/components/atoms/v-heading.vue';
 import SocialLinks from '@/components/molecules/social-links.vue';
 
 const userStore = useUserStore();
@@ -34,12 +35,12 @@ const userInfo = computed(() => userStore.userInfo);
         >
           <v-avatar :src="userInfo.profileImg" alt="Profile Image" size="xl" shape="rounded" />
           <div class="flex-1 text-neutral">
-            <h1 class="text-5xl font-black">
+            <v-heading level="1" weight="black">
               <v-blur-text :text="`${userInfo.name} ${userInfo.surname}`" />
-            </h1>
-            <h3 class="text-3xl text-secondary font-semibold mt-2">
+            </v-heading>
+            <v-heading level="3" weight="semibold" class="text-secondary mt-2">
               {{ userInfo.title }}
-            </h3>
+            </v-heading>
 
             <social-links class="mt-3" />
           </div>

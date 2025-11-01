@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import { useUserStore } from '@/stores/user.store';
 import VButton from '@/components/atoms/v-button.vue';
+import VIcon from '@/components/atoms/v-icon.vue';
 
 const userStore = useUserStore();
 const socialLinks = computed(() => [

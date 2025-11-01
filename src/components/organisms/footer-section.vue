@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import SocialLinks from '@/components/molecules/social-links.vue';
-const currentYear = new Date().getFullYear();
+
+const currentYear = computed(() => new Date().getFullYear());
 </script>
 
 <template>
