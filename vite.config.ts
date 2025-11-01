@@ -14,7 +14,7 @@ export default defineConfig({
       manifest: {
         name: 'ibrahimturan',
         short_name: 'ibrahimturan',
-        description: 'I\'m Ibrahim, working as Frontend Developer almost 3 years. Interest everything related to software. Like being practical and work solution oriented. Have high communications skills and always curious about the cutting-edge technologies.',
+        description: 'Frontend Engineer with 5+ years of experience specializing in building scalable web applications and modern user interfaces. Passionate about delivering high-quality, performant solutions using cutting-edge technologies.',
         theme_color: '#ffffff',
         start_url: '/',
         icons: [

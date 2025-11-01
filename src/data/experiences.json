@@ -4,6 +4,7 @@
       "title": "Frontend Engineer",
       "company": "MobileAction",
       "startDate": "2025-03-03T21:00:00.000Z",
+      "description": "Building innovative mobile intelligence solutions and contributing to cutting-edge frontend development projects.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/7eb6f416-83b6-4a7d-873b-2f6fe1239e70.jpeg",
       "location": "Ankara, Turkey"
     },
@@ -12,7 +13,7 @@
       "company": "NMQ Digital",
       "startDate": "2023-04-05T21:00:00.000Z",
       "endDate": "2025-03-01T12:00:00.000Z",
-      "description": "- Developed and deployed full-stack AI projects using ChatGPT services, Typescript and Next.js, taking full responsibility from development to deployment. Conducted code reviews, resource and server meetings, and contributed to a full-stack AI translation project integrated with CrownPeak, utilizing Hono, React, Redis, and PostgreSQL.<br>- Maintained and optimized an internal Vue2 project by integrating Vite, updating dependencies, and improving code quality and performance. Also maintained the HubSpot CMS project used by the NMQ website.<br>- Worked as a Frontend Engineer on 4 CrownPeak CMS projects, developing and maintaining over 100 complex CMS components. Conducted R&D and POCs on cutting-edge technologies and frameworks to improve productivity in legacy full-stack CMS systems, including asset injection based on components, Lit usage, and headless CrownPeak.<br>- Provided project estimations, guided newcomers during onboarding, and conducted research on new technologies for customers.",
+      "description": "- Led development and deployment of full-stack AI projects leveraging ChatGPT services, TypeScript, and Next.js, managing the complete lifecycle from development to production deployment.<br>- Architected and built a full-stack AI translation system integrated with CrownPeak CMS, utilizing modern technologies including Hono, React, Redis, and PostgreSQL.<br>- Spearheaded modernization of legacy Vue 2 application by migrating to Vite build system, updating dependencies, and implementing performance optimizations that significantly improved code quality and build times.<br>- Engineered and maintained 100+ complex CMS components across 4 CrownPeak CMS projects, demonstrating expertise in component-driven architecture and enterprise content management systems.<br>- Conducted R&D initiatives and proof-of-concepts for cutting-edge technologies including component-based asset injection, Lit web components, and headless CMS architectures to modernize legacy systems.<br>- Provided technical leadership through accurate project estimations, mentoring new team members during onboarding, conducting comprehensive code reviews, and evaluating emerging technologies for client implementations.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/0dbd5b1e-3a47-4005-9ced-bd647f240b84.jpeg",
       "location": "Istanbul, Turkey"
     },
@@ -21,7 +22,7 @@
       "company": "Hub21",
       "startDate": "2022-06-01T21:00:00.000Z",
       "endDate": "2023-04-05T12:00:00.000Z",
-      "description": "- Migrated website to Vue.js and Bootstrap, introducing new architecture and improving performance. - Integrated marketing and observation tools seamlessly, optimizing performance while maintaining functionality. - Achieved significant performance improvements with a 60 to 90+ score increase in Lighthouse reports and enhanced SEO. - Led development of parent and student applications, ensuring consistency with website architecture. - Implemented Sentry for error monitoring, reducing bugs and errors by 83% and enhancing user experience.",
+      "description": "- Architected and executed complete migration of company website to Vue.js and Bootstrap framework, establishing modern architecture patterns and significantly improving application performance.<br>- Seamlessly integrated marketing analytics and monitoring tools while maintaining optimal performance standards and ensuring all functionality remained intact.<br>- Achieved remarkable performance improvements, increasing Lighthouse scores from 60 to 90+, while implementing comprehensive SEO optimizations that enhanced search engine visibility.<br>- Led end-to-end development of parent and student portal applications, ensuring architectural consistency and maintaining code quality standards across all platforms.<br>- Implemented Sentry error monitoring and tracking system, resulting in an 83% reduction in production bugs and significantly improving overall user experience and application reliability.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e8cd7708-5f71-4010-8ec4-c2a404f72b0b.jpeg",
       "location": "London, England, United Kingdom"
     },
@@ -30,7 +31,7 @@
       "company": "Vivense",
       "startDate": "2021-08-23T12:00:00.000Z",
       "endDate": "2022-05-31T12:00:00.000Z",
-      "description": "- Made contributions Vivense e-commerce websites and internal ERP project written with Vue.js.<br>- Mostly worked on Basket, Checkout, Accounting, Order and Customer services.<br>- Gained experience about working with different professions that related to software development process and being part of distributed systems.<br>- Lastly became familiar with remote work, agile methodologies, responsive design and UX best practices.",
+      "description": "- Contributed to large-scale e-commerce platform and internal ERP systems built with Vue.js, supporting high-traffic customer-facing applications and business-critical operations.<br>- Developed and maintained critical e-commerce features including shopping cart, checkout flow, accounting integration, order management, and customer service modules.<br>- Collaborated effectively in cross-functional teams with designers, product managers, and backend engineers, gaining valuable experience in distributed system architectures and microservices communication.<br>- Adapted to remote work environment while mastering agile methodologies (Scrum/Kanban), implementing responsive design patterns, and applying UX best practices to enhance user experience across all touchpoints.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/83edda06-9f6e-42bd-ac14-0b886ad094eb.jpeg",
       "location": "Istanbul, Turkey"
     },
@@ -39,7 +40,7 @@
       "company": "reybex Cloud ERP",
       "startDate": "2020-06-01T12:00:00.000Z",
       "endDate": "2021-08-20T12:00:00.000Z",
-      "description": "- Developed reybex Mobile, reybex Hand Terminal, reybex B2B Shop projects from the ground up. Also made contributions to main project reybex. Besides responsible for reybex Sales Person mobile app.<br>- Used javascript frameworks like Nuxt.js, Vue.js, React-Native, Feathers.js, Socket.io.<br>- As a summary of reybex adventure, developed three projects on the ground up and contributed other reybex projects. Reviewed almost 250 MR's and made about 2.5k contributions to all of reybex internal projects in one year.",
+      "description": "- Built three enterprise applications from the ground up: reybex Mobile, reybex Hand Terminal, and reybex B2B Shop, while maintaining ownership of the reybex Sales Person mobile application.<br>- Leveraged modern JavaScript ecosystem including Nuxt.js, Vue.js, React Native, Feathers.js, and Socket.io to deliver real-time, cross-platform solutions for cloud ERP system.<br>- Demonstrated exceptional productivity and code quality by reviewing 250+ merge requests and contributing 2,500+ commits across all reybex internal projects within one year.<br>- Played key role in technical decision-making and architecture planning, ensuring scalability and maintainability of all developed applications.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e415df9b-4c7c-4cfb-a057-709a70e3ba4f.jpeg",
       "location": "Sakarya, Turkey"
     },
@@ -48,7 +49,7 @@
       "company": "BGS Bireysel Gelişim İnteraktif Sis. A.Ş",
       "startDate": "2020-01-01T12:00:00.000Z",
       "endDate": "2020-03-31T12:00:00.000Z",
-      "description": "- Worked on the main project named EYSIS. This project based on Phalcon PHP Framework, MySQL database on the backend side and Vue, Vuetify on the client side.<br>- Integrated all active development process into Docker. Besides that, worked on Linux computers, gained experience on git.",
+      "description": "- Contributed to EYSIS, a full-stack enterprise application built with Phalcon PHP Framework and MySQL on the backend, integrated with Vue.js and Vuetify for modern, responsive user interfaces.<br>- Containerized entire development workflow using Docker, streamlining the development process and ensuring consistency across different environments.<br>- Gained foundational experience in Linux-based development environments and version control with Git, establishing strong software engineering practices early in career.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/66efee14-68bc-4715-a55e-776ddaeffb9e.png",
       "location": "Sakarya, Turkey"
     }
