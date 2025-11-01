@@ -2,8 +2,16 @@
   "experiences": [
     {
       "title": "Frontend Engineer",
+      "company": "MobileAction",
+      "startDate": "2025-03-03T21:00:00.000Z",
+      "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/7eb6f416-83b6-4a7d-873b-2f6fe1239e70.jpeg",
+      "location": "Ankara, Turkey"
+    },
+    {
+      "title": "Frontend Engineer",
       "company": "NMQ Digital",
       "startDate": "2023-04-05T21:00:00.000Z",
+      "endDate": "2025-03-01T12:00:00.000Z",
       "description": "- Developed and deployed full-stack AI projects using ChatGPT services, Typescript and Next.js, taking full responsibility from development to deployment. Conducted code reviews, resource and server meetings, and contributed to a full-stack AI translation project integrated with CrownPeak, utilizing Hono, React, Redis, and PostgreSQL.<br>- Maintained and optimized an internal Vue2 project by integrating Vite, updating dependencies, and improving code quality and performance. Also maintained the HubSpot CMS project used by the NMQ website.<br>- Worked as a Frontend Engineer on 4 CrownPeak CMS projects, developing and maintaining over 100 complex CMS components. Conducted R&D and POCs on cutting-edge technologies and frameworks to improve productivity in legacy full-stack CMS systems, including asset injection based on components, Lit usage, and headless CrownPeak.<br>- Provided project estimations, guided newcomers during onboarding, and conducted research on new technologies for customers.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/0dbd5b1e-3a47-4005-9ced-bd647f240b84.jpeg",
       "location": "Istanbul, Turkey"

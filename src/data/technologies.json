@@ -1,0 +1,72 @@
+[
+  {
+    "id": "javascript",
+    "name": "Javascript",
+    "icon": "si-javascript"
+  },
+  {
+    "id": "vuejs",
+    "name": "Vue.js",
+    "icon": "si-vuedotjs"
+  },
+  {
+    "id": "nuxtjs",
+    "name": "Nuxt.js",
+    "icon": "si-nuxtdotjs"
+  },
+  {
+    "id": "vuetify",
+    "name": "Vuetify",
+    "icon": "si-vuetify"
+  },
+  {
+    "id": "reactjs",
+    "name": "React.js",
+    "icon": "si-react"
+  },
+  {
+    "id": "redux",
+    "name": "Redux",
+    "icon": "si-redux"
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "icon": "si-docker"
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB",
+    "icon": "si-mongodb"
+  },
+  {
+    "id": "nginx",
+    "name": "Nginx",
+    "icon": "si-nginx"
+  },
+  {
+    "id": "heroku",
+    "name": "Heroku",
+    "icon": "si-heroku"
+  },
+  {
+    "id": "firebase",
+    "name": "Firebase",
+    "icon": "si-firebase"
+  },
+  {
+    "id": "tailwindcss",
+    "name": "Tailwind CSS",
+    "icon": "si-tailwindcss"
+  },
+  {
+    "id": "vitejs",
+    "name": "Vite.js",
+    "icon": "si-vite"
+  },
+  {
+    "id": "aws",
+    "name": "AWS",
+    "icon": "si-amazonaws"
+  }
+]
