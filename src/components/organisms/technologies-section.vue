@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import VTechBadge from '@/components/atoms/v-tech-badge.vue';
+import VTechBadge from '@/components/molecules/v-tech-badge.vue';
 import technologiesData from '@/data/technologies.json';
 import type { Technology } from '@/types/technology';
 
@@ -16,7 +16,6 @@ const technologies = computed<Technology[]>(() => technologiesData);
           v-for="technology in technologies"
           :key="technology.id"
           :technology="technology"
-          size="md"
         />
       </div>
     </div>

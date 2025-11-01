@@ -13,10 +13,10 @@ const userInfo = computed(() => userStore.userInfo);
 </script>
 
 <template>
-  <section class="relative py-10 overflow-hidden">
+  <section class="relative py-10 overflow-hidden bg-base-300">
     <div class="absolute inset-0 z-0">
       <v-prism-background
-        animation-type="hover"
+        animation-type="3drotate"
         :time-scale="0.5"
         :height="4"
         :base-width="8"
@@ -28,7 +28,7 @@ const userInfo = computed(() => userStore.userInfo);
       />
     </div>
     <div class="container">
-      <v-card class="relative z-10 bg-base-200/50 backdrop-blur-xs" bordered>
+      <v-card class="relative z-10 bg-base-100/60 backdrop-blur-sm" bordered>
         <div
           class="flex flex-col md:flex-row print:flex-row gap-5 lg:gap-10 md:items-center h-full min-h-[300px]"
         >
