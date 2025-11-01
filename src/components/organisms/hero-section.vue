@@ -5,7 +5,7 @@ import VAvatar from '@/components/atoms/v-avatar.vue';
 import VCard from '@/components/atoms/v-card.vue';
 import VPrismBackground from '@/components/atoms/v-prism-background.vue';
 import VBlurText from '@/components/atoms/v-blur-text.vue';
-import SocialLinks from '@/components/organisms/social-links.vue';
+import SocialLinks from '@/components/molecules/social-links.vue';
 
 const userStore = useUserStore();
 

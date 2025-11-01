@@ -76,6 +76,7 @@ export default tseslint.config(
       'vue/multi-word-component-names': 'off',
       'vue/component-name-in-template-casing': ['error', 'kebab-case'],
       'vue/require-default-prop': 'off',
+      'vue/no-v-html': 'off',
       'vue/html-self-closing': ['error', {
         html: {
           void: 'always',

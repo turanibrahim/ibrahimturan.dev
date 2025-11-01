@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SocialLinks from '@/components/organisms/social-links.vue';
+import SocialLinks from '@/components/molecules/social-links.vue';
 const currentYear = new Date().getFullYear();
 </script>
 
