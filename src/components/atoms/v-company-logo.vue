@@ -1,11 +1,5 @@
 <script setup lang="ts">
-export interface VCompanyLogoProps {
-  src: string;
-  alt: string;
-  size?: 'sm' | 'md' | 'lg';
-  rounded?: 'sm' | 'md' | 'lg' | 'full';
-  background?: boolean;
-}
+import type { VCompanyLogoProps } from '@/types/v-company-logo';
 
 withDefaults(defineProps<VCompanyLogoProps>(), {
   size: 'md',

@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { OhVueIcon } from 'oh-vue-icons';
-
-export interface VIconProps {
-  name: string;
-  scale?: number;
-  animation?: 'spin' | 'pulse' | 'wrench' | 'ring' | 'float' | 'tada';
-  flip?: 'horizontal' | 'vertical' | 'both';
-  label?: string;
-}
+import type { VIconProps } from '@/types/v-icon';
 
 defineProps<VIconProps>();
 </script>

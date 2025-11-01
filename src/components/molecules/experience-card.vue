@@ -2,14 +2,10 @@
 import VCard from '@/components/atoms/v-card.vue';
 import VCompanyLogo from '@/components/atoms/v-company-logo.vue';
 import VHeading from '@/components/atoms/v-heading.vue';
-import type { Experience } from '@/types/experience';
+import type { ExperienceCardProps } from '@/types/experience-card';
 import { formatDate, calculateDuration } from '@/utils/date';
 
-interface Props {
-  experience: Experience;
-}
-
-defineProps<Props>();
+defineProps<ExperienceCardProps>();
 </script>
 
 <template>

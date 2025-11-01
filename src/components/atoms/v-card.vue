@@ -1,43 +1,23 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import type { CardSize, ResponsiveSize, VCardProps } from '@/types/v-card';
 
-type CardSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-type ResponsiveSize = Partial<Record<'default' | 'sm' | 'md' | 'lg' | 'xl', CardSize>>;
-
-const props = withDefaults(
-  defineProps<{
-    title?: string;
-    bordered?: boolean;
-    dashed?: boolean;
-    side?: boolean;
-    imageFull?: boolean;
-    size?: CardSize | ResponsiveSize;
-    imageSrc?: string;
-    imageAlt?: string;
-    imageBottom?: boolean;
-    centered?: boolean;
-    color?: string;
-    responsive?: boolean;
-    figurePadding?: boolean;
-    figureRounded?: boolean;
-  }>(),
-  {
-    title: '',
-    bordered: false,
-    dashed: false,
-    side: false,
-    imageFull: false,
-    size: 'md',
-    imageSrc: '',
-    imageAlt: 'card image',
-    imageBottom: false,
-    centered: false,
-    color: '',
-    responsive: false,
-    figurePadding: false,
-    figureRounded: false,
-  },
-);
+const props = withDefaults(defineProps<VCardProps>(), {
+  title: '',
+  bordered: false,
+  dashed: false,
+  side: false,
+  imageFull: false,
+  size: 'md',
+  imageSrc: '',
+  imageAlt: 'card image',
+  imageBottom: false,
+  centered: false,
+  color: '',
+  responsive: false,
+  figurePadding: false,
+  figureRounded: false,
+});
 
 const cardClasses = computed(() => {
   const classes: (string | Record<string, boolean>)[] = ['card'];

@@ -1,51 +1,22 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import type { ButtonColor, ButtonVariant, ButtonSize, VButtonProps } from '@/types/v-button';
 
-type ButtonColor =
-  | 'neutral'
-  | 'primary'
-  | 'secondary'
-  | 'accent'
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'error';
-type ButtonVariant = 'outline' | 'dash' | 'soft' | 'ghost' | 'link';
-type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-type ButtonTag = 'button' | 'a' | 'router-link';
-
-const props = withDefaults(
-  defineProps<{
-    color?: ButtonColor;
-    variant?: ButtonVariant;
-    size?: ButtonSize;
-    wide?: boolean;
-    block?: boolean;
-    square?: boolean;
-    circle?: boolean;
-    active?: boolean;
-    disabled?: boolean;
-    loading?: boolean;
-    tag?: ButtonTag;
-    href?: string;
-    to?: string | object;
-  }>(),
-  {
-    color: undefined,
-    variant: undefined,
-    size: 'md',
-    wide: false,
-    block: false,
-    square: false,
-    circle: false,
-    active: false,
-    disabled: false,
-    loading: false,
-    tag: 'button',
-    href: undefined,
-    to: undefined,
-  },
-);
+const props = withDefaults(defineProps<VButtonProps>(), {
+  color: undefined,
+  variant: undefined,
+  size: 'md',
+  wide: false,
+  block: false,
+  square: false,
+  circle: false,
+  active: false,
+  disabled: false,
+  loading: false,
+  tag: 'button',
+  href: undefined,
+  to: undefined,
+});
 
 const emit = defineEmits<{
   (e: 'click', event: MouseEvent): void;

@@ -1,24 +1,7 @@
 <script setup lang="ts">
 import { Mesh, Program, Renderer, Triangle } from 'ogl';
 import { onBeforeUnmount, onMounted, useTemplateRef, watch } from 'vue';
-
-type PrismProps = {
-  height?: number;
-  baseWidth?: number;
-  animationType?: 'rotate' | 'hover' | '3drotate';
-  glow?: number;
-  offset?: { x?: number; y?: number };
-  noise?: number;
-  transparent?: boolean;
-  scale?: number;
-  hueShift?: number;
-  colorFrequency?: number;
-  hoverStrength?: number;
-  inertia?: number;
-  bloom?: number;
-  suspendWhenOffscreen?: boolean;
-  timeScale?: number;
-};
+import type { PrismProps } from '@/types/v-prism-background';
 
 const props = withDefaults(defineProps<PrismProps>(), {
   height: 3.5,

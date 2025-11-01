@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-
-export interface VBadgeProps {
-  variant?: 'default' | 'outline' | 'dash' | 'soft' | 'ghost';
-  color?: 'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error';
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  tag?: string;
-}
+import type { VBadgeProps } from '@/types/v-badge';
 
 const props = withDefaults(defineProps<VBadgeProps>(), {
   variant: 'default',

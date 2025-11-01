@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import type { Technology } from '@/types/technology';
+import type { VTechBadgeProps } from '@/types/v-tech-badge';
 import VBadge from '@/components/atoms/v-badge.vue';
 import VIcon from '@/components/atoms/v-icon.vue';
-
-export interface VTechBadgeProps {
-  technology: Technology;
-}
 
 defineProps<VTechBadgeProps>();
 </script>

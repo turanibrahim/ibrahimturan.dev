@@ -1,34 +1,18 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import type { AvatarSize, VAvatarProps } from '@/types/v-avatar';
 
-type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-type AvatarShape = 'rounded' | 'rounded-xl' | 'rounded-full';
-
-const props = withDefaults(
-  defineProps<{
-    src?: string;
-    alt?: string;
-    size?: AvatarSize;
-    shape?: AvatarShape;
-    mask?: string;
-    online?: boolean;
-    offline?: boolean;
-    placeholder?: boolean;
-    text?: string;
-    ring?: boolean;
-  }>(),
-  {
-    alt: 'avatar',
-    size: 'md',
-    shape: 'rounded',
-    mask: '',
-    online: false,
-    offline: false,
-    placeholder: false,
-    text: '',
-    ring: false,
-  },
-);
+const props = withDefaults(defineProps<VAvatarProps>(), {
+  alt: 'avatar',
+  size: 'md',
+  shape: 'rounded',
+  mask: '',
+  online: false,
+  offline: false,
+  placeholder: false,
+  text: '',
+  ring: false,
+});
 
 const sizeClasses: Record<AvatarSize, string> = {
   xs: 'w-8',
