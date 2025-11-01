@@ -32,7 +32,7 @@ const userInfo = computed(() => userStore.userInfo);
         <div
           class="flex flex-col md:flex-row print:flex-row gap-5 lg:gap-10 md:items-center h-full min-h-[300px]"
         >
-          <v-avatar :src="userInfo.profileImg" alt="Profile Image" size="xl" shape="rounded-full" />
+          <v-avatar :src="userInfo.profileImg" alt="Profile Image" size="xl" shape="rounded" />
           <div class="flex-1 text-neutral">
             <h1 class="text-5xl font-black">
               <v-blur-text :text="`${userInfo.name} ${userInfo.surname}`" />

@@ -8,7 +8,7 @@ const experiences = computed<Experience[]>(() => experiencesData.experiences);
 </script>
 
 <template>
-  <section class="py-10 bg-base-200">
+  <section class="py-10 bg-base-300">
     <div class="container">
       <h2 class="text-4xl font-bold mb-6">Experience</h2>
       <div class="space-y-6">
