@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "ibrahimturan-light";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(99.51% 0.002 261.24);
+  --color-base-200: oklch(96.86% 0.006 261.24);
+  --color-base-300: oklch(94.22% 0.01 261.24);
+  --color-base-content: oklch(36.86% 0.023 261.24);
+  --color-primary: oklch(62.75% 0.169 261.24);
+  --color-primary-content: oklch(99.51% 0.002 261.24);
+  --color-secondary: oklch(78.34% 0.113 291.24);
+  --color-secondary-content: oklch(99.51% 0.002 261.24);
+  --color-accent: oklch(78.34% 0.113 321.24);
+  --color-accent-content: oklch(99.51% 0.002 261.24);
+  --color-neutral: oklch(36.86% 0.023 261.24);
+  --color-neutral-content: oklch(96.86% 0.006 261.24);
+  --color-info: oklch(78.34% 0.113 231.24);
+  --color-info-content: oklch(99.51% 0.002 261.24);
+  --color-success: oklch(78.34% 0.113 141.24);
+  --color-success-content: oklch(22.06% 0.015 141.24);
+  --color-warning: oklch(78.34% 0.113 81.24);
+  --color-warning-content: oklch(36.86% 0.023 81.24);
+  --color-error: oklch(78.34% 0.113 31.24);
+  --color-error-content: oklch(99.51% 0.002 261.24);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+
+@theme {
+  --radius-none: 0;
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
+  --radius-5xl: 3rem;
+  --radius-full: 9999px;
+
+  --container-padding: 1.2rem;
+  --container-padding-sm: 2rem;
+  --container-padding-lg: 4rem;
+  --container-padding-xl: 5rem;
+  --container-padding-2xl: 6rem;
+}
+
+@layer utilities {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: var(--container-padding-sm);
+      padding-right: var(--container-padding-sm);
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: var(--container-padding-lg);
+      padding-right: var(--container-padding-lg);
+    }
+  }
+  @media (min-width: 1280px) {
+    .container {
+      padding-left: var(--container-padding-xl);
+      padding-right: var(--container-padding-xl);
+    }
+  }
+  @media (min-width: 1536px) {
+    .container {
+      padding-left: var(--container-padding-2xl);
+      padding-right: var(--container-padding-2xl);
+    }
+  }
+}
