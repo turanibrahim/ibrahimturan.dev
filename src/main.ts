@@ -4,9 +4,6 @@ import ohVueIcons from '@/plugins/oh-vue-icons';
 import router from './router';
 import App from './app.vue';
 
-const app = createApp(App)
-  .use(router)
-  .use(pinia)
-  .use(ohVueIcons);
+const app = createApp(App).use(router).use(pinia).use(ohVueIcons);
 
 app.mount('#app');

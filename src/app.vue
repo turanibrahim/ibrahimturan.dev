@@ -15,6 +15,5 @@ const layout = computed(() => {
 </script>
 
 <template>
-  <component :is="layout"/>
+  <component :is="layout" />
 </template>
-

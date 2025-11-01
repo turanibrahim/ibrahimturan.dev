@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Mesh, Program, Renderer, Triangle } from "ogl";
-import { onBeforeUnmount, onMounted, useTemplateRef, watch } from "vue";
+import { Mesh, Program, Renderer, Triangle } from 'ogl';
+import { onBeforeUnmount, onMounted, useTemplateRef, watch } from 'vue';
 
 type PrismProps = {
   height?: number;
   baseWidth?: number;
-  animationType?: "rotate" | "hover" | "3drotate";
+  animationType?: 'rotate' | 'hover' | '3drotate';
   glow?: number;
   offset?: { x?: number; y?: number };
   noise?: number;
@@ -23,7 +23,7 @@ type PrismProps = {
 const props = withDefaults(defineProps<PrismProps>(), {
   height: 3.5,
   baseWidth: 5.5,
-  animationType: "rotate",
+  animationType: 'rotate',
   glow: 1,
   offset: () => ({ x: 0, y: 0 }),
   noise: 0.5,
@@ -38,13 +38,15 @@ const props = withDefaults(defineProps<PrismProps>(), {
   timeScale: 0.5,
 });
 
-const containerRef = useTemplateRef("containerRef");
+const containerRef = useTemplateRef('containerRef');
 
 let cleanup: (() => void) | null = null;
 
 const setup = () => {
   const container = containerRef.value;
-  if (!container) return;
+  if (!container) {
+    return;
+  }
 
   const H = Math.max(0.001, props.height);
   const BW = Math.max(0.001, props.baseWidth);
@@ -71,17 +73,17 @@ const setup = () => {
     alpha: props.transparent,
     antialias: false,
   });
-  const gl = renderer.gl;
+  const { gl } = renderer;
   gl.disable(gl.DEPTH_TEST);
   gl.disable(gl.CULL_FACE);
   gl.disable(gl.BLEND);
 
   Object.assign(gl.canvas.style, {
-    position: "absolute",
-    inset: "0",
-    width: "100%",
-    height: "100%",
-    display: "block",
+    position: 'absolute',
+    inset: '0',
+    width: '100%',
+    height: '100%',
+    display: 'block',
   } as Partial<CSSStyleDeclaration>);
   container.appendChild(gl.canvas);
 
@@ -251,20 +253,14 @@ const setup = () => {
     iResBuf[1] = gl.drawingBufferHeight;
     offsetPxBuf[0] = offX * dpr;
     offsetPxBuf[1] = offY * dpr;
-    program.uniforms.uPxScale.value =
-      1 / ((gl.drawingBufferHeight || 1) * 0.1 * SCALE);
+    program.uniforms.uPxScale.value = 1 / ((gl.drawingBufferHeight || 1) * 0.1 * SCALE);
   };
   const ro = new ResizeObserver(resize);
   ro.observe(container);
   resize();
 
   const rotBuf = new Float32Array(9);
-  const setMat3FromEuler = (
-    yawY: number,
-    pitchX: number,
-    rollZ: number,
-    out: Float32Array,
-  ) => {
+  const setMat3FromEuler = (yawY: number, pitchX: number, rollZ: number, out: Float32Array) => {
     const cy = Math.cos(yawY),
       sy = Math.sin(yawY);
     const cx = Math.cos(pitchX),
@@ -299,11 +295,15 @@ const setup = () => {
   let raf = 0;
   const t0 = performance.now();
   const startRAF = () => {
-    if (raf) return;
+    if (raf) {
+      return;
+    }
     raf = requestAnimationFrame(render);
   };
   const stopRAF = () => {
-    if (!raf) return;
+    if (!raf) {
+      return;
+    }
     cancelAnimationFrame(raf);
     raf = 0;
   };
@@ -342,16 +342,16 @@ const setup = () => {
   };
 
   let onPointerMove: ((e: PointerEvent) => void) | null = null;
-  if (props.animationType === "hover") {
+  if (props.animationType === 'hover') {
     onPointerMove = (e: PointerEvent) => {
       onMove(e);
       startRAF();
     };
-    window.addEventListener("pointermove", onPointerMove, { passive: true });
-    window.addEventListener("mouseleave", onLeave);
-    window.addEventListener("blur", onBlur);
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+    window.addEventListener('mouseleave', onLeave);
+    window.addEventListener('blur', onBlur);
     program.uniforms.uUseBaseWobble.value = 0;
-  } else if (props.animationType === "3drotate") {
+  } else if (props.animationType === '3drotate') {
     program.uniforms.uUseBaseWobble.value = 0;
   } else {
     program.uniforms.uUseBaseWobble.value = 1;
@@ -363,7 +363,7 @@ const setup = () => {
 
     let continueRAF = true;
 
-    if (props.animationType === "hover") {
+    if (props.animationType === 'hover') {
       const maxPitch = 0.6 * HOVSTR;
       const maxYaw = 0.6 * HOVSTR;
       targetYaw = (pointer.inside ? -pointer.x : 0) * maxYaw;
@@ -381,15 +381,19 @@ const setup = () => {
           Math.abs(yaw - targetYaw) < 1e-4 &&
           Math.abs(pitch - targetPitch) < 1e-4 &&
           Math.abs(roll) < 1e-4;
-        if (settled) continueRAF = false;
+        if (settled) {
+          continueRAF = false;
+        }
       }
-    } else if (props.animationType === "3drotate") {
+    } else if (props.animationType === '3drotate') {
       const tScaled = time * TS;
       yaw = tScaled * wY;
       pitch = Math.sin(tScaled * wX + phX) * 0.6;
       roll = Math.sin(tScaled * wZ + phZ) * 0.5;
       program.uniforms.uRot.value = setMat3FromEuler(yaw, pitch, roll, rotBuf);
-      if (TS < 1e-6) continueRAF = false;
+      if (TS < 1e-6) {
+        continueRAF = false;
+      }
     } else {
       rotBuf[0] = 1;
       rotBuf[1] = 0;
@@ -401,7 +405,9 @@ const setup = () => {
       rotBuf[7] = 0;
       rotBuf[8] = 1;
       program.uniforms.uRot.value = rotBuf;
-      if (TS < 1e-6) continueRAF = false;
+      if (TS < 1e-6) {
+        continueRAF = false;
+      }
     }
 
     renderer.render({ scene: mesh });
@@ -415,14 +421,15 @@ const setup = () => {
   if (props.suspendWhenOffscreen) {
     const io = new IntersectionObserver((entries) => {
       const vis = entries.some((e) => e.isIntersecting);
-      if (vis) startRAF();
-      else stopRAF();
+      if (vis) {
+        startRAF();
+      } else {
+        stopRAF();
+      }
     });
     io.observe(container);
     startRAF();
-    (
-      container as HTMLElement & { __prismIO?: IntersectionObserver }
-    ).__prismIO = io;
+    (container as HTMLElement & { __prismIO?: IntersectionObserver }).__prismIO = io;
   } else {
     startRAF();
   }
@@ -430,24 +437,25 @@ const setup = () => {
   cleanup = () => {
     stopRAF();
     ro.disconnect();
-    if (props.animationType === "hover") {
-      if (onPointerMove)
-        window.removeEventListener(
-          "pointermove",
-          onPointerMove as EventListener,
-        );
-      window.removeEventListener("mouseleave", onLeave);
-      window.removeEventListener("blur", onBlur);
+    if (props.animationType === 'hover') {
+      if (onPointerMove) {
+        window.removeEventListener('pointermove', onPointerMove as EventListener);
+      }
+      window.removeEventListener('mouseleave', onLeave);
+      window.removeEventListener('blur', onBlur);
     }
     if (props.suspendWhenOffscreen) {
-      const io = (
-        container as HTMLElement & { __prismIO?: IntersectionObserver }
-      ).__prismIO as IntersectionObserver | undefined;
-      if (io) io.disconnect();
-      delete (container as HTMLElement & { __prismIO?: IntersectionObserver })
-        .__prismIO;
+      const io = (container as HTMLElement & { __prismIO?: IntersectionObserver }).__prismIO as
+        | IntersectionObserver
+        | undefined;
+      if (io) {
+        io.disconnect();
+      }
+      delete (container as HTMLElement & { __prismIO?: IntersectionObserver }).__prismIO;
     }
-    if (gl.canvas.parentElement === container) container.removeChild(gl.canvas);
+    if (gl.canvas.parentElement === container) {
+      container.removeChild(gl.canvas);
+    }
   };
 };
 
@@ -470,5 +478,5 @@ watch(
 </script>
 
 <template>
-  <div class="relative w-full h-full" ref="containerRef" />
+  <div ref="containerRef" class="relative w-full h-full"></div>
 </template>

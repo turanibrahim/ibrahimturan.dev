@@ -2,7 +2,6 @@
 import VNavbar from '@/components/atoms/v-navbar.vue';
 import VFooter from '@/components/atoms/v-footer.vue';
 import SocialLinks from '@/components/organisms/social-links.vue';
-
 </script>
 
 <template>
