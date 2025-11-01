@@ -34,3 +34,5 @@ mode: agent
 - pages will be under src/pages/ folder and have [page-name].page.vue convention
 - emit convention will be [modifier]:[event-name] like update:model-value, click:item
 - always use object parameters for functions more than one parameter.
+- when using tailwind classes in variables, computed properties, or dynamic class assignments, always use the full class name to ensure proper CSS compilation by the Tailwind compiler.
+- layouts will be under src/layouts/ folder and have [layout-name].layout.vue convention

@@ -1,14 +1,30 @@
+<script setup lang="ts">
+import { computed, markRaw } from 'vue';
+import { useRoute } from 'vue-router';
+import DefaultLayout from '@/layouts/default.layout.vue';
+
+const route = useRoute();
+const layouts: Record<string, any> = {
+  default: DefaultLayout,
+};
+
+const layout = computed(() => {
+  const layoutName = (route.meta.layout as string) || 'default';
+  return markRaw(layouts[layoutName]);
+});
+</script>
+
 <template>
-  <div class="default-layout">
+  <component :is="layout || 'div'">
     <router-view />
-  </div>
+  </component>
 </template>
 
 <style lang="scss">
 .default-layout {
   @apply text-gray-800 min-h-screen bg-gray-50;
 
-  scrollbar-color: #C3D0DF transparent;
+  scrollbar-color: #c3d0df transparent;
   scrollbar-width: thin;
 
   ::-webkit-scrollbar {
@@ -18,7 +34,8 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #C3D0DF;
+    background-color: #c3d0df;
   }
 }
 </style>
+

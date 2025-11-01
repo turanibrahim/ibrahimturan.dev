@@ -2,6 +2,9 @@ export default [
   {
     path: '/',
     name: 'Homepage',
-    component: () => import('../pages/HomePage.vue'),
+    component: () => import('@/pages/HomePage.vue'),
+    meta: {
+      layout: 'default',
+    },
   },
 ];
