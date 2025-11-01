@@ -1,32 +1,33 @@
 @import "tailwindcss";
-@plugin "daisyui";
 @plugin "@tailwindcss/typography";
-
+@plugin "daisyui" {
+  themes: ibrahimturan-light --default;
+}
 @plugin "daisyui/theme" {
   name: "ibrahimturan-light";
   default: true;
   prefersdark: false;
   color-scheme: "light";
-  --color-base-100: oklch(99.51% 0.002 261.24);
-  --color-base-200: oklch(96.86% 0.006 261.24);
-  --color-base-300: oklch(94.22% 0.01 261.24);
+  --color-base-100: oklch(96% 0.005 261.24);
+  --color-base-200: oklch(94.5% 0.007 261.24);
+  --color-base-300: oklch(93% 0.009 261.24);
   --color-base-content: oklch(36.86% 0.023 261.24);
   --color-primary: oklch(62.75% 0.169 261.24);
-  --color-primary-content: oklch(99.51% 0.002 261.24);
+  --color-primary-content: oklch(95% 0.08 261.24);
   --color-secondary: oklch(78.34% 0.113 291.24);
-  --color-secondary-content: oklch(99.51% 0.002 261.24);
+  --color-secondary-content: oklch(25% 0.05 291.24);
   --color-accent: oklch(78.34% 0.113 321.24);
-  --color-accent-content: oklch(99.51% 0.002 261.24);
+  --color-accent-content: oklch(25% 0.05 321.24);
   --color-neutral: oklch(36.86% 0.023 261.24);
   --color-neutral-content: oklch(96.86% 0.006 261.24);
   --color-info: oklch(78.34% 0.113 231.24);
-  --color-info-content: oklch(99.51% 0.002 261.24);
+  --color-info-content: oklch(25% 0.05 231.24);
   --color-success: oklch(78.34% 0.113 141.24);
   --color-success-content: oklch(22.06% 0.015 141.24);
   --color-warning: oklch(78.34% 0.113 81.24);
   --color-warning-content: oklch(36.86% 0.023 81.24);
   --color-error: oklch(78.34% 0.113 31.24);
-  --color-error-content: oklch(99.51% 0.002 261.24);
+  --color-error-content: oklch(25% 0.05 31.24);
   --radius-selector: 0.5rem;
   --radius-field: 0.5rem;
   --radius-box: 0.5rem;
