@@ -102,7 +102,6 @@ const handleClick = (event: MouseEvent) => {
     :class="buttonClasses"
     :href="href"
     :to="to"
-    :disabled="disabled || loading"
     :aria-disabled="disabled || loading"
     @click="handleClick"
   >

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useUserStore } from '@/stores/userStore';
-import VButton from '@/components/ui/VButton.vue';
+import { useUserStore } from '@/stores/user.store';
+import VButton from '@/components/atoms/v-button.vue';
 
 const userStore = useUserStore();
 const socialLinks = computed(() => [
@@ -16,11 +16,6 @@ const socialLinks = computed(() => [
     icon: 'fa-linkedin',
   },
   {
-    name: 'twitter',
-    url: userStore.userInfo.twitter,
-    icon: 'fa-twitter',
-  },
-  {
     name: 'devto',
     url: userStore.userInfo.devto,
     icon: 'fa-dev',
@@ -29,14 +24,14 @@ const socialLinks = computed(() => [
 </script>
 
 <template>
-  <div class="flex items-center space-x-4">
+  <div class="flex items-center gap-2">
     <v-button
       v-for="link in socialLinks"
       :key="link.name"
       :href="link.url"
       target="_blank"
       variant="ghost"
-      shape="circle"
+      circle
     >
       <v-icon :name="link.icon" class="h-6 w-6" />
     </v-button>

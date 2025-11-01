@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, markRaw } from 'vue';
+import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import DefaultLayout from '@/layouts/default.layout.vue';
 
@@ -10,13 +10,11 @@ const layouts: Record<string, any> = {
 
 const layout = computed(() => {
   const layoutName = (route.meta.layout as string) || 'default';
-  return markRaw(layouts[layoutName]);
+  return layouts[layoutName];
 });
 </script>
 
 <template>
-  <component :is="layout || 'div'">
-    <router-view />
-  </component>
+  <component :is="layout"/>
 </template>
 

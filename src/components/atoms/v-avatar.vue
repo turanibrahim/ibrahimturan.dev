@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-type AvatarSize = 'xs' | 'sm' | 'md' | 'lg';
+type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type AvatarShape = 'rounded' | 'rounded-xl' | 'rounded-full';
 
 const props = withDefaults(
@@ -35,6 +35,7 @@ const sizeClasses: Record<AvatarSize, string> = {
   sm: 'w-12',
   md: 'w-16',
   lg: 'w-24',
+  xl: 'w-64',
 };
 
 const avatarClass = computed(() => [
@@ -63,6 +64,7 @@ const textClass = computed(() => {
       sm: 'text-sm',
       md: 'text-base',
       lg: 'text-lg',
+      xl: 'text-2xl',
     }[props.size];
   }
   return {
@@ -70,6 +72,7 @@ const textClass = computed(() => {
     sm: 'text-base',
     md: 'text-xl',
     lg: 'text-3xl',
+    xl: 'text-5xl',
   }[props.size];
 });
 </script>
