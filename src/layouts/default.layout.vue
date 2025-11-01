@@ -3,15 +3,9 @@ import VNavbar from '@/components/atoms/v-navbar.vue';
 </script>
 
 <template>
-  <v-navbar>
-    <template #start>
-      <div>Logo</div>
-    </template>
+  <v-navbar class="shadow-sm">
     <template #center>
       <div>Links</div>
-    </template>
-    <template #end>
-      <div>Actions</div>
     </template>
   </v-navbar>
   <main>

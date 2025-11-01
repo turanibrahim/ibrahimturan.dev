@@ -20,22 +20,3 @@ const layout = computed(() => {
   </component>
 </template>
 
-<style lang="scss">
-.default-layout {
-  @apply text-gray-800 min-h-screen bg-gray-50;
-
-  scrollbar-color: #c3d0df transparent;
-  scrollbar-width: thin;
-
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 8px;
-    background-color: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #c3d0df;
-  }
-}
-</style>
-
