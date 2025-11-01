@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import VNavbar from '@/components/atoms/v-navbar.vue';
+import VFooter from '@/components/atoms/v-footer.vue';
+import SocialLinks from '@/components/organisms/social-links.vue';
 </script>
 
 <template>
@@ -7,11 +9,12 @@ import VNavbar from '@/components/atoms/v-navbar.vue';
     <template #center>
       <div>Links</div>
     </template>
+    <template #end>
+      <social-links />
+    </template>
   </v-navbar>
-  <main>
+  <main class="min-h-screen">
     <router-view />
   </main>
-  <footer>
-    <div>Footer</div>
-  </footer>
+  <v-footer />
 </template>

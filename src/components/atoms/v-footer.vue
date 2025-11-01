@@ -1,0 +1,19 @@
+<script setup lang="ts">
+import SocialLinks from '@/components/organisms/social-links.vue';
+const currentYear = new Date().getFullYear();
+</script>
+
+<template>
+  <footer class="bg-base-200">
+    <div class="container py-12">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <p class="text-base-content">
+            &copy; {{ currentYear }} Ibrahim Turan. All rights reserved.
+          </p>
+        </div>
+        <social-links />
+      </div>
+    </div>
+  </footer>
+</template>
