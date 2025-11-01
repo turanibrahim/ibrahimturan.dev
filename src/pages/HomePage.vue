@@ -53,7 +53,3 @@ const downloadPdf = () => {
     </v-button>
   </main>
 </template>
-
-<style lang="scss">
-@import "@/assets/styles/pages/home.scss";
-</style>
