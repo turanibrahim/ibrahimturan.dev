@@ -5,7 +5,7 @@ mode: agent
 - components will be under src/components/ folder. We will use atomic component design pattern. So we will have atoms, molecules, organisms, templates folders under src/components/ folder.
 - store will be under src/stores/ folder. We will use pinia as state management library.
 - types will be under src/types/ folder. All typescript types and interfaces will be defined here.
-- - constants will be under src/constants/ folder. Import every type or interface from this folder.
+- constants will be under src/constants/ folder. Import every type or interface from this folder.
 - assets will be under src/assets/ folder. All static assets like images, fonts, icons will be stored here.
 - utils will be under src/utils/ folder. All utility functions and helpers will be stored here.
 - composables will be under src/composables/ folder. All vue composables will be stored here.

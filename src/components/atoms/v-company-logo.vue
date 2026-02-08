@@ -29,7 +29,7 @@ const roundedClasses: Record<string, string> = {
       sizeClasses[size],
       roundedClasses[rounded],
       'object-contain',
-      background ? 'bg-white p-2' : '',
+      background ? 'bg-base-200 p-2' : '',
     ]"
   />
 </template>
