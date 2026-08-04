@@ -75,7 +75,7 @@ describe('v-company-logo', () => {
         background: true,
       },
     });
-    expect(wrapper.find('.bg-white').exists()).toBe(true);
+    expect(wrapper.find('.bg-base-200').exists()).toBe(true);
     expect(wrapper.find('.p-2').exists()).toBe(true);
   });
 

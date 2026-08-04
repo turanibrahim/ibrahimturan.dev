@@ -1,33 +1,45 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/800.css';
+@import '@fontsource/inter/900.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+@import '@fontsource/jetbrains-mono/600.css';
+
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
   themes: ibrahimturan-dark --default;
 }
 @plugin "daisyui/theme" {
-  name: "ibrahimturan-dark";
+  name: 'ibrahimturan-dark';
   default: true;
   prefersdark: true;
-  color-scheme: "dark";
-  --color-base-100: oklch(20% 0.015 261.24);
-  --color-base-200: oklch(18% 0.012 261.24);
-  --color-base-300: oklch(24% 0.018 261.24);
-  --color-base-content: oklch(90% 0.01 261.24);
-  --color-primary: oklch(70% 0.16 155);
-  --color-primary-content: oklch(95% 0.02 155);
-  --color-secondary: oklch(75% 0.12 185);
-  --color-secondary-content: oklch(95% 0.02 185);
-  --color-accent: oklch(75% 0.14 135);
-  --color-accent-content: oklch(95% 0.02 135);
-  --color-neutral: oklch(85% 0.015 261.24);
-  --color-neutral-content: oklch(20% 0.015 261.24);
-  --color-info: oklch(78.34% 0.113 231.24);
-  --color-info-content: oklch(95% 0.05 231.24);
-  --color-success: oklch(78.34% 0.113 141.24);
-  --color-success-content: oklch(95% 0.05 141.24);
-  --color-warning: oklch(78.34% 0.113 81.24);
-  --color-warning-content: oklch(95% 0.05 81.24);
-  --color-error: oklch(78.34% 0.113 31.24);
-  --color-error-content: oklch(95% 0.05 31.24);
+  color-scheme: 'dark';
+  --color-base-100: oklch(17% 0.025 292);
+  --color-base-200: oklch(13% 0.022 292);
+  --color-base-300: oklch(23% 0.035 292);
+  --color-base-content: oklch(94% 0.012 292);
+  --color-base-content-muted: oklch(78% 0.025 292);
+  --color-primary: oklch(72% 0.17 28);
+  --color-primary-content: oklch(18% 0.025 292);
+  --color-secondary: oklch(78% 0.14 326);
+  --color-secondary-content: oklch(18% 0.025 292);
+  --color-accent: oklch(82% 0.16 105);
+  --color-accent-content: oklch(18% 0.025 292);
+  --color-neutral: oklch(83% 0.025 292);
+  --color-neutral-content: oklch(17% 0.025 292);
+  --color-info: oklch(78% 0.12 220);
+  --color-info-content: oklch(18% 0.025 292);
+  --color-success: oklch(76% 0.14 155);
+  --color-success-content: oklch(18% 0.025 292);
+  --color-warning: oklch(82% 0.16 85);
+  --color-warning-content: oklch(18% 0.025 292);
+  --color-error: oklch(68% 0.19 25);
+  --color-error-content: oklch(96% 0.01 25);
   --radius-selector: 0.5rem;
   --radius-field: 0.5rem;
   --radius-box: 0.5rem;
@@ -36,10 +48,14 @@
   --border: 1px;
   --depth: 0;
   --noise: 0;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
 }
 
-
 @theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+
   --radius-none: 0;
   --radius-sm: 0.25rem;
   --radius: 0.5rem;
@@ -88,5 +104,136 @@
       padding-left: var(--container-padding-2xl);
       padding-right: var(--container-padding-2xl);
     }
+  }
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
+  }
+
+  body {
+    background-color: var(--color-base-100);
+    color: var(--color-base-content);
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+    color: var(--color-base-content);
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+    max-width: 70ch;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-primary-content);
+  }
+
+  .text-base-content-muted {
+    color: var(--color-base-content-muted);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .backdrop-blur-sm,
+  .backdrop-blur,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+@media print {
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 11pt;
+  }
+
+  body * {
+    color: #111111 !important;
+  }
+
+  a {
+    color: #111111 !important;
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 0.5in !important;
+  }
+
+  header[aria-label],
+  [aria-label='Site footer'],
+  .no-print,
+  [data-print-hidden] {
+    display: none !important;
+  }
+
+  section,
+  article,
+  main {
+    page-break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    page-break-after: avoid;
   }
 }

@@ -4,54 +4,63 @@
       "title": "Frontend Engineer",
       "company": "MobileAction",
       "startDate": "2025-03-03T21:00:00.000Z",
-      "description": "- Contributed Apple Ads management tool, improving overall project quality and reducing bugs by adapting Typescript and modular architecture.<br>- Enhanced project architecture to leverage AI tools to increase in development efficiency.<br>- Implemented scalable and maintainable code, ensuring cross-browser compatibility and responsive UI development.<br>- Used Typescript, Tailwind CSS, Vue.js (Vue3), Vitest",
+      "endDate": "2025-09-30T21:00:00.000Z",
+      "summary": "Owned the Apple Ads management console — modular TypeScript architecture, AI-assisted dev workflow, scalable Vue 3 + Tailwind system.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/7eb6f416-83b6-4a7d-873b-2f6fe1239e70.jpeg",
-      "location": "Ankara, Turkey"
+      "location": "Ankara, Turkey",
+      "tech": ["Vue 3", "TypeScript", "Tailwind", "Vitest"],
+      "companyUrl": "https://www.mobileaction.co"
     },
     {
       "title": "Frontend Engineer",
       "company": "NMQ Digital",
       "startDate": "2023-04-05T21:00:00.000Z",
       "endDate": "2025-03-01T12:00:00.000Z",
-      "description": "- Led development and deployment of full-stack AI projects leveraging ChatGPT services, TypeScript, and Next.js, managing the complete lifecycle from development to production deployment.<br>- Architected and built a full-stack AI translation system integrated with CrownPeak CMS, utilizing modern technologies including Hono, React, Redis, and PostgreSQL.<br>- Spearheaded modernization of legacy Vue 2 application by migrating to Vite build system, updating dependencies, and implementing performance optimizations that significantly improved code quality and build times.<br>- Engineered and maintained 100+ complex CMS components across 4 CrownPeak CMS projects, demonstrating expertise in component-driven architecture and enterprise content management systems.<br>- Conducted R&D initiatives and proof-of-concepts for cutting-edge technologies including component-based asset injection, Lit web components, and headless CMS architectures to modernize legacy systems.<br>- Provided technical leadership through accurate project estimations, mentoring new team members during onboarding, conducting comprehensive code reviews, and evaluating emerging technologies for client implementations.",
+      "summary": "Led end-to-end delivery of AI products with Next.js, React and Hono. Modernized legacy Vue 2 systems and shipped 100+ enterprise CMS components.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/0dbd5b1e-3a47-4005-9ced-bd647f240b84.jpeg",
-      "location": "Istanbul, Turkey"
+      "location": "Istanbul, Turkey",
+      "tech": ["Next.js", "React", "TypeScript", "Vue 2", "Vite", "PostgreSQL"],
+      "companyUrl": "https://nmqdigital.com"
     },
     {
       "title": "Frontend Engineer",
       "company": "Hub21",
       "startDate": "2022-06-01T21:00:00.000Z",
       "endDate": "2023-04-05T12:00:00.000Z",
-      "description": "- Architected and executed complete migration of company website to Vue.js and Bootstrap framework, establishing modern architecture patterns and significantly improving application performance.<br>- Seamlessly integrated marketing analytics and monitoring tools while maintaining optimal performance standards and ensuring all functionality remained intact.<br>- Achieved remarkable performance improvements, increasing Lighthouse scores from 60 to 90+, while implementing comprehensive SEO optimizations that enhanced search engine visibility.<br>- Led end-to-end development of parent and student portal applications, ensuring architectural consistency and maintaining code quality standards across all platforms.<br>- Implemented Sentry error monitoring and tracking system, resulting in an 83% reduction in production bugs and significantly improving overall user experience and application reliability.",
+      "summary": "Rebuilt the marketing site in Vue, lifted Lighthouse from 60 to 90+, and shipped parent and student portals with Sentry-grade reliability.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e8cd7708-5f71-4010-8ec4-c2a404f72b0b.jpeg",
-      "location": "London, England, United Kingdom"
+      "location": "London, United Kingdom",
+      "tech": ["Vue 3", "Bootstrap", "SEO", "Sentry"]
     },
     {
       "title": "Frontend Engineer",
       "company": "Vivense",
       "startDate": "2021-08-23T12:00:00.000Z",
       "endDate": "2022-05-31T12:00:00.000Z",
-      "description": "- Contributed to large-scale e-commerce platform and internal ERP systems built with Vue.js, supporting high-traffic customer-facing applications and business-critical operations.<br>- Developed and maintained critical e-commerce features including shopping cart, checkout flow, accounting integration, order management, and customer service modules.<br>- Collaborated effectively in cross-functional teams with designers, product managers, and backend engineers, gaining valuable experience in distributed system architectures and microservices communication.<br>- Adapted to remote work environment while mastering agile methodologies (Scrum/Kanban), implementing responsive design patterns, and applying UX best practices to enhance user experience across all touchpoints.",
+      "summary": "Owned customer-facing flows and internal ERP modules on one of Turkey's largest e-commerce platforms — cart, checkout, order ops, integrations.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/83edda06-9f6e-42bd-ac14-0b886ad094eb.jpeg",
-      "location": "Istanbul, Turkey"
+      "location": "Istanbul, Turkey",
+      "tech": ["Vue 2", "Microservices", "Agile"]
     },
     {
       "title": "Frontend Engineer",
       "company": "reybex Cloud ERP",
       "startDate": "2020-06-01T12:00:00.000Z",
       "endDate": "2021-08-20T12:00:00.000Z",
-      "description": "- Built three enterprise applications from the ground up: reybex Mobile, reybex Hand Terminal, and reybex B2B Shop, while maintaining ownership of the reybex Sales Person mobile application.<br>- Leveraged modern JavaScript ecosystem including Nuxt.js, Vue.js, React Native, Feathers.js, and Socket.io to deliver real-time, cross-platform solutions for cloud ERP system.<br>- Demonstrated exceptional productivity and code quality by reviewing 250+ merge requests and contributing 2,500+ commits across all reybex internal projects within one year.<br>- Played key role in technical decision-making and architecture planning, ensuring scalability and maintainability of all developed applications.",
+      "summary": "Launched three internal apps from zero — mobile, hand terminal, B2B shop — and reviewed 250+ merge requests across the platform.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e415df9b-4c7c-4cfb-a057-709a70e3ba4f.jpeg",
-      "location": "Sakarya, Turkey"
+      "location": "Sakarya, Turkey",
+      "tech": ["Nuxt.js", "React Native", "Feathers.js", "Socket.io"]
     },
     {
       "title": "Fullstack Intern",
-      "company": "BGS Bireysel Gelişim İnteraktif Sis. A.Ş",
+      "company": "BGS Bireysel Gelişim",
       "startDate": "2020-01-01T12:00:00.000Z",
       "endDate": "2020-03-31T12:00:00.000Z",
-      "description": "- Contributed to EYSIS, a full-stack enterprise application built with Phalcon PHP Framework and MySQL on the backend, integrated with Vue.js and Vuetify for modern, responsive user interfaces.<br>- Containerized entire development workflow using Docker, streamlining the development process and ensuring consistency across different environments.<br>- Gained foundational experience in Linux-based development environments and version control with Git, establishing strong software engineering practices early in career.",
+      "summary": "Built features for the EYSIS enterprise suite on Phalcon + Vue, containerized the dev environment with Docker.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/66efee14-68bc-4715-a55e-776ddaeffb9e.png",
-      "location": "Sakarya, Turkey"
+      "location": "Sakarya, Turkey",
+      "tech": ["Phalcon", "Vue", "Vuetify", "Docker", "MySQL"]
     }
   ]
 }

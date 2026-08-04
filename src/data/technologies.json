@@ -1,72 +1,130 @@
 [
   {
     "id": "javascript",
-    "name": "Javascript",
-    "icon": "si-javascript"
+    "name": "JavaScript",
+    "icon": "si-javascript",
+    "category": "frontend",
+    "years": 7,
+    "level": "primary"
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "icon": "si-typescript",
+    "category": "frontend",
+    "years": 5,
+    "level": "primary"
+  },
+  {
+    "id": "reactjs",
+    "name": "React",
+    "icon": "si-react",
+    "category": "frontend",
+    "years": 4,
+    "level": "primary"
+  },
+  {
+    "id": "nextjs",
+    "name": "Next.js",
+    "icon": "si-nextdotjs",
+    "category": "frontend",
+    "years": 3,
+    "level": "working"
   },
   {
     "id": "vuejs",
-    "name": "Vue.js",
-    "icon": "si-vuedotjs"
+    "name": "Vue 3",
+    "icon": "si-vuedotjs",
+    "category": "frontend",
+    "years": 5,
+    "level": "primary"
   },
   {
     "id": "nuxtjs",
     "name": "Nuxt.js",
-    "icon": "si-nuxtdotjs"
-  },
-  {
-    "id": "vuetify",
-    "name": "Vuetify",
-    "icon": "si-vuetify"
-  },
-  {
-    "id": "reactjs",
-    "name": "React.js",
-    "icon": "si-react"
-  },
-  {
-    "id": "redux",
-    "name": "Redux",
-    "icon": "si-redux"
-  },
-  {
-    "id": "docker",
-    "name": "Docker",
-    "icon": "si-docker"
-  },
-  {
-    "id": "mongodb",
-    "name": "MongoDB",
-    "icon": "si-mongodb"
-  },
-  {
-    "id": "nginx",
-    "name": "Nginx",
-    "icon": "si-nginx"
-  },
-  {
-    "id": "heroku",
-    "name": "Heroku",
-    "icon": "si-heroku"
-  },
-  {
-    "id": "firebase",
-    "name": "Firebase",
-    "icon": "si-firebase"
+    "icon": "si-nuxtdotjs",
+    "category": "frontend",
+    "years": 3,
+    "level": "working"
   },
   {
     "id": "tailwindcss",
     "name": "Tailwind CSS",
-    "icon": "si-tailwindcss"
+    "icon": "si-tailwindcss",
+    "category": "frontend",
+    "years": 4,
+    "level": "primary"
   },
   {
     "id": "vitejs",
-    "name": "Vite.js",
-    "icon": "si-vite"
+    "name": "Vite",
+    "icon": "si-vite",
+    "category": "frontend",
+    "years": 3,
+    "level": "working"
+  },
+  {
+    "id": "react-native",
+    "name": "React Native",
+    "icon": "si-react",
+    "category": "mobile",
+    "years": 2,
+    "level": "working"
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "icon": "si-nodedotjs",
+    "category": "backend",
+    "years": 4,
+    "level": "primary"
+  },
+  {
+    "id": "express",
+    "name": "Express",
+    "icon": "si-express",
+    "category": "backend",
+    "years": 3,
+    "level": "working"
+  },
+  {
+    "id": "postgresql",
+    "name": "PostgreSQL",
+    "icon": "si-postgresql",
+    "category": "backend",
+    "years": 2,
+    "level": "working"
+  },
+  {
+    "id": "redis",
+    "name": "Redis",
+    "icon": "si-redis",
+    "category": "backend",
+    "years": 2,
+    "level": "working"
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "icon": "si-docker",
+    "category": "tooling",
+    "years": 4,
+    "level": "working"
   },
   {
     "id": "aws",
     "name": "AWS",
-    "icon": "si-amazonaws"
+    "icon": "si-amazonaws",
+    "category": "tooling",
+    "years": 2,
+    "level": "working"
+  },
+  {
+    "id": "github-actions",
+    "name": "GitHub Actions",
+    "icon": "si-githubactions",
+    "category": "tooling",
+    "years": 3,
+    "level": "working"
   }
 ]

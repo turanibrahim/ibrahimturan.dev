@@ -26,10 +26,14 @@ const colors = [
 <template>
   <div class="min-h-screen bg-base-200 py-16">
     <div class="container">
-      <h1 class="text-4xl font-bold mb-8 text-base-content">ibrahimturan-light Theme Colors</h1>
+      <h1 class="text-4xl font-bold mb-8 text-base-content">ibrahimturan-dark Theme Colors</h1>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <div v-for="color in colors" :key="color.name" class="rounded-lg shadow-lg overflow-hidden">
+        <div
+          v-for="color in colors"
+          :key="color.name"
+          class="rounded-lg border border-base-300 overflow-hidden"
+        >
           <div
             :class="[color.bg, color.text, 'h-32 flex items-center justify-center font-semibold']"
           >
@@ -39,7 +43,7 @@ const colors = [
             <div class="font-semibold mb-2 text-base-content">
               {{ color.name }}
             </div>
-            <div class="text-sm font-mono text-base-content opacity-70">
+            <div class="text-sm font-mono text-base-content-muted">
               {{ color.bg }} / {{ color.text }}
             </div>
           </div>

@@ -5,6 +5,8 @@ withDefaults(defineProps<VSectionProps>(), {
   background: undefined,
   paddingY: 'md',
   container: true,
+  id: undefined,
+  ariaLabelledby: undefined,
 });
 
 const paddingClasses: Record<string, string> = {
@@ -23,6 +25,8 @@ const backgroundClasses: Record<string, string> = {
 
 <template>
   <section
+    :id="id"
+    :aria-labelledby="ariaLabelledby"
     :class="[paddingClasses[paddingY], background ? backgroundClasses[background] : '', 'relative']"
   >
     <div v-if="container" class="container">

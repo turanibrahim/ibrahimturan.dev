@@ -76,12 +76,24 @@ const times = computed(() =>
 const inView = ref(false);
 const animationKey = ref(0);
 const completionFired = ref(false);
+const reduceMotion = ref(false);
 const rootRef = useTemplateRef<HTMLParagraphElement>('rootRef');
 
 let observer: IntersectionObserver | null = null;
+let mq: MediaQueryList | null = null;
+let mqListener: ((e: MediaQueryListEvent) => void) | null = null;
+
+const handleMqChange = (e: MediaQueryListEvent) => {
+  reduceMotion.value = e.matches;
+  if (e.matches) {
+    inView.value = true;
+    observer?.disconnect();
+    observer = null;
+  }
+};
 
 const setupObserver = () => {
-  if (!rootRef.value) {
+  if (!rootRef.value || reduceMotion.value) {
     return;
   }
 
@@ -118,14 +130,39 @@ const handleAnimationComplete = (index: number) => {
 };
 
 onMounted(() => {
+  if (typeof window === 'undefined') {
+    return;
+  }
+  mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  reduceMotion.value = mq.matches;
+  mqListener = handleMqChange;
+  if (typeof mq.addEventListener === 'function') {
+    mq.addEventListener('change', mqListener);
+  } else if (typeof (mq as any).addListener === 'function') {
+    (mq as any).addListener(mqListener);
+  }
+  if (reduceMotion.value) {
+    inView.value = true;
+    return;
+  }
   setupObserver();
 });
 
 onUnmounted(() => {
   observer?.disconnect();
+  if (mq && mqListener) {
+    if (typeof mq.removeEventListener === 'function') {
+      mq.removeEventListener('change', mqListener);
+    } else if (typeof (mq as any).removeListener === 'function') {
+      (mq as any).removeListener(mqListener);
+    }
+  }
 });
 
 watch([() => props.threshold, () => props.rootMargin], () => {
+  if (reduceMotion.value) {
+    return;
+  }
   observer?.disconnect();
   setupObserver();
 });
@@ -141,21 +178,33 @@ watch(
 
 <template>
   <p ref="rootRef" :class="['blur-text', className, 'flex', 'flex-wrap']">
-    <motion
-      v-for="(segment, index) in elements"
-      :key="`${animationKey}-${index}`"
-      tag="span"
-      :initial="fromSnapshot"
-      :animate="inView ? getAnimateKeyframes() : fromSnapshot"
-      :transition="getTransition(index)"
-      :style="{
-        display: 'inline-block',
-        willChange: 'transform, filter, opacity',
-      }"
-      @animation-complete="() => handleAnimationComplete(index)"
-    >
-      {{ segment === ' ' ? '\u00A0' : segment
-      }}{{ animateBy === 'words' && index < elements.length - 1 ? '\u00A0' : '' }}
-    </motion>
+    <template v-if="reduceMotion">
+      <span
+        v-for="(segment, index) in elements"
+        :key="`${animationKey}-static-${index}`"
+        :style="{ display: 'inline-block' }"
+      >
+        {{ segment === ' ' ? '\u00A0' : segment
+        }}{{ animateBy === 'words' && index < elements.length - 1 ? '\u00A0' : '' }}
+      </span>
+    </template>
+    <template v-else>
+      <motion
+        v-for="(segment, index) in elements"
+        :key="`${animationKey}-${index}`"
+        tag="span"
+        :initial="fromSnapshot"
+        :animate="inView ? getAnimateKeyframes() : fromSnapshot"
+        :transition="getTransition(index)"
+        :style="{
+          display: 'inline-block',
+          willChange: 'transform, filter, opacity',
+        }"
+        @animation-complete="() => handleAnimationComplete(index)"
+      >
+        {{ segment === ' ' ? '\u00A0' : segment
+        }}{{ animateBy === 'words' && index < elements.length - 1 ? '\u00A0' : '' }}
+      </motion>
+    </template>
   </p>
 </template>

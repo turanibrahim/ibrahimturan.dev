@@ -31,5 +31,7 @@ const roundedClasses: Record<string, string> = {
       'object-contain',
       background ? 'bg-base-200 p-2' : '',
     ]"
+    loading="lazy"
+    decoding="async"
   />
 </template>

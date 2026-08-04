@@ -12,4 +12,5 @@ export interface VAvatarProps {
   placeholder?: boolean;
   text?: string;
   ring?: boolean;
+  priority?: boolean;
 }

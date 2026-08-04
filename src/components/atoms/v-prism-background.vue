@@ -31,6 +31,12 @@ const setup = () => {
     return;
   }
 
+  const reduceMotion =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    return;
+  }
+
   const H = Math.max(0.001, props.height);
   const BW = Math.max(0.001, props.baseWidth);
   const BASE_HALF = BW * 0.5;

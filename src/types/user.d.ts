@@ -2,6 +2,7 @@ export interface UserInfo {
   name: string;
   surname: string;
   title: string;
+  tagline?: string;
   company: string;
   companyLogo: string;
   companyUrl: string;

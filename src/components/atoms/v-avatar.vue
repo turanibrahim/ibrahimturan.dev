@@ -12,6 +12,7 @@ const props = withDefaults(defineProps<VAvatarProps>(), {
   placeholder: false,
   text: '',
   ring: false,
+  priority: false,
 });
 
 const sizeClasses: Record<AvatarSize, string> = {
@@ -59,12 +60,22 @@ const textClass = computed(() => {
     xl: 'text-5xl',
   }[props.size];
 });
+
+const imgLoading = computed(() => (props.priority ? 'eager' : 'lazy'));
+const imgFetchPriority = computed(() => (props.priority ? 'high' : 'auto'));
 </script>
 
 <template>
   <div :class="avatarClass">
     <div :class="innerClass">
-      <img v-if="src" :src="src" :alt="alt" />
+      <img
+        v-if="src"
+        :src="src"
+        :alt="alt"
+        :loading="imgLoading"
+        :fetchpriority="imgFetchPriority"
+        decoding="async"
+      />
       <span v-else :class="textClass">{{ text }}</span>
     </div>
   </div>
