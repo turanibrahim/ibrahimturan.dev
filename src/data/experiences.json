@@ -27,7 +27,7 @@
       "company": "Hub21",
       "startDate": "2022-06-01T21:00:00.000Z",
       "endDate": "2023-04-05T12:00:00.000Z",
-      "summary": "Rebuilt the marketing site in Vue, lifted Lighthouse from 60 to 90+, and shipped parent and student portals with Sentry-grade reliability.",
+      "summary": "Rebuilt the marketing site in Vue, lifted Lighthouse from 60 to 90+, and shipped parent and student portals with Sentry error monitoring.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e8cd7708-5f71-4010-8ec4-c2a404f72b0b.jpeg",
       "location": "London, United Kingdom",
       "tech": ["Vue 3", "Bootstrap", "SEO", "Sentry"]

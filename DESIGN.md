@@ -7,21 +7,21 @@ colors:
   base-300: "oklch(24% 0.018 261.24)"
   base-content: "oklch(90% 0.01 261.24)"
   primary: "oklch(70% 0.16 155)"
-  primary-content: "oklch(95% 0.02 155)"
+  primary-content: "oklch(17% 0.015 261.24)"
   secondary: "oklch(75% 0.12 185)"
-  secondary-content: "oklch(95% 0.02 185)"
+  secondary-content: "oklch(17% 0.015 261.24)"
   accent: "oklch(75% 0.14 135)"
-  accent-content: "oklch(95% 0.02 135)"
+  accent-content: "oklch(17% 0.015 261.24)"
   neutral: "oklch(85% 0.015 261.24)"
   neutral-content: "oklch(20% 0.015 261.24)"
   info: "oklch(78.34% 0.113 231.24)"
-  info-content: "oklch(95% 0.05 231.24)"
+  info-content: "oklch(17% 0.015 261.24)"
   success: "oklch(78.34% 0.113 141.24)"
-  success-content: "oklch(95% 0.05 141.24)"
+  success-content: "oklch(17% 0.015 261.24)"
   warning: "oklch(78.34% 0.113 81.24)"
-  warning-content: "oklch(95% 0.05 81.24)"
+  warning-content: "oklch(17% 0.015 261.24)"
   error: "oklch(78.34% 0.113 31.24)"
-  error-content: "oklch(95% 0.05 31.24)"
+  error-content: "oklch(17% 0.015 261.24)"
 typography:
   display:
     fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
@@ -121,12 +121,12 @@ The palette is a single dark family — Twilight Stack — with two chromatic re
 ### Primary
 
 - **Emerald Signal** (`oklch(70% 0.16 155)`): Primary CTA, links, section headings, hover states on interactive elements. The primary voice of the system. Use sparingly: ≤10% of any given screen.
-- **Emerald Signal — Content** (`oklch(95% 0.02 155)`): Text on Emerald Signal backgrounds.
+- **Emerald Signal — Content** (`oklch(17% 0.015 261.24)`): Deep Twilight ink on Emerald Signal fills. Contrast: 7.66:1.
 
 ### Secondary
 
 - **Cyan Readout** (`oklch(75% 0.12 185)`): Supporting accent — sub-headings, badge outlines, technology tags, social-link icons at rest.
-- **Cyan Readout — Content** (`oklch(95% 0.02 185)`): Text on Cyan Readout backgrounds.
+- **Cyan Readout — Content** (`oklch(17% 0.015 261.24)`): Deep Twilight ink on Cyan Readout fills. Contrast: 9.05:1.
 
 ### Tertiary
 
@@ -199,7 +199,7 @@ Depth is conveyed by:
 ### Buttons
 
 - **Shape:** Pill-free; corners at `--radius-md` (0.5rem). Solid, never rounded-full.
-- **Primary:** Emerald Signal background, near-white text, 0.625rem × 1.25rem padding. Single most prominent CTA per section.
+- **Primary:** Emerald Signal background, deep Twilight text, 0.625rem × 1.25rem padding. Single most prominent CTA per section.
 - **Ghost:** Transparent background, base-content text, 0.5rem × 1rem padding. Default for icon-only social links.
 - **Hover / Focus:** Background tone shifts to a brighter Emerald or a 1px Emerald Signal border. Focus visible via a 2px outline ring at `--radius-md`.
 

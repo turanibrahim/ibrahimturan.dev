@@ -19,7 +19,7 @@ defineProps<ExperienceCardProps>();
       <div class="grow space-y-3 min-w-0">
         <div class="flex flex-wrap items-start justify-between gap-2">
           <div>
-            <v-heading level="3" weight="semibold" class="text-secondary-content">
+            <v-heading level="3" weight="semibold" class="text-secondary">
               {{ experience.title }}
             </v-heading>
             <p class="text-lg text-primary font-medium">
@@ -89,7 +89,7 @@ defineProps<ExperienceCardProps>();
 
 .prose li::before {
   content: '• ';
-  color: oklch(var(--p));
+  color: var(--color-primary);
   font-weight: bold;
   margin-right: 0.5rem;
 }

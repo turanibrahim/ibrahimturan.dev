@@ -19,27 +19,27 @@
   default: true;
   prefersdark: true;
   color-scheme: 'dark';
-  --color-base-100: oklch(17% 0.025 292);
-  --color-base-200: oklch(13% 0.022 292);
-  --color-base-300: oklch(23% 0.035 292);
-  --color-base-content: oklch(94% 0.012 292);
-  --color-base-content-muted: oklch(78% 0.025 292);
-  --color-primary: oklch(72% 0.17 28);
-  --color-primary-content: oklch(18% 0.025 292);
-  --color-secondary: oklch(78% 0.14 326);
-  --color-secondary-content: oklch(18% 0.025 292);
-  --color-accent: oklch(82% 0.16 105);
-  --color-accent-content: oklch(18% 0.025 292);
-  --color-neutral: oklch(83% 0.025 292);
-  --color-neutral-content: oklch(17% 0.025 292);
-  --color-info: oklch(78% 0.12 220);
-  --color-info-content: oklch(18% 0.025 292);
-  --color-success: oklch(76% 0.14 155);
-  --color-success-content: oklch(18% 0.025 292);
-  --color-warning: oklch(82% 0.16 85);
-  --color-warning-content: oklch(18% 0.025 292);
-  --color-error: oklch(68% 0.19 25);
-  --color-error-content: oklch(96% 0.01 25);
+  --color-base-100: oklch(20% 0.015 261.24);
+  --color-base-200: oklch(18% 0.012 261.24);
+  --color-base-300: oklch(24% 0.018 261.24);
+  --color-base-content: oklch(90% 0.01 261.24);
+  --color-base-content-muted: oklch(70% 0.025 261.24);
+  --color-primary: oklch(70% 0.16 155);
+  --color-primary-content: oklch(17% 0.015 261.24);
+  --color-secondary: oklch(75% 0.12 185);
+  --color-secondary-content: oklch(17% 0.015 261.24);
+  --color-accent: oklch(75% 0.14 135);
+  --color-accent-content: oklch(17% 0.015 261.24);
+  --color-neutral: oklch(85% 0.015 261.24);
+  --color-neutral-content: oklch(20% 0.015 261.24);
+  --color-info: oklch(78.34% 0.113 231.24);
+  --color-info-content: oklch(17% 0.015 261.24);
+  --color-success: oklch(78.34% 0.113 141.24);
+  --color-success-content: oklch(17% 0.015 261.24);
+  --color-warning: oklch(78.34% 0.113 81.24);
+  --color-warning-content: oklch(17% 0.015 261.24);
+  --color-error: oklch(78.34% 0.113 31.24);
+  --color-error-content: oklch(17% 0.015 261.24);
   --radius-selector: 0.5rem;
   --radius-field: 0.5rem;
   --radius-box: 0.5rem;
@@ -55,6 +55,7 @@
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+  --color-base-content-muted: oklch(70% 0.025 261.24);
 
   --radius-none: 0;
   --radius-sm: 0.25rem;
@@ -149,16 +150,12 @@
   :focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
-    border-radius: 0.375rem;
+    border-radius: var(--radius-sm);
   }
 
   ::selection {
     background-color: var(--color-primary);
     color: var(--color-primary-content);
-  }
-
-  .text-base-content-muted {
-    color: var(--color-base-content-muted);
   }
 }
 
@@ -198,17 +195,17 @@
 @media print {
   html,
   body {
-    background: #ffffff !important;
-    color: #111111 !important;
+    background: white !important;
+    color: black !important;
     font-size: 11pt;
   }
 
   body * {
-    color: #111111 !important;
+    color: black !important;
   }
 
   a {
-    color: #111111 !important;
+    color: black !important;
     text-decoration: underline;
   }
 

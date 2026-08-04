@@ -21,7 +21,7 @@ const userInfo = computed(() => userStore.userInfo);
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-base-300">
         <div>
-          <v-heading level="3" weight="semibold" class="text-secondary-content mb-3">
+          <v-heading level="3" weight="semibold" class="text-secondary mb-3">
             Current Position
           </v-heading>
           <div class="space-y-2">
@@ -31,7 +31,7 @@ const userInfo = computed(() => userStore.userInfo);
                 :href="userInfo.companyUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-primary hover:text-primary-focus transition-colors font-medium inline-flex items-center gap-2"
+                class="text-primary hover:text-primary/80 transition-colors font-medium inline-flex items-center gap-2"
               >
                 <img
                   :src="userInfo.companyLogo"
@@ -64,9 +64,7 @@ const userInfo = computed(() => userStore.userInfo);
         </div>
 
         <div>
-          <v-heading level="3" weight="semibold" class="text-secondary-content mb-3">
-            Education
-          </v-heading>
+          <v-heading level="3" weight="semibold" class="text-secondary mb-3"> Education </v-heading>
           <div class="space-y-2">
             <p class="text-base-content font-medium">
               {{ userInfo.education.university }}

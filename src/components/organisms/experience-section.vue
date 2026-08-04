@@ -41,11 +41,16 @@ const totalYears = computed(() => {
           Six years of product engineering.
         </v-heading>
         <p class="mt-6 text-base text-base-content-muted">
-          Building web and mobile products across startups and enterprise — frontend, backend, and the seams in between.
+          Building web and mobile products across startups and enterprise — frontend, backend, and
+          the seams in between.
         </p>
         <div class="mt-8 flex items-baseline gap-3 border-t border-base-300 pt-6">
-          <span class="font-mono text-5xl font-black text-primary tracking-[-0.06em]">{{ totalYears }}+</span>
-          <span class="text-sm text-base-content-muted">years shipping<br />production products</span>
+          <span class="font-mono text-5xl font-black text-primary tracking-[-0.06em]"
+            >{{ totalYears }}+</span
+          >
+          <span class="text-sm text-base-content-muted"
+            >years shipping<br />production products</span
+          >
         </div>
         <div class="mt-6 flex flex-wrap gap-2 font-mono text-xs text-base-content-muted">
           <span class="rounded border border-base-300 px-2 py-1">Product</span>
@@ -70,7 +75,11 @@ const totalYears = computed(() => {
             </span>
             <span
               class="axis-dot absolute -left-[7px] top-1 h-3 w-3 rounded-full border-2 border-base-100"
-              :class="isCurrent(experience) ? 'bg-primary ring-4 ring-primary/20' : 'bg-base-300 group-hover:bg-primary'"
+              :class="
+                isCurrent(experience)
+                  ? 'bg-primary ring-4 ring-primary/20'
+                  : 'bg-base-300 group-hover:bg-primary'
+              "
               aria-hidden="true"
             />
             <span
@@ -85,10 +94,14 @@ const totalYears = computed(() => {
               <div class="min-w-0 flex-1">
                 <p class="font-mono text-xs text-base-content-muted">
                   {{ formatStart(experience.startDate) }} —
-                  <span v-if="experience.endDate">{{ new Date(experience.endDate).getFullYear() }}</span>
+                  <span v-if="experience.endDate">{{
+                    new Date(experience.endDate).getFullYear()
+                  }}</span>
                   <span v-else class="text-primary">Now</span>
                 </p>
-                <h3 class="mt-1 text-2xl font-bold tracking-[-0.025em] text-base-content sm:text-[1.65rem]">
+                <h3
+                  class="mt-1 text-2xl font-bold tracking-[-0.025em] text-base-content sm:text-[1.65rem]"
+                >
                   {{ experience.title }} <span class="text-base-content-muted">·</span>
                   <a
                     :href="experience.companyUrl || '#'"

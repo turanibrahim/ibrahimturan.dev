@@ -15,8 +15,8 @@ export default defineConfig({
         name: 'ibrahimturan',
         short_name: 'ibrahimturan',
         description: 'Frontend Engineer with 6+ years of experience specializing in building scalable web applications and modern user interfaces. Passionate about delivering high-quality, performant solutions using cutting-edge technologies.',
-        theme_color: '#1d2129',
-        background_color: '#1d2129',
+        theme_color: '#12161d',
+        background_color: '#12161d',
         start_url: '/',
         icons: [
           {

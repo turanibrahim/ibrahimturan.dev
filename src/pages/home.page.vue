@@ -30,7 +30,9 @@ const fullName = computed(() => `${userInfo.value.name} ${userInfo.value.surname
     <main>
       <section id="home" class="container hero-layout py-16 sm:py-24 lg:py-32">
         <div class="hero-copy">
-          <p class="mb-5 font-mono text-xs text-primary">{{ userInfo.title }} / {{ userInfo.location }}</p>
+          <p class="mb-5 font-mono text-xs text-primary">
+            {{ userInfo.title }} / {{ userInfo.location }}
+          </p>
           <h1
             class="max-w-4xl text-balance text-5xl font-black leading-[0.98] tracking-[-0.05em] text-base-content sm:text-7xl lg:text-8xl"
           >
@@ -95,9 +97,7 @@ const fullName = computed(() => `${userInfo.value.name} ${userInfo.value.surname
           <h2 class="text-4xl font-extrabold tracking-[-0.04em] text-base-content sm:text-5xl">
             Experience
           </h2>
-          <span class="hidden font-mono text-xs text-base-content-muted sm:block"
-            >2020 → now</span
-          >
+          <span class="hidden font-mono text-xs text-base-content-muted sm:block">2020 → now</span>
         </div>
         <experience-section />
       </section>

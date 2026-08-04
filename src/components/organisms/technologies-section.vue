@@ -9,7 +9,11 @@ import type { Technology, TechCategory, TechCategoryGroup } from '@/types/techno
 const technologies = computed<Technology[]>(() => technologiesData as Technology[]);
 
 const groups: TechCategoryGroup[] = [
-  { key: 'frontend', label: 'Frontend', blurb: 'Web apps, design systems, and component architecture.' },
+  {
+    key: 'frontend',
+    label: 'Frontend',
+    blurb: 'Web apps, design systems, and component architecture.',
+  },
   { key: 'mobile', label: 'Mobile', blurb: 'Cross-platform product builds.' },
   { key: 'backend', label: 'Backend', blurb: 'APIs, services, and data layers.' },
   { key: 'tooling', label: 'Tooling', blurb: 'Build, test, ship, observe.' },
@@ -39,7 +43,12 @@ const levelLabel = (level: Technology['level']): string => {
 </script>
 
 <template>
-  <v-section id="technologies" aria-labelledby="technologies-heading" padding-y="xl" background="base-200">
+  <v-section
+    id="technologies"
+    aria-labelledby="technologies-heading"
+    padding-y="xl"
+    background="base-200"
+  >
     <div class="grid gap-12 lg:grid-cols-[280px_1fr] lg:gap-20">
       <aside class="tech-aside">
         <p class="font-mono text-xs text-primary">/ 03 — stack</p>
@@ -51,7 +60,8 @@ const levelLabel = (level: Technology['level']): string => {
           Full-stack, frontend-leaning.
         </v-heading>
         <p class="mt-6 text-base text-base-content-muted">
-          React, Vue, React Native, and Node.js — paired with the build, test, and deploy systems that keep a product moving.
+          React, Vue, React Native, and Node.js — paired with the build, test, and deploy systems
+          that keep a product moving.
         </p>
         <div class="mt-8 border-t border-base-300 pt-6">
           <p class="font-mono text-xs text-base-content-muted">Currently shipping</p>
