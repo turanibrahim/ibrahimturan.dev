@@ -25,6 +25,11 @@
         "displayName": "Twilight Ink — Text",
         "canonical": "oklch(90% 0.01 261.24)"
       },
+      "base-content-muted": {
+        "role": "neutral",
+        "displayName": "Twilight Ink Muted",
+        "canonical": "oklch(70% 0.025 261.24)"
+      },
       "primary": {
         "role": "primary",
         "displayName": "Emerald Signal",
@@ -49,7 +54,7 @@
       },
       "accent": {
         "role": "tertiary",
-        "displayName": "Chartreuse Marker",
+        "displayName": "Chartreuse Marker (reserved)",
         "canonical": "oklch(75% 0.14 135)"
       },
       "accent-content": {
@@ -91,27 +96,27 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero name only. Never below the hero. Inter Black with negative tracking."
+        "purpose": "Hero headline only. Inter Black with negative tracking."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section headings. Single per section."
+        "purpose": "Section headings. Single per section. Inter ExtraBold."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Sub-section labels, experience card titles."
+        "purpose": "Sub-section labels, experience card titles. Inter Semibold."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Prose. Cap line length at 65–75ch."
+        "purpose": "Prose. Cap line length at 65–75ch. Inter Regular."
       },
       "caption": {
         "displayName": "Caption",
-        "purpose": "Supporting metadata, dates, locations."
+        "purpose": "Supporting metadata, dates, locations. Inter Regular 0.875rem."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Tech badges, code-like chips. JetBrains Mono only. Never used as section kicker."
+        "purpose": "Tech badges, code-like chips, mono field labels. JetBrains Mono Medium. Never used as a section kicker."
       }
     },
     "shadows": [],
@@ -152,68 +157,84 @@
   },
   "components": [
     {
-      "name": "Primary Button",
+      "name": "Header / Nav (inline composition)",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Top bar built inline in pages/home.page.vue. Transparent over the prism section. Logo (mono 'it.') on the left, three nav anchors on the right; mono small-caps field labels, hover-to-Emerald.",
+      "html": "<header class=\"portfolio-header\"><a href=\"#home\" class=\"portfolio-logo\">it<span class=\"logo-dot\">.</span></a><nav aria-label=\"Primary navigation\" class=\"portfolio-nav\"><a href=\"#work\">work</a><a href=\"#about\">about</a><a href=\"#contact\">contact</a></nav></header>",
+      "css": ".portfolio-header { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 0; } .portfolio-logo { font-family: JetBrains Mono, ui-monospace, SFMono-Regular, monospace; font-size: 0.875rem; font-weight: 600; letter-spacing: -0.005em; color: oklch(90% 0.01 261.24); text-decoration: none; } .logo-dot { color: oklch(70% 0.16 155); } .portfolio-nav { display: flex; align-items: center; gap: 1.25rem; font-family: JetBrains Mono, ui-monospace, SFMono-Regular, monospace; font-size: 0.75rem; color: oklch(70% 0.025 261.24); } @media (min-width: 640px) { .portfolio-nav { gap: 2rem; } } .portfolio-nav a { color: oklch(70% 0.025 261.24); text-decoration: none; transition: color 180ms cubic-bezier(0.25, 1, 0.5, 1); } .portfolio-nav a:hover { color: oklch(70% 0.16 155); } .portfolio-nav a:focus-visible { outline: 2px solid oklch(70% 0.16 155); outline-offset: 2px; border-radius: 0.25rem; }"
+    },
+    {
+      "name": "Primary CTA (hero)",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Primary CTA. Single most prominent action per section. Emerald Signal fill, deep Twilight text.",
-      "html": "<button class=\"ds-btn-primary\" type=\"button\">Get in touch</button>",
-      "css": ".ds-btn-primary { background: oklch(70% 0.16 155); color: oklch(17% 0.015 261.24); border: none; border-radius: 0.5rem; padding: 0.625rem 1.25rem; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 0.9375rem; cursor: pointer; transition: background 180ms cubic-bezier(0.25, 1, 0.5, 1), box-shadow 180ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-btn-primary:hover { background: oklch(75% 0.16 155); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(70% 0.16 155); outline-offset: 2px; }"
+      "description": "Single primary action in the hero (Get in touch). Emerald Signal fill, primary-content ink, lifts on hover.",
+      "html": "<a class=\"cta-primary\" href=\"mailto:ibrahim@example.com\">Start a conversation</a>",
+      "css": ".cta-primary { display: inline-block; background: oklch(70% 0.16 155); color: oklch(17% 0.015 261.24); border-radius: 0.5rem; padding: 0.75rem 1.25rem; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 1rem; text-decoration: none; transition: transform 180ms cubic-bezier(0.25, 1, 0.5, 1); cursor: pointer; } .cta-primary:hover { transform: translateY(-2px); } .cta-primary:focus-visible { outline: 2px solid oklch(70% 0.16 155); outline-offset: 2px; }"
     },
     {
-      "name": "Ghost Button (icon-only)",
+      "name": "Secondary CTA (hero)",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Companion action (See experience). Ghost-by-border. Border and ink shift to Emerald Signal on hover.",
+      "html": "<a class=\"cta-secondary\" href=\"#work\">See experience</a>",
+      "css": ".cta-secondary { display: inline-block; background: transparent; color: oklch(90% 0.01 261.24); border: 1px solid oklch(24% 0.018 261.24); border-radius: 0.5rem; padding: 0.75rem 1.25rem; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 1rem; text-decoration: none; transition: border-color 180ms cubic-bezier(0.25, 1, 0.5, 1), color 180ms cubic-bezier(0.25, 1, 0.5, 1); cursor: pointer; } .cta-secondary:hover { border-color: oklch(70% 0.16 155); color: oklch(70% 0.16 155); } .cta-secondary:focus-visible { outline: 2px solid oklch(70% 0.16 155); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Icon Button (social)",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "Default for icon-only social link affordances. Transparent, base-content ink.",
-      "html": "<button class=\"ds-btn-ghost\" type=\"button\" aria-label=\"GitHub\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.92.58.1.79-.25.79-.56v-2.13c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.07.78 2.15v3.19c0 .31.21.67.8.55C20.21 21.39 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5Z\"/></svg></button>",
-      "css": ".ds-btn-ghost { background: transparent; color: oklch(90% 0.01 261.24); border: 1px solid transparent; border-radius: 0.5rem; padding: 0.5rem 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background 180ms cubic-bezier(0.25, 1, 0.5, 1), border-color 180ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-btn-ghost:hover { background: oklch(24% 0.018 261.24); border-color: oklch(70% 0.16 155); color: oklch(70% 0.16 155); } .ds-btn-ghost:focus-visible { outline: 2px solid oklch(70% 0.16 155); outline-offset: 2px; }"
+      "description": "Icon-only social-link affordance. Transparent at rest, hover surface bg-base-300 with primary border and primary ink. Carries aria-label per network.",
+      "html": "<a class=\"ghost-icon-btn\" href=\"https://github.com/ibrahimturan\" aria-label=\"GitHub profile\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.92.58.1.79-.25.79-.56v-2.13c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.75.12 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.07.78 2.15v3.19c0 .31.21.67.8.55C20.21 21.39 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5Z\"/></svg></a>",
+      "css": ".ghost-icon-btn { display: inline-flex; align-items: center; justify-content: center; background: transparent; color: oklch(90% 0.01 261.24); border: 1px solid transparent; border-radius: 0.5rem; padding: 0.5rem; text-decoration: none; transition: background 180ms cubic-bezier(0.25, 1, 0.5, 1), border-color 180ms cubic-bezier(0.25, 1, 0.5, 1), color 180ms cubic-bezier(0.25, 1, 0.5, 1); cursor: pointer; } .ghost-icon-btn:hover { background: oklch(24% 0.018 261.24); border-color: oklch(70% 0.16 155); color: oklch(70% 0.16 155); } .ghost-icon-btn:focus-visible { outline: 2px solid oklch(70% 0.16 155); outline-offset: 2px; }"
     },
     {
-      "name": "Card — Bordered",
-      "kind": "card",
-      "refersTo": "card-bordered",
-      "description": "Default content surface. Flat, 1px border, no shadow. Used for experience cards.",
-      "html": "<article class=\"ds-card-bordered\"><h3 class=\"ds-card-title\">Frontend Engineer at MobileAction</h3><p class=\"ds-card-meta\">Ankara, Turkey · 2023 — Present</p><p class=\"ds-card-body\">Working across the product surface, partnering with design and backend.</p></article>",
-      "css": ".ds-card-bordered { background: oklch(20% 0.015 261.24); color: oklch(90% 0.01 261.24); border: 1px solid oklch(24% 0.018 261.24); border-radius: 0.5rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; } .ds-card-title { font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 1.5rem; line-height: 1.3; letter-spacing: -0.02em; color: oklch(75% 0.12 185); margin: 0; } .ds-card-meta { font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; line-height: 1.5; color: oklch(90% 0.01 261.24 / 0.7); margin: 0; } .ds-card-body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 1rem; line-height: 1.65; color: oklch(90% 0.01 261.24); margin: 0; }"
+      "name": "Experience Timeline Row",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Hairline-separated horizontal row inside an ordered timeline. Left axis: year + dot + optional rail. Right side: role meta + title + summary + tech tags inline. No card surface.",
+      "html": "<li class=\"experience-row\"><div class=\"timeline-axis\"><span class=\"axis-year\">2023</span><span class=\"axis-dot\" aria-hidden=\"true\"></span></div><div class=\"row-body\"><p class=\"row-meta\">Mar — <span class=\"row-now\">Now</span></p><h3 class=\"row-title\">Senior Frontend Engineer <span class=\"row-divider\">·</span> <a class=\"row-company\" href=\"#\">Company</a></h3><p class=\"row-summary\">Shipped the platform rewrite across web and mobile.</p><div class=\"row-tags\"><span class=\"tech-tag-inline\">Vue</span><span class=\"tech-tag-inline\">TypeScript</span></div></div></li>",
+      "css": ".experience-row { display: grid; grid-template-columns: 64px 1fr; gap: 1rem; padding: 1.75rem 0; border-top: 1px solid oklch(24% 0.018 261.24); } @media (min-width: 640px) { .experience-row { grid-template-columns: 96px 1fr; gap: 2rem; padding: 2.25rem 0; } } .timeline-axis { position: relative; } .axis-year { display: block; font-family: JetBrains Mono, ui-monospace, SFMono-Regular, monospace; font-size: 1.5rem; font-weight: 700; line-height: 1; letter-spacing: -0.01em; color: oklch(90% 0.01 261.24); } @media (min-width: 640px) { .axis-year { font-size: 1.875rem; } } .axis-dot { position: absolute; left: -7px; top: 0.25rem; height: 0.75rem; width: 0.75rem; border-radius: 9999px; background: oklch(24% 0.018 261.24); border: 2px solid oklch(20% 0.015 261.24); } .experience-row.is-current .axis-dot { background: oklch(70% 0.16 155); box-shadow: 0 0 0 4px oklch(70% 0.16 155 / 0.2); } .row-title { margin: 0.25rem 0 0; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 1.5rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.025em; color: oklch(90% 0.01 261.24); } @media (min-width: 640px) { .row-title { font-size: 1.65rem; } } .row-divider { color: oklch(70% 0.025 261.24); } .row-company { color: oklch(70% 0.16 155); text-decoration: none; transition: color 180ms cubic-bezier(0.25, 1, 0.5, 1); } .row-company:hover { color: oklch(70% 0.16 155 / 0.8); } .row-meta { font-family: JetBrains Mono, ui-monospace, SFMono-Regular, monospace; font-size: 0.75rem; color: oklch(70% 0.025 261.24); margin: 0; } .row-now { color: oklch(70% 0.16 155); } .row-summary { margin: 0.5rem 0 0; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 1rem; line-height: 1.65; color: oklch(90% 0.01 261.24); max-width: 42rem; } .row-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 0.25rem; } .tech-tag-inline { display: inline-flex; align-items: center; border-radius: 0.25rem; border: 1px solid oklch(24% 0.018 261.24); background: oklch(18% 0.012 261.24); padding: 0.25rem 0.5rem; font-family: JetBrains Mono, ui-monospace, SFMono-Regular, monospace; font-size: 0.75rem; color: oklch(75% 0.12 185); }"
     },
     {
-      "name": "Tech Badge",
+      "name": "Tech Grid Cell",
       "kind": "chip",
-      "refersTo": "badge-soft",
-      "description": "Technology tag. Dash variant, Cyan Readout outline, JetBrains Mono label, leading icon.",
-      "html": "<span class=\"ds-badge-soft\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg><span class=\"ds-badge-label\">Vue.js</span></span>",
-      "css": ".ds-badge-soft { display: inline-flex; align-items: center; gap: 0.375rem; background: transparent; color: oklch(75% 0.12 185); border: 1px dashed oklch(75% 0.12 185); border-radius: 0.5rem; padding: 0.375rem 0.75rem; } .ds-badge-label { font-family: JetBrains Mono, ui-monospace, SFMono-Regular, monospace; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.02em; }"
+      "refersTo": null,
+      "description": "Per-tech cell inside the technologies grid. Border + background shift by proficiency level (primary / working / familiar). Cell border moves to Emerald on hover.",
+      "html": "<li class=\"tech-cell\"><svg class=\"tech-icon\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg><div class=\"tech-meta\"><p class=\"tech-name\">Vue.js</p><p class=\"tech-meta-line\">PRIMARY · 6Y</p></div></li>",
+      "css": ".tech-cell { display: flex; align-items: center; gap: 0.75rem; border-radius: 0.5rem; border: 1px solid oklch(24% 0.018 261.24); padding: 0.625rem 0.75rem; background: transparent; transition: border-color 180ms cubic-bezier(0.25, 1, 0.5, 1); } .tech-cell:hover { border-color: oklch(70% 0.16 155); } .tech-cell.is-primary { border-color: oklch(70% 0.16 155 / 0.4); background: oklch(70% 0.16 155 / 0.1); color: oklch(90% 0.01 261.24); } .tech-cell.is-working { background: oklch(20% 0.015 261.24); color: oklch(90% 0.01 261.24); } .tech-cell.is-familiar { background: transparent; color: oklch(70% 0.025 261.24); } .tech-icon { flex-shrink: 0; font-size: 1rem; } .tech-meta { min-width: 0; flex: 1; } .tech-name { margin: 0; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; line-height: 1.2; color: inherit; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .tech-meta-line { margin: 0; font-family: JetBrains Mono, ui-monospace, SFMono-Regular, monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; }"
     },
     {
-      "name": "Section",
+      "name": "About-Strip Field",
       "kind": "custom",
       "refersTo": null,
-      "description": "Section wrapper with optional tonal surface and variable vertical rhythm.",
-      "html": "<section class=\"ds-section\"><div class=\"ds-section-container\"><h2 class=\"ds-section-heading\">Experience</h2><slot/></div></section>",
-      "css": ".ds-section { padding-top: 2.5rem; padding-bottom: 2.5rem; } .ds-section-container { margin-left: auto; margin-right: auto; padding-left: 1.2rem; padding-right: 1.2rem; max-width: 1536px; } @media (min-width: 640px) { .ds-section-container { padding-left: 2rem; padding-right: 2rem; } } @media (min-width: 1024px) { .ds-section-container { padding-left: 4rem; padding-right: 4rem; } } @media (min-width: 1280px) { .ds-section-container { padding-left: 5rem; padding-right: 5rem; } } @media (min-width: 1536px) { .ds-section-container { padding-left: 6rem; padding-right: 6rem; } } .ds-section-heading { font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-weight: 800; font-size: clamp(1.75rem, 4vw, 2.75rem); line-height: 1.15; letter-spacing: -0.03em; color: oklch(90% 0.01 261.24); margin: 0 0 1.5rem 0; text-wrap: balance; }"
+      "description": "Single field cell in the about strip (based in / education / reach me). Mono label, Inter value, optional muted secondary line.",
+      "html": "<div class=\"about-field\"><p class=\"about-field-label\">reach me</p><p class=\"about-field-value\">ibrahim@example.com</p></div>",
+      "css": ".about-field { display: flex; flex-direction: column; gap: 0.5rem; } .about-field-label { font-family: JetBrains Mono, ui-monospace, SFMono-Regular, monospace; font-size: 0.75rem; color: oklch(70% 0.16 155); margin: 0; text-transform: lowercase; letter-spacing: 0; } .about-field-value { font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; color: oklch(90% 0.01 261.24); margin: 0; }"
     },
     {
-      "name": "Hero Card",
+      "name": "Skip Link",
       "kind": "custom",
       "refersTo": null,
-      "description": "Signature hero surface. Backdrop-blur over the prism background. Flat, hairline-bordered.",
-      "html": "<section class=\"ds-hero\"><div class=\"ds-hero-canvas\" aria-hidden=\"true\"></div><div class=\"ds-hero-container\"><div class=\"ds-hero-card\"><img class=\"ds-hero-avatar\" src=\"/profile-img.png\" alt=\"\" width=\"256\" height=\"256\" /><div class=\"ds-hero-body\"><h1 class=\"ds-hero-name\">Ibrahim Turan</h1><p class=\"ds-hero-title\">Frontend Engineer</p><div class=\"ds-hero-social\"><button class=\"ds-btn-ghost\" aria-label=\"GitHub\"></button><button class=\"ds-btn-ghost\" aria-label=\"LinkedIn\"></button><button class=\"ds-btn-ghost\" aria-label=\"Dev.to\"></button></div></div></div></div></section>",
-      "css": ".ds-hero { position: relative; padding-top: 2.5rem; padding-bottom: 2.5rem; overflow: hidden; background: oklch(24% 0.018 261.24); } .ds-hero-canvas { position: absolute; inset: 0; z-index: 0; } .ds-hero-container { position: relative; z-index: 10; margin-left: auto; margin-right: auto; padding-left: 1.2rem; padding-right: 1.2rem; max-width: 1536px; } .ds-hero-card { position: relative; z-index: 10; display: flex; flex-direction: column; gap: 1.25rem; align-items: center; background: oklch(20% 0.015 261.24 / 0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid oklch(24% 0.018 261.24); border-radius: 0.5rem; padding: 1.5rem; min-height: 300px; } @media (min-width: 768px) { .ds-hero-card { flex-direction: row; gap: 2.5rem; } } .ds-hero-avatar { width: 16rem; height: 16rem; border-radius: 0.5rem; object-fit: cover; } .ds-hero-body { flex: 1; } .ds-hero-name { font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-weight: 900; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.05; letter-spacing: -0.04em; color: oklch(90% 0.01 261.24); margin: 0; text-wrap: balance; } .ds-hero-title { font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-weight: 600; font-size: 1.5rem; line-height: 1.3; letter-spacing: -0.02em; color: oklch(75% 0.12 185); margin: 0.5rem 0 0 0; } .ds-hero-social { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; } @media (prefers-reduced-motion: reduce) { .ds-hero { backdrop-filter: none; } }"
+      "description": "Accessibility surface. Hidden by default (sr-only). On focus, fixed top-left, primary fill, primary-content ink, ring-offset for contrast.",
+      "html": "<a class=\"skip-link\" href=\"#main\">Skip to main content</a>",
+      "css": ".skip-link { position: absolute; left: -9999px; top: 0; z-index: 50; } .skip-link:focus { position: fixed; left: 1rem; top: 1rem; background: oklch(70% 0.16 155); color: oklch(17% 0.015 261.24); border-radius: 0.5rem; padding: 0.5rem 1rem; font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-weight: 600; text-decoration: none; left: auto; outline: none; box-shadow: 0 0 0 2px oklch(70% 0.16 155), 0 0 0 4px oklch(20% 0.015 261.24); }"
     }
   ],
   "narrative": {
     "northStar": "The Instrument Panel",
-    "overview": "A working engineer's console, not a marketing site. The default surface is a deep, almost-black blue-violet — a panel that disappears until you need it. Information is encoded in two chromatic readouts: emerald for primary signal, cyan for secondary readout. The rest is tonal layering. Nothing is decorative; everything either earns its place by carrying meaning or it isn't there. The personality is crafty, opinionated, precise. Type is set in Inter at a deliberate scale, never stretched, never faked. Lines breathe at 65–75ch. Spacing rhythm varies — sections alternate density so the page scans like a well-built interface, not like identical stacked blocks. Motion is purposeful: reveals honor prefers-reduced-motion, the prism hero animation is a single signature element, not a reflex applied to every section.",
+    "overview": "A working engineer's console, not a marketing site. The default surface is a deep, almost-black blue-violet — a panel that disappears until you need it. Information is encoded in two chromatic readouts: emerald for primary signal, cyan for secondary readout. Chartreuse Marker is reserved infrastructure — defined in tokens but unused on the surface today. The rest is tonal layering. Nothing is decorative; everything either earns its place by carrying meaning or it isn't there. The personality is crafty, opinionated, precise. Type is set in Inter at a deliberate scale, never stretched, never faked. Lines breathe at 65–75ch. Spacing rhythm varies — sections alternate density so the page scans like a well-built interface, not like identical stacked blocks. Motion is purposeful: reveals honor prefers-reduced-motion, the prism hero animation is the single signature motion element on the site; no other section applies entrance animations by reflex.",
     "keyCharacteristics": [
       "Dark by default. Body is base-100 (deep blue-violet). No light mode; the surface is committed.",
       "Tonal layering for depth, not shadows. Surfaces step through base-100/200/300 lightness.",
-      "Two chromatic accents. Emerald Signal and Cyan Readout. Accent is rare — used only where it carries information.",
-      "Inter for prose, JetBrains Mono for technical labels. Contrast-axis pairing.",
-      "WCAG 2.1 AA enforced. Body text ≥4.5:1, large text ≥3:1, focus states visible."
+      "Two chromatic accents active on the surface. Emerald Signal (primary) and Cyan Readout (secondary). Chartreuse Marker is reserved, not painted onto the page today.",
+      "Inter for prose, JetBrains Mono for technical labels. Contrast-axis pairing: humanist sans + engineering mono.",
+      "WCAG 2.1 AA enforced. Body text ≥4.5:1, large text ≥3:1, focus states visible, prefers-reduced-motion honored."
     ],
     "rules": [
       {
         "name": "The Two Voices Rule",
-        "body": "Emerald Signal and Cyan Readout are the only chromatic accents. Chartreuse Marker is reserved. State colors are reserved for state. Decoration never invents a fourth hue.",
+        "body": "Emerald Signal and Cyan Readout are the active chromatic accents on the current surface. Chartreuse Marker is reserved infrastructure — defined in tokens for future exception, not painted onto the page today. State colors (info/success/warning/error) are reserved for state. Decoration never invents a fourth hue.",
         "section": "colors"
       },
       {
@@ -223,7 +244,7 @@
       },
       {
         "name": "The Inter-Only Prose Rule",
-        "body": "Body prose, captions, and display all use Inter. JetBrains Mono is opt-in per element where technical reading helps. No uppercase-tracked labels above sections.",
+        "body": "Body prose, captions, and display all use Inter. JetBrains Mono is opt-in per element where technical reading helps (tech tags, mono field labels, per-cell meta). No uppercase-tracked labels above sections — that's the AI kicker reflex, banned here.",
         "section": "typography"
       },
       {
@@ -235,6 +256,11 @@
         "name": "The Flat-At-Rest Rule",
         "body": "Surfaces are flat at rest. State changes may shift surface tone or border, never fake depth with a drop shadow.",
         "section": "elevation"
+      },
+      {
+        "name": "The Resume Metric Exception",
+        "body": "The single hero-metric on the site lives in the Experience aside ({{ totalYears }}+ years shipping production products). It is the one sanctioned big-number callout. No other surface (hero, footer, about strip, technology section, future pages) may repeat the pattern; the same fact rendered elsewhere must be a sentence.",
+        "section": "components"
       }
     ],
     "dos": [
@@ -245,19 +271,21 @@
       "Vary section spacing rhythm (sm/md/lg/xl). Sections should not all feel like the same height.",
       "Keep cards flat. Surfaces step through base-100/200/300 lightness, not drop shadows.",
       "Load Inter (sans) and JetBrains Mono (mono) from a privacy-respecting source.",
-      "Use text-wrap: balance on h1–h3 and text-wrap: pretty on long prose."
+      "Use text-wrap: balance on h1–h3 and text-wrap: pretty on long prose.",
+      "Isolate metric callouts. The Resume Metric in the Experience aside is the one sanctioned hero-metric on the site. Anywhere else, render the same fact in prose."
     ],
     "donts": [
       "Use a cream / warm-tinted / off-white body background. The 2025–26 AI-portfolio reflex is banned here.",
-      "Add small uppercase-tracked kicker labels (ABOUT / PROCESS / WORK) above sections. The AI grammar is banned.",
+      "Add small uppercase-tracked kicker labels (ABOUT / PROCESS / WORK) above sections. The AI grammar is banned. Single-word lowercase mono field labels (e.g. work, stack, based in, reach me) are functional, not kickers, and are allowed.",
       "Add a border-left or border-right greater than 1px as a colored stripe on cards, list items, or callouts. Side-stripe accents are banned.",
       "Use gradient text (background-clip: text with a gradient background). Emphasis comes from weight and size.",
-      "Use glassmorphism as a default. Backdrop-blur is reserved for the hero card only.",
-      "Lay out experiences or technologies as identical card grids. Vary surface treatment.",
-      "Use numbered section markers (01 / 02 / 03) as scaffolding reflex. Earned only when the section IS a sequence.",
+      "Use glassmorphism as a default. Backdrop-blur is reserved for hero-grade surfaces and on the current surface no element uses it. Don't add a glass card to feel premium — blur is a depth signal, not a decoration.",
+      "Lay out experiences or technologies as identical card grids. Vary surface treatment — experience is a timeline of rows, technologies is a grouped grid.",
+      "Use numbered section markers (01 / 02 / 03) as scaffolding reflex. A numbered sequence earns its place when the section IS a sequence; otherwise it doesn't appear.",
       "Stretch or compress a typeface. If text doesn't fit, change the copy or the clamp — never the letter-spacing hack.",
       "Add decorative animation that doesn't carry information. Motion is purposeful or it isn't there.",
-      "Mix fonts within the prose system. Inter for prose, JetBrains Mono for technical labels only."
+      "Mix fonts within the prose system. Inter for prose, JetBrains Mono for technical labels only.",
+      "Add another big-number hero-metric anywhere on the site outside the Experience aside. The pattern (giant colored number + small label + supporting stats) is the AI slop template; the single Resume Metric is the documented exception."
     ]
   }
 }

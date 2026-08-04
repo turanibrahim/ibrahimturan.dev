@@ -51,7 +51,7 @@ const levelLabel = (level: Technology['level']): string => {
   >
     <div class="grid gap-12 lg:grid-cols-[280px_1fr] lg:gap-20">
       <aside class="tech-aside">
-        <p class="font-mono text-xs text-primary">/ 03 — stack</p>
+        <p class="font-mono text-xs text-primary">stack</p>
         <v-heading
           id="technologies-heading"
           level="2"

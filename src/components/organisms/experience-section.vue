@@ -32,7 +32,7 @@ const totalYears = computed(() => {
   >
     <div class="grid gap-12 lg:grid-cols-[280px_1fr] lg:gap-20">
       <aside class="experience-aside">
-        <p class="font-mono text-xs text-primary">/ 02 — work</p>
+        <p class="font-mono text-xs text-primary">work</p>
         <v-heading
           id="experience-heading"
           level="2"

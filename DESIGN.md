@@ -130,7 +130,7 @@ The palette is a single dark family — Twilight Stack — with two chromatic re
 
 ### Tertiary
 
-- **Chartreuse Marker** (`oklch(75% 0.14 135)`): Reserved accent for highlights, callouts, and indicator states. Use only when neither Emerald nor Cyan reads correctly in context.
+- **Chartreuse Marker** (`oklch(75% 0.14 135)`): Reserved. Not used on the current surface. Reach for it only when neither Emerald Signal nor Cyan Readout reads correctly in a specific context, and never as decoration. The Two Voices Rule binds: do not introduce Chartreuse into a new section by reflex.
 
 ### Neutral (Twilight Stack)
 
@@ -150,7 +150,7 @@ The palette is a single dark family — Twilight Stack — with two chromatic re
 
 ### Named Rules
 
-**The Two Voices Rule.** Emerald Signal and Cyan Readout are the only chromatic accents. Chartreuse Marker is reserved. State colors (info/success/warning/error) are reserved for state. Decoration never invents a fourth hue.
+**The Two Voices Rule.** Emerald Signal and Cyan Readout are the active chromatic accents on the current surface. Chartreuse Marker is reserved infrastructure — defined in the token system for future exception, not painted onto the page today. State colors (info/success/warning/error) are reserved for state. Decoration never invents a fourth hue.
 
 **The Twilight Commitment.** Body is Twilight 100, never warm-tinted cream, never white. The page is dark. This is a deliberate commitment, not a theme.
 
@@ -177,6 +177,7 @@ The palette is a single dark family — Twilight Stack — with two chromatic re
 
 **The Scale-By-Clamp Rule.** Display and Headline use `clamp()` so they breathe between mobile and desktop. Body uses fixed sizes. No fluid body text.
 
+
 ## 4. Elevation
 
 The system is **flat by default**. Surfaces convey depth through tonal layering (base-100/200/300) and a single 1px border, not through shadows. Cards, sections, and panels stay flat at rest. Hover and focus bring a brighter surface tone or a 1px border accent — never a drop shadow.
@@ -184,7 +185,7 @@ The system is **flat by default**. Surfaces convey depth through tonal layering 
 Depth is conveyed by:
 - **Tonal layering.** Resting surfaces are base-100. Elevated surfaces (cards, hero) are base-300. Recessed surfaces (footer) are base-200.
 - **Borders, not shadows.** Cards use `1px solid base-300` (DaisyUI `card-border`) — a hairline outline, not a shadow.
-- **Backdrop blur on hero only.** The hero card uses `backdrop-blur` over the prism background. This is the one place where a depth effect (blur) carries purpose; it isn't decoration.
+- **Backdrop blur (reserved, currently unused).** The token system reserves `backdrop-filter` for surfaces where it carries purpose (intended use: hero card over the prism background). The shipped hero does not currently apply backdrop-blur; the prism background itself is the depth mechanism. If reintroduced in a future surface, it must be the only blur on the page; multiple blurred layers collapse the depth signal.
 
 ### Shadow Vocabulary
 
@@ -196,44 +197,95 @@ Depth is conveyed by:
 
 ## 5. Components
 
+### Header / Navigation (inline composition)
+
+The live page builds its top bar inline in `pages/home.page.vue` rather than via `v-navbar`. The atom exists but is unused.
+
+- **Surface:** Transparent. Heroed over `bg-base-300` via the WebGL prism section.
+- **Logo:** `it<span class="text-primary">.</span>` — JetBrains Mono 0.875rem, semibold, `tracking-tight`. The period is colored Emerald Signal.
+- **Nav links:** Three inline anchors (`work`, `about`, `contact`), JetBrains Mono 0.75rem, `text-base-content-muted` at rest, `hover:text-primary`. Spacing `gap-5` mobile / `sm:gap-8` ≥640px.
+- **Active state:** No current-page indicator (single-page anchor navigation); `prefers-reduced-motion` is honored on hover transitions.
+
 ### Buttons
 
-- **Shape:** Pill-free; corners at `--radius-md` (0.5rem). Solid, never rounded-full.
-- **Primary:** Emerald Signal background, deep Twilight text, 0.625rem × 1.25rem padding. Single most prominent CTA per section.
-- **Ghost:** Transparent background, base-content text, 0.5rem × 1rem padding. Default for icon-only social links.
-- **Hover / Focus:** Background tone shifts to a brighter Emerald or a 1px Emerald Signal border. Focus visible via a 2px outline ring at `--radius-md`.
+- **Primary CTA** (`get in touch` link in hero): Tailwind class form — `rounded-md bg-primary px-5 py-3 font-semibold text-primary-content transition-transform hover:-translate-y-0.5`. Emerald Signal fill, primary-content ink. Lifts on hover. Single primary action in the hero band.
+- **Secondary CTA** (`see experience` link): `rounded-md border border-base-300 px-5 py-3 font-semibold text-base-content transition-colors hover:border-primary hover:text-primary`. Ghost-by-border. Border shifts to Emerald Signal and text to Emerald on hover.
+- **Ghost Icon Button** (used by `social-links` molecule via `v-button ghost circle`): Transparent base, base-content icon, hover surface `bg-base-300` with `border-primary` and `text-primary`. Carries aria-label per network.
 
-### Chips / Tech Badges
+### Experience Timeline Row (`experience-section` organism)
 
-- **Style:** Dash variant — `badge-dash` with secondary (Cyan Readout) outline and text. JetBrains Mono Medium for the label. Icon inline at the leading edge.
-- **State:** Static at rest. Hover transitions the outline to a Cyan Readout fill at 10% opacity.
-- **Purpose:** Technology tags only. Never used as a generic pill, never used as a section kicker.
+Rows, not cards. The timeline organism renders each role as a horizontal row inside an `<ol>` with a vertical 1px rail (left axis, dot, year, role).
 
-### Cards / Containers
+- **Row layout:** `grid grid-cols-[64px_1fr] gap-4 sm:grid-cols-[96px_1fr] sm:gap-8`. Top hairline `border-t border-base-300` between rows. No card surface — type and rails carry it.
+- **Axis dot:** 12px round, hollow on past roles (`bg-base-300`), filled Emerald Signal on the current role with a `ring-4 ring-primary/20` halo.
+- **Title:** Inter Bold 1.5rem / 1.65rem (sm), `tracking-[-0.025em]`. Company link inline at end, `text-primary`, hover `text-primary/80`.
+- **Tech Tag (inline):** `rounded border border-base-300 bg-base-200 px-2 py-1 font-mono text-xs text-secondary`. Distinct from Tech Badge (see below) — quieter; sits in row alongside other row metadata.
 
-- **Corner Style:** `--radius-md` (0.5rem). Single radius across all cards.
-- **Background:** base-100 for content cards; base-300 for hero card; base-200 for footer.
-- **Shadow Strategy:** None. Cards are flat, defined by a 1px border (`card-border`).
-- **Border:** 1px solid base-300, optional via `bordered` prop.
-- **Internal Padding:** 1.5rem default. Adjusts via DaisyUI size classes (`card-sm`, `card-lg`, `card-xl`) when density demands it.
+### Resume Aside Metric (`experience-section` — left rail)
+
+A single hero-metric-style exception.
+
+- **Use:** Only one place on the entire surface. Sits in the experience section's left aside: `{{ totalYears }}+ years shipping production products`.
+- **Number rendering:** Inter Black 3rem (text-5xl), Emerald Signal, `tracking-[-0.06em]`.
+- **Label:** Inter Regular 0.875rem, `text-base-content-muted`, sits to the right of the number.
+- **Named rule:** The Resume Metric is the **single, sanctioned** hero-metric on the site. Other surfaces must not repeat the pattern (no big-number stats in other section asides, hero, footer, or about strip).
+
+### Tech Grid Cell (`technologies-section` organism)
+
+A grouped grid, not a card wall. Four rows (Frontend, Mobile, Backend, Tooling) on the left, four-column tech cells on the right.
+
+- **Aside label:** Single JetBrains Mono 0.75rem token (e.g. `stack` or `work`) in `text-primary` — never uppercase, never tracked. Functional name, not a kicker.
+- **Cell:** `grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2` rows of `tech-cell`s. Each cell: `rounded-md border px-3 py-2.5`. Border + background shift by `level`:
+  - `primary`: `border-primary/40 bg-primary/10 text-base-content`
+  - `working`: `border-base-300 bg-base-100 text-base-content`
+  - `familiar`: `border-base-300 bg-transparent text-base-content-muted`
+- **Hover:** Cell border shifts to `var(--color-primary)`.
+- **Per-cell content:** Leading `v-icon` (`text-base`), name (Inter Semibold 0.875rem), meta line (JetBrains Mono 10px uppercase tracked: `primary · 6y`).
+
+### Tech Badge (component) vs Tech Tag (inline)
+
+Two coexisting tech treatments. Documented intent:
+
+- **Tech Badge** — `molecules/v-tech-badge.vue`. Used where the tech needs icon + name emphasis in a tighter density. `v-badge variant="dash" color="secondary"` with `v-icon` leading edge and label inline. **Current usage:** declared, not currently mounted in the live page; reserved for future surfaces.
+- **Tech Tag (inline)** — raw Tailwind in `experience-section.vue`. Used inside experience rows where the tag sits among other row metadata. Quieter; reads as data, not as a chip.
+- **Do not mix the two in the same row.** Pick one treatment per surface. Inline-row gets Tag; standalone-badge gets Badge.
+
+### About Strip (inline composition)
+
+Three-column data strip in `home.page.vue`. Not a section; a hairline-separated band between hero and experience.
+
+- **Layout:** `border-y border-base-300 py-12 lg:py-16`. Mobile single-column; `sm:grid-cols-2 lg:grid-cols-3 gap-8 text-sm` from 640px up.
+- **Field label:** JetBrains Mono 0.75rem, `text-primary`. Functional word (`based in`, `education`, `reach me`).
+- **Field value:** Inter Regular `text-base-content`; secondary line `text-base-content-muted` if applicable.
+- **No card treatment.** The strip is bounded only by hairlines, never by surface lift.
+
+### Hero (live composition)
+
+The live hero is built inline in `home.page.vue`, not via the existing `hero-section.vue` organism. The organism is dead code (not mounted) and does not describe the shipped surface.
+
+- **Layout:** `grid grid-cols-[1.4fr_0.6fr]` desktop, stacked single-column ≤640px. `gap clamp(2rem, 8vw, 9rem)`. `align-items: end`.
+- **Copy side:** JetBrains Mono `{{ title }} / {{ location }}` eyebrow in Emerald Signal. Headline at `text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.98] tracking-[-0.05em]`. The phrase ending `into shipped products` is colored Emerald Signal. Tagline follows at `text-lg sm:text-xl leading-relaxed text-base-content-muted`, max-width 36rem.
+- **Portrait side:** `portrait-frame` — `1px solid var(--color-primary)`, `padding 0.75rem`, `transform: rotate(3deg)`, `bg-base-300`. Avatar inside at full width, `aspect-ratio 1`, `filter saturate(0.7) contrast(1.08)` (deliberate desaturation). Portrait max-width 280px desktop / 220px mobile. Self-aligned to `end` desktop, `start` mobile.
+- **Below portrait:** JetBrains Mono 0.75rem, `text-base-content-muted`, leading `text-primary` filled bullet, message `open to product engineering roles`.
+- **Header sits above the hero** as described in Header / Navigation. No `bg-base-100/60 backdrop-blur` card on the current surface (the organism with that treatment is unused).
+
+### Skip Link (`layouts/default.layout.vue`)
+
+Accessibility surface, not a visual one.
+
+- **Default:** `sr-only`.
+- **On focus:** `focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-content`. Plus a visible ring `focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-base-100`.
+- **Link target:** `#main`. Always the first focusable element on every layout.
+
+### Footer
+
+- **Surface:** `bg-base-200` full bleed. Container `py-12`.
+- **Layout:** Flex row ≥640px, stacked ≤640px. Left: copyright in `text-sm text-base-content-muted` (`&copy; {{ currentYear }} Ibrahim Turan. All rights reserved.`). Right: `social-links` (ghost-circle icon buttons).
+- **No card. No shadow. No border.** Tonal layering only.
 
 ### Inputs / Fields
 
 Not used on the current surface. When added, follow: hairline 1px base-300 border, base-100 background, base-content text, Emerald Signal 2px outline on focus.
-
-### Navigation
-
-- **Style:** Not yet present. Reserved slot for `v-navbar` (atom exists). When implemented: base-300 surface, transparent to hero gradient, no shadow.
-- **Links:** base-content text, Emerald Signal on hover, 2px Emerald Signal underline on active.
-
-### Hero (Signature Component)
-
-The hero is the page's signature surface. It carries the WebGL prism background (existing `v-prism-background` atom) plus a single elevated card with backdrop blur.
-
-- **Background:** WebGL prism shader (custom), full-bleed. Honors `prefers-reduced-motion`.
-- **Card:** base-100/60 with `backdrop-blur-sm`, 1px base-300 border, `--radius-md`. Contains avatar, name, title, social links.
-- **Name:** Display scale, Inter Black, `--color-base-100` ink in dark context, blur-text reveal on mount.
-- **Title:** Headline sub-scale, secondary (Cyan Readout) color.
 
 ## 6. Do's and Don'ts
 
@@ -246,7 +298,7 @@ The hero is the page's signature surface. It carries the WebGL prism background 
 - **Do** vary section spacing rhythm (sm/md/lg/xl) — sections should not all feel like the same height.
 - **Do** keep cards flat. Surfaces step through base-100/200/300 lightness, not drop shadows.
 - **Do** load Inter (sans) and JetBrains Mono (mono) from a privacy-respecting source.
-- **Do** use `text-wrap: balance` on h1–h3 and `text-wrap: pretty` on long prose.
+- **Do** isolate metric callouts. The Resume Metric in the Experience aside (e.g. `6+ years shipping production products`) is the one sanctioned hero-metric on the site. Anywhere else, render the same fact in prose.
 
 ### Don't:
 
@@ -254,9 +306,10 @@ The hero is the page's signature surface. It carries the WebGL prism background 
 - **Don't** add small uppercase-tracked kicker labels ("ABOUT" / "PROCESS" / "WORK") above sections. The AI grammar is banned.
 - **Don't** add a `border-left` or `border-right` greater than 1px as a colored stripe on cards, list items, or callouts. Side-stripe accents are banned.
 - **Don't** use gradient text (`background-clip: text` with a gradient background). Emphasis comes from weight and size.
-- **Don't** use glassmorphism as a default. Backdrop-blur is reserved for the hero card only.
+- **Don't** use glassmorphism as a default. Backdrop-blur is reserved for hero-grade surfaces and on the current surface no element uses it. Don't add a glass card to "feel premium" — blur is a depth signal, not a decoration.
 - **Don't** lay out experiences or technologies as identical card grids. Vary surface treatment — some as full-width rows, some as chip groups, never the same template five times.
 - **Don't** use numbered section markers (01 / 02 / 03) as scaffolding reflex. A numbered sequence earns its place when the section IS a sequence; otherwise it doesn't appear.
 - **Don't** stretch or compress a typeface. If text doesn't fit, change the copy or the clamp — never the letter-spacing hack.
 - **Don't** add decorative animation that doesn't carry information. Motion is purposeful or it isn't there.
+- **Don't** add another big-number hero-metric anywhere on the site outside the Experience aside. The pattern (giant colored number + small label + supporting stats) is the AI slop template; the single Resume Metric is the documented exception.
 - **Don't** mix fonts within the prose system. Inter for prose, JetBrains Mono for technical labels only.
