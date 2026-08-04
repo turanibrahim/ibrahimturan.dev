@@ -109,22 +109,27 @@ const fullName = computed(() => `${userInfo.value.name} ${userInfo.value.surname
 <style>
 .hero-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.6fr);
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
   gap: clamp(2rem, 8vw, 9rem);
   align-items: end;
 }
 .hero-portrait {
   justify-self: end;
-  width: min(100%, 280px);
+  width: 100%;
+  max-width: 280px;
 }
 .portrait-frame {
   border: 1px solid var(--color-primary);
   padding: 0.75rem;
   transform: rotate(3deg);
   background: var(--color-base-300);
+  width: 100%;
 }
+.portrait-frame .avatar,
+.portrait-frame .avatar > div,
 .portrait-frame img {
   width: 100%;
+  max-width: none;
   aspect-ratio: 1;
   object-fit: cover;
   filter: saturate(0.7) contrast(1.08);
@@ -136,10 +141,11 @@ const fullName = computed(() => `${userInfo.value.name} ${userInfo.value.surname
 @media (max-width: 640px) {
   .hero-layout {
     grid-template-columns: 1fr;
+    gap: clamp(2rem, 8vw, 5rem);
   }
   .hero-portrait {
     justify-self: start;
-    width: 180px;
+    max-width: 220px;
   }
 }
 </style>
