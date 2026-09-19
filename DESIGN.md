@@ -213,23 +213,24 @@ The live page builds its top bar inline in `pages/index.astro` rather than via `
 - **Secondary CTA** (`see experience` link): `rounded-md border border-base-300 px-5 py-3 font-semibold text-base-content transition-colors hover:border-primary hover:text-primary`. Ghost-by-border. Border shifts to Emerald Signal and text to Emerald on hover.
 - **Ghost Icon Button** (used by `social-links` molecule via `v-button ghost circle`): Transparent base, base-content icon, hover surface `bg-base-300` with `border-primary` and `text-primary`. Carries aria-label per network.
 
-### Experience Timeline Row (`experience-section` organism)
+### Experience Ledger Row (`experience-section` organism)
 
-Rows, not cards. The timeline organism renders each role as a horizontal row inside an `<ol>` with a vertical 1px rail (left axis, dot, year, role).
+Rows, not cards. The organism uses the full container as a chronological ledger: year and tenure, role identity, then delivery summary.
 
-- **Row layout:** `grid grid-cols-[64px_1fr] gap-4 sm:grid-cols-[96px_1fr] sm:gap-8`. Top hairline `border-t border-base-300` between rows. No card surface — type and rails carry it.
-- **Axis dot:** 12px round, hollow on past roles (`bg-base-300`), filled Emerald Signal on the current role with a `ring-4 ring-primary/20` halo.
-- **Title:** Inter Bold 1.5rem / 1.65rem (sm), `tracking-[-0.025em]`. Company link inline at end, `text-primary`, hover `text-primary/80`.
-- **Tech Tag (inline):** `rounded border border-base-300 bg-base-200 px-2 py-1 font-mono text-xs text-secondary`. Distinct from Tech Badge (see below) — quieter; sits in row alongside other row metadata.
+- **Section header:** At `xl`, a 7/5 column split pairs the headline with the résumé metric, supporting copy, and discipline tags. Smaller viewports stack the same content in reading order.
+- **Row layout:** Mobile uses `grid-cols-[72px_minmax(0,1fr)]`; the summary aligns under the identity column. At `xl`, `grid-cols-12` becomes a 2/4/6 split for chronology, identity, and delivery detail. `divide-y divide-base-300` supplies the only row boundary.
+- **Chronology:** Year and month range use JetBrains Mono with tabular numerals. A current role sets the year and “to present” in Emerald Signal, adds `aria-current`, and includes the soft “Currently here” badge.
+- **Identity:** Inter Bold 1.5rem title, followed by the Emerald Signal company link, location, and a compact company logo. Company links underline on hover.
+- **Tech Tag (inline):** `rounded border border-base-300 bg-base-200 px-2 py-1 font-mono text-xs text-secondary`. Distinct from Tech Badge (see below) — quieter; sits after the delivery summary.
 
-### Resume Aside Metric (`experience-section` — left rail)
+### Experience Header Metric (`experience-section`)
 
 A single hero-metric-style exception.
 
-- **Use:** Only one place on the entire surface. Sits in the experience section's left aside: `{{ totalYears }}+ years shipping production products`.
-- **Number rendering:** Inter Black 3rem (text-5xl), Emerald Signal, `tracking-[-0.06em]`.
+- **Use:** Only one place on the entire surface. Sits beside the experience heading: `{{ totalYears }}+ years shipping production products`.
+- **Number rendering:** JetBrains Mono Black 3rem (`text-5xl`), Emerald Signal, `tracking-[-0.04em]`.
 - **Label:** Inter Regular 0.875rem, `text-base-content-muted`, sits to the right of the number.
-- **Named rule:** The Resume Metric is the **single, sanctioned** hero-metric on the site. Other surfaces must not repeat the pattern (no big-number stats in other section asides, hero, footer, or about strip).
+- **Named rule:** The Resume Metric is the **single, sanctioned** hero-metric on the site. Other surfaces must not repeat the pattern (no big-number stats in other section headers, hero, footer, or about strip).
 
 ### Tech Grid Cell (`technologies-section` organism)
 
