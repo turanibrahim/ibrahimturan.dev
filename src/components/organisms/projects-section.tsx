@@ -15,10 +15,6 @@ export const ProjectsSection = (): ReactElement => (
         >
           Project history.
         </VHeading>
-        <p className="mt-6 text-base leading-relaxed text-base-content-muted">
-          A chronological record of company, internal, and freelance work. Open a project for
-          responsibilities, outcomes, and its technology stack.
-        </p>
       </aside>
 
       <ol className="border-b border-base-300">

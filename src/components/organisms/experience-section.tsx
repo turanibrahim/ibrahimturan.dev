@@ -25,7 +25,7 @@ export const ExperienceSection = (): ReactElement => (
           Building web and mobile products across startups and enterprise — frontend, backend, and
           the seams in between.
         </p>
-        <div className="mt-8 flex items-baseline gap-3 border-t border-base-300 pt-6">
+        <div className="mt-8 flex items-center gap-3 border-t border-base-300 pt-6">
           <span className="font-mono text-5xl font-black tracking-[-0.06em] text-primary">
             {totalYears}+
           </span>
