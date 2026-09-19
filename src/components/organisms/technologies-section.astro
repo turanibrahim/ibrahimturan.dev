@@ -1,0 +1,100 @@
+---
+import VHeading from '@/components/atoms/v-heading.astro';
+import VIcon from '@/components/atoms/v-icon.astro';
+import VSection from '@/components/atoms/v-section.astro';
+import technologiesData from '@/data/technologies.json';
+import type { TechCategory, TechCategoryGroup, Technology } from '@/types/technology';
+
+const technologies = technologiesData as Technology[];
+const groups: TechCategoryGroup[] = [
+  {
+    key: 'frontend',
+    label: 'Frontend',
+    blurb: 'Web apps, design systems, and component architecture.',
+  },
+  { key: 'mobile', label: 'Mobile', blurb: 'Cross-platform product builds.' },
+  { key: 'backend', label: 'Backend', blurb: 'APIs, services, and data layers.' },
+  { key: 'tooling', label: 'Tooling', blurb: 'Build, test, ship, observe.' },
+];
+
+const grouped = technologies.reduce(
+  (accumulator, technology) => {
+    accumulator[technology.category].push(technology);
+    return accumulator;
+  },
+  { frontend: [], mobile: [], backend: [], tooling: [] } as Record<TechCategory, Technology[]>,
+);
+
+const levelStyles: Record<Technology['level'], string> = {
+  primary: 'border-primary/40 bg-primary/10 text-base-content',
+  working: 'border-base-300 bg-base-100 text-base-content',
+  familiar: 'border-base-300 bg-transparent text-base-content-muted',
+};
+---
+
+<VSection
+  id="technologies"
+  ariaLabelledby="technologies-heading"
+  paddingY="xl"
+  background="base-200"
+>
+  <div class="grid gap-12 lg:grid-cols-[280px_1fr] lg:gap-20">
+    <aside class="tech-aside">
+      <p class="font-mono text-xs text-primary">stack</p>
+      <VHeading
+        id="technologies-heading"
+        level="2"
+        class="mt-4 text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-base-content sm:text-5xl"
+      >
+        Full-stack, frontend-leaning.
+      </VHeading>
+      <p class="mt-6 text-base text-base-content-muted">
+        React, Vue, React Native, and Node.js — paired with the build, test, and deploy systems that
+        keep a product moving.
+      </p>
+      <div class="mt-8 border-t border-base-300 pt-6">
+        <p class="font-mono text-xs text-base-content-muted">Currently shipping</p>
+        <p class="mt-2 text-2xl font-bold tracking-[-0.02em] text-base-content">
+          React · TypeScript · Node.js
+        </p>
+      </div>
+    </aside>
+
+    <div class="tech-grid space-y-10">
+      {
+        groups.map((group) => (
+          <div class="tech-group">
+            <div class="mb-4 flex items-baseline justify-between gap-3">
+              <h3 class="text-lg font-bold tracking-[-0.02em] text-base-content">{group.label}</h3>
+              <span class="font-mono text-xs text-base-content-muted">{group.blurb}</span>
+            </div>
+            <ul class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+              {grouped[group.key].map((technology) => (
+                <li
+                  class:list={[
+                    'tech-cell flex items-center gap-3 rounded-md border px-3 py-2.5 transition-colors',
+                    levelStyles[technology.level],
+                  ]}
+                >
+                  {technology.icon && <VIcon name={technology.icon} class="shrink-0 text-base" />}
+                  <div class="min-w-0 flex-1">
+                    <p class="truncate text-sm font-semibold leading-tight">{technology.name}</p>
+                    <p class="font-mono text-[10px] uppercase tracking-wider opacity-70">
+                      {technology.level} · {technology.years}y
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</VSection>
+
+<style>
+  .tech-cell:hover {
+    border-color: var(--color-primary);
+  }
+</style>

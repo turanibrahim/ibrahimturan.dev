@@ -1,6 +1,6 @@
 {
-  "files": ["index.html"],
-  "insertBefore": "<script type=\"module\" src=\"/src/main.ts\"></script>",
+  "files": ["src/layouts/default.layout.astro"],
+  "insertBefore": "</head>",
   "commentSyntax": "html",
   "cspChecked": true
 }

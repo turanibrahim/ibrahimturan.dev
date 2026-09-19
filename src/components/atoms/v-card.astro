@@ -1,0 +1,125 @@
+---
+import type { CardSize, ResponsiveSize, VCardProps } from '@/types/v-card';
+
+interface Props extends VCardProps {
+  class?: string;
+}
+
+const {
+  title = '',
+  bordered = false,
+  dashed = false,
+  side = false,
+  imageFull = false,
+  size = 'md',
+  imageSrc = '',
+  imageAlt = 'card image',
+  imageBottom = false,
+  centered = false,
+  color = '',
+  responsive = false,
+  figurePadding = false,
+  figureRounded = false,
+  class: className,
+} = Astro.props;
+
+const sizeClasses: Record<CardSize, string> = {
+  xs: 'card-xs',
+  sm: 'card-sm',
+  md: '',
+  lg: 'card-lg',
+  xl: 'card-xl',
+};
+
+const responsiveSizeClasses: Record<keyof ResponsiveSize, Record<CardSize, string>> = {
+  default: sizeClasses,
+  sm: {
+    xs: 'sm:card-xs',
+    sm: 'sm:card-sm',
+    md: '',
+    lg: 'sm:card-lg',
+    xl: 'sm:card-xl',
+  },
+  md: {
+    xs: 'md:card-xs',
+    sm: 'md:card-sm',
+    md: '',
+    lg: 'md:card-lg',
+    xl: 'md:card-xl',
+  },
+  lg: {
+    xs: 'lg:card-xs',
+    sm: 'lg:card-sm',
+    md: '',
+    lg: 'lg:card-lg',
+    xl: 'lg:card-xl',
+  },
+  xl: {
+    xs: 'xl:card-xs',
+    sm: 'xl:card-sm',
+    md: '',
+    lg: 'xl:card-lg',
+    xl: 'xl:card-xl',
+  },
+};
+
+const responsiveClasses =
+  typeof size === 'object'
+    ? Object.entries(size).map(([screen, cardSize]) =>
+        cardSize ? responsiveSizeClasses[screen as keyof ResponsiveSize][cardSize as CardSize] : '',
+      )
+    : [];
+
+const cardSizeClass = typeof size === 'string' ? sizeClasses[size] : responsiveClasses;
+---
+
+<div
+  class:list={[
+    'card',
+    cardSizeClass,
+    bordered && 'card-border',
+    dashed && 'card-dash',
+    side && 'card-side',
+    responsive && 'lg:card-side',
+    imageFull && 'image-full',
+    color,
+    className,
+  ]}
+>
+  {
+    imageSrc && !imageBottom && (
+      <figure class:list={[figurePadding && 'px-10 pt-10']}>
+        <img src={imageSrc} alt={imageAlt} class:list={[figureRounded && 'rounded-box']} />
+      </figure>
+    )
+  }
+  <slot name="figure" />
+
+  <div class:list={['card-body', centered && 'items-center text-center']}>
+    {
+      title && (
+        <h2 class="card-title">
+          {title}
+          <slot name="badge" />
+        </h2>
+      )
+    }
+    <slot name="title" />
+    <slot />
+    {
+      Astro.slots.has('actions') && (
+        <div class="card-actions">
+          <slot name="actions" />
+        </div>
+      )
+    }
+  </div>
+
+  {
+    imageSrc && imageBottom && (
+      <figure class:list={[figurePadding && 'px-10 pt-10']}>
+        <img src={imageSrc} alt={imageAlt} class:list={[figureRounded && 'rounded-box']} />
+      </figure>
+    )
+  }
+</div>

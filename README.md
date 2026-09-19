@@ -1,8 +1,7 @@
 # ibrahimturan.dev
 
-Personal portfolio for **İbrahim Turan** — Frontend Engineer.
-Vue 3 + Vite, Tailwind 4, DaisyUI, motion-v. Dark theme only. PWA-ready.
-
+Personal portfolio for **İbrahim Turan** — Full-Stack Engineer.
+Astro, Vue islands, Tailwind 4, DaisyUI, motion-v. Dark theme only. PWA-ready.
 Live: [ibrahimturan.dev](https://ibrahimturan.dev)
 
 ## Develop
@@ -10,7 +9,7 @@ Live: [ibrahimturan.dev](https://ibrahimturan.dev)
 ```bash
 npm install
 npm run dev          # http://localhost:8080
-npm run build        # type-check + production build
+npm run build        # type-check + static production build
 npm run preview      # serve the production build
 npm run lint         # eslint --fix
 npm run format       # prettier --write
@@ -21,20 +20,16 @@ npm run format       # prettier --write
 ```
 src/
 ├── components/
-│   ├── atoms/         # v-avatar, v-button, v-card, v-heading, v-section, ...
-│   ├── molecules/     # experience-card, v-tech-badge, social-links
-│   └── organisms/     # hero-section, about-section, experience-section, ...
+│   ├── atoms/         # Static Astro atoms and interactive Vue islands
+│   ├── molecules/     # Experience cards, technology badges, social links
+│   └── organisms/     # Portfolio sections and shared footer
 ├── data/              # userInfo.json, experiences.json, technologies.json
-├── layouts/           # default.layout.vue
-├── pages/             # home.page.vue, colors.page.vue (dev only)
-├── plugins/           # pinia, oh-vue-icons
-├── router/            # vue-router setup + routes
-├── stores/            # pinia stores
-├── types/             # typescript types
-├── utils/             # date helpers
-├── assets/styles/     # tailwind.css (theme + globals)
-├── app.vue            # layout dispatcher
-└── main.ts            # app entry
+├── layouts/           # Shared Astro document layout
+├── pages/             # Astro file-based routes: / and /colors
+├── types/             # TypeScript types
+├── utils/             # Date helpers
+├── assets/styles/     # Tailwind CSS theme and global styles
+└── env.d.ts           # Astro and PWA client types
 ```
 
 ## Design system
@@ -42,7 +37,7 @@ src/
 - **PRODUCT.md** — strategy: audience, personality, anti-references, principles.
 - **DESIGN.md** — visual spec: palette, typography, components, do's & don'ts.
 - **`.impeccable/design.json`** — machine-readable sidecar (Stitch format).
-- **`.impeccable/live/config.json`** — `/impeccable live` config (Vite SPA, HTML entry).
+- **`.impeccable/live/config.json`** — `/impeccable live` config for the Astro layout.
 
 Theme: `ibrahimturan-dark` (DaisyUI). OKLCH. Two chromatic accents — Emerald Signal (primary) and Cyan Readout (secondary) — over a Twilight Stack of dark blue-violet surfaces. Tonal layering, no shadows.
 

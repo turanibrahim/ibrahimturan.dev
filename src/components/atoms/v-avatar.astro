@@ -1,0 +1,87 @@
+---
+import type { AvatarSize, VAvatarProps } from '@/types/v-avatar';
+
+interface Props extends VAvatarProps {
+  class?: string;
+}
+
+const {
+  src,
+  alt = 'avatar',
+  size = 'md',
+  shape = 'rounded',
+  mask = '',
+  online = false,
+  offline = false,
+  placeholder = false,
+  text = '',
+  ring = false,
+  priority = false,
+  class: className,
+} = Astro.props;
+
+const sizeClasses: Record<AvatarSize, string> = {
+  xs: 'w-8',
+  sm: 'w-12',
+  md: 'w-16',
+  lg: 'w-24',
+  xl: 'w-64',
+};
+
+const shortTextClasses: Record<AvatarSize, string> = {
+  xs: 'text-xs',
+  sm: 'text-base',
+  md: 'text-xl',
+  lg: 'text-3xl',
+  xl: 'text-5xl',
+};
+
+const longTextClasses: Record<AvatarSize, string> = {
+  xs: 'text-xs',
+  sm: 'text-sm',
+  md: 'text-base',
+  lg: 'text-lg',
+  xl: 'text-2xl',
+};
+
+const textClass = text.length > 2 ? longTextClasses[size] : shortTextClasses[size];
+const isPlaceholder = placeholder || !src;
+---
+
+<div
+  class:list={[
+    'avatar',
+    className,
+    {
+      'avatar-online': online,
+      'avatar-offline': offline,
+      'avatar-placeholder': isPlaceholder,
+    },
+  ]}
+>
+  <div
+    class:list={[
+      sizeClasses[size],
+      shape,
+      mask,
+      {
+        'ring-2 ring-primary ring-offset-base-100 ring-offset-2': ring,
+        'bg-neutral text-neutral-content': isPlaceholder,
+      },
+    ]}
+  >
+    {
+      src ? (
+        <img
+          src={src}
+          alt={alt}
+          loading={priority ? 'eager' : 'lazy'}
+          fetchpriority={priority ? 'high' : 'auto'}
+          decoding="async"
+        />
+      ) : (
+        <span class={textClass}>{text}</span>
+      )
+    }
+  </div>
+</div>

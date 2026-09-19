@@ -1,0 +1,49 @@
+---
+import type { VBadgeProps } from '@/types/v-badge';
+
+interface Props extends VBadgeProps {
+  class?: string;
+}
+
+const { variant = 'default', color, size = 'md', tag = 'span', class: className } = Astro.props;
+const Tag = tag as keyof HTMLElementTagNameMap;
+
+const variantClasses = {
+  default: '',
+  outline: 'badge-outline',
+  dash: 'badge-dash',
+  soft: 'badge-soft',
+  ghost: 'badge-ghost',
+};
+
+const colorClasses = {
+  neutral: 'badge-neutral',
+  primary: 'badge-primary',
+  secondary: 'badge-secondary',
+  accent: 'badge-accent',
+  info: 'badge-info',
+  success: 'badge-success',
+  warning: 'badge-warning',
+  error: 'badge-error',
+};
+
+const sizeClasses = {
+  xs: 'badge-xs',
+  sm: 'badge-sm',
+  md: '',
+  lg: 'badge-lg',
+  xl: 'badge-xl',
+};
+---
+
+<Tag
+  class:list={[
+    'badge',
+    variantClasses[variant],
+    color && colorClasses[color],
+    sizeClasses[size],
+    className,
+  ]}
+>
+  <slot />
+</Tag>
