@@ -33,7 +33,12 @@
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/7eb6f416-83b6-4a7d-873b-2f6fe1239e70.jpeg",
       "companyUrl": "https://www.mobileaction.co",
       "location": "Ankara, Turkey",
-      "tech": ["Vue 3", "TypeScript", "Tailwind", "Vitest"]
+      "tech": [
+        "Vue 3",
+        "TypeScript",
+        "Tailwind",
+        "Vitest"
+      ]
     },
     {
       "title": "Frontend Engineer",
@@ -44,7 +49,14 @@
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/0dbd5b1e-3a47-4005-9ced-bd647f240b84.jpeg",
       "companyUrl": "https://nmqdigital.com",
       "location": "Istanbul, Turkey",
-      "tech": ["Next.js", "React", "TypeScript", "Vue 2", "Vite", "PostgreSQL"]
+      "tech": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Vue 2",
+        "Vite",
+        "PostgreSQL"
+      ]
     },
     {
       "title": "Frontend Engineer",
@@ -54,7 +66,12 @@
       "summary": "Rebuilt the marketing site in Vue, lifted Lighthouse from 60 to 90+, and shipped parent and student portals with Sentry error monitoring.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e8cd7708-5f71-4010-8ec4-c2a404f72b0b.jpeg",
       "location": "London, United Kingdom",
-      "tech": ["Vue 3", "Bootstrap", "SEO", "Sentry"]
+      "tech": [
+        "Vue 3",
+        "Bootstrap",
+        "SEO",
+        "Sentry"
+      ]
     },
     {
       "title": "Frontend Engineer",
@@ -64,7 +81,11 @@
       "summary": "Owned customer-facing flows and internal ERP modules on one of Turkey's largest e-commerce platforms — cart, checkout, order ops, integrations.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/83edda06-9f6e-42bd-ac14-0b886ad094eb.jpeg",
       "location": "Istanbul, Turkey",
-      "tech": ["Vue 2", "Microservices", "Agile"]
+      "tech": [
+        "Vue 2",
+        "Microservices",
+        "Agile"
+      ]
     },
     {
       "title": "Frontend Engineer",
@@ -74,7 +95,12 @@
       "summary": "Launched three internal apps from zero — mobile, hand terminal, B2B shop — and reviewed 250+ merge requests across the platform.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e415df9b-4c7c-4cfb-a057-709a70e3ba4f.jpeg",
       "location": "Sakarya, Turkey",
-      "tech": ["Nuxt.js", "React Native", "Feathers.js", "Socket.io"]
+      "tech": [
+        "Nuxt.js",
+        "React Native",
+        "Feathers.js",
+        "Socket.io"
+      ]
     },
     {
       "title": "Fullstack Intern",
@@ -84,7 +110,13 @@
       "summary": "Built features for the EYSIS enterprise suite on Phalcon + Vue, containerized the dev environment with Docker.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/66efee14-68bc-4715-a55e-776ddaeffb9e.png",
       "location": "Sakarya, Turkey",
-      "tech": ["Phalcon", "Vue", "Vuetify", "Docker", "MySQL"]
+      "tech": [
+        "Phalcon",
+        "Vue",
+        "Vuetify",
+        "Docker",
+        "MySQL"
+      ]
     }
   ],
   "projects": [
@@ -98,7 +130,13 @@
         "Built permission-aware reporting dashboards that generate charts and widgets from database data.",
         "Delivered map-based customer discovery with nearby customer details, usage, and spend context."
       ],
-      "stack": ["React Native", "React", "Redux", "Redux Toolkit", "React Native Paper"],
+      "stack": [
+        "React Native",
+        "React",
+        "Redux",
+        "Redux Toolkit",
+        "React Native Paper"
+      ],
       "links": [
         {
           "label": "View on Google Play",
@@ -119,7 +157,14 @@
         "Improved application performance and resolved product defects.",
         "Delivered the chat feature end to end across the Vue frontend and Feathers.js backend."
       ],
-      "stack": ["Vue.js", "Vuex", "Vuetify", "Feathers.js", "Node.js", "MongoDB"],
+      "stack": [
+        "Vue.js",
+        "Vuex",
+        "Vuetify",
+        "Feathers.js",
+        "Node.js",
+        "MongoDB"
+      ],
       "links": []
     },
     {
@@ -131,7 +176,10 @@
         "Built the storefront on Vue Storefront with Reybex serving as the backend.",
         "Supported a reusable customer deployment model, including a rollout for one of Germany’s largest handbag producers."
       ],
-      "stack": ["Vue Storefront", "Reybex API"],
+      "stack": [
+        "Vue Storefront",
+        "Reybex API"
+      ],
       "links": []
     },
     {
@@ -143,7 +191,11 @@
         "Owned the cart, checkout, order history, and user details modules.",
         "Implemented ERP-controlled payment methods that could be enabled or disabled dynamically."
       ],
-      "stack": ["Vue.js", "Vuex", "Bootstrap"],
+      "stack": [
+        "Vue.js",
+        "Vuex",
+        "Bootstrap"
+      ],
       "links": []
     },
     {
@@ -154,7 +206,10 @@
       "contributions": [
         "Owned the order finance, payment, and user details modules within the internal platform."
       ],
-      "stack": ["Vue.js", "Vuetify"],
+      "stack": [
+        "Vue.js",
+        "Vuetify"
+      ],
       "links": []
     },
     {
@@ -167,7 +222,12 @@
         "Led two website rebrands.",
         "Built CMS-style components that reduced marketing page creation to about two days."
       ],
-      "stack": ["Vue.js", "Vite", "Bootstrap", "Static Site Generation"],
+      "stack": [
+        "Vue.js",
+        "Vite",
+        "Bootstrap",
+        "Static Site Generation"
+      ],
       "links": [
         {
           "label": "Visit Hub21",
@@ -185,7 +245,12 @@
         "Integrated Stripe payments, subscriptions, package management, and dynamic package options.",
         "Built student dashboards for progress tracking and upcoming session information."
       ],
-      "stack": ["Vue.js", "Vite", "Bootstrap", "Stripe"],
+      "stack": [
+        "Vue.js",
+        "Vite",
+        "Bootstrap",
+        "Stripe"
+      ],
       "links": []
     },
     {
@@ -198,7 +263,14 @@
         "Maintained the platform for the second consecutive annual contest with smaller updates.",
         "Delivered administration reporting and user management with Vue.js and Vuetify."
       ],
-      "stack": ["Vue.js", "VeeValidate", "Vue Router", "DaisyUI", "Pinia", "Vuetify"],
+      "stack": [
+        "Vue.js",
+        "VeeValidate",
+        "Vue Router",
+        "DaisyUI",
+        "Pinia",
+        "Vuetify"
+      ],
       "links": []
     },
     {
@@ -210,7 +282,14 @@
         "Developed the product frontend with Vue 3.",
         "Implemented the interface with Tailwind CSS, Sentry, VeeValidate, Vue Router, and Pinia."
       ],
-      "stack": ["Vue 3", "Tailwind CSS", "Sentry", "VeeValidate", "Vue Router", "Pinia"],
+      "stack": [
+        "Vue 3",
+        "Tailwind CSS",
+        "Sentry",
+        "VeeValidate",
+        "Vue Router",
+        "Pinia"
+      ],
       "links": []
     },
     {
@@ -221,7 +300,11 @@
       "contributions": [
         "Owned development, deployment, CI/CD pipelines, updates, and ongoing maintenance."
       ],
-      "stack": ["React", "Redux", "DatoCMS"],
+      "stack": [
+        "React",
+        "Redux",
+        "DatoCMS"
+      ],
       "links": []
     },
     {
@@ -234,7 +317,10 @@
         "Unified the Admin, Writer, and Publisher panels in one application and migrated them from Vue 2 to Vue 3.",
         "Enabled publishers to create website content and writers to access freelance content jobs."
       ],
-      "stack": ["FastAPI", "Vue 3"],
+      "stack": [
+        "FastAPI",
+        "Vue 3"
+      ],
       "links": []
     },
     {
@@ -246,7 +332,10 @@
         "Owned development, maintenance, CI/CD pipelines, and security.",
         "Delivered incremental website updates as required."
       ],
-      "stack": ["React", "Storyblok"],
+      "stack": [
+        "React",
+        "Storyblok"
+      ],
       "links": []
     },
     {
@@ -259,7 +348,13 @@
         "Presented updates in client meetings and translated requests into implementation solutions.",
         "Worked across Astro, React, Alpine.js, and a custom Vite output pipeline within Crownpeak."
       ],
-      "stack": ["Astro", "React", "Alpine.js", "Vite", "Crownpeak CMS"],
+      "stack": [
+        "Astro",
+        "React",
+        "Alpine.js",
+        "Vite",
+        "Crownpeak CMS"
+      ],
       "links": [
         {
           "label": "Visit JAMS ADR",
@@ -276,7 +371,12 @@
         "Developed the full set of Crownpeak CMS components from the start of the project.",
         "Created the frontend with Astro, Alpine.js, and a custom Vite output pipeline."
       ],
-      "stack": ["Astro", "Vite", "Alpine.js", "Crownpeak CMS"],
+      "stack": [
+        "Astro",
+        "Vite",
+        "Alpine.js",
+        "Crownpeak CMS"
+      ],
       "links": [
         {
           "label": "Visit JAMS Pathways",
@@ -293,7 +393,13 @@
         "Maintained the existing website.",
         "Developed new Crownpeak components with Astro, Alpine.js, vanilla JavaScript, and HTML."
       ],
-      "stack": ["Astro", "Alpine.js", "JavaScript", "HTML", "Crownpeak CMS"],
+      "stack": [
+        "Astro",
+        "Alpine.js",
+        "JavaScript",
+        "HTML",
+        "Crownpeak CMS"
+      ],
       "links": [
         {
           "label": "Visit Affinity Federal Credit Union",
@@ -330,7 +436,13 @@
         "Managed servers, deployment, and application development.",
         "Used the ChatGPT API to validate marketing emails and generate validation reports."
       ],
-      "stack": ["Next.js", "Drizzle ORM", "PostgreSQL", "Tailwind CSS", "ChatGPT API"],
+      "stack": [
+        "Next.js",
+        "Drizzle ORM",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "ChatGPT API"
+      ],
       "links": []
     },
     {
@@ -343,7 +455,12 @@
         "Built the frontend with Astro, Lit custom elements, and a custom Vite output pipeline.",
         "Documented component behavior and usage for Crownpeak developers."
       ],
-      "stack": ["Astro", "Lit", "Vite", "Crownpeak CMS"],
+      "stack": [
+        "Astro",
+        "Lit",
+        "Vite",
+        "Crownpeak CMS"
+      ],
       "links": []
     },
     {
@@ -355,7 +472,12 @@
         "Delivered small updates and ongoing website maintenance.",
         "Resolved translation issues across the website."
       ],
-      "stack": ["HubSpot CMS", "JavaScript", "CSS", "HTML"],
+      "stack": [
+        "HubSpot CMS",
+        "JavaScript",
+        "CSS",
+        "HTML"
+      ],
       "links": [
         {
           "label": "Visit NMQ",
@@ -373,7 +495,12 @@
         "Architected an AI-optimized modular system that reduced feature delivery from days to minutes and delivered 90% of Change History through an AI-first workflow.",
         "Maintained 100% security compliance by resolving all Yarn audit and Dependabot vulnerabilities, migrated the codebase to ESLint 9, and documented AI-ready patterns for the frontend team."
       ],
-      "stack": ["Vue 3", "Pinia", "Tailwind CSS", "AG Grid"],
+      "stack": [
+        "Vue 3",
+        "Pinia",
+        "Tailwind CSS",
+        "AG Grid"
+      ],
       "links": []
     }
   ],
