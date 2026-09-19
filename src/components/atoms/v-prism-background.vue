@@ -435,8 +435,7 @@ const setup = () => {
     }
     if (props.suspendWhenOffscreen) {
       const io = (container as HTMLElement & { __prismIO?: IntersectionObserver }).__prismIO as
-        | IntersectionObserver
-        | undefined;
+        IntersectionObserver | undefined;
       if (io) {
         io.disconnect();
       }

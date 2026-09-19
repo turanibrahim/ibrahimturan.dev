@@ -77,7 +77,7 @@ const inView = ref(false);
 const animationKey = ref(0);
 const completionFired = ref(false);
 const reduceMotion = ref(false);
-const rootRef = useTemplateRef<HTMLParagraphElement>('rootRef');
+const rootRef = useTemplateRef<HTMLSpanElement>('rootRef');
 
 let observer: IntersectionObserver | null = null;
 let mq: MediaQueryList | null = null;
@@ -138,8 +138,8 @@ onMounted(() => {
   mqListener = handleMqChange;
   if (typeof mq.addEventListener === 'function') {
     mq.addEventListener('change', mqListener);
-  } else if (typeof (mq as any).addListener === 'function') {
-    (mq as any).addListener(mqListener);
+  } else if (typeof mq.addListener === 'function') {
+    mq.addListener(mqListener);
   }
   if (reduceMotion.value) {
     inView.value = true;
@@ -153,8 +153,8 @@ onUnmounted(() => {
   if (mq && mqListener) {
     if (typeof mq.removeEventListener === 'function') {
       mq.removeEventListener('change', mqListener);
-    } else if (typeof (mq as any).removeListener === 'function') {
-      (mq as any).removeListener(mqListener);
+    } else if (typeof mq.removeListener === 'function') {
+      mq.removeListener(mqListener);
     }
   }
 });
@@ -177,7 +177,7 @@ watch(
 </script>
 
 <template>
-  <p ref="rootRef" :class="['blur-text', className, 'flex', 'flex-wrap']">
+  <span ref="rootRef" :class="['blur-text', className, 'flex', 'flex-wrap']">
     <template v-if="reduceMotion">
       <span
         v-for="(segment, index) in elements"
@@ -192,7 +192,7 @@ watch(
       <motion
         v-for="(segment, index) in elements"
         :key="`${animationKey}-${index}`"
-        tag="span"
+        as="span"
         :initial="fromSnapshot"
         :animate="inView ? getAnimateKeyframes() : fromSnapshot"
         :transition="getTransition(index)"
@@ -206,5 +206,5 @@ watch(
         }}{{ animateBy === 'words' && index < elements.length - 1 ? '\u00A0' : '' }}
       </motion>
     </template>
-  </p>
+  </span>
 </template>

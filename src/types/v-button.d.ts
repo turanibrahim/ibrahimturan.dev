@@ -1,16 +1,9 @@
 export type ButtonColor =
-  | 'neutral'
-  | 'primary'
-  | 'secondary'
-  | 'accent'
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'error';
+  'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error';
 
 export type ButtonVariant = 'outline' | 'dash' | 'soft' | 'ghost' | 'link';
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export type ButtonTag = 'button' | 'a' | 'router-link';
+export type ButtonTag = 'button' | 'a';
 
 export interface VButtonProps {
   color?: ButtonColor;
@@ -25,5 +18,4 @@ export interface VButtonProps {
   loading?: boolean;
   tag?: ButtonTag;
   href?: string;
-  to?: string | object;
 }

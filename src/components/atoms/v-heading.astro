@@ -1,0 +1,41 @@
+---
+import type { VHeadingProps } from '@/types/v-heading';
+
+interface Props extends VHeadingProps {
+  id?: string;
+  class?: string;
+}
+
+const { level = '2', tag, weight = 'bold', align = 'left', id, class: className } = Astro.props;
+const Tag = tag ?? (`h${level}` as const);
+
+const sizeClasses = {
+  '1': 'text-5xl',
+  '2': 'text-4xl',
+  '3': 'text-3xl',
+  '4': 'text-2xl',
+  '5': 'text-xl',
+  '6': 'text-lg',
+};
+
+const weightClasses = {
+  normal: 'font-normal',
+  medium: 'font-medium',
+  semibold: 'font-semibold',
+  bold: 'font-bold',
+  black: 'font-black',
+};
+
+const alignClasses = {
+  left: 'text-left',
+  center: 'text-center',
+  right: 'text-right',
+};
+---
+
+<Tag
+  id={id}
+  class:list={[sizeClasses[level], weightClasses[weight], alignClasses[align], className]}
+>
+  <slot />
+</Tag>

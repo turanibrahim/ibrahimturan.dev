@@ -1,0 +1,82 @@
+---
+import FooterSection from '@/components/organisms/footer-section.astro';
+import '@/assets/styles/tailwind.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+}
+
+const {
+  title = 'İbrahim Turan — Full-Stack Engineer',
+  description = 'Full-stack engineer with 6+ years of experience building scalable web applications and modern user interfaces.',
+  path = Astro.url.pathname,
+} = Astro.props;
+const canonicalUrl = new URL(path, Astro.site);
+const socialImageUrl = new URL('/profile-img.png', Astro.site);
+---
+
+<!doctype html>
+<html lang="en" data-theme="ibrahimturan-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="İbrahim Turan" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@_ibrahimturan" />
+    <meta name="twitter:creator" content="@_ibrahimturan" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#12161d" />
+
+    <script is:inline>
+      if (
+        window.location.hostname === 'ibrahimturan.dev' ||
+        window.location.hostname === 'www.ibrahimturan.dev'
+      ) {
+        const analyticsScript = document.createElement('script');
+        analyticsScript.defer = true;
+        analyticsScript.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+        analyticsScript.dataset.cfBeacon = JSON.stringify({
+          token: 'd16a75f1d82a42f1899f1b0d3638e386',
+        });
+        document.head.appendChild(analyticsScript);
+      }
+    </script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-content focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-base-100"
+    >
+      Skip to main content
+    </a>
+    <main id="main" class="min-h-screen bg-base-100">
+      <slot />
+    </main>
+    <FooterSection />
+    <script>
+      import { registerSW } from 'virtual:pwa-register';
+
+      registerSW({ immediate: true });
+    </script>
+  </body>
+</html>
