@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { buildConfig } from 'payload';
 import { Experiences } from './collections/experiences';
 import { Media } from './collections/media';
+import { Posts } from './collections/posts';
 import { Projects } from './collections/projects';
 import { Technologies } from './collections/technologies';
 import { Users } from './collections/users';
@@ -21,7 +22,7 @@ export default buildConfig({
     },
     user: Users.slug,
   },
-  collections: [Users, Media, Experiences, Projects, Technologies],
+  collections: [Users, Media, Experiences, Projects, Technologies, Posts],
   db: sqliteAdapter({
     client: {
       url: process.env.DATABASE_URL || 'file:./payload.db',

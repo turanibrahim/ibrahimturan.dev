@@ -1,0 +1,43 @@
+---
+import PostCard from '@/components/molecules/post-card';
+import { posts } from '@/data/content';
+import DefaultLayout from '@/layouts/default.layout.astro';
+---
+
+<DefaultLayout
+  path="/blog"
+  title="Writing — İbrahim Turan"
+  description="Essays on frontend engineering, architecture, and tooling."
+>
+  <div class="container py-16 sm:py-20 lg:py-32">
+    <header class="flex items-center justify-between py-6 lg:py-8">
+      <a href="/" class="font-mono text-sm font-semibold tracking-tight text-base-content">
+        it<span class="text-primary">.</span>
+      </a>
+      <nav
+        aria-label="Primary navigation"
+        class="flex items-center gap-5 font-mono text-xs text-base-content-muted sm:gap-8"
+      >
+        <a href="/" class="transition-colors hover:text-primary">home</a>
+        <a href="/blog" class="text-primary transition-colors">blog</a>
+      </nav>
+    </header>
+
+    <section aria-labelledby="blog-heading" class="mt-12 sm:mt-16 lg:mt-20">
+      <p class="mb-5 font-mono text-xs text-primary">writing</p>
+      <h1
+        id="blog-heading"
+        class="max-w-3xl text-balance text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-base-content sm:text-5xl lg:text-6xl"
+      >
+        Notes on building software.
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-base-content-muted">
+        {posts.length} articles on frontend architecture, tooling, and the occasional hard-won workaround.
+      </p>
+    </section>
+
+    <section aria-label="All writing" class="mt-12 sm:mt-16 lg:mt-20">
+      {posts.map((post) => <PostCard post={post} />)}
+    </section>
+  </div>
+</DefaultLayout>

@@ -11,7 +11,7 @@ const cmsDirectory = path.resolve(path.dirname(filename), '..');
 const projectDirectory = path.resolve(cmsDirectory, '..');
 const snapshotPath = path.resolve(projectDirectory, 'src/data/cms-content.json');
 const publicDirectory = path.resolve(projectDirectory, 'public');
-const managedCollections = ['media', 'experiences', 'projects', 'technologies'] as const;
+const managedCollections = ['media', 'experiences', 'projects', 'technologies', 'posts'] as const;
 
 const snapshot = JSON.parse(await readFile(snapshotPath, 'utf8')) as PortfolioContent;
 const payload = await getPayload({ config });
@@ -106,6 +106,26 @@ for (const [order, technology] of snapshot.technologies.entries()) {
   });
 }
 
+for (const [order, post] of snapshot.posts.entries()) {
+  await payload.create({
+    collection: 'posts',
+    data: {
+      title: post.title,
+      slug: post.slug,
+      excerpt: post.excerpt,
+      bodyMarkdown: post.bodyMarkdown,
+      tags: post.tags.map((name) => ({ name })),
+      publishedAt: post.publishedAt,
+      readingTimeMinutes: post.readingTimeMinutes,
+      ...(post.sourceUrl ? { sourceUrl: post.sourceUrl } : {}),
+      order,
+      _status: 'published',
+    },
+    draft: false,
+    overrideAccess: true,
+  });
+}
+
 process.stdout.write(
-  `Seeded 1 profile, ${snapshot.experiences.length} experiences, ${snapshot.projects.length} projects, and ${snapshot.technologies.length} technologies.\n`,
+  `Seeded 1 profile, ${snapshot.experiences.length} experiences, ${snapshot.projects.length} projects, ${snapshot.technologies.length} technologies, and ${snapshot.posts.length} posts.\n`,
 );

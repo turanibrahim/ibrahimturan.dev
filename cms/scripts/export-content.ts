@@ -16,38 +16,47 @@ const mediaTemporaryDirectory = path.resolve(projectDirectory, 'public/.cms-expo
 const mediaBackupDirectory = path.resolve(projectDirectory, 'public/.cms-export.backup');
 
 const payload = await getPayload({ config });
-const [profile, experiencesResult, projectsResult, technologiesResult] = await Promise.all([
-  payload.findGlobal({
-    slug: 'profile',
-    depth: 1,
-    draft: false,
-    overrideAccess: true,
-  }),
-  payload.find({
-    collection: 'experiences',
-    depth: 0,
-    limit: 1000,
-    overrideAccess: true,
-    sort: 'order',
-    where: { _status: { equals: 'published' } },
-  }),
-  payload.find({
-    collection: 'projects',
-    depth: 0,
-    limit: 1000,
-    overrideAccess: true,
-    sort: 'order',
-    where: { _status: { equals: 'published' } },
-  }),
-  payload.find({
-    collection: 'technologies',
-    depth: 0,
-    limit: 1000,
-    overrideAccess: true,
-    sort: 'order',
-    where: { _status: { equals: 'published' } },
-  }),
-]);
+const [profile, experiencesResult, projectsResult, technologiesResult, postsResult] =
+  await Promise.all([
+    payload.findGlobal({
+      slug: 'profile',
+      depth: 1,
+      draft: false,
+      overrideAccess: true,
+    }),
+    payload.find({
+      collection: 'experiences',
+      depth: 0,
+      limit: 1000,
+      overrideAccess: true,
+      sort: 'order',
+      where: { _status: { equals: 'published' } },
+    }),
+    payload.find({
+      collection: 'projects',
+      depth: 0,
+      limit: 1000,
+      overrideAccess: true,
+      sort: 'order',
+      where: { _status: { equals: 'published' } },
+    }),
+    payload.find({
+      collection: 'technologies',
+      depth: 0,
+      limit: 1000,
+      overrideAccess: true,
+      sort: 'order',
+      where: { _status: { equals: 'published' } },
+    }),
+    payload.find({
+      collection: 'posts',
+      depth: 0,
+      limit: 1000,
+      overrideAccess: true,
+      sort: 'order',
+      where: { _status: { equals: 'published' } },
+    }),
+  ]);
 
 if (profile._status !== 'published') {
   throw new Error('Profile must be published before exporting.');
@@ -115,6 +124,17 @@ const content: PortfolioContent = {
       : { years: technology.years }),
     level: technology.level,
   })),
+  posts: postsResult.docs.map((post) => ({
+    title: post.title,
+    slug: post.slug,
+    excerpt: post.excerpt,
+    bodyMarkdown: post.bodyMarkdown,
+    tags: post.tags.map(({ name }) => name),
+    publishedAt: post.publishedAt,
+    readingTimeMinutes: post.readingTimeMinutes,
+    ...(post.sourceUrl ? { sourceUrl: post.sourceUrl } : {}),
+    order: post.order,
+  })),
 };
 
 await rm(mediaTemporaryDirectory, { force: true, recursive: true });
@@ -157,5 +177,5 @@ try {
 
 await rm(mediaBackupDirectory, { force: true, recursive: true });
 process.stdout.write(
-  `Exported ${content.experiences.length} experiences, ${content.projects.length} projects, and ${content.technologies.length} technologies.\n`,
+  `Exported ${content.experiences.length} experiences, ${content.projects.length} projects, ${content.technologies.length} technologies, and ${content.posts.length} posts.\n`,
 );

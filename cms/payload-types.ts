@@ -72,6 +72,7 @@ export interface Config {
     experiences: Experience;
     projects: Project;
     technologies: Technology;
+    posts: Post;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +85,7 @@ export interface Config {
     experiences: ExperiencesSelect<false> | ExperiencesSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     technologies: TechnologiesSelect<false> | TechnologiesSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -244,6 +246,28 @@ export interface Technology {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  bodyMarkdown: string;
+  tags: {
+    name: string;
+    id?: string | null;
+  }[];
+  publishedAt: string;
+  readingTimeMinutes: number;
+  sourceUrl?: string | null;
+  order: number;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -285,6 +309,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'technologies';
         value: number | Technology;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: number | Post;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -437,6 +465,29 @@ export interface TechnologiesSelect<T extends boolean = true> {
   category?: T;
   years?: T;
   level?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  excerpt?: T;
+  bodyMarkdown?: T;
+  tags?:
+    | T
+    | {
+        name?: T;
+        id?: T;
+      };
+  publishedAt?: T;
+  readingTimeMinutes?: T;
+  sourceUrl?: T;
   order?: T;
   updatedAt?: T;
   createdAt?: T;

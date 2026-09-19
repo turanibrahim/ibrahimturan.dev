@@ -1,0 +1,317 @@
+---
+import { posts } from '@/data/content';
+import DefaultLayout from '@/layouts/default.layout.astro';
+import { formatDate } from '@/utils/date';
+import { renderMarkdown } from '@/utils/markdown';
+
+export function getStaticPaths() {
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const bodyHtml = await renderMarkdown(post.bodyMarkdown);
+const pageTitle = `${post.title} — İbrahim Turan`;
+---
+
+<DefaultLayout path={`/blog/${post.slug}`} title={pageTitle} description={post.excerpt}>
+  <div class="container pb-20 pt-8 sm:pb-24 sm:pt-10 lg:pb-32">
+    <header class="flex items-center justify-between py-4 lg:py-6">
+      <a href="/" class="font-mono text-sm font-semibold tracking-tight text-base-content">
+        it<span class="text-primary">.</span>
+      </a>
+      <nav
+        aria-label="Primary navigation"
+        class="flex items-center gap-5 font-mono text-xs text-base-content-muted sm:gap-8"
+      >
+        <a href="/" class="transition-colors hover:text-primary">home</a>
+        <a href="/blog" class="text-primary">blog</a>
+      </nav>
+    </header>
+
+    <article class="mt-14 sm:mt-20 lg:mt-24">
+      <header class="border-b border-base-300 pb-10 lg:pb-14">
+        <div
+          class="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs text-base-content-muted"
+        >
+          <time datetime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+          <span aria-hidden="true">/</span>
+          <span>{post.readingTimeMinutes} min read</span>
+          <span aria-hidden="true">/</span>
+          <span class="flex flex-wrap gap-x-3 gap-y-1">
+            {post.tags.map((tag) => <span class="text-secondary">#{tag}</span>)}
+          </span>
+        </div>
+        <h1
+          class="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-base-content sm:text-5xl lg:text-6xl"
+        >
+          {post.title}
+        </h1>
+      </header>
+
+      <div class="blog-article mt-10 lg:mt-14">
+        <Fragment set:html={bodyHtml} />
+      </div>
+
+      <footer
+        class="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-base-300 pt-8 lg:mt-20"
+      >
+        <a
+          href="/blog"
+          class="font-mono text-xs text-base-content-muted transition-colors hover:text-primary"
+        >
+          &larr; All writing
+        </a>
+        {
+          post.sourceUrl && (
+            <a
+              href={post.sourceUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              class="font-mono text-xs text-base-content-muted transition-colors hover:text-primary"
+            >
+              Read on dev.to <span class="sr-only">(opens in a new tab)</span>
+            </a>
+          )
+        }
+      </footer>
+    </article>
+  </div>
+</DefaultLayout>
+
+<style is:global>
+  .blog-article {
+    width: 100%;
+    color: var(--color-base-content);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .blog-article p,
+  .blog-article li {
+    max-width: none;
+  }
+
+  .blog-article > :first-child {
+    margin-top: 0;
+  }
+
+  .blog-article p {
+    margin: 0 0 1.5rem;
+  }
+
+  .blog-article h2 {
+    margin: 3.5rem 0 1rem;
+    color: var(--color-base-content);
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  .blog-article h3 {
+    margin: 2.75rem 0 0.875rem;
+    color: var(--color-base-content);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .blog-article h4 {
+    margin: 2.25rem 0 0.75rem;
+    color: var(--color-base-content);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .blog-article strong {
+    color: var(--color-base-content);
+    font-weight: 700;
+  }
+
+  .blog-article a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    overflow-wrap: anywhere;
+  }
+
+  .blog-article a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  .blog-article code {
+    border-radius: var(--radius-sm);
+    background: var(--color-base-300);
+    padding: 0.15em 0.35em;
+    color: var(--color-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+  }
+
+  .blog-article .code-block {
+    margin: 2rem 0;
+    overflow: hidden;
+    border: 1px solid var(--color-base-300);
+    border-radius: var(--radius-md);
+    background: var(--color-base-200);
+  }
+
+  .blog-article .code-block figcaption {
+    border-bottom: 1px solid var(--color-base-300);
+    padding: 0.625rem 1rem;
+    color: var(--color-base-content-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .blog-article .code-block pre {
+    margin: 0;
+    overflow-x: auto;
+    padding: 1.25rem;
+    background: #0d1117;
+    line-height: 1.7;
+    tab-size: 2;
+  }
+
+  .blog-article .code-block pre:focus-visible {
+    outline-offset: -3px;
+  }
+
+  .blog-article .code-block pre code {
+    display: block;
+    min-width: max-content;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 0.875rem;
+    white-space: pre;
+  }
+
+  .blog-article .code-block .line {
+    display: inline;
+  }
+
+  .blog-article blockquote {
+    margin: 2rem 0;
+    border-left: 1px solid var(--color-primary);
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    color: var(--color-base-content-muted);
+  }
+
+  .blog-article blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  .blog-article ul,
+  .blog-article ol {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .blog-article ul {
+    list-style: disc;
+  }
+
+  .blog-article ol {
+    list-style: decimal;
+  }
+
+  .blog-article li {
+    padding-left: 0.25rem;
+  }
+
+  .blog-article li + li {
+    margin-top: 0.625rem;
+  }
+
+  .blog-article li::marker {
+    color: var(--color-secondary);
+  }
+
+  .blog-article img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 2rem auto;
+    border: 1px solid var(--color-base-300);
+    border-radius: var(--radius-md);
+  }
+
+  .blog-article p > a:has(> img) {
+    display: block;
+    text-decoration: none;
+  }
+
+  .blog-article table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    margin: 2rem 0;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  .blog-article th,
+  .blog-article td {
+    border: 1px solid var(--color-base-300);
+    padding: 0.625rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .blog-article th {
+    background: var(--color-base-200);
+    font-weight: 600;
+  }
+
+  .blog-article hr {
+    margin: 3rem 0;
+    border: 0;
+    border-top: 1px solid var(--color-base-300);
+  }
+
+  @media (max-width: 639px) {
+    .blog-article {
+      line-height: 1.75;
+    }
+
+    .blog-article h2 {
+      margin-top: 3rem;
+      font-size: 1.5rem;
+    }
+
+    .blog-article .code-block {
+      margin-right: calc(var(--container-padding) * -1);
+      margin-left: calc(var(--container-padding) * -1);
+      border-right: 0;
+      border-left: 0;
+      border-radius: 0;
+    }
+  }
+
+  @media print {
+    .blog-article .code-block {
+      break-inside: avoid;
+      border-color: var(--color-base-300);
+    }
+
+    .blog-article .code-block pre {
+      overflow: visible;
+      white-space: pre-wrap;
+    }
+
+    .blog-article .code-block pre code {
+      min-width: 0;
+      color: black;
+      white-space: pre-wrap;
+    }
+  }
+</style>
