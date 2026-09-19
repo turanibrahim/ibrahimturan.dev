@@ -5,7 +5,7 @@ export interface Technology {
   name: string;
   icon: string;
   category: TechCategory;
-  years: number;
+  years?: number;
   level: 'primary' | 'working' | 'familiar';
 }
 

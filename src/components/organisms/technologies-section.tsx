@@ -79,14 +79,9 @@ export const TechnologiesSection = (): ReactElement => (
                   {technology.icon && (
                     <VIcon name={technology.icon} className="shrink-0 text-base" />
                   )}
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm leading-tight font-semibold">
-                      {technology.name}
-                    </p>
-                    <p className="font-mono text-[10px] tracking-wider uppercase opacity-70">
-                      {technology.level} · {technology.years}y
-                    </p>
-                  </div>
+                  <p className="min-w-0 flex-1 truncate text-sm leading-tight font-semibold">
+                    {technology.name}
+                  </p>
                 </li>
               ))}
             </ul>

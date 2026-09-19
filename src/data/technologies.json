@@ -126,5 +126,75 @@
     "category": "tooling",
     "years": 3,
     "level": "working"
+  },
+  {
+    "id": "astro",
+    "name": "Astro",
+    "icon": "si-astro",
+    "category": "frontend",
+    "level": "working"
+  },
+  {
+    "id": "alpinejs",
+    "name": "Alpine.js",
+    "icon": "si-alpinedotjs",
+    "category": "frontend",
+    "level": "working"
+  },
+  {
+    "id": "lit",
+    "name": "Lit",
+    "icon": "si-lit",
+    "category": "frontend",
+    "level": "working"
+  },
+  {
+    "id": "redux",
+    "name": "Redux",
+    "icon": "si-redux",
+    "category": "frontend",
+    "level": "working"
+  },
+  {
+    "id": "pinia",
+    "name": "Pinia",
+    "icon": "si-pinia",
+    "category": "frontend",
+    "level": "working"
+  },
+  {
+    "id": "fastapi",
+    "name": "FastAPI",
+    "icon": "si-fastapi",
+    "category": "backend",
+    "level": "working"
+  },
+  {
+    "id": "feathersjs",
+    "name": "Feathers.js",
+    "icon": "fa-feather",
+    "category": "backend",
+    "level": "working"
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB",
+    "icon": "si-mongodb",
+    "category": "backend",
+    "level": "working"
+  },
+  {
+    "id": "drizzle-orm",
+    "name": "Drizzle ORM",
+    "icon": "si-drizzle",
+    "category": "backend",
+    "level": "working"
+  },
+  {
+    "id": "hono",
+    "name": "Hono.js",
+    "icon": "si-hono",
+    "category": "backend",
+    "level": "working"
   }
 ]

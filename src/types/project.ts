@@ -1,14 +1,16 @@
-export type ProjectLinkKind = 'repository' | 'live';
+export type ProjectEngagement = 'Company' | 'Internal' | 'Freelance';
 
 export interface ProjectLink {
-  kind: ProjectLinkKind;
   label: string;
   url: string;
 }
 
 export interface Project {
   name: string;
-  description: string;
+  engagement: ProjectEngagement;
+  ownership: string;
+  summary: string;
+  contributions: readonly string[];
   stack: readonly string[];
   links: readonly ProjectLink[];
 }

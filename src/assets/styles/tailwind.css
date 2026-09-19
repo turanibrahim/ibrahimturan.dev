@@ -245,6 +245,10 @@
     display: none !important;
   }
 
+  details:not([open]) > .project-details {
+    display: grid !important;
+  }
+
   section,
   article,
   main {

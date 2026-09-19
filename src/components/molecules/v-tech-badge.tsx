@@ -5,7 +5,7 @@ import type { VTechBadgeProps } from '@/types/v-tech-badge';
 
 export const VTechBadge = ({ technology }: VTechBadgeProps): ReactElement => (
   <VBadge variant="dash" color="secondary">
-    <VIcon name={technology.icon} />
+    {technology.icon && <VIcon name={technology.icon} />}
     <span>{technology.name}</span>
   </VBadge>
 );
