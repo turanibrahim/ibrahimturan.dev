@@ -5,9 +5,9 @@ import VCard from '@/components/atoms/v-card';
 import VHeading from '@/components/atoms/v-heading';
 import VPrismBackground from '@/components/atoms/v-prism-background';
 import SocialLinks from '@/components/molecules/social-links';
-import userInfoData from '@/data/userInfo.json';
+import { profile } from '@/data/content';
 
-const { userInfo } = userInfoData;
+const userInfo = profile;
 const fullName = `${userInfo.name} ${userInfo.surname}`;
 
 export const HeroSection = (): ReactElement => (

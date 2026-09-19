@@ -1,12 +1,12 @@
 import type { ReactElement } from 'react';
 import VIcon from '@/components/atoms/v-icon';
-import userInfoData from '@/data/userInfo.json';
+import { profile } from '@/data/content';
 
 interface Props {
   className?: string;
 }
 
-const { userInfo } = userInfoData;
+const userInfo = profile;
 const socialLinks = [
   { name: 'github', label: 'GitHub profile', url: userInfo.github, icon: 'fa-github' },
   { name: 'linkedin', label: 'LinkedIn profile', url: userInfo.linkedin, icon: 'fa-linkedin' },

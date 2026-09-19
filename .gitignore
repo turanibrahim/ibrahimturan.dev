@@ -27,3 +27,12 @@ pnpm-debug.log*
 
 # ENV
 .env
+
+# Local Payload CMS
+/cms/.env*
+!/cms/.env.example
+/cms/.next/
+/cms/media/
+/cms/payload.db*
+/public/.cms-export.*
+/src/data/cms-content.json.tmp

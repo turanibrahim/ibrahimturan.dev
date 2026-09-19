@@ -1,3 +1,4 @@
+export * from './content';
 export * from './experience';
 export * from './technology';
 export * from './user';

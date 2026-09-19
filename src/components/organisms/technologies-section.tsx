@@ -2,10 +2,8 @@ import type { ReactElement } from 'react';
 import VHeading from '@/components/atoms/v-heading';
 import VIcon from '@/components/atoms/v-icon';
 import VSection from '@/components/atoms/v-section';
-import technologiesData from '@/data/technologies.json';
+import { technologies } from '@/data/content';
 import type { TechCategory, TechCategoryGroup, Technology } from '@/types/technology';
-
-const technologies = technologiesData as Technology[];
 const groups: TechCategoryGroup[] = [
   {
     key: 'frontend',

@@ -4,11 +4,10 @@ import SocialLinks from '@/components/molecules/social-links.tsx';
 import ExperienceSection from '@/components/organisms/experience-section.tsx';
 import ProjectsSection from '@/components/organisms/projects-section.tsx';
 import TechnologiesSection from '@/components/organisms/technologies-section.tsx';
-import userInfoData from '@/data/userInfo.json';
+import { profile } from '@/data/content';
 import DefaultLayout from '@/layouts/default.layout.astro';
-import type { UserInfo } from '@/types/user';
 
-const userInfo = userInfoData.userInfo as UserInfo;
+const userInfo = profile;
 const fullName = `${userInfo.name} ${userInfo.surname}`;
 ---
 

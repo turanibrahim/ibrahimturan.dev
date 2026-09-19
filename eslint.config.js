@@ -65,6 +65,14 @@ export default defineConfig(
     },
   },
   {
-    ignores: ['.astro/**', 'dist/**', 'node_modules/**', '.vscode/**'],
+    ignores: [
+      '.astro/**',
+      '.next/**',
+      'dist/**',
+      'node_modules/**',
+      '.vscode/**',
+      'cms/.next/**',
+      'cms/payload-types.ts',
+    ],
   },
 );

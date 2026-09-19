@@ -7,10 +7,15 @@
     "dev": "astro dev --port 8080",
     "build": "astro check && astro build",
     "preview": "astro preview --port 8080",
+    "cms:install": "npm install --prefix cms",
+    "cms:dev": "npm --prefix cms run dev",
+    "cms:seed": "npm --prefix cms run seed",
+    "cms:export": "npm --prefix cms run export",
+    "generate": "npm run cms:export && npm run build",
     "lint": "eslint . --ext .astro,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "lint:check": "eslint . --ext .astro,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
-    "format": "prettier --write src astro.config.ts eslint.config.js package.json README.md plans",
-    "format:check": "prettier --check src astro.config.ts eslint.config.js package.json README.md plans"
+    "format": "prettier --write src cms astro.config.ts eslint.config.js package.json README.md plans",
+    "format:check": "prettier --check src cms astro.config.ts eslint.config.js package.json README.md plans"
   },
   "dependencies": {
     "@fontsource/inter": "^5.3.0",

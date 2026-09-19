@@ -10,5 +10,5 @@
     "types": ["vite-plugin-pwa/client"]
   },
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "exclude": ["dist", "cms"]
 }

@@ -3,10 +3,7 @@ import VBadge from '@/components/atoms/v-badge';
 import VCompanyLogo from '@/components/atoms/v-company-logo';
 import VHeading from '@/components/atoms/v-heading';
 import VSection from '@/components/atoms/v-section';
-import experiencesData from '@/data/experiences.json';
-import type { Experience } from '@/types/experience';
-
-const experiences = experiencesData.experiences as Experience[];
+import { experiences } from '@/data/content';
 const earliestExperience = experiences.at(-1);
 const totalYears = earliestExperience
   ? new Date().getFullYear() - new Date(earliestExperience.startDate).getFullYear()

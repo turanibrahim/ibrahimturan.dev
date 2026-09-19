@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import VHeading from '@/components/atoms/v-heading';
 import VSection from '@/components/atoms/v-section';
 import ProjectCard from '@/components/molecules/project-card';
-import { projects } from '@/constants/projects';
+import { projects } from '@/data/content';
 
 export const ProjectsSection = (): ReactElement => (
   <VSection id="projects" ariaLabelledby="projects-heading" background="base-100" paddingY="xl">

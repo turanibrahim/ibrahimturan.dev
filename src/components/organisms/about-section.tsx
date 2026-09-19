@@ -1,9 +1,9 @@
 import type { ReactElement } from 'react';
 import VHeading from '@/components/atoms/v-heading';
 import VSection from '@/components/atoms/v-section';
-import userInfoData from '@/data/userInfo.json';
+import { profile } from '@/data/content';
 
-const { userInfo } = userInfoData;
+const userInfo = profile;
 
 export const AboutSection = (): ReactElement => (
   <VSection id="about" ariaLabelledby="about-heading" paddingY="lg">

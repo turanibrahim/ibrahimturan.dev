@@ -5,3 +5,8 @@ node_modules
 *.config.ts
 coverage
 .DS_Store
+.next
+cms/.next
+cms/app/(payload)/admin/importMap.js
+cms/next-env.d.ts
+cms/payload-types.ts
