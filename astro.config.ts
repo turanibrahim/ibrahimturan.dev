@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import vue from '@astrojs/vue';
+import react from '@astrojs/react';
 import AstroPWA from '@vite-pwa/astro';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -7,7 +7,7 @@ export default defineConfig({
   site: 'https://ibrahimturan.dev',
   output: 'static',
   integrations: [
-    vue(),
+    react(),
     AstroPWA({
       registerType: 'autoUpdate',
       injectRegister: null,

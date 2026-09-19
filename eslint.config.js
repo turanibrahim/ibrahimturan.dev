@@ -1,39 +1,44 @@
 import js from '@eslint/js';
 import { defineConfig } from 'eslint/config';
-import tseslint from 'typescript-eslint';
-import pluginVue from 'eslint-plugin-vue';
-import pluginAstro from 'eslint-plugin-astro';
 import prettierConfig from 'eslint-config-prettier';
+import pluginAstro from 'eslint-plugin-astro';
+import pluginReact from 'eslint-plugin-react';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+
+const reactRecommended = pluginReact.configs.flat.recommended;
+const reactJsxRuntime = pluginReact.configs.flat['jsx-runtime'];
+const reactHooksRecommended = pluginReactHooks.configs.flat.recommended;
 
 export default defineConfig(
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  ...pluginVue.configs['flat/recommended'],
   ...pluginAstro.configs.recommended,
+  {
+    files: ['**/*.{jsx,tsx}'],
+    plugins: {
+      ...reactRecommended.plugins,
+      ...reactHooksRecommended.plugins,
+    },
+    languageOptions: reactRecommended.languageOptions,
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+    rules: {
+      ...reactRecommended.rules,
+      ...reactJsxRuntime.rules,
+      ...reactHooksRecommended.rules,
+    },
+  },
   prettierConfig,
   {
     languageOptions: {
       globals: {
-        window: 'readonly',
-        document: 'readonly',
-        navigator: 'readonly',
-        console: 'readonly',
-        HTMLElement: 'readonly',
-        Element: 'readonly',
-        HTMLSpanElement: 'readonly',
-        HTMLElementTagNameMap: 'readonly',
-        IntersectionObserver: 'readonly',
-        MediaQueryList: 'readonly',
-        MediaQueryListEvent: 'readonly',
-        ResizeObserver: 'readonly',
-        MouseEvent: 'readonly',
-        PointerEvent: 'readonly',
-        EventListener: 'readonly',
-        CSSStyleDeclaration: 'readonly',
-        requestAnimationFrame: 'readonly',
-        cancelAnimationFrame: 'readonly',
-        performance: 'readonly',
-        process: 'readonly',
+        ...globals.browser,
+        ...globals.node,
       },
     },
     rules: {
@@ -57,38 +62,6 @@ export default defineConfig(
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-explicit-any': 'warn',
-    },
-  },
-  {
-    files: ['**/*.vue'],
-    languageOptions: {
-      parserOptions: {
-        parser: tseslint.parser,
-      },
-    },
-    rules: {
-      'vue/multi-word-component-names': 'off',
-      'vue/component-name-in-template-casing': ['error', 'kebab-case'],
-      'vue/require-default-prop': 'off',
-      'vue/no-v-html': 'off',
-      'vue/html-self-closing': [
-        'error',
-        {
-          html: {
-            void: 'always',
-            normal: 'never',
-            component: 'always',
-          },
-          svg: 'always',
-          math: 'always',
-        },
-      ],
-      'vue/max-attributes-per-line': ['error', { singleline: 5, multiline: 1 }],
-      'vue/singleline-html-element-content-newline': 'off',
-      'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
-      'vue/component-api-style': ['error', ['script-setup']],
-      'vue/define-emits-declaration': ['error', 'type-based'],
-      'vue/define-props-declaration': ['error', 'type-based'],
     },
   },
   {

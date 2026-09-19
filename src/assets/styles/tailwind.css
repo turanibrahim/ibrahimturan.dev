@@ -168,6 +168,30 @@
   }
 }
 
+@layer components {
+  .v-icon {
+    display: inline-block;
+    overflow: visible;
+    vertical-align: -0.125em;
+    fill: currentColor;
+  }
+
+  .v-icon-spin,
+  .v-icon-pulse {
+    animation: v-icon-spin 1s linear infinite;
+  }
+
+  .v-icon-pulse {
+    animation-timing-function: steps(8);
+  }
+}
+
+@keyframes v-icon-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

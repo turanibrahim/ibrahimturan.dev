@@ -2,99 +2,99 @@
 name: ibrahimturan.dev
 description: Frontend engineer portfolio — Instrument Panel
 colors:
-  base-100: "oklch(20% 0.015 261.24)"
-  base-200: "oklch(18% 0.012 261.24)"
-  base-300: "oklch(24% 0.018 261.24)"
-  base-content: "oklch(90% 0.01 261.24)"
-  primary: "oklch(70% 0.16 155)"
-  primary-content: "oklch(17% 0.015 261.24)"
-  secondary: "oklch(75% 0.12 185)"
-  secondary-content: "oklch(17% 0.015 261.24)"
-  accent: "oklch(75% 0.14 135)"
-  accent-content: "oklch(17% 0.015 261.24)"
-  neutral: "oklch(85% 0.015 261.24)"
-  neutral-content: "oklch(20% 0.015 261.24)"
-  info: "oklch(78.34% 0.113 231.24)"
-  info-content: "oklch(17% 0.015 261.24)"
-  success: "oklch(78.34% 0.113 141.24)"
-  success-content: "oklch(17% 0.015 261.24)"
-  warning: "oklch(78.34% 0.113 81.24)"
-  warning-content: "oklch(17% 0.015 261.24)"
-  error: "oklch(78.34% 0.113 31.24)"
-  error-content: "oklch(17% 0.015 261.24)"
+  base-100: 'oklch(20% 0.015 261.24)'
+  base-200: 'oklch(18% 0.012 261.24)'
+  base-300: 'oklch(24% 0.018 261.24)'
+  base-content: 'oklch(90% 0.01 261.24)'
+  primary: 'oklch(70% 0.16 155)'
+  primary-content: 'oklch(17% 0.015 261.24)'
+  secondary: 'oklch(75% 0.12 185)'
+  secondary-content: 'oklch(17% 0.015 261.24)'
+  accent: 'oklch(75% 0.14 135)'
+  accent-content: 'oklch(17% 0.015 261.24)'
+  neutral: 'oklch(85% 0.015 261.24)'
+  neutral-content: 'oklch(20% 0.015 261.24)'
+  info: 'oklch(78.34% 0.113 231.24)'
+  info-content: 'oklch(17% 0.015 261.24)'
+  success: 'oklch(78.34% 0.113 141.24)'
+  success-content: 'oklch(17% 0.015 261.24)'
+  warning: 'oklch(78.34% 0.113 81.24)'
+  warning-content: 'oklch(17% 0.015 261.24)'
+  error: 'oklch(78.34% 0.113 31.24)'
+  error-content: 'oklch(17% 0.015 261.24)'
 typography:
   display:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.5rem, 6vw, 4.5rem)"
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
+    fontSize: 'clamp(2.5rem, 6vw, 4.5rem)'
     fontWeight: 900
     lineHeight: 1.05
-    letterSpacing: "-0.04em"
+    letterSpacing: '-0.04em'
   headline:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(1.75rem, 4vw, 2.75rem)"
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
+    fontSize: 'clamp(1.75rem, 4vw, 2.75rem)'
     fontWeight: 800
     lineHeight: 1.15
-    letterSpacing: "-0.03em"
+    letterSpacing: '-0.03em'
   title:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.5rem"
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '1.5rem'
     fontWeight: 600
     lineHeight: 1.3
-    letterSpacing: "-0.02em"
+    letterSpacing: '-0.02em'
   body:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1rem"
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '1rem'
     fontWeight: 400
     lineHeight: 1.65
-    letterSpacing: "normal"
+    letterSpacing: 'normal'
   label:
-    fontFamily: "JetBrains Mono, ui-monospace, SFMono-Regular, monospace"
-    fontSize: "0.75rem"
+    fontFamily: 'JetBrains Mono, ui-monospace, SFMono-Regular, monospace'
+    fontSize: '0.75rem'
     fontWeight: 500
-    letterSpacing: "0.02em"
+    letterSpacing: '0.02em'
   caption:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.875rem"
+    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif'
+    fontSize: '0.875rem'
     fontWeight: 400
     lineHeight: 1.5
 rounded:
-  none: "0"
-  sm: "0.25rem"
-  md: "0.5rem"
-  lg: "1rem"
-  xl: "1.5rem"
-  full: "9999px"
+  none: '0'
+  sm: '0.25rem'
+  md: '0.5rem'
+  lg: '1rem'
+  xl: '1.5rem'
+  full: '9999px'
 spacing:
-  container-xs: "1.2rem"
-  container-sm: "2rem"
-  container-md: "4rem"
-  container-lg: "5rem"
-  container-xl: "6rem"
-  section-sm: "1.5rem"
-  section-md: "2.5rem"
-  section-lg: "4rem"
-  section-xl: "6rem"
+  container-xs: '1.2rem'
+  container-sm: '2rem'
+  container-md: '4rem'
+  container-lg: '5rem'
+  container-xl: '6rem'
+  section-sm: '1.5rem'
+  section-md: '2.5rem'
+  section-lg: '4rem'
+  section-xl: '6rem'
 components:
   button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.primary-content}"
-    rounded: "{rounded.md}"
-    padding: "0.625rem 1.25rem"
+    backgroundColor: '{colors.primary}'
+    textColor: '{colors.primary-content}'
+    rounded: '{rounded.md}'
+    padding: '0.625rem 1.25rem'
   button-ghost:
-    backgroundColor: "transparent"
-    textColor: "{colors.base-content}"
-    rounded: "{rounded.md}"
-    padding: "0.5rem 1rem"
+    backgroundColor: 'transparent'
+    textColor: '{colors.base-content}'
+    rounded: '{rounded.md}'
+    padding: '0.5rem 1rem'
   card-bordered:
-    backgroundColor: "{colors.base-100}"
-    textColor: "{colors.base-content}"
-    rounded: "{rounded.md}"
-    padding: "1.5rem"
+    backgroundColor: '{colors.base-100}'
+    textColor: '{colors.base-content}'
+    rounded: '{rounded.md}'
+    padding: '1.5rem'
   badge-soft:
-    backgroundColor: "{colors.base-300}"
-    textColor: "{colors.secondary}"
-    rounded: "{rounded.md}"
-    padding: "0.375rem 0.75rem"
+    backgroundColor: '{colors.base-300}'
+    textColor: '{colors.secondary}'
+    rounded: '{rounded.md}'
+    padding: '0.375rem 0.75rem'
 ---
 
 # Design System: ibrahimturan.dev
@@ -108,6 +108,7 @@ A working engineer's console, not a marketing site. The default surface is a dee
 The personality is crafty, opinionated, precise. Type is set in Inter at a deliberate scale, never stretched, never faked. Lines breathe at 65–75ch. Spacing rhythm varies — sections alternate density so the page scans like a well-built interface, not like identical stacked blocks. Motion is purposeful: reveals honor `prefers-reduced-motion`, the prism hero animation is a single signature element (not a reflex applied to every section).
 
 **Key Characteristics:**
+
 - **Dark by default.** Body is base-100 (deep blue-violet). No light mode; the surface is committed.
 - **Tonal layering for depth, not shadows.** Surfaces step through base-100/200/300 lightness.
 - **Two chromatic accents.** Emerald Signal (primary) and Cyan Readout (secondary). Accent is rare — used only where it carries information.
@@ -177,12 +178,12 @@ The palette is a single dark family — Twilight Stack — with two chromatic re
 
 **The Scale-By-Clamp Rule.** Display and Headline use `clamp()` so they breathe between mobile and desktop. Body uses fixed sizes. No fluid body text.
 
-
 ## 4. Elevation
 
 The system is **flat by default**. Surfaces convey depth through tonal layering (base-100/200/300) and a single 1px border, not through shadows. Cards, sections, and panels stay flat at rest. Hover and focus bring a brighter surface tone or a 1px border accent — never a drop shadow.
 
 Depth is conveyed by:
+
 - **Tonal layering.** Resting surfaces are base-100. Elevated surfaces (cards, hero) are base-300. Recessed surfaces (footer) are base-200.
 - **Borders, not shadows.** Cards use `1px solid base-300` (DaisyUI `card-border`) — a hairline outline, not a shadow.
 - **Backdrop blur (reserved, currently unused).** The token system reserves `backdrop-filter` for surfaces where it carries purpose (intended use: hero card over the prism background). The shipped hero does not currently apply backdrop-blur; the prism background itself is the depth mechanism. If reintroduced in a future surface, it must be the only blur on the page; multiple blurred layers collapse the depth signal.
@@ -199,7 +200,7 @@ Depth is conveyed by:
 
 ### Header / Navigation (inline composition)
 
-The live page builds its top bar inline in `pages/home.page.vue` rather than via `v-navbar`. The atom exists but is unused.
+The live page builds its top bar inline in `pages/index.astro` rather than via `v-navbar`. The React atom exists but is unused.
 
 - **Surface:** Transparent. Heroed over `bg-base-300` via the WebGL prism section.
 - **Logo:** `it<span class="text-primary">.</span>` — JetBrains Mono 0.875rem, semibold, `tracking-tight`. The period is colored Emerald Signal.
@@ -246,13 +247,13 @@ A grouped grid, not a card wall. Four rows (Frontend, Mobile, Backend, Tooling) 
 
 Two coexisting tech treatments. Documented intent:
 
-- **Tech Badge** — `molecules/v-tech-badge.vue`. Used where the tech needs icon + name emphasis in a tighter density. `v-badge variant="dash" color="secondary"` with `v-icon` leading edge and label inline. **Current usage:** declared, not currently mounted in the live page; reserved for future surfaces.
-- **Tech Tag (inline)** — raw Tailwind in `experience-section.vue`. Used inside experience rows where the tag sits among other row metadata. Quieter; reads as data, not as a chip.
+- **Tech Badge** — `components/molecules/v-tech-badge.tsx`. Used where the tech needs icon + name emphasis in a tighter density. `VBadge` uses the dashed secondary treatment with a leading `VIcon` and inline label. **Current usage:** declared, not currently mounted in the live page; reserved for future surfaces.
+- **Tech Tag (inline)** — raw Tailwind in `components/organisms/experience-section.tsx`. Used inside experience rows where the tag sits among other row metadata. Quieter; reads as data, not as a chip.
 - **Do not mix the two in the same row.** Pick one treatment per surface. Inline-row gets Tag; standalone-badge gets Badge.
 
 ### About Strip (inline composition)
 
-Three-column data strip in `home.page.vue`. Not a section; a hairline-separated band between hero and experience.
+Three-column data strip in `pages/index.astro`. Not a section; a hairline-separated band between hero and experience.
 
 - **Layout:** `border-y border-base-300 py-12 lg:py-16`. Mobile single-column; `sm:grid-cols-2 lg:grid-cols-3 gap-8 text-sm` from 640px up.
 - **Field label:** JetBrains Mono 0.75rem, `text-primary`. Functional word (`based in`, `education`, `reach me`).
@@ -261,7 +262,7 @@ Three-column data strip in `home.page.vue`. Not a section; a hairline-separated 
 
 ### Hero (live composition)
 
-The live hero is built inline in `home.page.vue`, not via the existing `hero-section.vue` organism. The organism is dead code (not mounted) and does not describe the shipped surface.
+The live hero is built inline in `pages/index.astro`, not via the existing `components/organisms/hero-section.tsx` organism. The organism is not mounted and does not describe the shipped surface.
 
 - **Layout:** `grid grid-cols-[1.4fr_0.6fr]` desktop, stacked single-column ≤640px. `gap clamp(2rem, 8vw, 9rem)`. `align-items: end`.
 - **Copy side:** JetBrains Mono `{{ title }} / {{ location }}` eyebrow in Emerald Signal. Headline at `text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.98] tracking-[-0.05em]`. The phrase ending `into shipped products` is colored Emerald Signal. Tagline follows at `text-lg sm:text-xl leading-relaxed text-base-content-muted`, max-width 36rem.
@@ -269,7 +270,7 @@ The live hero is built inline in `home.page.vue`, not via the existing `hero-sec
 - **Below portrait:** JetBrains Mono 0.75rem, `text-base-content-muted`, leading `text-primary` filled bullet, message `open to product engineering roles`.
 - **Header sits above the hero** as described in Header / Navigation. No `bg-base-100/60 backdrop-blur` card on the current surface (the organism with that treatment is unused).
 
-### Skip Link (`layouts/default.layout.vue`)
+### Skip Link (`layouts/default.layout.astro`)
 
 Accessibility surface, not a visual one.
 

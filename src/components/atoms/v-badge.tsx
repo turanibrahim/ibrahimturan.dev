@@ -1,12 +1,10 @@
----
+import type { ElementType, ReactElement, ReactNode } from 'react';
 import type { VBadgeProps } from '@/types/v-badge';
 
 interface Props extends VBadgeProps {
-  class?: string;
+  children?: ReactNode;
+  className?: string;
 }
-
-const { variant = 'default', color, size = 'md', tag = 'span', class: className } = Astro.props;
-const Tag = tag as keyof HTMLElementTagNameMap;
 
 const variantClasses = {
   default: '',
@@ -34,16 +32,27 @@ const sizeClasses = {
   lg: 'badge-lg',
   xl: 'badge-xl',
 };
----
 
-<Tag
-  class:list={[
+export const VBadge = ({
+  variant = 'default',
+  color,
+  size = 'md',
+  tag = 'span',
+  className,
+  children,
+}: Props): ReactElement => {
+  const Tag = tag as ElementType;
+  const classes = [
     'badge',
     variantClasses[variant],
     color && colorClasses[color],
     sizeClasses[size],
     className,
-  ]}
->
-  <slot />
-</Tag>
+  ]
+    .filter(Boolean)
+    .join(' ');
+
+  return <Tag className={classes}>{children}</Tag>;
+};
+
+export default VBadge;

@@ -1,7 +1,7 @@
 # ibrahimturan.dev
 
 Personal portfolio for **İbrahim Turan** — Full-Stack Engineer.
-Astro, Vue islands, Tailwind 4, DaisyUI, motion-v. Dark theme only. PWA-ready.
+Astro, React components and islands, Tailwind 4, DaisyUI, Motion. Dark theme only. PWA-ready.
 Live: [ibrahimturan.dev](https://ibrahimturan.dev)
 
 ## Develop
@@ -20,7 +20,7 @@ npm run format       # prettier --write
 ```
 src/
 ├── components/
-│   ├── atoms/         # Static Astro atoms and interactive Vue islands
+│   ├── atoms/         # Typed React atoms and interactive islands
 │   ├── molecules/     # Experience cards, technology badges, social links
 │   └── organisms/     # Portfolio sections and shared footer
 ├── data/              # userInfo.json, experiences.json, technologies.json
