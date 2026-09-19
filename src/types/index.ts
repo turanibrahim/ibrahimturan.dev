@@ -1,6 +1,7 @@
 export * from './experience';
 export * from './technology';
 export * from './user';
+export * from './project';
 export * from './v-avatar';
 export * from './v-badge';
 export * from './v-blur-text';

@@ -2,6 +2,7 @@
 import VAvatar from '@/components/atoms/v-avatar.tsx';
 import SocialLinks from '@/components/molecules/social-links.tsx';
 import ExperienceSection from '@/components/organisms/experience-section.tsx';
+import ProjectsSection from '@/components/organisms/projects-section.tsx';
 import TechnologiesSection from '@/components/organisms/technologies-section.tsx';
 import userInfoData from '@/data/userInfo.json';
 import DefaultLayout from '@/layouts/default.layout.astro';
@@ -22,6 +23,7 @@ const fullName = `${userInfo.name} ${userInfo.surname}`;
         class="flex items-center gap-5 font-mono text-xs text-base-content-muted sm:gap-8"
       >
         <a href="#work" class="transition-colors hover:text-primary">work</a>
+        <a href="#projects" class="transition-colors hover:text-primary">projects</a>
         <a href="#about" class="transition-colors hover:text-primary">about</a>
         <a href="#contact" class="transition-colors hover:text-primary">contact</a>
       </nav>
@@ -96,6 +98,7 @@ const fullName = `${userInfo.name} ${userInfo.surname}`;
       </div>
       <ExperienceSection />
     </section>
+    <ProjectsSection />
     <TechnologiesSection />
   </div>
 </DefaultLayout>

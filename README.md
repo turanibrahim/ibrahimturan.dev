@@ -21,8 +21,9 @@ npm run format       # prettier --write
 src/
 ├── components/
 │   ├── atoms/         # Typed React atoms and interactive islands
-│   ├── molecules/     # Experience cards, technology badges, social links
+│   ├── molecules/     # Project cards, experience cards, badges, social links
 │   └── organisms/     # Portfolio sections and shared footer
+├── constants/         # Typed reusable project content
 ├── data/              # userInfo.json, experiences.json, technologies.json
 ├── layouts/           # Shared Astro document layout
 ├── pages/             # Astro file-based routes: / and /colors
