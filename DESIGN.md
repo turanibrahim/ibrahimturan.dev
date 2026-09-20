@@ -267,7 +267,7 @@ The live hero is built inline in `pages/index.astro`, not via the existing `comp
 
 - **Layout:** `grid grid-cols-[1.4fr_0.6fr]` desktop, stacked single-column ≤640px. `gap clamp(2rem, 8vw, 9rem)`. `align-items: end`.
 - **Copy side:** JetBrains Mono `{{ title }} / {{ location }}` eyebrow in Emerald Signal. Headline at `text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.98] tracking-[-0.05em]`. The phrase ending `into shipped products` is colored Emerald Signal. Tagline follows at `text-lg sm:text-xl leading-relaxed text-base-content-muted`, max-width 36rem.
-- **Portrait side:** `portrait-frame` — `1px solid var(--color-primary)`, `padding 0.75rem`, `transform: rotate(3deg)`, `bg-base-300`. Avatar inside at full width, `aspect-ratio 1`, `filter saturate(0.7) contrast(1.08)` (deliberate desaturation). Portrait max-width 280px desktop / 220px mobile. Self-aligned to `end` desktop, `start` mobile.
+- **Portrait side:** `portrait-frame` — `1px solid var(--color-primary)`, `padding 0.75rem`, `transform: rotate(3deg)`, `bg-base-300`. Avatar inside at full width with a natural color treatment and `aspect-ratio 1`. Portrait max-width 340px desktop / 260px mobile. Self-aligned to `end` desktop, `start` mobile.
 - **Below portrait:** JetBrains Mono 0.75rem, `text-base-content-muted`, leading `text-primary` filled bullet, message `open to product engineering roles`.
 - **Header sits above the hero** as described in Header / Navigation. No `bg-base-100/60 backdrop-blur` card on the current surface (the organism with that treatment is unused).
 
