@@ -22,6 +22,7 @@ machine; production deploys only Astro's static `dist/` output.
 
 ```bash
 npm run cms:install
+npm run cms:migrate  # create or update the local SQLite schema
 npm run cms:dev      # http://localhost:3000 redirects to /admin
 ```
 
@@ -31,6 +32,15 @@ stop the CMS, then bootstrap the current portfolio:
 
 ```bash
 npm run cms:seed
+```
+
+Payload uses committed migrations instead of SQLite development push mode. After changing a
+collection or global schema, stop the CMS and commit a migration with the schema change:
+
+```bash
+npm run cms:migrate:create -- descriptive-name
+npm run cms:migrate
+npm run cms:migrate:status
 ```
 
 Edit and publish content through the admin. Drafts are never exported. Refresh the committed static
@@ -49,6 +59,7 @@ requires only the root package and never needs `cms/`, SQLite, credentials, or a
 ```text
 cms/                         # Local-only Payload and Next admin application
 ├── collections/             # Experiences, projects, technologies, media, users
+├── migrations/              # Versioned SQLite schema changes
 ├── globals/                 # Profile content
 ├── scripts/                 # Seed and static export
 └── payload.config.ts

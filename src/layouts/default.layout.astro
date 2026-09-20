@@ -6,19 +6,29 @@ interface Props {
   title?: string;
   description?: string;
   path?: string;
+  language?: string;
+  image?: string;
+  openGraphType?: 'article' | 'website';
+  publishedAt?: string;
+  tags?: readonly string[];
 }
 
 const {
   title = 'İbrahim Turan — Full-Stack Engineer',
   description = 'Full-stack engineer with 6+ years of experience building scalable web applications and modern user interfaces.',
   path = Astro.url.pathname,
+  language = 'en',
+  image = '/profile-img.png',
+  openGraphType = 'website',
+  publishedAt,
+  tags = [],
 } = Astro.props;
 const canonicalUrl = new URL(path, Astro.site);
-const socialImageUrl = new URL('/profile-img.png', Astro.site);
+const socialImageUrl = new URL(image, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en" data-theme="ibrahimturan-dark">
+<html lang={language} data-theme="ibrahimturan-dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,8 +40,10 @@ const socialImageUrl = new URL('/profile-img.png', Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageUrl} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={openGraphType} />
     <meta property="og:site_name" content="İbrahim Turan" />
+    {publishedAt && <meta property="article:published_time" content={publishedAt} />}
+    {tags.map((tag) => <meta property="article:tag" content={tag} />)}
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@_ibrahimturan" />

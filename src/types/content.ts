@@ -11,6 +11,8 @@ export interface Post {
   tags: readonly string[];
   publishedAt: string;
   readingTimeMinutes: number;
+  language: string;
+  imageUrl?: string;
   sourceUrl?: string;
   order: number;
 }

@@ -12,6 +12,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: null,
       includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
+      workbox: {
+        navigateFallback: null,
+      },
       manifest: {
         name: 'ibrahimturan',
         short_name: 'ibrahimturan',

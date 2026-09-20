@@ -132,6 +132,8 @@ const content: PortfolioContent = {
     tags: post.tags.map(({ name }) => name),
     publishedAt: post.publishedAt,
     readingTimeMinutes: post.readingTimeMinutes,
+    language: post.language,
+    ...(post.imageUrl ? { imageUrl: post.imageUrl } : {}),
     ...(post.sourceUrl ? { sourceUrl: post.sourceUrl } : {}),
     order: post.order,
   })),

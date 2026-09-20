@@ -16,7 +16,16 @@ const bodyHtml = await renderMarkdown(post.bodyMarkdown);
 const pageTitle = `${post.title} — İbrahim Turan`;
 ---
 
-<DefaultLayout path={`/blog/${post.slug}`} title={pageTitle} description={post.excerpt}>
+<DefaultLayout
+  path={`/blog/${post.slug}`}
+  title={pageTitle}
+  description={post.excerpt}
+  language={post.language}
+  image={post.imageUrl}
+  openGraphType="article"
+  publishedAt={post.publishedAt}
+  tags={post.tags}
+>
   <div class="container pb-20 pt-8 sm:pb-24 sm:pt-10 lg:pb-32">
     <header class="flex items-center justify-between py-4 lg:py-6">
       <a href="/" class="font-mono text-sm font-semibold tracking-tight text-base-content">
@@ -31,32 +40,65 @@ const pageTitle = `${post.title} — İbrahim Turan`;
       </nav>
     </header>
 
-    <article class="mt-14 sm:mt-20 lg:mt-24">
-      <header class="border-b border-base-300 pb-10 lg:pb-14">
+    <article class="mt-12 sm:mt-16 lg:mt-20">
+      <header class="border-b border-base-300 pb-10 sm:pb-12 lg:pb-16">
         <div
-          class="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs text-base-content-muted"
+          class="flex flex-col gap-3 font-mono text-xs text-base-content-muted sm:flex-row sm:items-center sm:justify-between"
         >
-          <time datetime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
-          <span aria-hidden="true">/</span>
-          <span>{post.readingTimeMinutes} min read</span>
-          <span aria-hidden="true">/</span>
-          <span class="flex flex-wrap gap-x-3 gap-y-1">
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+            <time datetime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+            <span aria-hidden="true">/</span>
+            <span>{post.readingTimeMinutes} min read</span>
+            <span aria-hidden="true">/</span>
+            <span lang={post.language}>{post.language.toUpperCase()}</span>
+          </div>
+          <div class="flex flex-wrap gap-x-3 gap-y-1">
             {post.tags.map((tag) => <span class="text-secondary">#{tag}</span>)}
-          </span>
+          </div>
         </div>
-        <h1
-          class="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-base-content sm:text-5xl lg:text-6xl"
+
+        <div
+          class:list={[
+            'mt-8 grid items-center gap-10 sm:mt-10 lg:gap-12 xl:gap-16',
+            post.imageUrl ? 'lg:grid-cols-12' : '',
+          ]}
         >
-          {post.title}
-        </h1>
+          <div class:list={[post.imageUrl ? 'lg:col-span-7' : 'max-w-5xl']}>
+            <h1 class="article-title text-balance font-extrabold text-base-content">
+              {post.title}
+            </h1>
+            <p
+              class="mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-base-content-muted sm:text-xl"
+            >
+              {post.excerpt}
+            </p>
+          </div>
+
+          {
+            post.imageUrl && (
+              <figure class="post-cover lg:col-span-5">
+                <img
+                  src={post.imageUrl}
+                  alt=""
+                  width="1200"
+                  height="630"
+                  class="aspect-[1200/630] w-full rounded-sm object-cover"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              </figure>
+            )
+          }
+        </div>
       </header>
 
-      <div class="blog-article mt-10 lg:mt-14">
+      <div class="blog-article mx-auto mt-12 max-w-[46rem] sm:mt-14 lg:mt-16">
         <Fragment set:html={bodyHtml} />
       </div>
 
       <footer
-        class="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-base-300 pt-8 lg:mt-20"
+        class="mx-auto mt-16 flex max-w-[46rem] flex-wrap items-center justify-between gap-4 border-t border-base-300 pt-8 lg:mt-24"
       >
         <a
           href="/blog"
@@ -82,9 +124,24 @@ const pageTitle = `${post.title} — İbrahim Turan`;
 </DefaultLayout>
 
 <style is:global>
+  .article-title {
+    max-width: 14ch;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .post-cover {
+    overflow: hidden;
+    border: 1px solid var(--color-base-300);
+    border-radius: var(--radius-md);
+    background: var(--color-base-200);
+    padding: 0.5rem;
+  }
+
   .blog-article {
     width: 100%;
-    color: var(--color-base-content);
+    color: var(--color-base-content-muted);
     font-size: 1rem;
     line-height: 1.8;
   }
@@ -98,12 +155,18 @@ const pageTitle = `${post.title} — İbrahim Turan`;
     margin-top: 0;
   }
 
+  .blog-article > p:first-child {
+    color: var(--color-base-content);
+    line-height: 1.8;
+  }
+
   .blog-article p {
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.625rem;
   }
 
   .blog-article h2 {
-    margin: 3.5rem 0 1rem;
+    margin: 4rem 0 1.125rem;
+    scroll-margin-top: 2rem;
     color: var(--color-base-content);
     font-size: 1.75rem;
     font-weight: 800;
@@ -112,7 +175,8 @@ const pageTitle = `${post.title} — İbrahim Turan`;
   }
 
   .blog-article h3 {
-    margin: 2.75rem 0 0.875rem;
+    margin: 3rem 0 1rem;
+    scroll-margin-top: 2rem;
     color: var(--color-base-content);
     font-size: 1.5rem;
     font-weight: 700;
@@ -121,10 +185,11 @@ const pageTitle = `${post.title} — İbrahim Turan`;
   }
 
   .blog-article h4 {
-    margin: 2.25rem 0 0.75rem;
+    margin: 2.5rem 0 0.875rem;
+    scroll-margin-top: 2rem;
     color: var(--color-base-content);
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.4;
   }
 
@@ -155,8 +220,10 @@ const pageTitle = `${post.title} — İbrahim Turan`;
   }
 
   .blog-article .code-block {
-    margin: 2rem 0;
+    width: min(54rem, calc(100vw - 2.5rem));
+    margin: 2.5rem 50%;
     overflow: hidden;
+    transform: translateX(-50%);
     border: 1px solid var(--color-base-300);
     border-radius: var(--radius-md);
     background: var(--color-base-200);
@@ -199,9 +266,11 @@ const pageTitle = `${post.title} — İbrahim Turan`;
   }
 
   .blog-article blockquote {
-    margin: 2rem 0;
-    border-left: 1px solid var(--color-primary);
-    padding: 0.25rem 0 0.25rem 1.25rem;
+    margin: 2.5rem 0;
+    border: 1px solid var(--color-base-300);
+    border-radius: var(--radius-md);
+    background: var(--color-base-200);
+    padding: 1.25rem 1.5rem;
     color: var(--color-base-content-muted);
   }
 
@@ -211,7 +280,7 @@ const pageTitle = `${post.title} — İbrahim Turan`;
 
   .blog-article ul,
   .blog-article ol {
-    margin: 1.5rem 0;
+    margin: 1.625rem 0;
     padding-left: 1.5rem;
   }
 
@@ -235,11 +304,18 @@ const pageTitle = `${post.title} — İbrahim Turan`;
     color: var(--color-secondary);
   }
 
+  .blog-article p:has(> img:only-child),
+  .blog-article p:has(> a:only-child > img:only-child) {
+    width: min(60rem, calc(100vw - 2.5rem));
+    margin: 2.75rem 50%;
+    transform: translateX(-50%);
+  }
+
   .blog-article img {
     width: auto;
     max-width: 100%;
     height: auto;
-    margin: 2rem auto;
+    margin: 0 auto;
     border: 1px solid var(--color-base-300);
     border-radius: var(--radius-md);
   }
@@ -253,7 +329,7 @@ const pageTitle = `${post.title} — İbrahim Turan`;
     display: block;
     width: max-content;
     max-width: 100%;
-    margin: 2rem 0;
+    margin: 2.5rem 0;
     overflow-x: auto;
     border-collapse: collapse;
     font-size: 0.875rem;
@@ -269,28 +345,40 @@ const pageTitle = `${post.title} — İbrahim Turan`;
 
   .blog-article th {
     background: var(--color-base-200);
+    color: var(--color-base-content);
     font-weight: 600;
   }
 
   .blog-article hr {
-    margin: 3rem 0;
+    margin: 3.5rem 0;
     border: 0;
     border-top: 1px solid var(--color-base-300);
   }
 
   @media (max-width: 639px) {
+    .article-title {
+      max-width: none;
+      line-height: 1.04;
+    }
+
     .blog-article {
-      line-height: 1.75;
+      line-height: 1.78;
+    }
+
+    .blog-article > p:first-child {
+      line-height: 1.78;
     }
 
     .blog-article h2 {
-      margin-top: 3rem;
-      font-size: 1.5rem;
+      margin-top: 3.25rem;
+      font-size: 1.75rem;
     }
 
     .blog-article .code-block {
+      width: calc(100% + (var(--container-padding) * 2));
       margin-right: calc(var(--container-padding) * -1);
       margin-left: calc(var(--container-padding) * -1);
+      transform: none;
       border-right: 0;
       border-left: 0;
       border-radius: 0;
@@ -298,8 +386,16 @@ const pageTitle = `${post.title} — İbrahim Turan`;
   }
 
   @media print {
+    .post-cover {
+      padding: 0;
+    }
+
     .blog-article .code-block {
+      width: 100%;
       break-inside: avoid;
+      margin-right: 0;
+      margin-left: 0;
+      transform: none;
       border-color: var(--color-base-300);
     }
 

@@ -59,6 +59,15 @@ export const Posts: CollectionConfig = {
       required: true,
     },
     {
+      name: 'language',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'imageUrl',
+      type: 'text',
+    },
+    {
       name: 'sourceUrl',
       type: 'text',
     },

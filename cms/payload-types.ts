@@ -260,6 +260,8 @@ export interface Post {
   }[];
   publishedAt: string;
   readingTimeMinutes: number;
+  language: string;
+  imageUrl?: string | null;
   sourceUrl?: string | null;
   order: number;
   updatedAt: string;
@@ -487,6 +489,8 @@ export interface PostsSelect<T extends boolean = true> {
       };
   publishedAt?: T;
   readingTimeMinutes?: T;
+  language?: T;
+  imageUrl?: T;
   sourceUrl?: T;
   order?: T;
   updatedAt?: T;

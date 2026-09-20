@@ -27,6 +27,8 @@ export default buildConfig({
     client: {
       url: process.env.DATABASE_URL || 'file:./payload.db',
     },
+    migrationDir: path.resolve(dirname, 'migrations'),
+    push: false,
   }),
   globals: [Profile],
   secret: process.env.PAYLOAD_SECRET || localDevelopmentSecret,
