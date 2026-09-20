@@ -33,7 +33,12 @@
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/7eb6f416-83b6-4a7d-873b-2f6fe1239e70.jpeg",
       "companyUrl": "https://www.mobileaction.co",
       "location": "Ankara, Turkey",
-      "tech": ["Vue 3", "TypeScript", "Tailwind", "Vitest"]
+      "tech": [
+        "Vue 3",
+        "TypeScript",
+        "Tailwind",
+        "Vitest"
+      ]
     },
     {
       "title": "Frontend Engineer",
@@ -44,7 +49,14 @@
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/0dbd5b1e-3a47-4005-9ced-bd647f240b84.jpeg",
       "companyUrl": "https://nmqdigital.com",
       "location": "Istanbul, Turkey",
-      "tech": ["Next.js", "React", "TypeScript", "Vue 2", "Vite", "PostgreSQL"]
+      "tech": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Vue 2",
+        "Vite",
+        "PostgreSQL"
+      ]
     },
     {
       "title": "Frontend Engineer",
@@ -54,7 +66,12 @@
       "summary": "Rebuilt the marketing site in Vue, lifted Lighthouse from 60 to 90+, and shipped parent and student portals with Sentry error monitoring.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e8cd7708-5f71-4010-8ec4-c2a404f72b0b.jpeg",
       "location": "London, United Kingdom",
-      "tech": ["Vue 3", "Bootstrap", "SEO", "Sentry"]
+      "tech": [
+        "Vue 3",
+        "Bootstrap",
+        "SEO",
+        "Sentry"
+      ]
     },
     {
       "title": "Frontend Engineer",
@@ -64,7 +81,11 @@
       "summary": "Owned customer-facing flows and internal ERP modules on one of Turkey's largest e-commerce platforms — cart, checkout, order ops, integrations.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/83edda06-9f6e-42bd-ac14-0b886ad094eb.jpeg",
       "location": "Istanbul, Turkey",
-      "tech": ["Vue 2", "Microservices", "Agile"]
+      "tech": [
+        "Vue 2",
+        "Microservices",
+        "Agile"
+      ]
     },
     {
       "title": "Frontend Engineer",
@@ -74,7 +95,12 @@
       "summary": "Launched three internal apps from zero — mobile, hand terminal, B2B shop — and reviewed 250+ merge requests across the platform.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e415df9b-4c7c-4cfb-a057-709a70e3ba4f.jpeg",
       "location": "Sakarya, Turkey",
-      "tech": ["Nuxt.js", "React Native", "Feathers.js", "Socket.io"]
+      "tech": [
+        "Nuxt.js",
+        "React Native",
+        "Feathers.js",
+        "Socket.io"
+      ]
     },
     {
       "title": "Fullstack Intern",
@@ -84,7 +110,13 @@
       "summary": "Built features for the EYSIS enterprise suite on Phalcon + Vue, containerized the dev environment with Docker.",
       "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/66efee14-68bc-4715-a55e-776ddaeffb9e.png",
       "location": "Sakarya, Turkey",
-      "tech": ["Phalcon", "Vue", "Vuetify", "Docker", "MySQL"]
+      "tech": [
+        "Phalcon",
+        "Vue",
+        "Vuetify",
+        "Docker",
+        "MySQL"
+      ]
     }
   ],
   "projects": [
@@ -98,7 +130,13 @@
         "Built permission-aware reporting dashboards that generate charts and widgets from database data.",
         "Delivered map-based customer discovery with nearby customer details, usage, and spend context."
       ],
-      "stack": ["React Native", "React", "Redux", "Redux Toolkit", "React Native Paper"],
+      "stack": [
+        "React Native",
+        "React",
+        "Redux",
+        "Redux Toolkit",
+        "React Native Paper"
+      ],
       "links": [
         {
           "label": "View on Google Play",
@@ -119,7 +157,14 @@
         "Improved application performance and resolved product defects.",
         "Delivered the chat feature end to end across the Vue frontend and Feathers.js backend."
       ],
-      "stack": ["Vue.js", "Vuex", "Vuetify", "Feathers.js", "Node.js", "MongoDB"],
+      "stack": [
+        "Vue.js",
+        "Vuex",
+        "Vuetify",
+        "Feathers.js",
+        "Node.js",
+        "MongoDB"
+      ],
       "links": []
     },
     {
@@ -131,7 +176,10 @@
         "Built the storefront on Vue Storefront with Reybex serving as the backend.",
         "Supported a reusable customer deployment model, including a rollout for one of Germany’s largest handbag producers."
       ],
-      "stack": ["Vue Storefront", "Reybex API"],
+      "stack": [
+        "Vue Storefront",
+        "Reybex API"
+      ],
       "links": []
     },
     {
@@ -143,7 +191,11 @@
         "Owned the cart, checkout, order history, and user details modules.",
         "Implemented ERP-controlled payment methods that could be enabled or disabled dynamically."
       ],
-      "stack": ["Vue.js", "Vuex", "Bootstrap"],
+      "stack": [
+        "Vue.js",
+        "Vuex",
+        "Bootstrap"
+      ],
       "links": []
     },
     {
@@ -154,7 +206,10 @@
       "contributions": [
         "Owned the order finance, payment, and user details modules within the internal platform."
       ],
-      "stack": ["Vue.js", "Vuetify"],
+      "stack": [
+        "Vue.js",
+        "Vuetify"
+      ],
       "links": []
     },
     {
@@ -167,7 +222,12 @@
         "Led two website rebrands.",
         "Built CMS-style components that reduced marketing page creation to about two days."
       ],
-      "stack": ["Vue.js", "Vite", "Bootstrap", "Static Site Generation"],
+      "stack": [
+        "Vue.js",
+        "Vite",
+        "Bootstrap",
+        "Static Site Generation"
+      ],
       "links": [
         {
           "label": "Visit Hub21",
@@ -185,7 +245,12 @@
         "Integrated Stripe payments, subscriptions, package management, and dynamic package options.",
         "Built student dashboards for progress tracking and upcoming session information."
       ],
-      "stack": ["Vue.js", "Vite", "Bootstrap", "Stripe"],
+      "stack": [
+        "Vue.js",
+        "Vite",
+        "Bootstrap",
+        "Stripe"
+      ],
       "links": []
     },
     {
@@ -198,7 +263,14 @@
         "Maintained the platform for the second consecutive annual contest with smaller updates.",
         "Delivered administration reporting and user management with Vue.js and Vuetify."
       ],
-      "stack": ["Vue.js", "VeeValidate", "Vue Router", "DaisyUI", "Pinia", "Vuetify"],
+      "stack": [
+        "Vue.js",
+        "VeeValidate",
+        "Vue Router",
+        "DaisyUI",
+        "Pinia",
+        "Vuetify"
+      ],
       "links": []
     },
     {
@@ -210,7 +282,14 @@
         "Developed the product frontend with Vue 3.",
         "Implemented the interface with Tailwind CSS, Sentry, VeeValidate, Vue Router, and Pinia."
       ],
-      "stack": ["Vue 3", "Tailwind CSS", "Sentry", "VeeValidate", "Vue Router", "Pinia"],
+      "stack": [
+        "Vue 3",
+        "Tailwind CSS",
+        "Sentry",
+        "VeeValidate",
+        "Vue Router",
+        "Pinia"
+      ],
       "links": []
     },
     {
@@ -221,7 +300,11 @@
       "contributions": [
         "Owned development, deployment, CI/CD pipelines, updates, and ongoing maintenance."
       ],
-      "stack": ["React", "Redux", "DatoCMS"],
+      "stack": [
+        "React",
+        "Redux",
+        "DatoCMS"
+      ],
       "links": []
     },
     {
@@ -234,7 +317,10 @@
         "Unified the Admin, Writer, and Publisher panels in one application and migrated them from Vue 2 to Vue 3.",
         "Enabled publishers to create website content and writers to access freelance content jobs."
       ],
-      "stack": ["FastAPI", "Vue 3"],
+      "stack": [
+        "FastAPI",
+        "Vue 3"
+      ],
       "links": []
     },
     {
@@ -246,7 +332,10 @@
         "Owned development, maintenance, CI/CD pipelines, and security.",
         "Delivered incremental website updates as required."
       ],
-      "stack": ["React", "Storyblok"],
+      "stack": [
+        "React",
+        "Storyblok"
+      ],
       "links": []
     },
     {
@@ -259,7 +348,13 @@
         "Presented updates in client meetings and translated requests into implementation solutions.",
         "Worked across Astro, React, Alpine.js, and a custom Vite output pipeline within Crownpeak."
       ],
-      "stack": ["Astro", "React", "Alpine.js", "Vite", "Crownpeak CMS"],
+      "stack": [
+        "Astro",
+        "React",
+        "Alpine.js",
+        "Vite",
+        "Crownpeak CMS"
+      ],
       "links": [
         {
           "label": "Visit JAMS ADR",
@@ -276,7 +371,12 @@
         "Developed the full set of Crownpeak CMS components from the start of the project.",
         "Created the frontend with Astro, Alpine.js, and a custom Vite output pipeline."
       ],
-      "stack": ["Astro", "Vite", "Alpine.js", "Crownpeak CMS"],
+      "stack": [
+        "Astro",
+        "Vite",
+        "Alpine.js",
+        "Crownpeak CMS"
+      ],
       "links": [
         {
           "label": "Visit JAMS Pathways",
@@ -293,7 +393,13 @@
         "Maintained the existing website.",
         "Developed new Crownpeak components with Astro, Alpine.js, vanilla JavaScript, and HTML."
       ],
-      "stack": ["Astro", "Alpine.js", "JavaScript", "HTML", "Crownpeak CMS"],
+      "stack": [
+        "Astro",
+        "Alpine.js",
+        "JavaScript",
+        "HTML",
+        "Crownpeak CMS"
+      ],
       "links": [
         {
           "label": "Visit Affinity Federal Credit Union",
@@ -330,7 +436,13 @@
         "Managed servers, deployment, and application development.",
         "Used the ChatGPT API to validate marketing emails and generate validation reports."
       ],
-      "stack": ["Next.js", "Drizzle ORM", "PostgreSQL", "Tailwind CSS", "ChatGPT API"],
+      "stack": [
+        "Next.js",
+        "Drizzle ORM",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "ChatGPT API"
+      ],
       "links": []
     },
     {
@@ -343,7 +455,12 @@
         "Built the frontend with Astro, Lit custom elements, and a custom Vite output pipeline.",
         "Documented component behavior and usage for Crownpeak developers."
       ],
-      "stack": ["Astro", "Lit", "Vite", "Crownpeak CMS"],
+      "stack": [
+        "Astro",
+        "Lit",
+        "Vite",
+        "Crownpeak CMS"
+      ],
       "links": []
     },
     {
@@ -355,7 +472,12 @@
         "Delivered small updates and ongoing website maintenance.",
         "Resolved translation issues across the website."
       ],
-      "stack": ["HubSpot CMS", "JavaScript", "CSS", "HTML"],
+      "stack": [
+        "HubSpot CMS",
+        "JavaScript",
+        "CSS",
+        "HTML"
+      ],
       "links": [
         {
           "label": "Visit NMQ",
@@ -373,7 +495,12 @@
         "Architected an AI-optimized modular system that reduced feature delivery from days to minutes and delivered 90% of Change History through an AI-first workflow.",
         "Maintained 100% security compliance by resolving all Yarn audit and Dependabot vulnerabilities, migrated the codebase to ESLint 9, and documented AI-ready patterns for the frontend team."
       ],
-      "stack": ["Vue 3", "Pinia", "Tailwind CSS", "AG Grid"],
+      "stack": [
+        "Vue 3",
+        "Pinia",
+        "Tailwind CSS",
+        "AG Grid"
+      ],
       "links": []
     }
   ],
@@ -577,83 +704,5 @@
       "level": "working"
     }
   ],
-  "posts": [
-    {
-      "title": "Modular Frontend Architecture",
-      "slug": "modular-frontend-architecture",
-      "excerpt": "If you have a small frontend project, putting the same type of things in the same place is a good...",
-      "bodyMarkdown": "If you have a small frontend project, putting the same type of things in the same place is a good idea. You can think of it like money inside a cash register. Every type of bill is stacked neatly on top of each other.\n\nLet's assume you need to duplicate every holder inside the cash register. Now you have a double $20 stack and a double $10 stack, and the cash in these stacks cannot mix. So, when a customer gives you $20, you need to put it into that specific stack of $20 bills, and you need to give change from that same related stack. The second stack of $10 bills and the same cup of cents work the exact same way.\n\nThere is another option: splitting the cash register in half and mirroring it. That way, when you take a $20 bill from one side of the register, you skip the other part as a whole. Let's make it a little bit harder and assume $50 bills are shared. What you can do is add a second floor to the cash register and put all of the shared bills there as a single stack, because it doesn’t matter where you get them from or put them.\n\nThis is the exact same idea we use in modular frontend architecture. When you create a project, everything is traditionally placed based on its type: tests inside the `tests` folder, components inside the `components` folder, and so on. But as the project gets bigger and bigger, you will have a hard time keeping track of which component is related to what, or which store holds what type of data. This slows you down because you have to track everything you change just to ensure you didn't **break** another area of the project. This eventually causes a lot of hidden bugs and undesired behavior inside the system.\n\n![cash register](https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/fpdg9kt1kqzk5vybyw9a.jpeg)\n\nIf the cash register explains how we organize files, computer hardware explains how they communicate. \n\nYou can think of modules like computer parts inside a computer case. A computer is a very complex thing, but it is built out of independent parts like a GPU, CPU, and RAM sticks. \n\nEvery part is completely different internally and handles its own specific job. However, they are fully encapsulated. The motherboard doesn't need to deal with the raw circuitry or internal chips of the graphics card; it only interacts with it through a standardized interface, like a PCIe slot.\n\nThe motherboard acts like a page or the global scope. It doesn't need to know how the graphics card renders pixels inside, it only cares that it fits the slot and follows the communication rules. Because of this encapsulation, you can change your graphics card with a new one easily without changing the rest of the computer. \n\nThis is the same way frontend modules should behave. The internal logic can be complex and unique, but the way it communicates with the rest of the project must go through a single, strict gateway.\n\n![inside of the computer](https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/ahp46848bgwfg3qs4fxs.jpg)\n\n## Why Modular Architecture?\n\nWhen projects get big enough, they eventually become monorepo or micro-frontend projects. Converting a project to a monorepo without understanding boundaries and relationships is incredibly painful. You can imagine modular architecture as a perfect middle ground between these approaches.\n\nAlso, we frequently develop projects using AI assistance nowadays. AI is limited by its context window, and you cannot manage the whole context window effectively if you don’t know the entire project well enough. Without strict boundaries, the AI will pull references from completely unrelated areas of the project. If your project doesn’t have enough automated guardrails, you will end up using deprecated components or outdated logic. If nobody catches this during review, you will have a **huge mess** in a very short period of time.\n\nModules help you manage the AI context. The AI will have a much better understanding of the code and what you actually want to achieve. It also cuts costs; when the context window gets too big, the AI tends to become less effective and more expensive.\n\nLastly, updating the project becomes less painful, and handling bugs takes much less time. You can easily find and track bugs on platforms like Sentry because of the specific naming conventions used inside the modules.\n\n## Project Structure\n\n![messy room](https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/wal0ebfnvbgbtfu7tr0l.jpg)\nModules are essentially sub-programs of the project. They contain most of the same file structure that the global scope has. However, some folders—like `plugins`, `layouts`, `pages`, and `services`—are only available in the global scope.\n\nI purposely put `services` in the global scope because putting them inside individual modules causes a lot of code duplication, type management issues, and data management problems. It can be a little harder to find and use services on very big projects, but I still don’t recommend putting them inside modules, even if they are purely related to a single module.\n\nMaking exceptions to your structure introduces a lot of entropy into a project because AI does not work deterministically and will put things in different places every time. It also causes team communication problems. If you decide on a specific architecture, you must be entirely consistent about it.\n\nI also prefer to put i18n translations inside the modules. If your project requires i18n, you can split it between the global scope and individual modules.\n\n```plaintext\n├── assets/                  # Global static assets (images, global styles, fonts)\n├── components/              # Global reusable UI components (atomic/base components)\n├── constants/               # Global application constants and enums\n├── layouts/                 # Page layouts (e.g., Default, Auth, Dashboard)\n├── libs/                    # Global utility libraries and helper functions\n├── plugins/                 # Third-party plugin configurations (e.g., i18n, UI libraries)\n├── services/                # Global API clients and data-fetching layer\n├── store/                   # Global state management (e.g., Pinia, Redux)\n├── types/                   # Global TypeScript types and interfaces\n├── tests/                   # Global integration, E2E, or orchestration tests\n│\n├── docs/                    # Project documentation\n│   ├── ADR/                 # Architectural Decision Records\n│   │   ├── _superseded/     # Outdated or replaced ADRs\n│   │   └── [ADR-NO]_[DATE]-[title].md\n│   ├── changelog/           # Version history\n│   │   ├── UNRELEASED.md    # Unreleased changes for the next version\n│   │   └── [VERSION].md     # Released version logs\n│   ├── how-to/              # Guides for developers (e.g., deployment, local setup)\n│   ├── architecture.md      # High-level system architecture overview\n│   └── setup.md             # Local environment onboarding guide\n│\n├── modules/                 # Feature-driven domain modules\n│   └── [module-name]/       # Encapsulated feature module (e.g., 'auth', 'billing')\n│       ├── assets/          # Module-specific static assets\n│       ├── components/      # Module-specific UI components\n│       │   ├── [ModuleName][ComponentName].vue\n│       │   └── [ModuleName][ComponentName][SubComponent].vue\n│       ├── constants/       # Module-specific constants\n│       ├── docs/            # Module-specific business logic documentation\n│       ├── hooks/           # Module-specific hooks or composables (e.g., use[ModuleName][HookName].ts)\n│       ├── libs/            # Module-specific utility wrappers\n│       ├── store/           # Module-specific state slices (e.g., [module-name]-[store-name].store.ts)\n│       ├── tests/           # Unit tests isolated to this module\n│       │   └── [component|lib|hook].test.ts\n│       ├── types/           # Module-specific TypeScript types\n│       └── index.ts         # Module public API (exports what the rest of the app can use)\n│\n├── views/                   # Application pages/routes (maps to router config)\n├── AGENTS.md                # AI Agent / LLM context instructions and guardrails\n├── main.ts                  # Application entry point\n└── README.md                # Project landing page\n\n```\n\n### Global Scope\n\nThe global scope holds shared logic like hooks/composables, utility libraries (`libs`), and plugins. Components inside the global scope should strictly be **dumb components**. I prefer putting core business logic inside pages and hooks; otherwise, that logic belongs entirely inside a module.\n\n### Modules\n\nModules are encapsulated, independent sub-forms of the project. They can have almost any folder feature the global scope has when needed, excluding plugins, layouts, and public folders.\n\nModules can also just represent shared logic. For example, table configurations could live inside a `table` module, even if that module doesn't contain any UI components and only consists of pure implementation and configuration files.\n\nYou should aim to have a few \"perfect\" modules in your codebase that you can feed to the AI as a reference. That way, the AI will produce much better, aligned code for the rest of your project.\n\n### Module Rules\n\n- **The Public API:** Modules must have a root file (usually named `index.ts`) at their root. This file must explicitly expose every API the module offers (components, hooks, constants, utilities) to the outside world.\n- **Component Naming:** Module components should always use the module name as a prefix. This prevents naming collisions when they are used inside pages or the global scope.\n- **Page Composition:** Pages can contain one or multiple modules. Pages can contain logic that alters module behavior, or they can compose multiple modules together to build different layouts and workflows. They manage this composition to achieve different user flows. While these page-level changes affect the module's behavior via props, the module itself must remain independent. A module should never directly trigger a change in another module; that orchestration is the sole responsibility of the page using them.\n- **No Partial Exposures:** Modules cannot expose partial components or fragmented logic to the outside to be gathered and re-assembled by the user. For example, you shouldn't expose raw form fields, partial forms, and separate form-handling logic externally just to build multiple different forms across the app. This causes massive encapsulation issues, and the module loses its independence. When you update a module, you should only need to update the module internals and its public API. A module should never change the flow of the outside program; it should only change the internal behavior of the module itself.\n- **Communication:** Modules handle their internal logic and do not leak it outside. When a module uses components, it is strictly responsible for communicating with the outside world through standardized props and events.\n- **Dependencies:** A module can depend on another module, but it cannot use internal parts of another module directly. You must either import the other module as a whole sub-module through its public API, or move the shared pieces into the global scope so both modules can use them safely.\n\n## Documenting the Project\n![some documents on the table](https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/ub4vr1kwo6v5ytx8uih7.jpg)\nDocumenting and testing modules is vital. Modules left undocumented usually lead to logic duplication because other developers don't know they exist. Modules without tests cause major issues when you eventually need to rewrite or upgrade them.\n\nThe overall project architecture, global usages, page creation steps, layout logic, authentication, permission management (e.g., how to check page or action permissions), error handling, feedback handling, form validation, and global UI components should all be thoroughly documented in the global scope.\n\nYou should write specific \"how-to\" documents regarding module creation, module composition, module usage, and page creation. This will explicitly teach your AI assistant how to create and use modules correctly within your codebase.\n\n### ADR and Change Log System\n\nAn Architectural Decision Record (ADR) system is incredibly helpful when working in a team on parallel tasks. An ADR document serves as an official agreement that you can reference during PR reviews and feature implementation. When you need to refactor, deprecate, or develop a major new feature, write an ADR. This aligns the team so no one is caught off guard by a massive pull request.\n\n> For reference, I highly recommend checking out the **Shopware ADR list** on their public GitHub repository to see how an engineering team uses them effectively.\n\nYou should never delete old ADR documents. Use an incremental document system where new decisions simply supersede the old ones. Without these historical documents, teams often make the same mistakes or attempt the same failed implementations multiple times. If you delete the ADR explaining why a library or pattern was removed due to side effects, future developers might introduce it all over again.\n\nAdditionally, keeping a changelog helps the AI understand the project's history and timeline. I suggest tracking unreleased changes inside an `UNRELEASED.md` file, which must be updated before a PR is merged. The structure should be a simple bulleted list formatted as follows: `* [bug|feature|performance|chore]: explain the change or action`\n\n#### ADR Template\n\n```markdown\n---\ntitle: {{ title }}\ndate: {{ date }}\narea: {{ area }}\ntags: [{{ tags }}]\n---\n\n## Context\n\n## Decision\n\n## Consequences\n\n```\n\n### Documenting a Module\n\nModule-specific documentation should live directly inside that module's `docs/` folder. This includes local \"how-to\" guides, updates to module behavior, architectural quirks, or a specific domain glossary unique to that feature.\n\n## Ensuring Project Quality\n\nIf you work with AI, you must enforce high code quality because AI will ultimately copy the existing quality of the project. The hardest part of working with an LLM is raising the code quality ceiling, as AI naturally generates code that mimics the majority of your codebase.\n\nBecause of this, you should implement strict validation and linting rules _before_ you start using AI heavily or converting your project to a modular architecture. Every limitation or architectural restriction should be enforced via an ESLint rule or custom validation scripts. AI can read documentation, but it will still make mistakes if automated rules are missing. For example, if you deprecate a UI library, you need an ESLint rule to explicitly restrict its imports.\n\nEnforce the strictest code styling possible. There should be exactly one way of doing things, validated automatically. If you prefer arrow functions, enforce them everywhere. If you prefer object parameters, write an ESLint rule for it. If you use kebab-case file naming, use a custom validator script alongside ESLint to check it.\n\nLastly, **never deploy dead code into your main branch**. Use tools and scripts to detect unused variables, functions, components, and files, and delete them immediately. If you ever need them back, they are safely stored in your Git history. Don't carry that maintenance burden in your main repository.\n\nI hope this article helps you improve your frontend architecture. In my next article, I will share concrete module examples, implementation details, and exactly how I prompt and guide AI within this architecture to compose modules seamlessly. Thank you for reading, and I'll see you in the next one!",
-      "tags": ["architecture", "modular", "frontend"],
-      "publishedAt": "2026-06-29T11:27:09Z",
-      "readingTimeMinutes": 9,
-      "sourceUrl": "https://dev.to/_ibrahimturan/modular-frontend-architecture-2oae",
-      "order": 0
-    },
-    {
-      "title": "Clean Architecture in Modern Frontend Development: A Comprehensive Guide",
-      "slug": "clean-architecture-in-modern-frontend-development",
-      "excerpt": "In today's frontend world, we're constantly building more complex applications where business logic,...",
-      "bodyMarkdown": "In today's frontend world, we're constantly building more complex applications where business logic, UI components, and framework-specific code get tangled together, making our systems rigid and hard to maintain. I love how Robert C. Martin puts it: \"Software was invented to be 'soft.' It was intended to be a way to easily change the behavior of machines. If we'd wanted the behavior of machines to be hard to change, we would have called it hardware.\" Let's explore how Clean Architecture principles can actually work in modern frontend development, with real patterns and practices that lead to maintainable, testable, and framework-independent applications.The Reality of Technical Debt and Market Pressure We've all heard this one before: \"We can clean it up later; we just have to get to market first!\" But let's be real - things never get cleaned up later because market pressures don't just disappear. \"The fact is that making messes is always slower than staying clean, no matter which time scale you're using.\"\n\n## The Reality of Technical Debt and Market Pressure\n\n> \"These developers buy into a familiar lie: 'We can clean it up later; we just have to get to market first!' Of course, things never do get cleaned up later because market pressures never abate.\"\n\n> \"The fact is that making messes is always slower than staying clean, no matter which time scale you are using.\"\n\nClean Architecture Boundaries At every architectural boundary, you'll likely find the Humble Object pattern lurking nearby. Here's how that looks in practice:\n\n```typescript\n// ❌ Quick and Dirty Implementation\nconst ProductPage: React.FC = () => {\n  const [product, setProduct] = useState<Product | null>(null);\n  const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);\n  const [cart, setCart] = useState<Cart | null>(null);\n  const [error, setError] = useState<string | null>(null);\n\n  // Messy side effects\n  useEffect(() => {\n    fetch(`/api/products/${id}`)\n      .then(res => res.json())\n      .then(setProduct)\n      .catch(err => setError(err.message));\n  }, [id]);\n\n  // Business logic mixed with UI logic\n  const addToCart = async () => {\n    try {\n      const response = await fetch('/api/cart', {\n        method: 'POST',\n        body: JSON.stringify({ productId: product?.id }),\n      });\n      const updatedCart = await response.json();\n      setCart(updatedCart);\n      // Direct DOM manipulation\n      window.alert('Added to cart!');\n    } catch (err) {\n      setError((err as Error).message);\n    }\n  };\n};\n\n// ✅ Clean, Modular Implementation\n// Domain Entity\ninterface Product {\n  id: string;\n  name: string;\n  price: Money;\n  inventory: Inventory;\n}\n\n// Use Case / Application Service\nclass ProductService {\n  constructor(private readonly productRepo: ProductRepository) {}\n\n  async getProduct(id: string): Promise<Product> {\n    return this.productRepo.findById(id);\n  }\n\n  async getRelatedProducts(product: Product): Promise<Product[]> {\n    return this.productRepo.findRelated(product);\n  }\n}\n\n// Repository Interface\ninterface ProductRepository {\n  findById(id: string): Promise<Product>;\n  findRelated(product: Product): Promise<Product[]>;\n}\n\n// Custom Hook (Framework-specific adapter)\nconst useProduct = (id: string) => {\n  return useQuery(['product', id], () => productService.getProduct(id));\n};\n\n// Clean Component\nconst ProductPage: React.FC = () => {\n  const { data: product, isLoading, error } = useProduct(id);\n  const { data: relatedProducts } = useRelatedProducts(product);\n  const { addToCart, isAdding } = useCartMutation();\n\n  if (isLoading) return <ProductSkeleton />;\n  if (error) return <ErrorBoundary error={error} />;\n\n  return (\n    <ProductLayout>\n      <ProductDetails product={product} />\n      <AddToCartButton \n        onAdd={() => addToCart(product.id)} \n        isLoading={isAdding} \n      />\n      <RelatedProducts products={relatedProducts} />\n    </ProductLayout>\n  );\n};\n```\n\n##   \n\n## Architecture and Framework Independence\n\n> \"The Web is a delivery mechanism... and your architecture should treat it as such.\"\n\n> \"If the framework wants you to derive your business objects from its base classes, say no! Derive proxies instead, and keep those proxies in components that are plugins to your business rules.\"\n\n```typescript\n// Domain Entities (Framework Independent)\ninterface Order {\n  id: string;\n  items: OrderItem[];\n  total: Money;\n  status: OrderStatus;\n}\n\n// Business Rules (Pure TypeScript)\nclass OrderCalculator {\n  calculateTotal(items: OrderItem[]): Money {\n    return items.reduce(\n      (total, item) => total.add(item.price.multiply(item.quantity)),\n      Money.zero()\n    );\n  }\n\n  applyDiscount(order: Order, discount: Discount): Order {\n    return {\n      ...order,\n      total: order.total.subtract(this.calculateDiscount(order, discount))\n    };\n  }\n}\n\n// Framework Adapter (React-specific)\nconst useOrder = (orderId: string) => {\n  const calculator = new OrderCalculator();\n  const { data: order } = useQuery(['order', orderId], fetchOrder);\n  \n  return {\n    order,\n    applyDiscount: (discount: Discount) => \n      calculator.applyDiscount(order!, discount),\n    // other order operations...\n  };\n};\n\n// UI Component (Framework-specific)\nconst OrderSummary: React.FC<{ orderId: string }> = ({ orderId }) => {\n  const { order, applyDiscount } = useOrder(orderId);\n  // React-specific rendering logic\n};\n```\n\n##   \n\n## Clean Architecture Boundaries\n\n> \"At each architectural boundary, we are likely to find the Humble Object pattern lurking somewhere nearby.\"\n\n  \n\n```typescript\n// Domain Layer (Business Rules)\ninterface PaymentProcessor {\n  process(payment: Payment): Promise<PaymentResult>;\n}\n\n// Application Layer (Use Cases)\nclass PaymentService {\n  constructor(private processor: PaymentProcessor) {}\n\n  async processPayment(order: Order): Promise<PaymentResult> {\n    // Business logic for payment processing\n    return this.processor.process({\n      amount: order.total,\n      currency: order.currency,\n      orderId: order.id\n    });\n  }\n}\n\n// Infrastructure Layer (External Services)\nclass StripePaymentProcessor implements PaymentProcessor {\n  constructor(private stripe: Stripe) {}\n\n  async process(payment: Payment): Promise<PaymentResult> {\n    const result = await this.stripe.charges.create({\n      amount: payment.amount.value,\n      currency: payment.currency,\n      metadata: { orderId: payment.orderId }\n    });\n    return this.mapToPaymentResult(result);\n  }\n}\n\n// Presentation Layer (React Components)\nconst CheckoutButton: React.FC<{ order: Order }> = ({ order }) => {\n  const paymentService = usePaymentService();\n  const mutation = useMutation(\n    () => paymentService.processPayment(order),\n    {\n      onSuccess: (result) => {\n        // Handle success\n      },\n      onError: (error) => {\n        // Handle error\n      }\n    }\n  );\n\n  return (\n    <Button \n      onClick={() => mutation.mutate()} \n      loading={mutation.isLoading}\n    >\n      Pay Now\n    </Button>\n  );\n};\n```\n\n## Testing and Dependency Management\n\n> \"Don't depend on things you don't need.\"\n\nTesting and Dependency Management Let's talk about dependencies - specifically, why you shouldn't depend on things you don't need.\n\n```typescript\n// ❌ Hard to Test Component with Direct Dependencies\nconst UserProfile: React.FC = () => {\n  const [user, setUser] = useState<User>();\n  \n  useEffect(() => {\n    axios.get('/api/user').then(res => setUser(res.data));\n  }, []);\n  \n  return <div>{user?.name}</div>;\n};\n\n// ✅ Testable Component with Injected Dependencies\ninterface UserProfileProps {\n  userService: UserService;\n}\n\nconst UserProfile: React.FC<UserProfileProps> = ({ userService }) => {\n  const { data: user } = useQuery(\n    'user',\n    () => userService.getCurrentUser()\n  );\n  \n  return <div>{user?.name}</div>;\n};\n\n// Easy to test with mock service\ndescribe('UserProfile', () => {\n  it('displays user name', async () => {\n    const mockService = {\n      getCurrentUser: jest.fn().mockResolvedValue({ name: 'John' })\n    };\n    \n    render(<UserProfile userService={mockService} />);\n    \n    expect(await screen.findByText('John')).toBeInTheDocument();\n  });\n});\n```\n\n##   \n\n## Conclusion\n\n> \"Good architects are careful to separate details from policy, and then decouple the policy from the details so thoroughly that the policy has no knowledge of the details.\"\n\nConclusion Great architects know how to separate details from policy, and then decouple them so thoroughly that the policy has no clue about the details. This guide shows you how to:\n\n- Keep your code framework-independent\n- Make testing a breeze\n- Handle dependencies like a pro\n- Separate concerns properly\n- Build applications that can actually scale\n\nRemember, these aren't rigid rules - they're tools. Use them when they make sense for your project.Want to dive deeper into any of these topics? Just let me know!\n\n`This article created with the help of AI using my notes from the Clean Architecture book`\n",
-      "tags": ["architecture", "clean-architecture", "frontend", "javascript"],
-      "publishedAt": "2025-01-21T11:00:03Z",
-      "readingTimeMinutes": 4,
-      "sourceUrl": "https://dev.to/_ibrahimturan/clean-architecture-in-modern-frontend-development-a-comprehensive-guide-hpp",
-      "order": 1
-    },
-    {
-      "title": "How to parse FormData values with Netlify Functions V2",
-      "slug": "parse-formdata-netlify-functions-v2",
-      "excerpt": "I spend 3 hours trying to understand that. All the blog posts related to this topic do not work....",
-      "bodyMarkdown": "I spend 3 hours trying to understand that. All the blog posts related to this topic do not work. Netlify Functions V2 uses [Request API](https://developer.mozilla.org/en-US/docs/Web/API/Request). I used Node.js v20 to parse FormData values in `multipart/form-data` requests. You can see how easy it is with the example below. This function returns form data values as JSON in response.\n\n```js\nexport default async function (event) {\n  const data = await event.formData();\n  const fields = {};\n\n  for (const pair of data.entries()) {\n    fields[pair[0]] = pair[1];\n  }\n\n  return new Response(JSON.stringify(fields), { status: 200 });\n}\n```\nI hope this helps you. Have nice coding!\n\n",
-      "tags": ["netlify", "functions", "formdata", "javascript"],
-      "publishedAt": "2024-01-16T20:48:25Z",
-      "readingTimeMinutes": 1,
-      "sourceUrl": "https://dev.to/_ibrahimturan/how-to-parse-formdata-values-with-netlify-functions-v2-52i2",
-      "order": 2
-    },
-    {
-      "title": "Effortless Animations With `AutoAnimate` in Vue 3",
-      "slug": "effortless-animations-autoanimate-vue-3",
-      "excerpt": "If you work in a startup you will know that you barely have time to implement something properly....",
-      "bodyMarkdown": "\nIf you work in a startup you will know that you barely have time to implement something properly. Spending time on animation is mostly seen as unnecessary. Also, when you do something without animations on the frontend side, you will always feel like something is missing. As a frontend developer which works in a little startup, I always want to add some little animations as quickly as possible to indicate user when something changes. So, I started to search for options to achieve this because without animations website looks so much pale, like woodwork without polishing.\n\nRecently, I found the `AutoAnimate` library that aims to animate things almost effortlessly. Also, they support all the major frontend frameworks right now which is awesome. It's like a gem for the tight-schedule startup workers. So, I implement `AutoAnimate` in all of our frontend projects in one day. I know still so many things are not perfect on the animation side but having little is always better than none. So, today I will share how to implement `auto-animate` to Vue 3 projects also I will explain some tricks I use for the edge cases.\n\n> In this article I will show examples and usage for Vue 3 but for the other frameworks, you can read [documentation](https://auto-animate.formkit.com/#usage-react).\n\n## Creating Vue Project\nI will use Vue 3, Vite, typescript, and tailwind to demonstrate how to add and use `auto-animate`. Vue is not necessary you can use it in all the mainstream frontend frameworks that `auto-animate` supports.\n\nSo, let's create and Vue 3 app with **[create-vue](https://github.com/vuejs/create-vue)** library created by the Vue team. These are my options to create the project.\n\n```bash\n✔ **Project name:** … auto-animate-example\n✔ **Add TypeScript?** … No /  Yes\n✔ **Add JSX Support?** …  No  / Yes\n✔ **Add Vue Router for Single Page Application development?** …  No  / Yes\n✔ **Add Pinia for state management?** …  No  / Yes\n✔ **Add Vitest for Unit Testing?** … No /  Yes\n✔ **Add an End-to-End Testing Solution?** › No\n✔ **Add ESLint for code quality?** … No /  Yes\n✔ **Add Prettier for code formatting?** …  No  / Yes\n\nScaffolding project in .../projects/auto-animate-example...\nDone. Now run:\n**cd auto-animate-example**\n**npm install**\n**npm run dev**\n```\nBefore running it I will add `tailwind` and `auto-animate`. \n\n## Adding Tailwind\nYou can add Tailwind with the commands below. When you have done it successfully you will have `tailwind.config.js` and `postcss.config.js` files inside the project folder.\n\n```\nnpm install -D tailwindcss\nnpx tailwindcss init\n```\n\nThe first thing l will do is update the `tailwind.config.js` file name to `tailwind.config.cjs` otherwise they won't work in the Vite project. You should do the same thing for `postcss.config.js` too. Then, update the `tailwind.config.cjs` file as shown below so tailwind will search your components to understand which classes are in use and which classes will be pruned.\n\n```js\n/** @type {import('tailwindcss').Config} */  \nmodule.exports = {  \n  content: [  \n  \"./index.html\",  \n    \"./src/**/*.{js,ts,jsx,tsx,vue}\",  \n  ],  \n  theme: {  \n  extend: {},  \n  },  \n  plugins: [],  \n}\n```\n\nThe next thing I will do is remove the `src/assets/base.css` file and modify `src/assets/main.css` as shown below. That way I can access all the tailwind classes in the whole project. The `main.css` file imported `main.ts` by default so you don't have to import it.\n\n```css\n@tailwind base;  \n@tailwind components;  \n@tailwind utilities;\n```\n\n## How `AutoAnimate` Works?\nAs you can read from the [documentation](https://auto-animate.formkit.com/#usage) when the listed conditions below happen, your elements going to be animated.\n\n-   A child is  **added**  in the DOM.\n-   A child is  **removed**  in the DOM.\n-   A child is  **moved**  in the DOM.\n\nCool thing is, `AutoAnimate` read user preference about animations with the `prefers-reduced-motion` setting and disable animations automatically.\n\n## Adding AutoAnimate\nLastly, I will add `auto-animate` to the project after that, I can show you examples of animating things in the project.\n\n```bash\nnpm install @formkit/auto-animate\n```\nI will use `auto-animate` as a global directive so, I need to configure it that way. I always separate libraries that need configuration under the `plugins` folder to prevent spaghetti code in the `main.ts` file. Hence, I will create a file named `src/plugins/auto-animate.ts` to configure `auto-animate`.\n\n```ts\n// src/plugins/auto-animate.js file  \nimport { autoAnimatePlugin } from '@formkit/auto-animate/vue'  \nimport type { App } from 'vue';  \n  \nexport default (app: App): App => {  \n  return app.use(autoAnimatePlugin);  \n};\n```\n```ts\n// main.ts file  \nimport { createApp } from 'vue'  \nimport App from './App.vue'  \nimport initAutoAnimate from '@/plugins/auto-animate';  \nimport './assets/main.css'  \n  \nconst app = createApp(App);  \n  \ninitAutoAnimate(app);  \n  \napp.mount('#app');\n```\nWe are ready to go. So I will run the project with `npm run dev` command.\n\nI will not bother you with creating components etc. I will just show examples in dummy code if you need details you can see all the examples in the example project that I will share the end of the article.\n\n## Examples\n\n### Adding/Removing elements to DOM\nWhen you add remove/add new elements dom, means that when you change visibility with `v-if`. You should add `v-auto-animate` directive to parent of element that will be animated. This parent element should be always visible otherwise your animation may not run correctly.\n```html\n<collapse v-auto-animate>  \n  <header @click=\"toggleBody\">  \n  Header  \n  </header>  \n  \n <body v-if=\"isBodyVisible\">  \n  Lorem ipsum dolor sit amet, consectetur adipiscing elit.  \n    Donec posuere malesuada nulla, vitae congue metus rutrum ac.  \n    Aliquam placerat metus consectetur nisi venenatis, eget tristique ligula consectetur.  \n    Phasellus quis blandit nulla. Vestibulum tempus lectus elit, sit amet accumsan ligula  \n    consectetur sit amet. Phasellus egestas, mi et dapibus pulvinar, ipsum augue vulputate  \n    metus, vel suscipit nunc velit id tellus. Vestibulum viverra dolor non euismod malesuada.  \n  </body>  \n</collapse>\n```\n![example with no animation](https://res.cloudinary.com/djsydl9fh/image/upload/v1677937199/Articles/f45ade35-28cc-437a-aacd-dae6477de39a_lmuyho.gif)\n\n![example with animation](https://res.cloudinary.com/djsydl9fh/image/upload/v1677937200/Articles/f1646cf2-8a86-4063-b405-d9fb659bb8c4_ljzss7.gif)\nhttps://res.cloudinary.com/djsydl9fh/image/upload/v1677937200/Articles/f1646cf2-8a86-4063-b405-d9fb659bb8c4_ljzss7.gif\n\n### Adding/Removing Item From the List\nIf you want to animate adding/removing items to list event, you should add `v-auto-animate` directive to parent of the looped items. That way the library automatically understand changes and animate items when they added or deleted.\n\n```html\n<section class=\"mt-10\">\n <div v-auto-animate>  \n\t  <template v-for=\"item in items\" :key=\"item.title\">  \n\t\t  <item />  \n\t  </template>  \n  </div>  \n  \n <div>  \n  <button @click=\"addNew\"> Add New </button>  \n  <button @click=\"removeRandom\"> Remove random </button>  \n </div>  \n</section>\n```\n![adding/removing item without animation](https://res.cloudinary.com/djsydl9fh/image/upload/v1677939821/Articles/37ce0f29-e5db-4251-9621-fb40d82d8efd_xtdowt.gif)\n\n![adding removing item with animation](https://res.cloudinary.com/djsydl9fh/image/upload/v1677939127/Articles/bf3b6431-2768-454c-8e6c-fc736647ab77_xyaqei.gif)\n\nhttps://res.cloudinary.com/djsydl9fh/image/upload/v1677939127/Articles/bf3b6431-2768-454c-8e6c-fc736647ab77_xyaqei.gif\n\n### Change the Sorting of the List\nI will use a randomizing function to change the order of list elements to avoid the complexity of changing elements one by one with a button. The animation will be same for both cases just this will little bit long for multi-index jumping.\n\n![change order without animations](https://res.cloudinary.com/djsydl9fh/image/upload/v1677949413/Articles/d72ca1ee-cafc-4f12-aab8-50a03126ffac_siwhzg.gif)\n\n![change order with animation](https://res.cloudinary.com/djsydl9fh/image/upload/v1677949418/Articles/5f4cbfbd-1a22-4937-8551-bab0fe400c2b_ch6dci.gif)\n\nhttps://res.cloudinary.com/djsydl9fh/image/upload/v1677949418/Articles/5f4cbfbd-1a22-4937-8551-bab0fe400c2b_ch6dci.gif\n\n### Change Duration of Animation\nWith directive, you can easily override the duration of animation by passing config object to the directive shown below.\n\n```html\n<div v-auto-animate=\"{ duration: 100 }\" class=\"flex flex-col gap-2\">\n      <template v-for=\"item in items\" :key=\"item.title\">\n        <item /> \n      </template>\n    </div>\n```\nIn this example, I override animation duration to `100` ms instead of default value(I don't know default value btw) with `v-auto-animate=\"{ duration: 100 }\"` code.\n\n## Tricky Animations\nI would like to list some edge cases I faced with. Most of them are related to html rendering, Vue updates html elements little as possible so adding `key` to the component forces them to re-render element completely that way they will animate while re-renderin occur.\n\n- Sometimes you would like to animate your components when their text changes or image source changes but it will not automatically be detected by `auto-animations` so you should add `key` to your HTML element and add `v-auto-animate` directive to the parent element of it. Then it will fade away with every `key` change.\n- If you would like to animate route change you should add unique key to your `<router-view />` component like this `<router-view :key=\"$route.fullPath\">`\n- Sometimes animation starts with under of other elements if that element doesn't have a background color(cause overlapping) or adds a scrollbar while the animation is running. If you want to prevent this, you should add `overflow-hidden` to the parent element. That way you don't see animations that occur outside of the element area.\n\n## More Examples\n\nI just want to show you some basic things you can do with this library for other examples and use cases you can look at their [documentation](https://auto-animate.formkit.com/#examples).\n\n## Creating Your Own Animation\n\nAlso, `AutoAnimation` library gives an API to create your own animation or extend/change the default animations it comes with. I won't cover that part in this article but you can read for more details in the [documentation](https://auto-animate.formkit.com/#plugins).\n\nIn conclusion, you can animate all your applications with `AutoAnimate` quickly and most importantly **effortlessly**. I shared all the details I know about `AutoAnimate`. I hope you enjoyed. You can see the example codes with the link below.\n\n- [AutoAnimate documentation](https://auto-animate.formkit.com/)\n- [Example code repo](https://github.com/turanibrahim/auto-animate-example)",
-      "tags": ["vue", "animation", "autoanimate", "frontend"],
-      "publishedAt": "2023-03-04T19:46:03Z",
-      "readingTimeMinutes": 7,
-      "sourceUrl": "https://dev.to/_ibrahimturan/effortless-animations-with-autoanimate-in-vue-3-18kl",
-      "order": 3
-    },
-    {
-      "title": "Adding PWA to Vite Applications",
-      "slug": "adding-pwa-to-vite-applications",
-      "excerpt": "Hello everyone, I just decided to add PWA ability to my website and I thought why wouldn't I write a...",
-      "bodyMarkdown": "Hello everyone, I just decided to add PWA ability to my website and I thought why wouldn't I write a blog post about it. I'm using Vite on my website, so I will use `vite-plugin-pwa` to add PWA ability on my website. This plugin makes things easier when you configure PWA, for example `precaching` comes with it by default, so instead of making it manually, I decide to use this plugin.\n\n## Requirements\n\n- [vite](https://github.com/vitejs/vite) >= 3\n- [vite-plugin-pwa](https://github.com/vite-pwa/vite-plugin-pwa)\n\n## What is PWA and Why it's Important?\n\nPWA(aka Progressive Web Apps) is a set of abilities that your website will be like real applications. These abilities are;\n\n- Precaching assets of the website until the next deployment.\n- Sending Push Notifications from website\n- Adding offline mode ability\n- Update application silently on the background (While user looking around)\n- Users able to install your website like applications\n\n## How Offline Mode and Silent Update Works?\n\nPWA uses an API called `serviceworkes`. This `serviceworkers` works on another thread instead of main JS thread, so they have a set of abilities that we can not do inside main JS thread. For example, with precaching ability, they can download website assets that listed in `sw.js` file and save them to directly browser. That way, we can use application offline(I assume we don't make any API call inside app). Also, if you configure PWA, you can make precache your API calls too.(You can read details [here](https://pwa-workshop.js.org/4-api-cache/))\n\n![precached files](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r0f4oaolxbihai3s4czg.png)\n\n## How Serviceworkers Understand the Website Updated?\n\nActually, it has basic algorithm underlying of it and `vite-plugin-pwa` handles it for us without any configuration. When you take a build from your project, the plugin scans through your assets files and makes a list of precached files inside `sw.js` file. If file already exist, plugin adds random revision number to file inside to list, if its new file revision number will null. When you deploy that changes, new `sw.js` will change with the old one into the browser. If revision numbers are different, the browser will invalidate cache and fetch a new version of them.\n\n![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/j1jppv9r9ihbyijeshny.png)\n\n## Adding PWA Plugin to Project\n\nWe have a bunch of steps to add PWA into the project successfully.\n\n- Create application icons\n- Create robot.txt file\n- Prepare index.html file\n- Add PWA plugin to project\n\n\n### Create Application Icons\n\nYou should have some icons and favicons to use inside of application. They are required to have PWA. So, you should choose an icon to application, then you can convert it to icons that you will use PWA configuration. I used [favicon.io](https://favicon.io/) to create icons for my website. End of the process you should have these icons;\n\n- android-chrome-192x192.png\n- android-chrome-512x512.png\n- apple-touch-icon.png\n- favicon-16x16.png\n- favicon-32x32.png\n- favicon.ico\n\nYou should copy these files into the `public` folder in the project. Lastly, we will copy some of the files with new names into the public folder. You should copy and rename these files listed below. We will use them inside the PWA configuration.\n\n- android-chrome-192x192.png → pwa-192x192.png\n- android-chrome-512x512.png → pwa-512x512.png\n\n### Create robots.txt File\n\nYou should have `robots.txt` file if you want to search bots crawl your website. Also, this file necessary if you want to use PWA. You can use [seoptimer](https://www.seoptimer.com/robots-txt-generator) to create this file. I will use default configuration for this file. Default configuration would be enough for most of the websites. So, if you need default configuration, you can copy the code below and paste it to robots.txt file under `public` folder. \n\n```\nUser-agent: *\nDisallow:\n```\n\nAfter this process, you will have `public` folder that includes at least these files shown in the image below.\n\n\n![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/i10ysxliqkpri0pn0ho0.png)\n\n### Prepare index.html File\n\nIf you want to use PWA, your website should be responsive, have icons, title, description and the manifest file. If you want to achieve this, you should add them into `index.html` head section. I have shown the codes you should add to the head section below. You can copy and paste to your index.html file. Don't forget to change title, and description :)\n\n```html\n<!DOCTYPE html>  \n<html lang=\"en\">  \n  <head>  \n     <meta charset=\"UTF-8\" />\n\n     <!-- Fields you will add start   -->  \n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />  \n     <title>Website Title</title>  \n     <meta name=\"description\" content=\"Google search description\">  \n     <meta charset=\"UTF-8\" />\n     <link rel=\"manifest\" href=\"/manifest.webmanifest\">\n     <link rel=\"icon\" href=\"/favicon.ico\" />\n     <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\">  \n     <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\">  \n     <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\">  \n     <link rel=\"mask-icon\" href=\"/masked-icon.png\" color=\"#FFFFFF\">  \n     <meta name=\"theme-color\" content=\"#ffffff\">  \n     <!-- Fields you will add end-->\n\n  </head>  \n <body>  \n  <div id=\"app\"></div>  \n     <script type=\"module\" src=\"/src/main.js\"></script>  \n  </body>  \n</html>\n```\n\n## Add PWA Plugin to Project\n\nLastly, you will install plugin to project and configure it, then you will ready to use PWA on the website. You can install the plugin with the command below.\n\n```shell\nnpm i vite-plugin-pwa -D\n```\n\nAfter that, you should define configurations for the plugin inside the `vite.config.js`. You can see my configurations below. You should add `VitePWA` function inside `plugins` array. This function takes an object as parameter which will be configuration for the PWA. Don't forget to update `name`, `short_name` and description fields according to your website.\n\n```javascript\nimport { defineConfig } from 'vite';  \nimport { VitePWA } from 'vite-plugin-pwa';\n\nexport default defineConfig({  \n  plugins: [  \n  VitePWA({  \n      registerType: 'prompt',  \n      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],  \n      manifest: {  \n  name: 'websitename',  \n        short_name: 'websitename',  \n        description: 'Website description(Could be same with index.html file)',  \n        theme_color: '#ffffff',  \n        start_url: '/',  \n        icons: [  \n  {  \n  src: 'pwa-192x192.png',  \n            sizes: '192x192',  \n            type: 'image/png',  \n          },  \n          {  \n  src: 'pwa-512x512.png',  \n            sizes: '512x512',  \n            type: 'image/png',  \n          },  \n          {  \n  src: 'pwa-512x512.png',  \n            sizes: '512x512',  \n            type: 'image/png',  \n            purpose: 'any maskable',  \n          },  \n        ],  \n      },  \n    }),  \n  ],  \n});\n```\n\nWhen you did configurations correctly, you will have `manifest.webmanifes`, `sw.js`, `registerSW.js` and `workbox-???.js` files inside to build files. If you see this files inside the build output, congratulations, you did all the settings correctly and your website have PWA 🎉\n\n![build files](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r361ytf672fdgn0rrn0c.png)\n\nBefore deployment you can take a build then preview website with the commands below. If you done configuration preview website will have PWA as well. (Thanks to @finalgirl321 )\n\n```\nnpm run build\nnpm run preview\n```\n\nAfter deployment, you can check is your PWA working with the lighthouse.\n\n\n![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/98r8zmj6i2w8d553m9mc.png)\n\n\n\n\n",
-      "tags": ["pwa", "vite", "javascript"],
-      "publishedAt": "2022-10-21T09:43:02Z",
-      "readingTimeMinutes": 5,
-      "sourceUrl": "https://dev.to/_ibrahimturan/adding-pwa-to-vite-applications-1bce",
-      "order": 4
-    },
-    {
-      "title": "Vite Uygulamasına PWA Özelliği Nasıl Eklenir",
-      "slug": "vite-uygulamasina-pwa-ozelligi-nasil-eklenir",
-      "excerpt": "Bugun websiteme PWA eklemeye karar verdim. Hazir eklemisken bunu bir makale ile sizle de paylaşmak...",
-      "bodyMarkdown": "Bugun websiteme PWA eklemeye karar verdim. Hazir eklemisken bunu bir makale ile sizle de paylaşmak istedim. Websitemde Vite kullandigim icin, PWA icin `vite-plugin-pwa` eklentisini kullanacağım. Bu eklenti sayesinde PWA ekleme isi oldukça kolaylaşıyor ve varsayılan olarak `precaching` özelliği de sağlıyor. Bundan dolayı manuel olarak eklemek yerine eklentiyi kullanmaya karar verdim.\n\n## PWA Eklemek İçin Gereksinimler\n\n- [vite](https://github.com/vitejs/vite) >= 3\n- [vite-plugin-pwa](https://github.com/vite-pwa/vite-plugin-pwa)\n\n## PWA Nedir ve Neden onemli?\n\nPWA ya da diğer bir değişle Progressive Web Apps, tarayıcı üzerinde kullandığımız websitelerine; \n - Websitenin assetlerini indirerek hızlı açılmasını ve çalışmasını \n sağlama\n - Push Notifications özelliği\n - Uygulamayı çevrimdışı kullanabilme\n - Precaching sayesinde arka planda uygulamayı güncelleyebilme\n - Websitesini masaüstüne/menüye uygulama gibi kısayol olarak ekleyebilme\n \n gibi ekstra olarak bir kaç özellik sunuyor.\n\n\n## Nasıl Çevrimdışı Çalışabiliyor ve Arka Planda Güncelleme Yapabiliyor?\n\nPWA bu özellik için `serviceworker` denen bir yapı kullanıyor. Service Worker'lar js ile aynı thread'de çalışmadıkları için arka planda çalışıp bir takım işleri halledebiliyorlar. Örneğin, Precaching işlemi ile websitesinin dosyalarını indirip tarayıcı üzerine kaydediyorlar. Bu şekilde uygulama istenirse kısmen de olsa çevrimdışı çalışabiliyor. Gerekli ayarlamaları yaparak precaching içerisine API call isteklerinin verilerini dahi kaydedebiliyorsunuz. Detaylar için [bu](https://pwa-workshop.js.org/4-api-cache/) makaleye göz atabilirsiniz.\n\n![Preache edilmis dosyalar](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yqv7zco33c3n96s5dlkj.png)\n\n\n### Serviceworkers Websitesinin Güncellendiğini Nasıl Anlıyor?\n\nAslında bunu sağlayan basit bir mekanizma var ve `vite-plugin-pwa` bunu otomatik olarak hallediyor. Projede build alındıktan sonra pwa dosyaları oluşturuluyorken `sw.js` dosyası içerisine build sonucunda oluşan dosyalar ve onların revizyon numaraları liste halinde yazılıyor. Eğer `vite-pwa` dosyanın yeni olduğunu anlarsa ve precache edilmesi gerekiyorsa revizyon numarası null olarak atanıyor direk tarayıcı tarafında precache ediliyor, fakat dosyanın daha önceden aynı isimde dosya var ise ona rastgele bir revision numarası atıyor. Tarayıcı tarafında ise `sw.js` dosyası güncelleniyor ve yeni dosyadaki revizyon numarası farklı ise bu dosyalar silinip sunucudan yeni hali alınıyor.\n\n\n![sw.js icindeki liste](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2tjk69mvty1tshh76ivc.png)\n\n\n## PWA Eklenti Kutuphanesinin Kurulumu\n\nOncelikli olarak projeye PWA eklemek icin gerekli olan Vite projesine PWA eklemek islemini bir kac adimda tamamlayacagiz. Bu adimlari;\n\n- Uygulama ikon dosyalarının oluşturulması\n- Robots.txt dosyasının oluşturulması\n- Index.html dosyasının hazırlanması\n- PWA eklentisinin ayarlanması\n\nolarak sıralayabiliriz.\n\n### Uygulama Ikon Dosyalarının Oluşturulması\n \nİkonları oluşturmak için [https://favicon.io/](https://favicon.io/) sitesini kullanabilirsiniz. Siteden ikonları oluşturduktan sonra elinizde;\n \n - android-chrome-192x192.png\n - android-chrome-512x512.png\n - apple-touch-icon.png\n - favicon-16x16.png\n - favicon-32x32.png\n - favicon.ico\n\ndosyaları olması gerekiyor. Bu dosyaları projenin içerisinde yer alan `public` klasörü içerisine kopyalamanız gerekiyor. Sonrasında ise aşağıdaki dosyaları kopyalarak, yeni isimleri ile aynı yere kaydetmeniz gerekiyor. Bu dosyaları manifest dosyası ve `index.html` içerisinde kullanacağız.\n \n - android-chrome-192x192.png -> pwa-192x192.png\n - android-chrome-512x512.png -> pwa-512x512.png\n\n### Robots.txt Dosyasının Olusuturlmasi\n\nBotların websitesini analiz edebilmesi ve PWA kullanabilmek için `robots.txt` oluşturmanız gerekiyor. [seoptimer](https://www.seoptimer.com/robots-txt-generator) yardımıyla kolaylıkla oluşturabilirsiniz. Benim projemde default dosya yeterli oluyor, çoğu proje için iş görecektir bundan dolayı public klasörü içerisinde `robots.txt` dosyası olusutup aşağıdaki kodları içerisine kopyalayabilirsiniz.\n\n```\nUser-agent: *\nDisallow:\n```\nTüm bu işlemlerin arından public klasörü bu şekilde olmalı.\n\n![public klasörü içindeki dosyalar](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/idvj30b848780cd9jg6i.png)\n\n### Index.html Dosyasının Hazırlanması\n\nProjer içerisindeki `ındex.html` dosyası içerisine yukarıda oluşturduğumuz ikon dosyalarını ve mobil uyumlu olabilmesi için gerekli head tag'lerini eklememiz gerekiyor. Aşağıdaki örnekte eklenmesi gereken alanları gösterdim. `manifest.webmanifest` dosyasını olsturmayi unuttuk derseniz, merak etmeyin eklenti onu otomatik olarak oluşturacak. Eklerken başlığını ve açıklamasını değiştirmeyi unutmayın :)\n\n```html\n<!DOCTYPE html>  \n<html lang=\"en\">  \n  <head>  \n\t <meta charset=\"UTF-8\" />\n\t \n\t <!-- EKlenmesi Gereken Alanlar Baslangic   -->  \n\t <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />  \n\t <title>Google Aramasinda gozukmesini istediginiz baslik</title>  \n\t <meta name=\"description\" content=\"Google aramasinda gozukmesini istediginiz aciklama\">  \n\t <meta charset=\"UTF-8\" />\n\t <link rel=\"manifest\" href=\"/manifest.webmanifest\">\n\t <link rel=\"icon\" href=\"/favicon.ico\" />\n\t <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\">  \n\t <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png\">  \n\t <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png\">  \n\t <link rel=\"mask-icon\" href=\"/masked-icon.png\" color=\"#FFFFFF\">  \n\t <meta name=\"theme-color\" content=\"#ffffff\">  \n\t <!-- EKlenmesi Gereken Alanlar Bitis   -->\n\t \n  </head>  \n <body>  \n  <div id=\"app\"></div>  \n\t <script type=\"module\" src=\"/src/main.js\"></script>  \n  </body>  \n</html>\n```\n\n### PWA Eklentisinin Ayarlanması\n\nBir sonraki adım olarak ise proje içerisine `vite-plugin-pwa` kütüphanesini eklememiz gerekiyor. Aşağıdaki komut ile projenize pwa eklentisini kurmanız gerekiyor.\n\n```shell\nnpm i vite-plugin-pwa -D\n```\n\nSonrasinda ise `vite.config.js` dosyasina kutuphaneyi ekleyerek ayarlari yapmak gerekiyor. Plugins arrayi icerisine `VitePWA`'yi ekledikten sonra icerisine gerekli manifest dosyasini ve ayarlari ekliyoruz. `name`, `short_name` ve `description` alanlarini websitesine gore guncellemeniz gerekiyor.\n\n```javascript\nimport { defineConfig } from 'vite';  \nimport { VitePWA } from 'vite-plugin-pwa';\n  \nexport default defineConfig({  \n  plugins: [  \n  VitePWA({  \n\t  registerType: 'prompt',  \n      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],  \n      manifest: {  \n  name: 'siteismi',  \n        short_name: 'siteismi',  \n        description: 'Site aciklamasi (index.html icerisindekini kullanabilirsiniz)',  \n        theme_color: '#ffffff',  \n        start_url: '/',  \n        icons: [  \n  {  \n  src: 'pwa-192x192.png',  \n            sizes: '192x192',  \n            type: 'image/png',  \n          },  \n          {  \n  src: 'pwa-512x512.png',  \n            sizes: '512x512',  \n            type: 'image/png',  \n          },  \n          {  \n  src: 'pwa-512x512.png',  \n            sizes: '512x512',  \n            type: 'image/png',  \n            purpose: 'any maskable',  \n          },  \n        ],  \n      },  \n    }),  \n  ],  \n});\n```\n\nBu işlemi de başarılı şekilde tamamlayıp build alırsanız, `vite-plugin-pwa` otomatik olarak `manifest.webmanifest`, `sw.js`, `registerSW.js` ve `workbox-???.js` dosyalarını build dosyalarının içerisine eklediğini göreceksiniz. Eğer dosyalar oluşturulmuş ise tebrikler, sitenize başarılı şekilde PWA eklediniz 🎉 Projeyi deploy ettikten sonra `Lighthouse` üzerinden, PWA'nin çalışıp çalışmadığını kontrol edebilirsiniz.\n\n![build icindeki pwa dosyalari](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ak2ytl06m6e9w1vj7d1v.png)\n\n\n![lighthouse raporu](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zjyhtpmpqt6tvqsaujwp.png)\n\n### Bazı Dosyaların PWA Tarafından Precache Edilmesini Istemiyorum\n\nBazı durumlarda server içerisinde bulunan tüm dosyaların cache edilmesini istemeyebilirsiniz. Örneğin, CDN server içerisinde sitenizde kullandığınız bir PDF dosyası bulunuyor, bu dosyayı sık sık güncelliyor fakat her güncellemede deploy yapmıyorsanız bazı kullanıcıların hala eski dosyayı görmekte olduğunu göreceksiniz. Bu durumun önüne geçmek için `vite.config.js` dosyasında bulunan PWA ayarlarını guncellememiz gerekiyor. Bu sayede serviceworker'lara bu dosyayı precache etmemesi gerektiğini soylebiliyorsunuz. Örneğin, sadece js ve css dosyalarının precache edilmesini istiyorsanız ayarlarınızı aşağıdaki gibi güncelleyebilirsiniz.\n\n```javascript\nimport { defineConfig } from 'vite';\nimport { VitePWA } from 'vite-plugin-pwa';\n\nexport default defineConfig({\n  plugins: [\n    VitePWA({\n      registerType: 'autoUpdate',\n      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],\n      manifest: {\n        name: 'ibrahimturan',\n        short_name: 'ibrahimturan',\n        description: 'I\\'m Ibrahim, working as Frontend Developer almost 3 years. Interest everything related to software. Like being practical and work solution oriented. Have high communications skills and always curious about the cutting-edge technologies.',\n        theme_color: '#ffffff',\n        start_url: '/',\n        icons: [\n          {\n            src: 'pwa-192x192.png',\n            sizes: '192x192',\n            type: 'image/png',\n          },\n          {\n            src: 'pwa-512x512.png',\n            sizes: '512x512',\n            type: 'image/png',\n          },\n          {\n            src: 'pwa-512x512.png',\n            sizes: '512x512',\n            type: 'image/png',\n            purpose: 'any maskable',\n          },\n        ],\n      },\n      // Bu ayar sayesinde sadece js, css ve index.html dosyalari precahe oluyor.\n      workbox: {\n        globPatterns: ['**/*.{js,css}', 'index.html'],\n      },\n    }),\n  ],\n});\n```\n\n\n\n\n\n\n\n\n",
-      "tags": ["pwa", "vite", "javascript"],
-      "publishedAt": "2022-10-20T22:46:53Z",
-      "readingTimeMinutes": 5,
-      "sourceUrl": "https://dev.to/_ibrahimturan/vite-uygulamasina-pwa-ozelligi-nasil-eklenir-4593",
-      "order": 5
-    },
-    {
-      "title": "How to prevent Chrome form auto fill on Vue?",
-      "slug": "prevent-chrome-form-autofill-vue",
-      "excerpt": "When you logged in website, Chrome ask that do you want to save credentials for next visiting. If you...",
-      "bodyMarkdown": "When you logged in website, Chrome ask that do you want to save credentials for next visiting. If you accept that, Chrome saves your password then fill every password field(fields which types set as password) with your password on the web site. \n\nThis is expected behavior of this feature but sometimes comes annoying to users. For example in web site you have a field for API secret key and you decided to make that field type as password for security then Chrome thinks, this is login form and filling with your credential to form automatically. Today I will show how to prevent this behavior.\n\nI made researches about how to prevent this behavior but answers or libraries I found for this behavior won't worked. So I decided to make my implementation and share with it.\n\n## Reason of That Behavior\n\nAs I mentioned before when form has password field and you saved your credentials to Chrome for that web site, Chrome things that, you are attempting to login this web site and fills every password field automatically.\n\n## Solution\n\nSolution I found is very simple. I will implement with Vue on article but I think it could be easily implemented with React as well. My solution has 3 steps;\n\n- Set`type='text'` and add `autocomplete=\"off\"` to all inputs in form for initial render.\n- When user focused password field, change field type as `password`\n- If user blur the input with empty value change input type as text.\n\n## Implementation in Vue\n\nI will pass through application setup steps. I created to vue 2 app with default settings. Then added to simple login form on `src/App.vue` file shown below. \n\n```vue\n<template>\n  <div id=\"app\">\n    <div v-if=\"isloggedin\" class=\"welcome\">\n      Welcome {{username}}\n    </div>\n    <div v-else id=\"form-wrapper\">\n      <label for=\"username\">Username: </label>\n      <input\n        v-model=\"username\" \n        class=\"form-input\" \n        type=\"text\" \n        name=\"username\" \n        value=\"\"\n      />\n      <label for=\"password\">Password: </label>\n      <input \n        v-model=\"password\"\n        class=\"form-input\"\n        type=\"password\"\n        name=\"password\"\n        value=\"\"\n      />\n      <button class=\"block\" type=\"button\" @click=\"saveCredentials\">\n        Submit Form\n      </button>\n    </div>\n  </div>\n</template>\n\n<script>\n\nexport default {\n  name: 'App',\n  data() {\n    return {\n      username: '',\n      password: '',\n      isloggedin: false\n    }\n  },\n  methods: {\n    saveCredentials() {\n      this.isloggedin = true;\n    }\n  }\n}\n</script>\n\n<style>\n#app {\n  display: flex;\n  flex: 1;\n  height: 100vh;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n}\n\n#form-wrapper {\n  flex-shrink: 1;\n  display:flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: flex-start;\n}\n\n.form-input {\n  margin: 4px 0px;\n}\n\n.block {\n  width: 100%;\n}\n</style>\n```\nAssume that we visited and login this web site before and saved credentials to Chrome. On next visit to site the login form will looks like shown below.  \n\n![before-solution](https://dev-to-uploads.s3.amazonaws.com/i/dvc470av5doz2gaketh3.png)\n\nTo prevent this behavior, firstly we need to set input types as reactive and hold it in state. For initial render we need to set as `text` to input type.\n\n```html\n<input \n  v-model=\"password\"\n  class=\"form-input\"\n  :type=\"fieldTypes.password\" // change this as reactive\n  name=\"password\"\n  value=\"\"\n/>\n```\n\n```js\ndata() {\n  return {\n    username: '',\n    password: '',\n    isloggedin: false,\n    fieldTypes: { // add this for change input type\n      password: 'text',\n    }\n  }\n},\n```\n\nThen need to add @focus and @blur events to password input and trigger callback function for that events.\n\n```html\n<input \n  v-model=\"password\"\n  class=\"form-input\"\n  :type=\"fieldTypes.password\"\n  name=\"password\"\n  value=\"\"\n  @focus=\"handleType\"\n  @blur=\"handleType\"\n/>\n```\n\n```js\nhandleType(event) {\n  const { srcElement, type } = event;\n  const { name, value } = srcElement;\n\n  if(type === 'blur' && !value) {\n    this.fieldTypes[name] = 'text'\n  } else {\n    this.fieldTypes[name] = 'password'\n  }\n}\n```\n\nLastly to prevent chrome suggestions we need to add `autocomplete=\"off\"` to all inputs. You could add `autocomplete=\"new-password\"` to password field for strong password suggestions from browser. The final password field code looks like shown above.\n\n```html\n<input \n  v-model=\"password\"\n  class=\"form-input\"\n  :type=\"fieldTypes.password\"\n  name=\"password\"\n  value=\"\"\n  @focus=\"handleType\"\n  @blur=\"handleType\"\n  autocomplete=\"off\"\n/>\n```\n\nAfter all the final version of `App.vue` looks like this.\n```vue\n<template>\n  <div id=\"app\">\n    <div v-if=\"isloggedin\" class=\"welcome\">\n      Welcome {{username}}\n    </div>\n    <div v-else id=\"form-wrapper\">\n      <label for=\"username\">Username: </label>\n      <input\n        v-model=\"username\" \n        class=\"form-input\" \n        type=\"text\" \n        name=\"username\" \n        value=\"\"\n        autocomplete=\"off\"\n      />\n      <label for=\"password\">Password: </label>\n      <input \n        v-model=\"password\"\n        class=\"form-input\"\n        :type=\"fieldTypes.password\"\n        name=\"password\"\n        value=\"\"\n        @focus=\"handleType\"\n        @blur=\"handleType\"\n        autocomplete=\"off\"\n      />\n      <button class=\"block\" type=\"button\" @click=\"saveCredentials\">\n        Submit Form\n      </button>\n    </div>\n  </div>\n</template>\n\n<script>\n\nexport default {\n  name: 'App',\n  data() {\n    return {\n      username: '',\n      password: '',\n      isloggedin: false,\n      fieldTypes: {\n        password: 'text',\n      }\n    }\n  },\n  methods: {\n    saveCredentials() {\n      this.isloggedin = true;\n    },\n    handleType(event) {\n      const { srcElement, type } = event;\n      const { name, value } = srcElement;\n\n      if(type === 'blur' && !value) {\n        this.fieldTypes[name] = 'text'\n      } else {\n        this.fieldTypes[name] = 'password'\n      }\n    }\n  }\n}\n</script>\n\n<style>\n#app {\n  display: flex;\n  flex: 1;\n  height: 100vh;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n}\n\n#form-wrapper {\n  flex-shrink: 1;\n  display:flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: flex-start;\n}\n\n.form-input {\n  margin: 4px 0px;\n}\n\n.block {\n  width: 100%;\n}\n</style>\n```",
-      "tags": ["vue", "chrome", "autofill", "javascript"],
-      "publishedAt": "2020-12-05T12:21:00Z",
-      "readingTimeMinutes": 3,
-      "sourceUrl": "https://dev.to/_ibrahimturan/how-to-prevent-chrome-form-auto-fill-on-vue-311c",
-      "order": 6
-    }
-  ]
+  "posts": []
 }
