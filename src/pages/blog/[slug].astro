@@ -21,7 +21,7 @@ const pageTitle = `${post.title} — İbrahim Turan`;
   title={pageTitle}
   description={post.excerpt}
   language={post.language}
-  image={post.imageUrl}
+  image={post.image}
   openGraphType="article"
   publishedAt={post.publishedAt}
   tags={post.tags}
@@ -57,13 +57,8 @@ const pageTitle = `${post.title} — İbrahim Turan`;
           </div>
         </div>
 
-        <div
-          class:list={[
-            'mt-8 grid items-center gap-10 sm:mt-10 lg:gap-12 xl:gap-16',
-            post.imageUrl ? 'lg:grid-cols-12' : '',
-          ]}
-        >
-          <div class:list={[post.imageUrl ? 'lg:col-span-7' : 'max-w-5xl']}>
+        <div class="mt-8 grid items-center gap-10 sm:mt-10 lg:grid-cols-12 lg:gap-12 xl:gap-16">
+          <div class="lg:col-span-7">
             <h1 class="article-title text-balance font-extrabold text-base-content">
               {post.title}
             </h1>
@@ -74,22 +69,18 @@ const pageTitle = `${post.title} — İbrahim Turan`;
             </p>
           </div>
 
-          {
-            post.imageUrl && (
-              <figure class="post-cover lg:col-span-5">
-                <img
-                  src={post.imageUrl}
-                  alt=""
-                  width="1200"
-                  height="630"
-                  class="aspect-[1200/630] w-full rounded-sm object-cover"
-                  loading="eager"
-                  decoding="async"
-                  fetchpriority="high"
-                />
-              </figure>
-            )
-          }
+          <figure class="post-cover lg:col-span-5">
+            <img
+              src={post.image.url}
+              alt={post.image.alt}
+              width={post.image.width}
+              height={post.image.height}
+              class="aspect-[1200/630] w-full rounded-sm object-cover"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </figure>
         </div>
       </header>
 

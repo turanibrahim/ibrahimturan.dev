@@ -1,5 +1,6 @@
 ---
 import FooterSection from '@/components/organisms/footer-section.tsx';
+import type { ContentImage } from '@/types/content';
 import '@/assets/styles/tailwind.css';
 
 interface Props {
@@ -7,24 +8,34 @@ interface Props {
   description?: string;
   path?: string;
   language?: string;
-  image?: string;
+  image?: ContentImage;
   openGraphType?: 'article' | 'website';
   publishedAt?: string;
   tags?: readonly string[];
 }
+
+const defaultSocialImage: ContentImage = {
+  url: '/profile-img.png',
+  alt: 'İbrahim Turan',
+  mimeType: 'image/png',
+  width: 1018,
+  height: 1182,
+};
 
 const {
   title = 'İbrahim Turan — Full-Stack Engineer',
   description = 'Full-stack engineer with 6+ years of experience building scalable web applications and modern user interfaces.',
   path = Astro.url.pathname,
   language = 'en',
-  image = '/profile-img.png',
+  image = defaultSocialImage,
   openGraphType = 'website',
   publishedAt,
   tags = [],
 } = Astro.props;
 const canonicalUrl = new URL(path, Astro.site);
-const socialImageUrl = new URL(image, Astro.site);
+const socialImageUrl = new URL(image.url, Astro.site);
+const socialImageWidth = String(image.width);
+const socialImageHeight = String(image.height);
 ---
 
 <!doctype html>
@@ -39,6 +50,11 @@ const socialImageUrl = new URL(image, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:secure_url" content={socialImageUrl} />
+    <meta property="og:image:type" content={image.mimeType} />
+    <meta property="og:image:width" content={socialImageWidth} />
+    <meta property="og:image:height" content={socialImageHeight} />
+    <meta property="og:image:alt" content={image.alt} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content={openGraphType} />
     <meta property="og:site_name" content="İbrahim Turan" />
@@ -51,6 +67,7 @@ const socialImageUrl = new URL(image, Astro.site);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={image.alt} />
 
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" href="/favicon.ico" sizes="any" />

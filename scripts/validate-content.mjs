@@ -43,10 +43,30 @@ for (const [index, post] of (content.posts ?? []).entries()) {
     errors.push(`${label} contains a remote image. Upload it to CMS Media and use /cms/.`);
   }
 
-  if (typeof post.imageUrl !== 'string' || !post.imageUrl.startsWith('/cms/')) {
-    errors.push(`${label} must reference an uploaded CMS cover image.`);
+  if (!post.image || typeof post.image !== 'object') {
+    errors.push(`${label} must include structured cover image metadata.`);
   } else {
-    referencedMedia.add(post.imageUrl);
+    if (typeof post.image.url !== 'string' || !post.image.url.startsWith('/cms/')) {
+      errors.push(`${label} must reference an uploaded CMS cover image.`);
+    } else {
+      referencedMedia.add(post.image.url);
+    }
+
+    if (typeof post.image.alt !== 'string' || post.image.alt.trim().length === 0) {
+      errors.push(`${label} cover image must include alt text.`);
+    }
+
+    if (typeof post.image.mimeType !== 'string' || !post.image.mimeType.startsWith('image/')) {
+      errors.push(`${label} cover image must include an image MIME type.`);
+    }
+
+    if (!Number.isInteger(post.image.width) || post.image.width <= 0) {
+      errors.push(`${label} cover image must include a positive integer width.`);
+    }
+
+    if (!Number.isInteger(post.image.height) || post.image.height <= 0) {
+      errors.push(`${label} cover image must include a positive integer height.`);
+    }
   }
 
   if (Number.isNaN(Date.parse(post.publishedAt))) {

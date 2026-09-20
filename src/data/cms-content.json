@@ -587,7 +587,13 @@
       "publishedAt": "2026-09-20T17:16:04.284Z",
       "readingTimeMinutes": 7,
       "language": "en",
-      "imageUrl": "/cms/documentation-first-ai-development-cover.jpg",
+      "image": {
+        "url": "/cms/documentation-first-ai-development-cover.jpg",
+        "alt": "Open notebook with planning notes, sticky notes, and a laptop",
+        "mimeType": "image/jpeg",
+        "width": 1200,
+        "height": 630
+      },
       "order": 0
     },
     {
@@ -599,7 +605,13 @@
       "publishedAt": "2026-06-29T11:27:09.000Z",
       "readingTimeMinutes": 9,
       "language": "en",
-      "imageUrl": "/cms/modular-frontend-architecture-cover.jpg",
+      "image": {
+        "url": "/cms/modular-frontend-architecture-cover.jpg",
+        "alt": "Modular Frontend Architecture cover image",
+        "mimeType": "image/jpeg",
+        "width": 2400,
+        "height": 1602
+      },
       "sourceUrl": "https://dev.to/_ibrahimturan/modular-frontend-architecture-2oae",
       "order": 1
     },
@@ -612,7 +624,13 @@
       "publishedAt": "2025-01-21T11:00:03.000Z",
       "readingTimeMinutes": 4,
       "language": "en",
-      "imageUrl": "/cms/clean-architecture-in-modern-frontend-development-cover.png",
+      "image": {
+        "url": "/cms/clean-architecture-in-modern-frontend-development-cover.png",
+        "alt": "Clean Architecture in Modern Frontend Development: A Comprehensive Guide cover image",
+        "mimeType": "image/png",
+        "width": 1200,
+        "height": 627
+      },
       "sourceUrl": "https://dev.to/_ibrahimturan/clean-architecture-in-modern-frontend-development-a-comprehensive-guide-hpp",
       "order": 2
     },
@@ -625,7 +643,13 @@
       "publishedAt": "2024-01-16T20:48:25.000Z",
       "readingTimeMinutes": 1,
       "language": "en",
-      "imageUrl": "/cms/parse-formdata-netlify-functions-v2-cover.png",
+      "image": {
+        "url": "/cms/parse-formdata-netlify-functions-v2-cover.png",
+        "alt": "How to parse FormData values with Netlify Functions V2 cover image",
+        "mimeType": "image/png",
+        "width": 1200,
+        "height": 627
+      },
       "sourceUrl": "https://dev.to/_ibrahimturan/how-to-parse-formdata-values-with-netlify-functions-v2-52i2",
       "order": 3
     },
@@ -638,7 +662,13 @@
       "publishedAt": "2023-03-04T19:46:03.000Z",
       "readingTimeMinutes": 7,
       "language": "en",
-      "imageUrl": "/cms/effortless-animations-autoanimate-vue-3-cover.png",
+      "image": {
+        "url": "/cms/effortless-animations-autoanimate-vue-3-cover.png",
+        "alt": "Effortless Animations With `AutoAnimate` in Vue 3 cover image",
+        "mimeType": "image/png",
+        "width": 1200,
+        "height": 627
+      },
       "sourceUrl": "https://dev.to/_ibrahimturan/effortless-animations-with-autoanimate-in-vue-3-18kl",
       "order": 4
     },
@@ -651,7 +681,13 @@
       "publishedAt": "2022-10-21T09:43:02.000Z",
       "readingTimeMinutes": 5,
       "language": "en",
-      "imageUrl": "/cms/adding-pwa-to-vite-applications-cover.png",
+      "image": {
+        "url": "/cms/adding-pwa-to-vite-applications-cover.png",
+        "alt": "Adding PWA to Vite Applications cover image",
+        "mimeType": "image/png",
+        "width": 1640,
+        "height": 664
+      },
       "sourceUrl": "https://dev.to/_ibrahimturan/adding-pwa-to-vite-applications-1bce",
       "order": 5
     },
@@ -664,7 +700,13 @@
       "publishedAt": "2022-10-20T22:46:53.000Z",
       "readingTimeMinutes": 5,
       "language": "tr",
-      "imageUrl": "/cms/vite-uygulamasina-pwa-ozelligi-nasil-eklenir-cover.png",
+      "image": {
+        "url": "/cms/vite-uygulamasina-pwa-ozelligi-nasil-eklenir-cover.png",
+        "alt": "Vite Uygulamasına PWA Özelliği Nasıl Eklenir cover image",
+        "mimeType": "image/png",
+        "width": 1640,
+        "height": 664
+      },
       "sourceUrl": "https://dev.to/_ibrahimturan/vite-uygulamasina-pwa-ozelligi-nasil-eklenir-4593",
       "order": 6
     },
@@ -677,7 +719,13 @@
       "publishedAt": "2020-12-05T12:21:00.000Z",
       "readingTimeMinutes": 3,
       "language": "en",
-      "imageUrl": "/cms/prevent-chrome-form-autofill-vue-cover.png",
+      "image": {
+        "url": "/cms/prevent-chrome-form-autofill-vue-cover.png",
+        "alt": "How to prevent Chrome form auto fill on Vue? cover image",
+        "mimeType": "image/png",
+        "width": 930,
+        "height": 468
+      },
       "sourceUrl": "https://dev.to/_ibrahimturan/how-to-prevent-chrome-form-auto-fill-on-vue-311c",
       "order": 7
     }

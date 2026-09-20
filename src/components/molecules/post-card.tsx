@@ -13,24 +13,15 @@ export const PostCard = ({ post }: Props): ReactElement => (
       className="group grid grid-cols-[minmax(0,1fr)_104px] gap-x-4 gap-y-3 py-6 sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-x-6 lg:grid-cols-[192px_minmax(0,1fr)_112px] lg:items-start lg:gap-x-8 lg:py-8"
     >
       <div className="col-start-2 row-start-1 overflow-hidden rounded-md border border-base-300 bg-base-200 p-1 sm:col-start-1">
-        {post.imageUrl ? (
-          <img
-            src={post.imageUrl}
-            alt=""
-            width={1200}
-            height={630}
-            loading="lazy"
-            decoding="async"
-            className="aspect-[1200/630] w-full rounded-sm object-cover transition-transform duration-300 group-hover:scale-[1.025] group-focus-visible:scale-[1.025]"
-          />
-        ) : (
-          <div
-            aria-hidden="true"
-            className="flex aspect-[1200/630] items-center justify-center rounded-sm bg-base-300 font-mono text-xs font-semibold text-primary"
-          >
-            it.
-          </div>
-        )}
+        <img
+          src={post.image.url}
+          alt={post.image.alt}
+          width={post.image.width}
+          height={post.image.height}
+          loading="lazy"
+          decoding="async"
+          className="aspect-[1200/630] w-full rounded-sm object-cover transition-transform duration-300 group-hover:scale-[1.025] group-focus-visible:scale-[1.025]"
+        />
       </div>
 
       <div className="col-start-1 row-start-1 min-w-0 sm:col-start-2">

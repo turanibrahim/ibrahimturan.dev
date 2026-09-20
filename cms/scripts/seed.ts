@@ -46,11 +46,7 @@ mediaAltByFilename.set(
 );
 
 for (const post of snapshot.posts) {
-  if (!post.imageUrl) {
-    throw new Error(`Post cover is required: ${post.slug}`);
-  }
-
-  const coverImageMatch = [...post.imageUrl.matchAll(localMediaPattern)][0];
+  const coverImageMatch = [...post.image.url.matchAll(localMediaPattern)][0];
 
   if (!coverImageMatch) {
     throw new Error(`Post cover must use a local /cms/ path: ${post.slug}`);
@@ -58,7 +54,7 @@ for (const post of snapshot.posts) {
 
   const coverImageFilename = decodeURIComponent(coverImageMatch[1]);
   coverFilenameByPostSlug.set(post.slug, coverImageFilename);
-  mediaAltByFilename.set(coverImageFilename, `${post.title} cover image`);
+  mediaAltByFilename.set(coverImageFilename, post.image.alt);
 
   for (const match of post.bodyMarkdown.matchAll(markdownImagePattern)) {
     const referencedFilename = decodeURIComponent(match[2]);

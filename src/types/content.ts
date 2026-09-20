@@ -3,6 +3,14 @@ import type { Project } from '@/types/project';
 import type { Technology } from '@/types/technology';
 import type { UserInfo } from '@/types/user';
 
+export interface ContentImage {
+  url: string;
+  alt: string;
+  mimeType: string;
+  width: number;
+  height: number;
+}
+
 export interface Post {
   title: string;
   slug: string;
@@ -12,7 +20,7 @@ export interface Post {
   publishedAt: string;
   readingTimeMinutes: number;
   language: string;
-  imageUrl?: string;
+  image: ContentImage;
   sourceUrl?: string;
   order: number;
 }

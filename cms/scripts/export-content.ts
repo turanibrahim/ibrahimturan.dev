@@ -87,10 +87,23 @@ for (const post of postsResult.docs) {
     throw new Error(`Published post "${post.title}" must reference an uploaded cover image.`);
   }
 
-  const coverImageFilename = path.basename(post.coverImage.filename);
+  const { alt, filename: coverImageFilename, height, mimeType, width } = post.coverImage;
 
-  if (coverImageFilename !== post.coverImage.filename) {
-    throw new Error(`Unsafe post cover filename: ${post.coverImage.filename}`);
+  if (path.basename(coverImageFilename) !== coverImageFilename) {
+    throw new Error(`Unsafe post cover filename: ${coverImageFilename}`);
+  }
+
+  if (
+    !alt.trim() ||
+    !mimeType ||
+    typeof width !== 'number' ||
+    !Number.isInteger(width) ||
+    width <= 0 ||
+    typeof height !== 'number' ||
+    !Number.isInteger(height) ||
+    height <= 0
+  ) {
+    throw new Error(`Published post "${post.title}" has incomplete cover image metadata.`);
   }
 
   exportedPosts.push({
@@ -102,7 +115,13 @@ for (const post of postsResult.docs) {
     publishedAt: post.publishedAt,
     readingTimeMinutes: post.readingTimeMinutes,
     language: post.language,
-    imageUrl: `/cms/${encodeURIComponent(coverImageFilename)}`,
+    image: {
+      url: `/cms/${encodeURIComponent(coverImageFilename)}`,
+      alt,
+      mimeType,
+      width,
+      height,
+    },
     ...(post.sourceUrl ? { sourceUrl: post.sourceUrl } : {}),
     order: post.order,
   });
@@ -163,7 +182,7 @@ const content: PortfolioContent = {
 const referencedMediaFilenames = new Set<string>([profileImageFilename]);
 
 for (const post of content.posts) {
-  const postContent = `${post.imageUrl ?? ''}\n${post.bodyMarkdown}`;
+  const postContent = `${post.image.url}\n${post.bodyMarkdown}`;
 
   if (remoteMarkdownImagePattern.test(post.bodyMarkdown)) {
     throw new Error(
