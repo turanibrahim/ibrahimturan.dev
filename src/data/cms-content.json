@@ -579,6 +579,18 @@
   ],
   "posts": [
     {
+      "title": "How Documentation Helped Me Rebuild My Website with AI",
+      "slug": "documentation-first-ai-development",
+      "excerpt": "How a documentation-first planning workflow helped me rebuild my website with AI while keeping context, quality, and verification under control.",
+      "bodyMarkdown": "I recently transformed my personal website from a Vue SPA into a static Astro website. I also added a local Payload CMS, moved my portfolio content into it, and brought my existing DEV articles into the website.\n\nThe work happened over two focused days. AI helped me move quickly, but the speed did not come from one large prompt. It came from a strict documentation workflow I call **AI Task Planning Architecture**.\n\nThis workflow helps AI agents maintain context, resume interrupted tasks, and execute implementations systematically. The website transformation was a good test of it.\n\n## The Website Transformation\n\nThe old website used Vue, Vue Router, and Pinia for content that was mostly static. The browser was doing work that could be completed during the build.\n\nThe new website uses Astro for static pages, React for reusable components, Tailwind CSS for styling, and Payload CMS for content management. Payload exports published content into a typed snapshot, and Astro uses that snapshot to generate the website. The deployed website does not need a running CMS or database.\n\nDuring this transformation, I:\n\n- migrated the website from Vue to Astro and React;\n- added a local CMS and static content pipeline;\n- moved 20 projects, 6 experiences, and 26 technologies into the CMS;\n- migrated 7 blog posts from DEV;\n- preserved the PWA, SEO, responsive design, and accessibility behavior;\n- removed unnecessary client-side state and routing.\n\nThese are useful productivity outputs, but the reusable development process behind them is more important.\n\n## AI Task Planning Architecture\n\nEvery task gets a dated folder with four documents:\n\n```plaintext\nplans/\n  └── [issue-name]-[date]/\n      ├── problem.md\n      ├── investigation.md\n      ├── solution.md\n      └── retro.md\n```\n\nThe files are not created only to explain finished code. They guide the complete task from the first prompt to the final review.\n\nThe workflow runs in this order:\n\n1. **Initialization:** The agent reads `AGENTS.md` to load the project and workflow rules.\n2. **Prompt intake:** The user provides the task or problem.\n3. **Setup:** The agent creates `plans/[issue-name]-[YYYY-MM-DD]/`.\n4. **Problem definition:** The agent creates `problem.md` and records any missing context through Q&A.\n5. **Investigation:** The agent studies the repository, finds the root causes, and creates `investigation.md`.\n6. **Solution planning:** The agent selects the best approach and creates `solution.md`.\n7. **Implementation:** The agent applies the documented solution.\n8. **Retrospective:** After successful implementation, the agent creates `retro.md`.\n\n```plaintext\nAGENTS.md + user prompt\n          |\n          v\n plans/[issue]-[date]/\n          |\n          v\n     problem.md\n          |\n          v\n  investigation.md\n          |\n          v\n     solution.md\n          |\n          v\n   implementation\n          |\n          v\n       retro.md\n```\n\nEach file removes a different type of uncertainty.\n\n### `problem.md`: Preserve the Request\n\nThe problem document includes the user's exact initial prompt. It then gives a lean and direct explanation of the issue.\n\nIf the agent is missing important context, it asks questions and appends the answers to the same file. This is important because decisions should not disappear inside a chat history.\n\nThe document becomes the task contract. A new agent can read it later and understand what the user actually requested without receiving a rewritten summary.\n\n### `investigation.md`: Understand Before Changing\n\nThe investigation document lists the root causes and affected components. It uses bullet points with exact file paths, line numbers, and links between related logic. Relevant git history is included when it explains why the current code exists.\n\nThis phase is based on repository evidence, not assumptions. The agent does not write code yet.\n\nThis restriction prevents a common AI problem: finding one visible symptom and immediately generating a patch. Investigation forces the agent to understand the data flow, existing patterns, and possible side effects first.\n\n### `solution.md`: Decide Before Implementing\n\nThe solution document defines the exact fix. It covers implementation logic, architectural changes, best practices, and the files that need to change.\n\nWhen multiple approaches are possible, the agent lists them briefly and strictly justifies the selected one. This makes the tradeoff visible before code exists.\n\nFor example, querying Payload directly from the deployed website looked simpler during the CMS work. The investigation showed that the website was statically deployed and the CMS was local. The selected solution used a static export pipeline instead, keeping production independent from the CMS.\n\nImplementation must follow `solution.md`. If the plan is wrong, the plan should be corrected instead of silently changing direction while coding.\n\n### `retro.md`: Record What Actually Happened\n\nThe retrospective is created only after successful implementation. It briefly summarizes the problem, investigation, and applied solution.\n\nIt also critiques the implementation complexity, records blockers, and recommends future refactoring or project improvements. It describes the real result rather than copying the expected result from `solution.md`.\n\nThis gives the next agent useful project history. It can see which alternatives failed, which decisions worked, and which technical debt was intentionally left for later.\n\n## The Restrictions Make It Useful\n\nThe value does not come from having four Markdown files. It comes from following the restrictions around them:\n\n- read `AGENTS.md` before starting;\n- create one dated plan folder for every task;\n- preserve the exact user prompt;\n- ask for missing context and record the answers;\n- do not write code before `problem.md`, `investigation.md`, and `solution.md` exist;\n- link investigation findings to exact files and logic;\n- implement strictly from the selected solution;\n- keep every document lean, direct, and free of unnecessary language;\n- write the retrospective only after the implementation succeeds.\n\nThese restrictions reduce random decisions. They also make tasks resumable. If an agent stops after investigation, another agent can continue from the same folder without repeating the entire conversation or repository analysis.\n\n## Why Linting and Validation Still Matter\n\nDocumentation explains intent, but it cannot enforce intent. AI can read a naming rule and still forget it. It can use an old API, leave an unused variable, or create code that looks correct but does not build.\n\nI use strict ESLint, TypeScript, Prettier, content validation, and production builds as executable guardrails. ESLint enforces rules such as arrow callbacks, `const` usage, strict equality, curly braces, unused variables, and recommended React, React Hooks, and Astro behavior. TypeScript protects contracts between content and components. Content validation rejects invalid CMS exports. The production build checks that the complete static website can be generated.\n\n```plaintext\nsolution.md\n    |\n    v\nimplementation ---> ESLint + TypeScript + validation + build\n    ^                              |\n    |-------- fix failures --------|\n                                   |\n                                   v\n                        verify real behavior\n                                   |\n                                   v\n                               retro.md\n```\n\nDocumentation defines what the agent should do. Validation tools reject what it must not do.\n\nThis feedback improves productivity because AI can fix small, deterministic failures by itself. Human review can then focus on architecture, behavior, and product decisions instead of formatting or preventable code-quality problems.\n\n## What I Learned\n\nAI can write code quickly, but fast code generation is not the same as fast development. Real productivity means reaching the correct result with fewer regressions, less repeated investigation, and enough context for the next task.\n\nMy workflow is simple: preserve the prompt, investigate the system, document the decision, implement the plan, validate the real result, and record what happened.\n\nThe website transformation is one output of this method. The more valuable output is a development process that keeps its context and becomes stronger after every task.\n",
+      "tags": ["ai", "documentation", "productivity", "frontend"],
+      "publishedAt": "2026-09-20T17:16:04.284Z",
+      "readingTimeMinutes": 7,
+      "language": "en",
+      "imageUrl": "/cms/documentation-first-ai-development-cover.jpg",
+      "order": 0
+    },
+    {
       "title": "Modular Frontend Architecture",
       "slug": "modular-frontend-architecture",
       "excerpt": "If you have a small frontend project, putting the same type of things in the same place is a good...",
@@ -589,7 +601,7 @@
       "language": "en",
       "imageUrl": "/cms/modular-frontend-architecture-cover.jpg",
       "sourceUrl": "https://dev.to/_ibrahimturan/modular-frontend-architecture-2oae",
-      "order": 0
+      "order": 1
     },
     {
       "title": "Clean Architecture in Modern Frontend Development: A Comprehensive Guide",
@@ -602,7 +614,7 @@
       "language": "en",
       "imageUrl": "/cms/clean-architecture-in-modern-frontend-development-cover.png",
       "sourceUrl": "https://dev.to/_ibrahimturan/clean-architecture-in-modern-frontend-development-a-comprehensive-guide-hpp",
-      "order": 1
+      "order": 2
     },
     {
       "title": "How to parse FormData values with Netlify Functions V2",
@@ -615,7 +627,7 @@
       "language": "en",
       "imageUrl": "/cms/parse-formdata-netlify-functions-v2-cover.png",
       "sourceUrl": "https://dev.to/_ibrahimturan/how-to-parse-formdata-values-with-netlify-functions-v2-52i2",
-      "order": 2
+      "order": 3
     },
     {
       "title": "Effortless Animations With `AutoAnimate` in Vue 3",
@@ -628,7 +640,7 @@
       "language": "en",
       "imageUrl": "/cms/effortless-animations-autoanimate-vue-3-cover.png",
       "sourceUrl": "https://dev.to/_ibrahimturan/effortless-animations-with-autoanimate-in-vue-3-18kl",
-      "order": 3
+      "order": 4
     },
     {
       "title": "Adding PWA to Vite Applications",
@@ -641,7 +653,7 @@
       "language": "en",
       "imageUrl": "/cms/adding-pwa-to-vite-applications-cover.png",
       "sourceUrl": "https://dev.to/_ibrahimturan/adding-pwa-to-vite-applications-1bce",
-      "order": 4
+      "order": 5
     },
     {
       "title": "Vite Uygulamasına PWA Özelliği Nasıl Eklenir",
@@ -654,7 +666,7 @@
       "language": "tr",
       "imageUrl": "/cms/vite-uygulamasina-pwa-ozelligi-nasil-eklenir-cover.png",
       "sourceUrl": "https://dev.to/_ibrahimturan/vite-uygulamasina-pwa-ozelligi-nasil-eklenir-4593",
-      "order": 5
+      "order": 6
     },
     {
       "title": "How to prevent Chrome form auto fill on Vue?",
@@ -667,7 +679,7 @@
       "language": "en",
       "imageUrl": "/cms/prevent-chrome-form-autofill-vue-cover.png",
       "sourceUrl": "https://dev.to/_ibrahimturan/how-to-prevent-chrome-form-auto-fill-on-vue-311c",
-      "order": 6
+      "order": 7
     }
   ]
 }
