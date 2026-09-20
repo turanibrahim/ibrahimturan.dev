@@ -253,6 +253,9 @@ export interface Post {
   title: string;
   slug: string;
   excerpt: string;
+  /**
+   * Upload inline images to Media, then reference them with a local path such as ![Description](/cms/filename.png).
+   */
   bodyMarkdown: string;
   tags: {
     name: string;
@@ -261,7 +264,10 @@ export interface Post {
   publishedAt: string;
   readingTimeMinutes: number;
   language: string;
-  imageUrl?: string | null;
+  /**
+   * Upload or select the post cover from the CMS media library.
+   */
+  coverImage: number | Media;
   sourceUrl?: string | null;
   order: number;
   updatedAt: string;
@@ -490,7 +496,7 @@ export interface PostsSelect<T extends boolean = true> {
   publishedAt?: T;
   readingTimeMinutes?: T;
   language?: T;
-  imageUrl?: T;
+  coverImage?: T;
   sourceUrl?: T;
   order?: T;
   updatedAt?: T;

@@ -22,9 +22,6 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-# Firebase
-/.firebase
-
 # ENV
 .env
 

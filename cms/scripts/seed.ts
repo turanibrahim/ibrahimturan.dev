@@ -12,6 +12,8 @@ const projectDirectory = path.resolve(cmsDirectory, '..');
 const snapshotPath = path.resolve(projectDirectory, 'src/data/cms-content.json');
 const publicDirectory = path.resolve(projectDirectory, 'public');
 const managedCollections = ['media', 'experiences', 'projects', 'technologies', 'posts'] as const;
+const localMediaPattern = /\/cms\/([^)\s"'?#]+)/g;
+const markdownImagePattern = /!\[([^\]]*)\]\(\/cms\/([^)\s"'?#]+)\)/g;
 
 const snapshot = JSON.parse(await readFile(snapshotPath, 'utf8')) as PortfolioContent;
 const payload = await getPayload({ config });
@@ -29,29 +31,77 @@ if (counts.some(({ totalDocs }) => totalDocs > 0) || existingProfile.name) {
   );
 }
 
-const relativeProfileImage = snapshot.profile.profileImg.replace(/^\/+/, '');
-const profileImagePath = path.resolve(publicDirectory, relativeProfileImage);
+const mediaAltByFilename = new Map<string, string>();
+const coverFilenameByPostSlug = new Map<string, string>();
+const profileImageMatch = [...snapshot.profile.profileImg.matchAll(localMediaPattern)][0];
 
-if (!profileImagePath.startsWith(`${publicDirectory}${path.sep}`)) {
-  throw new Error(`Profile image must resolve inside public/: ${snapshot.profile.profileImg}`);
+if (!profileImageMatch) {
+  throw new Error(`Profile image must use a local /cms/ path: ${snapshot.profile.profileImg}`);
 }
 
-await access(profileImagePath);
+const profileImageFilename = decodeURIComponent(profileImageMatch[1]);
+mediaAltByFilename.set(
+  profileImageFilename,
+  `${snapshot.profile.name} ${snapshot.profile.surname}`,
+);
 
-const media = await payload.create({
-  collection: 'media',
-  data: {
-    alt: `${snapshot.profile.name} ${snapshot.profile.surname}`,
-  },
-  filePath: profileImagePath,
-  overrideAccess: true,
-});
+for (const post of snapshot.posts) {
+  if (!post.imageUrl) {
+    throw new Error(`Post cover is required: ${post.slug}`);
+  }
+
+  const coverImageMatch = [...post.imageUrl.matchAll(localMediaPattern)][0];
+
+  if (!coverImageMatch) {
+    throw new Error(`Post cover must use a local /cms/ path: ${post.slug}`);
+  }
+
+  const coverImageFilename = decodeURIComponent(coverImageMatch[1]);
+  coverFilenameByPostSlug.set(post.slug, coverImageFilename);
+  mediaAltByFilename.set(coverImageFilename, `${post.title} cover image`);
+
+  for (const match of post.bodyMarkdown.matchAll(markdownImagePattern)) {
+    const referencedFilename = decodeURIComponent(match[2]);
+    const alt = match[1].trim() || `${post.title} article image`;
+    mediaAltByFilename.set(referencedFilename, alt);
+  }
+}
+
+const mediaIdByFilename = new Map<string, number>();
+
+for (const [mediaFilename, alt] of mediaAltByFilename) {
+  if (path.basename(mediaFilename) !== mediaFilename) {
+    throw new Error(`Unsafe media filename: ${mediaFilename}`);
+  }
+
+  const mediaPath = path.resolve(publicDirectory, 'cms', mediaFilename);
+
+  if (!mediaPath.startsWith(`${publicDirectory}${path.sep}`)) {
+    throw new Error(`Media must resolve inside public/: ${mediaFilename}`);
+  }
+
+  await access(mediaPath);
+
+  const media = await payload.create({
+    collection: 'media',
+    data: { alt },
+    filePath: mediaPath,
+    overrideAccess: true,
+  });
+  mediaIdByFilename.set(mediaFilename, media.id);
+}
+
+const profileMediaId = mediaIdByFilename.get(profileImageFilename);
+
+if (profileMediaId === undefined) {
+  throw new Error(`Profile media was not imported: ${profileImageFilename}`);
+}
 
 await payload.updateGlobal({
   slug: 'profile',
   data: {
     ...snapshot.profile,
-    profileImg: media.id,
+    profileImg: profileMediaId,
     _status: 'published',
   },
   draft: false,
@@ -107,6 +157,13 @@ for (const [order, technology] of snapshot.technologies.entries()) {
 }
 
 for (const [order, post] of snapshot.posts.entries()) {
+  const coverImageFilename = coverFilenameByPostSlug.get(post.slug);
+  const coverImageId = coverImageFilename ? mediaIdByFilename.get(coverImageFilename) : undefined;
+
+  if (coverImageId === undefined) {
+    throw new Error(`Post cover media was not imported: ${post.slug}`);
+  }
+
   await payload.create({
     collection: 'posts',
     data: {
@@ -118,7 +175,7 @@ for (const [order, post] of snapshot.posts.entries()) {
       publishedAt: post.publishedAt,
       readingTimeMinutes: post.readingTimeMinutes,
       language: post.language,
-      ...(post.imageUrl ? { imageUrl: post.imageUrl } : {}),
+      coverImage: coverImageId,
       ...(post.sourceUrl ? { sourceUrl: post.sourceUrl } : {}),
       order,
       _status: 'published',

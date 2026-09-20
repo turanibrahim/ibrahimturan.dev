@@ -51,8 +51,24 @@ npm run cms:export   # writes src/data/cms-content.json and public/cms/
 npm run generate     # exports published content, then builds dist/
 ```
 
+Post covers are uploaded or selected through the post's **Cover image** field. Upload inline images
+to the Media collection and reference them from Markdown with `/cms/filename.ext`; remote Markdown
+images are rejected during authoring and export.
+
 `npm run build` does not connect to Payload. It builds the last exported snapshot, so deployment
 requires only the root package and never needs `cms/`, SQLite, credentials, or a running API.
+
+## Deploy
+
+Published CMS changes must be exported and committed before deployment:
+
+```bash
+npm run generate
+```
+
+The production build runs a content preflight before Astro. It rejects missing CMS assets, remote
+post images, duplicate post slugs, and incomplete blog metadata. Deploy the generated `dist/`
+directory to the static hosting provider; production does not require the local CMS or database.
 
 ## Structure
 
@@ -70,7 +86,7 @@ src/
 │   └── organisms/           # Portfolio sections and shared footer
 ├── data/                    # Generated CMS snapshot and typed content boundary
 ├── layouts/                 # Shared Astro document layout
-├── pages/                   # Astro file-based routes: / and /colors
+├── pages/                   # Astro routes: portfolio, colors, blog index, and blog posts
 ├── types/                   # TypeScript types
 ├── utils/                   # Date helpers
 ├── assets/styles/           # Tailwind CSS theme and global styles

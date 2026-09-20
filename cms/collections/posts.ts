@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload';
 
+const remoteMarkdownImagePattern = /!\[[^\]]*\]\(https?:\/\//i;
+
 export const Posts: CollectionConfig = {
   slug: 'posts',
   access: {
@@ -34,7 +36,18 @@ export const Posts: CollectionConfig = {
     {
       name: 'bodyMarkdown',
       type: 'textarea',
+      admin: {
+        description:
+          'Upload inline images to Media, then reference them with a local path such as ![Description](/cms/filename.png).',
+      },
       required: true,
+      validate: (value) => {
+        if (typeof value === 'string' && remoteMarkdownImagePattern.test(value)) {
+          return 'Post images must be uploaded to Media and referenced with a local /cms/ path.';
+        }
+
+        return true;
+      },
     },
     {
       name: 'tags',
@@ -64,8 +77,13 @@ export const Posts: CollectionConfig = {
       required: true,
     },
     {
-      name: 'imageUrl',
-      type: 'text',
+      name: 'coverImage',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      admin: {
+        description: 'Upload or select the post cover from the CMS media library.',
+      },
     },
     {
       name: 'sourceUrl',

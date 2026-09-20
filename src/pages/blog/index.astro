@@ -2,6 +2,9 @@
 import PostCard from '@/components/molecules/post-card';
 import { posts } from '@/data/content';
 import DefaultLayout from '@/layouts/default.layout.astro';
+import { formatDate } from '@/utils/date';
+
+const [featuredPost, ...remainingPosts] = posts;
 ---
 
 <DefaultLayout
@@ -9,8 +12,8 @@ import DefaultLayout from '@/layouts/default.layout.astro';
   title="Writing — İbrahim Turan"
   description="Essays on frontend engineering, architecture, and tooling."
 >
-  <div class="container py-16 sm:py-20 lg:py-32">
-    <header class="flex items-center justify-between py-6 lg:py-8">
+  <div class="container pb-24 pt-8 sm:pb-28 sm:pt-10 lg:pb-36">
+    <header class="flex items-center justify-between py-4 lg:py-6">
       <a href="/" class="font-mono text-sm font-semibold tracking-tight text-base-content">
         it<span class="text-primary">.</span>
       </a>
@@ -23,20 +26,117 @@ import DefaultLayout from '@/layouts/default.layout.astro';
       </nav>
     </header>
 
-    <section aria-labelledby="blog-heading" class="mt-12 sm:mt-16 lg:mt-20">
+    <section
+      aria-labelledby="blog-heading"
+      class="mt-14 grid items-end gap-8 sm:mt-20 lg:grid-cols-12 lg:gap-12 lg:mt-24"
+    >
       <h1
         id="blog-heading"
-        class="max-w-3xl text-balance text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-base-content sm:text-5xl lg:text-6xl"
+        class="max-w-4xl text-balance text-5xl font-extrabold leading-[1.02] tracking-[-0.04em] text-base-content sm:text-6xl lg:col-span-8 lg:text-7xl"
       >
         Notes on building software.
       </h1>
-      <p class="mt-6 max-w-xl text-lg leading-relaxed text-base-content-muted">
+      <p
+        class="max-w-xl text-lg leading-relaxed text-base-content-muted lg:col-span-4 lg:justify-self-end"
+      >
         {posts.length} articles on frontend architecture, tooling, and the occasional hard-won workaround.
       </p>
     </section>
 
-    <section aria-label="All writing" class="mt-12 sm:mt-16 lg:mt-20">
-      {posts.map((post) => <PostCard post={post} />)}
-    </section>
+    {
+      featuredPost && (
+        <section
+          aria-labelledby={`post-${featuredPost.slug}`}
+          class="mt-14 border-y border-base-300 py-8 sm:mt-16 sm:py-10 lg:mt-20 lg:py-12"
+        >
+          <a
+            href={`/blog/${featuredPost.slug}`}
+            class="group grid items-center gap-8 lg:grid-cols-12 lg:gap-12 xl:gap-16"
+          >
+            <div class="overflow-hidden rounded-md border border-base-300 bg-base-200 p-2 lg:col-span-7">
+              {featuredPost.imageUrl ? (
+                <img
+                  src={featuredPost.imageUrl}
+                  alt=""
+                  width="1200"
+                  height="630"
+                  class="aspect-[1200/630] w-full rounded-sm object-cover transition-transform duration-300 group-hover:scale-[1.015] group-focus-visible:scale-[1.015]"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              ) : (
+                <div
+                  aria-hidden="true"
+                  class="flex aspect-[1200/630] items-center justify-center rounded-sm bg-base-300 font-mono text-sm font-semibold text-primary"
+                >
+                  it.
+                </div>
+              )}
+            </div>
+
+            <div class="lg:col-span-5">
+              <div class="flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-base-content-muted">
+                <time datetime={featuredPost.publishedAt}>
+                  {formatDate(featuredPost.publishedAt)}
+                </time>
+                <span aria-hidden="true">/</span>
+                <span>{featuredPost.readingTimeMinutes} min read</span>
+                <span aria-hidden="true">/</span>
+                <span lang={featuredPost.language}>{featuredPost.language.toUpperCase()}</span>
+              </div>
+              <h2
+                id={`post-${featuredPost.slug}`}
+                class="mt-5 text-balance text-3xl font-extrabold leading-tight tracking-[-0.03em] text-base-content transition-colors group-hover:text-primary group-focus-visible:text-primary sm:text-4xl"
+              >
+                {featuredPost.title}
+              </h2>
+              <p class="mt-5 max-w-2xl text-base leading-relaxed text-base-content-muted">
+                {featuredPost.excerpt}
+              </p>
+              <div class="mt-6 flex flex-wrap gap-x-3 gap-y-2 font-mono text-xs text-secondary">
+                {featuredPost.tags.map((tag) => (
+                  <span>#{tag}</span>
+                ))}
+              </div>
+              <span class="mt-8 inline-flex border-b border-primary pb-1 font-mono text-xs text-primary">
+                Read article
+              </span>
+            </div>
+          </a>
+        </section>
+      )
+    }
+
+    {
+      remainingPosts.length > 0 && (
+        <section aria-labelledby="archive-heading" class="mt-16 sm:mt-20 lg:mt-24">
+          <div class="mb-6 flex items-end justify-between gap-6 sm:mb-8">
+            <h2
+              id="archive-heading"
+              class="text-2xl font-bold tracking-[-0.02em] text-base-content sm:text-3xl"
+            >
+              More writing
+            </h2>
+            <p class="hidden max-w-sm text-right text-sm leading-relaxed text-base-content-muted sm:block">
+              Practical notes, architectural decisions, and fixes worth remembering.
+            </p>
+          </div>
+          <div>
+            {remainingPosts.map((post) => (
+              <PostCard post={post} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    {
+      posts.length === 0 && (
+        <section class="mt-16 border-y border-base-300 py-16 text-center">
+          <p class="mx-auto text-base text-base-content-muted">No articles published yet.</p>
+        </section>
+      )
+    }
   </div>
 </DefaultLayout>

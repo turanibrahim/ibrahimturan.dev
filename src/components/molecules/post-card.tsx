@@ -10,27 +10,52 @@ export const PostCard = ({ post }: Props): ReactElement => (
   <article className="border-t border-base-300">
     <a
       href={`/blog/${post.slug}`}
-      className="group block py-7 transition-colors hover:bg-base-300/20 lg:py-8"
+      className="group grid grid-cols-[minmax(0,1fr)_104px] gap-x-4 gap-y-3 py-6 sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-x-6 lg:grid-cols-[192px_minmax(0,1fr)_112px] lg:items-start lg:gap-x-8 lg:py-8"
     >
-      <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_200px] lg:gap-6">
-        <div>
-          <h3 className="font-semibold text-base-content transition-colors group-hover:text-primary">
-            {post.title}
-          </h3>
-          <p className="mt-2 max-w-xl text-base leading-relaxed text-base-content-muted">
-            {post.excerpt}
-          </p>
-          <div className="mt-4 flex flex-wrap gap-x-3 gap-y-2 font-mono text-xs text-secondary">
-            {post.tags.map((tag) => (
-              <span key={tag}>#{tag}</span>
-            ))}
+      <div className="col-start-2 row-start-1 overflow-hidden rounded-md border border-base-300 bg-base-200 p-1 sm:col-start-1">
+        {post.imageUrl ? (
+          <img
+            src={post.imageUrl}
+            alt=""
+            width={1200}
+            height={630}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[1200/630] w-full rounded-sm object-cover transition-transform duration-300 group-hover:scale-[1.025] group-focus-visible:scale-[1.025]"
+          />
+        ) : (
+          <div
+            aria-hidden="true"
+            className="flex aspect-[1200/630] items-center justify-center rounded-sm bg-base-300 font-mono text-xs font-semibold text-primary"
+          >
+            it.
           </div>
-        </div>
-        <div className="flex items-center gap-3 font-mono text-xs text-base-content-muted lg:flex-col lg:items-end lg:gap-1 lg:pt-1">
+        )}
+      </div>
+
+      <div className="col-start-1 row-start-1 min-w-0 sm:col-start-2">
+        <h3 className="text-base font-semibold leading-snug text-base-content transition-colors group-hover:text-primary group-focus-visible:text-primary sm:text-lg">
+          {post.title}
+        </h3>
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-base-content-muted lg:hidden">
           <span>{formatDate(post.publishedAt)}</span>
-          <span>{post.readingTimeMinutes} min read</span>
+          <span>{post.readingTimeMinutes} min</span>
           <span lang={post.language}>{post.language.toUpperCase()}</span>
         </div>
+        <p className="mt-3 hidden max-w-2xl text-sm leading-relaxed text-base-content-muted sm:block">
+          {post.excerpt}
+        </p>
+        <div className="mt-4 hidden flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-secondary sm:flex">
+          {post.tags.map((tag) => (
+            <span key={tag}>#{tag}</span>
+          ))}
+        </div>
+      </div>
+
+      <div className="hidden flex-col items-end gap-1 pt-0.5 font-mono text-xs text-base-content-muted lg:flex">
+        <span>{formatDate(post.publishedAt)}</span>
+        <span>{post.readingTimeMinutes} min read</span>
+        <span lang={post.language}>{post.language.toUpperCase()}</span>
       </div>
     </a>
   </article>
