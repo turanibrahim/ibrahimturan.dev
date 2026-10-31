@@ -78,16 +78,35 @@ publishing, run `npm run cms:export` (or `cms:refresh-seed` too, to keep the boo
 
 ## Deploy
 
-Published CMS changes must be exported and committed before deployment:
+The site is a static Astro build hosted on **Cloudflare Pages**. Pages builds and publishes it from
+`master`; nothing is uploaded from a laptop.
+
+```text
+Build command       npm run build
+Output directory    dist
+Node version        22 (from .nvmrc)
+Environment vars    none — the build never talks to the CMS
+```
+
+Cloudflare serves `dist/` as-is, including `public/_headers`, which sets long-lived immutable caching
+for `/_astro/*` and no-cache for the service worker.
+
+Published CMS changes must be exported and committed before they can deploy:
 
 ```bash
-npm run generate
+npm run generate          # export the snapshot, then build locally to check it
+git push
 ```
 
 The build runs a content preflight before Astro. It rejects invalid or missing media, duplicate post
 slugs per locale, unsupported Portable Text blocks, malformed `YYYY-MM` dates, posts whose language
-disagrees with their locale, and incomplete blog metadata. Upload the generated `dist/` directory to
-the static host.
+disagrees with their locale, and incomplete blog metadata.
+
+To publish without going through Pages (preview or manual push), log in once with
+`npx wrangler login` and run `npm run deploy:cf`.
+
+The custom domain is attached in the Cloudflare Pages project settings; the domain's nameservers must
+point at Cloudflare for it to resolve.
 
 ## Structure
 
