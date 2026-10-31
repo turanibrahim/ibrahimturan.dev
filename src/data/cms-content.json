@@ -7441,88 +7441,88 @@
       "profile": {
         "name": "Ibrahim",
         "surname": "Turan",
-        "title": "Full-Stack Engineer",
-        "tagline": "Full-stack engineer building thoughtful web products with React, Vue, and Node.",
-        "company": "Open to opportunities",
+        "title": "Full-Stack Mühendisi",
+        "tagline": "React, Vue ve Node ile özenli web ürünleri geliştiren full-stack mühendisi.",
+        "company": "Yeni fırsatlara açık",
         "companyLogo": "",
         "companyUrl": "",
-        "introduction": "Full-stack engineer with 6+ years shipping production web products. Comfortable across the stack — React, Vue, React Native, Node.js, and the build, test, and deploy systems that keep a product moving.",
+        "introduction": "Üretim ortamında web ürünleri geliştirmede 6+ yıl deneyimli full-stack mühendisi. Stack’in tamamında rahatım — React, Vue, React Native, Node.js ve bir ürünü ayakta tutan build, test ve dağıtım sistemleri.",
         "email": "hello@ibrahimturan.com",
         "github": "https://github.com/turanibrahim",
         "linkedin": "https://www.linkedin.com/in/ibrahimturann/",
         "twitter": "https://twitter.com/_ibrahimturan",
         "devto": "https://dev.to/_ibrahimturan",
-        "location": "Ankara, Turkey",
+        "location": "Ankara, Türkiye",
         "profileImg": "/cms/profile-img-1.png",
         "education": {
-          "university": "Sakarya University",
-          "department": "Computer Engineering",
+          "university": "Sakarya Üniversitesi",
+          "department": "Bilgisayar Mühendisliği",
           "startYear": "2016",
           "endYear": "2023",
-          "location": "Sakarya, Turkey"
+          "location": "Sakarya, Türkiye"
         }
       },
       "experiences": [
         {
-          "title": "Frontend Engineer",
+          "title": "Frontend Mühendisi",
           "company": "MobileAction",
           "startDate": "2025-03",
           "endDate": "2026-04",
-          "summary": "Owned the Apple Ads management console — modular TypeScript architecture, AI-assisted dev workflow, scalable Vue 3 + Tailwind system.",
+          "summary": "Apple Ads yönetim konsolunun sahibiydim — modüler TypeScript mimarisi, yapay zekâ destekli geliştirme akışı ve ölçeklenebilir Vue 3 + Tailwind sistemi.",
           "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/7eb6f416-83b6-4a7d-873b-2f6fe1239e70.jpeg",
           "companyUrl": "https://www.mobileaction.co",
-          "location": "Ankara, Turkey",
+          "location": "Ankara, Türkiye",
           "tech": ["Vue 3", "TypeScript", "Tailwind", "Vitest"]
         },
         {
-          "title": "Frontend Engineer",
+          "title": "Frontend Mühendisi",
           "company": "NMQ Digital",
           "startDate": "2023-04",
           "endDate": "2025-03",
-          "summary": "Led end-to-end delivery of AI products with Next.js, React and Hono. Modernized legacy Vue 2 systems and shipped 100+ enterprise CMS components.",
+          "summary": "Next.js, React ve Hono ile yapay zekâ ürünlerinin uçtan uca teslimini yönettim. Eski Vue 2 sistemlerini modernize ettim ve 100+ kurumsal CMS bileşeni geliştirdim.",
           "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/0dbd5b1e-3a47-4005-9ced-bd647f240b84.jpeg",
           "companyUrl": "https://nmqdigital.com",
-          "location": "Istanbul, Turkey",
+          "location": "İstanbul, Türkiye",
           "tech": ["Next.js", "React", "TypeScript", "Vue 2", "Vite", "PostgreSQL"]
         },
         {
-          "title": "Frontend Engineer",
+          "title": "Frontend Mühendisi",
           "company": "Hub21",
           "startDate": "2022-06",
           "endDate": "2023-04",
-          "summary": "Rebuilt the marketing site in Vue, lifted Lighthouse from 60 to 90+, and shipped parent and student portals with Sentry error monitoring.",
+          "summary": "Pazarlama sitesini Vue ile yeniden kurdum, Lighthouse skorunu 60’tan 90+'a çıkardım; veli ve öğrenci portallarını Sentry hata izlemesiyle yayına aldım.",
           "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e8cd7708-5f71-4010-8ec4-c2a404f72b0b.jpeg",
-          "location": "London, United Kingdom",
+          "location": "Londra, Birleşik Krallık",
           "tech": ["Vue 3", "Bootstrap", "SEO", "Sentry"]
         },
         {
-          "title": "Frontend Engineer",
+          "title": "Frontend Mühendisi",
           "company": "Vivense",
           "startDate": "2021-08",
           "endDate": "2022-05",
-          "summary": "Owned customer-facing flows and internal ERP modules on one of Turkey's largest e-commerce platforms — cart, checkout, order ops, integrations.",
+          "summary": "Türkiye’nin en büyük e-ticaret platformlarından birinde müşteriye dönük akışların ve şirket içi ERP modüllerinin sahibiydim — sepet, ödeme, sipariş operasyonları ve entegrasyonlar.",
           "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/83edda06-9f6e-42bd-ac14-0b886ad094eb.jpeg",
-          "location": "Istanbul, Turkey",
+          "location": "İstanbul, Türkiye",
           "tech": ["Vue 2", "Microservices", "Agile"]
         },
         {
-          "title": "Frontend Engineer",
+          "title": "Frontend Mühendisi",
           "company": "reybex Cloud ERP",
           "startDate": "2020-06",
           "endDate": "2021-08",
-          "summary": "Launched three internal apps from zero — mobile, hand terminal, B2B shop — and reviewed 250+ merge requests across the platform.",
+          "summary": "Sıfırdan üç şirket içi uygulama yayına aldım — mobil, el terminali ve B2B mağaza — ve platform genelinde 250+ merge request inceledim.",
           "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/e415df9b-4c7c-4cfb-a057-709a70e3ba4f.jpeg",
-          "location": "Sakarya, Turkey",
+          "location": "Sakarya, Türkiye",
           "tech": ["Nuxt.js", "React Native", "Feathers.js", "Socket.io"]
         },
         {
-          "title": "Fullstack Intern",
+          "title": "Fullstack Stajyer",
           "company": "BGS Bireysel Gelişim",
           "startDate": "2020-01",
           "endDate": "2020-03",
-          "summary": "Built features for the EYSIS enterprise suite on Phalcon + Vue, containerized the dev environment with Docker.",
+          "summary": "Phalcon + Vue üzerinde EYSIS kurumsal paketi için özellikler geliştirdim ve geliştirme ortamını Docker ile konteynerleştirdim.",
           "companyLogo": "https://ibrahimturan-cdn.s3.eu-central-1.amazonaws.com/66efee14-68bc-4715-a55e-776ddaeffb9e.png",
-          "location": "Sakarya, Turkey",
+          "location": "Sakarya, Türkiye",
           "tech": ["Phalcon", "Vue", "Vuetify", "Docker", "MySQL"]
         }
       ],
@@ -7530,21 +7530,21 @@
         {
           "name": "Reybex Ready",
           "engagement": "Company",
-          "ownership": "Mobile application development",
-          "summary": "A mobile ERP companion for stock, product, configuration, reporting, and customer-visit workflows.",
+          "ownership": "Mobil uygulama geliştirme",
+          "summary": "Stok, ürün, konfigürasyon, raporlama ve müşteri ziyareti akışları için mobil ERP yardımcı uygulaması.",
           "contributions": [
-            "Applied Reybex’s feature-oriented modular architecture to the React Native application.",
-            "Built permission-aware reporting dashboards that generate charts and widgets from database data.",
-            "Delivered map-based customer discovery with nearby customer details, usage, and spend context."
+            "Reybex’in özellik odaklı modüler mimarisini React Native uygulamasına uyarladım.",
+            "Veritabanı verisinden grafik ve widget üreten, yetkiye duyarlı raporlama panelleri geliştirdim.",
+            "Yakındaki müşterileri detay, kullanım ve harcama bilgisiyle gösteren harita tabanlı müşteri keşfini teslim ettim."
           ],
           "stack": ["React Native", "React", "Redux", "Redux Toolkit", "React Native Paper"],
           "links": [
             {
-              "label": "View on Google Play",
+              "label": "Google Play’de gör",
               "url": "https://play.google.com/store/apps/details?id=com.reybex.ready&hl=tr"
             },
             {
-              "label": "View on the App Store",
+              "label": "App Store’da gör",
               "url": "https://apps.apple.com/tr/app/reybex-ready/id6759290136?l=tr"
             }
           ]
@@ -7552,11 +7552,11 @@
         {
           "name": "Reybex",
           "engagement": "Company",
-          "ownership": "Performance, maintenance, and chat feature ownership",
-          "summary": "A single-page ERP platform organized around a feature-oriented modular architecture.",
+          "ownership": "Performans, bakım ve sohbet özelliği sahipliği",
+          "summary": "Özellik odaklı modüler mimari etrafında kurgulanmış tek sayfalık ERP platformu.",
           "contributions": [
-            "Improved application performance and resolved product defects.",
-            "Delivered the chat feature end to end across the Vue frontend and Feathers.js backend."
+            "Uygulama performansını iyileştirdim ve ürün hatalarını giderdim.",
+            "Sohbet özelliğini Vue frontend ve Feathers.js backend boyunca uçtan uca teslim ettim."
           ],
           "stack": ["Vue.js", "Vuex", "Vuetify", "Feathers.js", "Node.js", "MongoDB"],
           "links": []
@@ -7564,11 +7564,11 @@
         {
           "name": "Reybex E-commerce",
           "engagement": "Company",
-          "ownership": "Frontend e-commerce development",
-          "summary": "A rebrandable B2B storefront connected to the Reybex ERP API for multiple customer deployments.",
+          "ownership": "Frontend e-ticaret geliştirme",
+          "summary": "Birden fazla müşteri kurulumu için Reybex ERP API’sine bağlanan, markaya göre uyarlanabilir B2B vitrin.",
           "contributions": [
-            "Built the storefront on Vue Storefront with Reybex serving as the backend.",
-            "Supported a reusable customer deployment model, including a rollout for one of Germany’s largest handbag producers."
+            "Vitrini Vue Storefront üzerinde kurdum; arka uç olarak Reybex hizmet verdi.",
+            "Yeniden kullanılabilir bir müşteri kurulum modelini destekledim; Almanya’nın en büyük çanta üreticilerinden biri için devreye alma yaptım."
           ],
           "stack": ["Vue Storefront", "Reybex API"],
           "links": []
@@ -7576,11 +7576,11 @@
         {
           "name": "Vivense UK Website",
           "engagement": "Company",
-          "ownership": "Cart, checkout, account, and order module ownership",
-          "summary": "A Vue single-page storefront with prerendering to support search visibility.",
+          "ownership": "Sepet, ödeme, hesap ve sipariş modülü sahipliği",
+          "summary": "Arama görünürlüğünü desteklemek için ön-render edilen Vue tek sayfa vitrini.",
           "contributions": [
-            "Owned the cart, checkout, order history, and user details modules.",
-            "Implemented ERP-controlled payment methods that could be enabled or disabled dynamically."
+            "Sepet, ödeme, sipariş geçmişi ve kullanıcı bilgileri modüllerinin sahibiydim.",
+            "ERP tarafından yönetilen, dinamik olarak açılıp kapatılabilen ödeme yöntemleri geliştirdim."
           ],
           "stack": ["Vue.js", "Vuex", "Bootstrap"],
           "links": []
@@ -7588,10 +7588,10 @@
         {
           "name": "Vivense Dragon ERP",
           "engagement": "Internal",
-          "ownership": "Order finance, payment, and user details module ownership",
-          "summary": "An internal single-page ERP application supporting Vivense operations.",
+          "ownership": "Sipariş finansı, ödeme ve kullanıcı bilgileri modülü sahipliği",
+          "summary": "Vivense operasyonlarını destekleyen şirket içi tek sayfa ERP uygulaması.",
           "contributions": [
-            "Owned the order finance, payment, and user details modules within the internal platform."
+            "Şirket içi platformda sipariş finansı, ödeme ve kullanıcı bilgileri modüllerinin sahibiydim."
           ],
           "stack": ["Vue.js", "Vuetify"],
           "links": []
@@ -7599,17 +7599,17 @@
         {
           "name": "Hub21 Website",
           "engagement": "Company",
-          "ownership": "End-to-end product and delivery ownership",
-          "summary": "A statically generated marketing website designed for search visibility and rapid delivery.",
+          "ownership": "Uçtan uca ürün ve teslim sahipliği",
+          "summary": "Arama görünürlüğü ve hızlı teslim için tasarlanmış, statik olarak üretilen pazarlama sitesi.",
           "contributions": [
-            "Managed development, CI/CD, deployments, site configuration, and SEO.",
-            "Led two website rebrands.",
-            "Built CMS-style components that reduced marketing page creation to about two days."
+            "Geliştirme, CI/CD, dağıtım, site yapılandırması ve SEO’yu yönettim.",
+            "İki site yeniden markalama sürecini yönettim.",
+            "Pazarlama sayfası oluşturmayı yaklaşık iki güne indiren CMS benzeri bileşenler geliştirdim."
           ],
           "stack": ["Vue.js", "Vite", "Bootstrap", "Static Site Generation"],
           "links": [
             {
-              "label": "Visit Hub21",
+              "label": "Hub21’i ziyaret et",
               "url": "https://thehub21.com/"
             }
           ]
@@ -7617,12 +7617,12 @@
         {
           "name": "Hub21 Parent and Student Projects",
           "engagement": "Company",
-          "ownership": "End-to-end product ownership",
-          "summary": "Paired parent and student applications for payments, subscriptions, packages, and learning progress.",
+          "ownership": "Uçtan uca ürün sahipliği",
+          "summary": "Ödeme, abonelik, paket ve öğrenme ilerlemesi için eşleşen veli ve öğrenci uygulamaları.",
           "contributions": [
-            "Shared the Hub21 website architecture and technology stack across both applications.",
-            "Integrated Stripe payments, subscriptions, package management, and dynamic package options.",
-            "Built student dashboards for progress tracking and upcoming session information."
+            "Hub21 web sitesinin mimarisini ve teknoloji yığınını iki uygulamada da kullandım.",
+            "Stripe ödemelerini, abonelikleri, paket yönetimini ve dinamik paket seçeneklerini entegre ettim.",
+            "İlerleme takibi ve yaklaşan ders bilgileri için öğrenci panelleri geliştirdim."
           ],
           "stack": ["Vue.js", "Vite", "Bootstrap", "Stripe"],
           "links": []
@@ -7630,12 +7630,12 @@
         {
           "name": "Okumak Güzeldir",
           "engagement": "Freelance",
-          "ownership": "Freelance frontend ownership",
-          "summary": "An online reading contest platform and administration application for Eyüp Belediyesi.",
+          "ownership": "Serbest frontend sahipliği",
+          "summary": "Eyüp Belediyesi için çevrim içi okuma yarışması platformu ve yönetim uygulaması.",
           "contributions": [
-            "Developed the contest frontend for the first event, which served more than 100,000 users.",
-            "Maintained the platform for the second consecutive annual contest with smaller updates.",
-            "Delivered administration reporting and user management with Vue.js and Vuetify."
+            "100.000’den fazla kullanıcıya hizmet veren ilk etkinliğin yarışma frontend’ini geliştirdim.",
+            "İkinci yıl üst üste düzenlenen yarışmada platformu küçük güncellemelerle ayakta tuttum.",
+            "Vue.js ve Vuetify ile yönetim raporlaması ve kullanıcı yönetimi teslim ettim."
           ],
           "stack": ["Vue.js", "VeeValidate", "Vue Router", "DaisyUI", "Pinia", "Vuetify"],
           "links": []
@@ -7643,11 +7643,11 @@
         {
           "name": "FasterApply.ai",
           "engagement": "Freelance",
-          "ownership": "Freelance frontend development",
-          "summary": "An AI product that helps users create Upwork proposals quickly.",
+          "ownership": "Serbest frontend geliştirme",
+          "summary": "Kullanıcıların hızlıca Upwork teklifi hazırlamasına yardım eden yapay zekâ ürünü.",
           "contributions": [
-            "Developed the product frontend with Vue 3.",
-            "Implemented the interface with Tailwind CSS, Sentry, VeeValidate, Vue Router, and Pinia."
+            "Ürünün frontend’ini Vue 3 ile geliştirdim.",
+            "Arayüzü Tailwind CSS, Sentry, VeeValidate, Vue Router ve Pinia ile kurdum."
           ],
           "stack": ["Vue 3", "Tailwind CSS", "Sentry", "VeeValidate", "Vue Router", "Pinia"],
           "links": []
@@ -7655,10 +7655,10 @@
         {
           "name": "Icerik.com Website",
           "engagement": "Freelance",
-          "ownership": "Freelance end-to-end maintenance and delivery",
-          "summary": "A DatoCMS-backed content website maintained as a React application.",
+          "ownership": "Serbest uçtan uca bakım ve teslim",
+          "summary": "DatoCMS ile beslenen, React uygulaması olarak sürdürülen içerik sitesi.",
           "contributions": [
-            "Owned development, deployment, CI/CD pipelines, updates, and ongoing maintenance."
+            "Geliştirme, dağıtım, CI/CD süreçleri, güncellemeler ve sürekli bakımın sahibiydim."
           ],
           "stack": ["React", "Redux", "DatoCMS"],
           "links": []
@@ -7666,12 +7666,12 @@
         {
           "name": "Icerik.com App",
           "engagement": "Freelance",
-          "ownership": "Freelance full-stack ownership",
-          "summary": "A content marketplace unifying administration, writer, and publisher workflows in one application.",
+          "ownership": "Serbest full-stack sahipliği",
+          "summary": "Yönetim, yazar ve yayıncı akışlarını tek uygulamada birleştiren içerik pazaryeri.",
           "contributions": [
-            "Developed the FastAPI backend and Vue.js frontend.",
-            "Unified the Admin, Writer, and Publisher panels in one application and migrated them from Vue 2 to Vue 3.",
-            "Enabled publishers to create website content and writers to access freelance content jobs."
+            "FastAPI backend’ini ve Vue.js frontend’ini geliştirdim.",
+            "Admin, Yazar ve Yayıncı panellerini tek uygulamada birleştirdim ve Vue 2’den Vue 3’e taşıdım.",
+            "Yayıncıların site içeriği oluşturmasını, yazarların serbest içerik işlerine erişmesini sağladım."
           ],
           "stack": ["FastAPI", "Vue 3"],
           "links": []
@@ -7679,11 +7679,11 @@
         {
           "name": "Zeo.org Website",
           "engagement": "Freelance",
-          "ownership": "Freelance end-to-end maintenance and delivery",
-          "summary": "A Storyblok-backed marketing website maintained with React.",
+          "ownership": "Serbest uçtan uca bakım ve teslim",
+          "summary": "Storyblok ile beslenen, React ile sürdürülen pazarlama sitesi.",
           "contributions": [
-            "Owned development, maintenance, CI/CD pipelines, and security.",
-            "Delivered incremental website updates as required."
+            "Geliştirme, bakım, CI/CD süreçleri ve güvenliğin sahibiydim.",
+            "İhtiyaç duyuldukça kademeli site güncellemelerini teslim ettim."
           ],
           "stack": ["React", "Storyblok"],
           "links": []
@@ -7691,17 +7691,17 @@
         {
           "name": "JAMS ADR Website",
           "engagement": "Company",
-          "ownership": "Frontend CMS component development and client collaboration",
-          "summary": "A Crownpeak CMS website for one of the largest alternative dispute resolution providers in the United States.",
+          "ownership": "Frontend CMS bileşen geliştirme ve müşteri iş birliği",
+          "summary": "ABD’nin en büyük alternatif uyuşmazlık çözümü sağlayıcılarından biri için Crownpeak CMS sitesi.",
           "contributions": [
-            "Developed and maintained frontend CMS components for almost one year.",
-            "Presented updates in client meetings and translated requests into implementation solutions.",
-            "Worked across Astro, React, Alpine.js, and a custom Vite output pipeline within Crownpeak."
+            "Yaklaşık bir yıl boyunca frontend CMS bileşenlerini geliştirdim ve sürdürdüm.",
+            "Müşteri toplantılarında güncellemeleri sundum ve talepleri uygulanabilir çözümlere dönüştürdüm.",
+            "Astro, React, Alpine.js ve Crownpeak içindeki özel Vite çıktı hattıyla çalıştım."
           ],
           "stack": ["Astro", "React", "Alpine.js", "Vite", "Crownpeak CMS"],
           "links": [
             {
-              "label": "Visit JAMS ADR",
+              "label": "JAMS ADR’ı ziyaret et",
               "url": "https://www.jamsadr.com/"
             }
           ]
@@ -7709,16 +7709,16 @@
         {
           "name": "JAMS Pathways Website",
           "engagement": "Company",
-          "ownership": "Frontend ownership from project inception",
-          "summary": "A Crownpeak CMS website built from the ground up with a custom frontend delivery pipeline.",
+          "ownership": "Proje başlangıcından itibaren frontend sahipliği",
+          "summary": "Özel bir frontend teslim hattıyla sıfırdan kurulan Crownpeak CMS sitesi.",
           "contributions": [
-            "Developed the full set of Crownpeak CMS components from the start of the project.",
-            "Created the frontend with Astro, Alpine.js, and a custom Vite output pipeline."
+            "Projenin başından itibaren Crownpeak CMS bileşenlerinin tamamını geliştirdim.",
+            "Frontend’i Astro, Alpine.js ve özel bir Vite çıktı hattıyla oluşturdum."
           ],
           "stack": ["Astro", "Vite", "Alpine.js", "Crownpeak CMS"],
           "links": [
             {
-              "label": "Visit JAMS Pathways",
+              "label": "JAMS Pathways’i ziyaret et",
               "url": "https://www.jamspathways.com/"
             }
           ]
@@ -7726,16 +7726,16 @@
         {
           "name": "AffinityFCU Website",
           "engagement": "Company",
-          "ownership": "Website maintenance and CMS component development",
-          "summary": "A Crownpeak CMS website for Affinity Federal Credit Union.",
+          "ownership": "Site bakımı ve CMS bileşen geliştirme",
+          "summary": "Affinity Federal Credit Union için Crownpeak CMS sitesi.",
           "contributions": [
-            "Maintained the existing website.",
-            "Developed new Crownpeak components with Astro, Alpine.js, vanilla JavaScript, and HTML."
+            "Mevcut siteyi sürdürdüm.",
+            "Astro, Alpine.js, saf JavaScript ve HTML ile yeni Crownpeak bileşenleri geliştirdim."
           ],
           "stack": ["Astro", "Alpine.js", "JavaScript", "HTML", "Crownpeak CMS"],
           "links": [
             {
-              "label": "Visit Affinity Federal Credit Union",
+              "label": "Affinity Federal Credit Union’ı ziyaret et",
               "url": "https://www.affinityfcu.com/"
             }
           ]
@@ -7743,10 +7743,10 @@
         {
           "name": "Crownpeak AI Translation Tool",
           "engagement": "Company",
-          "ownership": "Maintenance and deployment ownership after project handoff",
-          "summary": "An AI translation tool built for Crownpeak content workflows.",
+          "ownership": "Proje devrinden sonra bakım ve dağıtım sahipliği",
+          "summary": "Crownpeak içerik akışları için geliştirilmiş yapay zekâ çeviri aracı.",
           "contributions": [
-            "Took over application maintenance and deployment after the main developer left the project."
+            "Ana geliştirici projeden ayrıldıktan sonra uygulama bakımını ve dağıtımını devraldım."
           ],
           "stack": [
             "React",
@@ -7762,12 +7762,12 @@
         {
           "name": "Philips AI Projects",
           "engagement": "Internal",
-          "ownership": "End-to-end product, infrastructure, and delivery ownership",
-          "summary": "Internal AI tools for Philips marketing teams covering email validation, content generation, and alt text generation.",
+          "ownership": "Uçtan uca ürün, altyapı ve teslim sahipliği",
+          "summary": "Philips pazarlama ekipleri için e-posta doğrulama, içerik üretimi ve alt metin üretimini kapsayan şirket içi yapay zekâ araçları.",
           "contributions": [
-            "Presented the products to Philips managers.",
-            "Managed servers, deployment, and application development.",
-            "Used the ChatGPT API to validate marketing emails and generate validation reports."
+            "Ürünleri Philips yöneticilerine sundum.",
+            "Sunucuları, dağıtımı ve uygulama geliştirmeyi yönettim.",
+            "Pazarlama e-postalarını doğrulamak ve doğrulama raporları üretmek için ChatGPT API’sini kullandım."
           ],
           "stack": ["Next.js", "Drizzle ORM", "PostgreSQL", "Tailwind CSS", "ChatGPT API"],
           "links": []
@@ -7775,12 +7775,12 @@
         {
           "name": "Broadridge Website",
           "engagement": "Company",
-          "ownership": "Frontend CMS component development and documentation",
-          "summary": "A ground-up Crownpeak website built with reusable custom web components.",
+          "ownership": "Frontend CMS bileşen geliştirme ve dokümantasyon",
+          "summary": "Yeniden kullanılabilir özel web bileşenleriyle sıfırdan kurulan Crownpeak sitesi.",
           "contributions": [
-            "Developed more than 20 frontend CMS components.",
-            "Built the frontend with Astro, Lit custom elements, and a custom Vite output pipeline.",
-            "Documented component behavior and usage for Crownpeak developers."
+            "20’den fazla frontend CMS bileşeni geliştirdim.",
+            "Frontend’i Astro, Lit özel elementleri ve özel bir Vite çıktı hattıyla oluşturdum.",
+            "Crownpeak geliştiricileri için bileşen davranışını ve kullanımını belgeledim."
           ],
           "stack": ["Astro", "Lit", "Vite", "Crownpeak CMS"],
           "links": []
@@ -7788,16 +7788,16 @@
         {
           "name": "NMQ Website",
           "engagement": "Company",
-          "ownership": "Website maintenance and localization support",
-          "summary": "A HubSpot CMS website maintained with vanilla frontend technologies.",
+          "ownership": "Site bakımı ve yerelleştirme desteği",
+          "summary": "Saf frontend teknolojileriyle sürdürülen HubSpot CMS sitesi.",
           "contributions": [
-            "Delivered small updates and ongoing website maintenance.",
-            "Resolved translation issues across the website."
+            "Küçük güncellemeleri ve sürekli site bakımını teslim ettim.",
+            "Site genelindeki çeviri sorunlarını çözdüm."
           ],
           "stack": ["HubSpot CMS", "JavaScript", "CSS", "HTML"],
           "links": [
             {
-              "label": "Visit NMQ",
+              "label": "NMQ’yu ziyaret et",
               "url": "https://nmqdigital.com/"
             }
           ]
@@ -7805,12 +7805,12 @@
         {
           "name": "MobileAction SearchAds",
           "engagement": "Company",
-          "ownership": "Enterprise dashboard architecture and feature delivery",
-          "summary": "Enterprise SearchAds dashboard modules supporting high-value clients including Google and Meta.",
+          "ownership": "Kurumsal panel mimarisi ve özellik teslimi",
+          "summary": "Google ve Meta gibi yüksek değerli müşterileri destekleyen kurumsal SearchAds panel modülleri.",
           "contributions": [
-            "Developed Advanced Filter and Scheduled Reports modules with Vue 3, Pinia, Tailwind CSS, and AG Grid.",
-            "Architected an AI-optimized modular system that reduced feature delivery from days to minutes and delivered 90% of Change History through an AI-first workflow.",
-            "Maintained 100% security compliance by resolving all Yarn audit and Dependabot vulnerabilities, migrated the codebase to ESLint 9, and documented AI-ready patterns for the frontend team."
+            "Advanced Filter ve Scheduled Reports modüllerini Vue 3, Pinia, Tailwind CSS ve AG Grid ile geliştirdim.",
+            "Özellik teslim süresini günlerden dakikalara indiren, yapay zekâ için optimize edilmiş modüler bir sistem tasarladım ve Change History’nin %90’ını yapay zekâ öncelikli bir akışla teslim ettim.",
+            "Tüm Yarn audit ve Dependabot güvenlik açıklarını kapatarak %100 güvenlik uyumunu korudum, kod tabanını ESLint 9’a taşıdım ve frontend ekibi için yapay zekâya hazır desenleri belgeledim."
           ],
           "stack": ["Vue 3", "Pinia", "Tailwind CSS", "AG Grid"],
           "links": []

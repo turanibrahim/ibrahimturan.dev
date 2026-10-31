@@ -72,9 +72,9 @@ That command treats `cms/content/tr/` as the source of truth: re-running it rewr
 in the database, so edit the Markdown/JSON files (or stop using it and edit in the admin).
 
 Nothing Turkish reaches the site until you review it in the admin and publish it — the exporter only
-reads published entries. Until then `/tr/` shows Turkish chrome with English résumé copy and an empty
-Turkish blog. After publishing, run `npm run cms:export` (or `cms:refresh-seed` too, to keep the
-bootstrap in sync).
+reads published entries. The résumé copy (profile, experiences, projects) is published, so `/tr/` is
+Turkish end to end; the seven articles are still drafts, which is why `/tr/blog` is empty. After
+publishing, run `npm run cms:export` (or `cms:refresh-seed` too, to keep the bootstrap in sync).
 
 ## Deploy
 

@@ -547,7 +547,7 @@
       },
       {
         "id": "experience-mobileaction-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "title": "Frontend Mühendisi",
           "company": "MobileAction",
@@ -614,7 +614,7 @@
       },
       {
         "id": "experience-nmq-digital-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "title": "Frontend Mühendisi",
           "company": "NMQ Digital",
@@ -680,7 +680,7 @@
       },
       {
         "id": "experience-hub21-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "title": "Frontend Mühendisi",
           "company": "Hub21",
@@ -736,7 +736,7 @@
       },
       {
         "id": "experience-vivense-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "title": "Frontend Mühendisi",
           "company": "Vivense",
@@ -792,7 +792,7 @@
       },
       {
         "id": "experience-reybex-cloud-erp-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "title": "Frontend Mühendisi",
           "company": "reybex Cloud ERP",
@@ -854,7 +854,7 @@
       },
       {
         "id": "experience-bgs-bireysel-gelisim-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "title": "Fullstack Stajyer",
           "company": "BGS Bireysel Gelişim",
@@ -13818,7 +13818,7 @@
       },
       {
         "id": "profile-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Ibrahim",
           "surname": "Turan",
@@ -13902,7 +13902,7 @@
       },
       {
         "id": "project-reybex-ready-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Reybex Ready",
           "engagement": "Company",
@@ -13994,7 +13994,7 @@
       },
       {
         "id": "project-reybex-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Reybex",
           "engagement": "Company",
@@ -14065,7 +14065,7 @@
       },
       {
         "id": "project-reybex-e-commerce-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Reybex E-commerce",
           "engagement": "Company",
@@ -14127,7 +14127,7 @@
       },
       {
         "id": "project-vivense-uk-website-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Vivense UK Website",
           "engagement": "Company",
@@ -14186,7 +14186,7 @@
       },
       {
         "id": "project-vivense-dragon-erp-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Vivense Dragon ERP",
           "engagement": "Internal",
@@ -14256,7 +14256,7 @@
       },
       {
         "id": "project-hub21-website-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Hub21 Website",
           "engagement": "Company",
@@ -14338,7 +14338,7 @@
       },
       {
         "id": "project-hub21-parent-and-student-projects-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Hub21 Parent and Student Projects",
           "engagement": "Company",
@@ -14421,7 +14421,7 @@
       },
       {
         "id": "project-okumak-guzeldir-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Okumak Güzeldir",
           "engagement": "Freelance",
@@ -14507,7 +14507,7 @@
       },
       {
         "id": "project-fasterapply-ai-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "FasterApply.ai",
           "engagement": "Freelance",
@@ -14578,7 +14578,7 @@
       },
       {
         "id": "project-icerik-com-website-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Icerik.com Website",
           "engagement": "Freelance",
@@ -14640,7 +14640,7 @@
       },
       {
         "id": "project-icerik-com-app-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Icerik.com App",
           "engagement": "Freelance",
@@ -14702,7 +14702,7 @@
       },
       {
         "id": "project-zeo-org-website-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Zeo.org Website",
           "engagement": "Freelance",
@@ -14778,7 +14778,7 @@
       },
       {
         "id": "project-jams-adr-website-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "JAMS ADR Website",
           "engagement": "Company",
@@ -14865,7 +14865,7 @@
       },
       {
         "id": "project-jams-pathways-website-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "JAMS Pathways Website",
           "engagement": "Company",
@@ -14949,7 +14949,7 @@
       },
       {
         "id": "project-affinityfcu-website-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "AffinityFCU Website",
           "engagement": "Company",
@@ -15034,7 +15034,7 @@
       },
       {
         "id": "project-crownpeak-ai-translation-tool-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Crownpeak AI Translation Tool",
           "engagement": "Company",
@@ -15117,7 +15117,7 @@
       },
       {
         "id": "project-philips-ai-projects-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Philips AI Projects",
           "engagement": "Internal",
@@ -15197,7 +15197,7 @@
       },
       {
         "id": "project-broadridge-website-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "Broadridge Website",
           "engagement": "Company",
@@ -15276,7 +15276,7 @@
       },
       {
         "id": "project-nmq-website-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "NMQ Website",
           "engagement": "Company",
@@ -15355,7 +15355,7 @@
       },
       {
         "id": "project-mobileaction-searchads-tr",
-        "status": "draft",
+        "status": "published",
         "data": {
           "name": "MobileAction SearchAds",
           "engagement": "Company",
