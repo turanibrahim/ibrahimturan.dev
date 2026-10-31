@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import type { Post } from '@/types/content';
-import { formatDate } from '@/utils/date';
+import { formatMonthYear } from '@/utils/date';
 
 interface Props {
   post: Post;
@@ -29,7 +29,7 @@ export const PostCard = ({ post }: Props): ReactElement => (
           {post.title}
         </h3>
         <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-base-content-muted lg:hidden">
-          <span>{formatDate(post.publishedAt)}</span>
+          <span>{formatMonthYear({ value: post.publishedAt })}</span>
           <span>{post.readingTimeMinutes} min</span>
           <span lang={post.language}>{post.language.toUpperCase()}</span>
         </div>
@@ -44,7 +44,7 @@ export const PostCard = ({ post }: Props): ReactElement => (
       </div>
 
       <div className="hidden flex-col items-end gap-1 pt-0.5 font-mono text-xs text-base-content-muted lg:flex">
-        <span>{formatDate(post.publishedAt)}</span>
+        <span>{formatMonthYear({ value: post.publishedAt })}</span>
         <span>{post.readingTimeMinutes} min read</span>
         <span lang={post.language}>{post.language.toUpperCase()}</span>
       </div>

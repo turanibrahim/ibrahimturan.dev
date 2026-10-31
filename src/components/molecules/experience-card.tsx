@@ -4,7 +4,7 @@ import VCard from '@/components/atoms/v-card';
 import VCompanyLogo from '@/components/atoms/v-company-logo';
 import VHeading from '@/components/atoms/v-heading';
 import type { ExperienceCardProps } from '@/types/experience-card';
-import { calculateDuration, formatDate } from '@/utils/date';
+import { calculateDuration, formatMonthYear } from '@/utils/date';
 
 export const ExperienceCard = ({
   experience,
@@ -48,8 +48,8 @@ export const ExperienceCard = ({
               />
             </svg>
             <span>
-              {formatDate(experience.startDate)} -{' '}
-              {experience.endDate ? formatDate(experience.endDate) : 'Present'}
+              {formatMonthYear({ value: experience.startDate })} -{' '}
+              {experience.endDate ? formatMonthYear({ value: experience.endDate }) : 'Present'}
             </span>
           </span>
           <span aria-hidden="true" className="text-base-content-muted/60">

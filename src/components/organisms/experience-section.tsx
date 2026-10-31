@@ -4,9 +4,11 @@ import VCompanyLogo from '@/components/atoms/v-company-logo';
 import VHeading from '@/components/atoms/v-heading';
 import VSection from '@/components/atoms/v-section';
 import { experiences } from '@/data/content';
+import { formatMonthYear, getCalendarYear, getCurrentYear } from '@/utils/date';
+
 const earliestExperience = experiences.at(-1);
 const totalYears = earliestExperience
-  ? new Date().getFullYear() - new Date(earliestExperience.startDate).getFullYear()
+  ? getCurrentYear() - getCalendarYear(earliestExperience.startDate)
   : 0;
 
 export const ExperienceSection = (): ReactElement => (
@@ -54,8 +56,9 @@ export const ExperienceSection = (): ReactElement => (
     <ol className="divide-y divide-base-300">
       {experiences.map((experience) => {
         const current = !experience.endDate;
-        const startDate = new Date(experience.startDate);
-        const endDate = experience.endDate ? new Date(experience.endDate) : null;
+        const startYear = getCalendarYear(experience.startDate);
+        const startLabel = formatMonthYear({ value: experience.startDate });
+        const endLabel = experience.endDate ? formatMonthYear({ value: experience.endDate }) : null;
 
         return (
           <li
@@ -71,16 +74,12 @@ export const ExperienceSection = (): ReactElement => (
                   current ? 'text-primary' : 'text-base-content',
                 ].join(' ')}
               >
-                {startDate.getFullYear()}
+                {startYear}
               </time>
               <p className="mt-3 font-mono text-xs leading-relaxed text-base-content-muted">
-                {startDate.toLocaleString('en-US', { month: 'short', year: 'numeric' })}
+                {startLabel}
                 <br />
-                {endDate ? (
-                  `to ${endDate.toLocaleString('en-US', { month: 'short', year: 'numeric' })}`
-                ) : (
-                  <span className="text-primary">to present</span>
-                )}
+                {endLabel ? `to ${endLabel}` : <span className="text-primary">to present</span>}
               </p>
             </div>
 

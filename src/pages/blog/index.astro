@@ -2,7 +2,7 @@
 import PostCard from '@/components/molecules/post-card';
 import { posts } from '@/data/content';
 import DefaultLayout from '@/layouts/default.layout.astro';
-import { formatDate } from '@/utils/date';
+import { formatMonthYear } from '@/utils/date';
 
 const [featuredPost, ...remainingPosts] = posts;
 ---
@@ -69,7 +69,7 @@ const [featuredPost, ...remainingPosts] = posts;
             <div class="lg:col-span-5">
               <div class="flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-base-content-muted">
                 <time datetime={featuredPost.publishedAt}>
-                  {formatDate(featuredPost.publishedAt)}
+                  {formatMonthYear({ value: featuredPost.publishedAt })}
                 </time>
                 <span aria-hidden="true">/</span>
                 <span>{featuredPost.readingTimeMinutes} min read</span>

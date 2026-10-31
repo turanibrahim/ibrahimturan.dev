@@ -1,7 +1,7 @@
 ---
 import { posts } from '@/data/content';
 import DefaultLayout from '@/layouts/default.layout.astro';
-import { formatDate } from '@/utils/date';
+import { formatMonthYear } from '@/utils/date';
 import { renderMarkdown } from '@/utils/markdown';
 
 export function getStaticPaths() {
@@ -46,7 +46,7 @@ const pageTitle = `${post.title} — İbrahim Turan`;
           class="flex flex-col gap-3 font-mono text-xs text-base-content-muted sm:flex-row sm:items-center sm:justify-between"
         >
           <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
-            <time datetime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+            <time datetime={post.publishedAt}>{formatMonthYear({ value: post.publishedAt })}</time>
             <span aria-hidden="true">/</span>
             <span>{post.readingTimeMinutes} min read</span>
             <span aria-hidden="true">/</span>
