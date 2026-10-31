@@ -8,6 +8,13 @@ import { imageSize } from 'image-size';
 
 const cmsDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const projectDirectory = path.resolve(cmsDirectory, '..');
+
+try {
+  process.loadEnvFile(path.resolve(cmsDirectory, '.env'));
+} catch {
+  // No local overrides to load.
+}
+
 const seedPath = path.resolve(cmsDirectory, 'seed/seed.json');
 const localSeedPath = path.resolve(cmsDirectory, '.emdash/seed.local.json');
 const schemaSeedPath = path.resolve(cmsDirectory, '.emdash/seed.schema.json');

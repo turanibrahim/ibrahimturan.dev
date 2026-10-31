@@ -183,12 +183,6 @@ for (const locale of locales ?? []) {
     continue;
   }
 
-  validateImage({
-    image: localeContent.profile?.profileImage,
-    label: `${prefix} profile`,
-    required: false,
-  });
-
   if (typeof localeContent.profile?.profileImg !== 'string') {
     fail(`${prefix} profile must reference a local CMS image.`);
   } else {

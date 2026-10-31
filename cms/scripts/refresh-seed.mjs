@@ -5,6 +5,13 @@ import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 
 const cmsDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+try {
+  process.loadEnvFile(path.resolve(cmsDirectory, '.env'));
+} catch {
+  // No local overrides to load.
+}
+
 const databasePath = process.env.EMDASH_DATABASE_URL
   ? path.resolve(cmsDirectory, process.env.EMDASH_DATABASE_URL.replace(/^file:/, ''))
   : path.resolve(cmsDirectory, 'data.db');
@@ -16,7 +23,7 @@ const runExport = () =>
   new Promise((resolve, reject) => {
     const child = spawn(
       emdashBinary,
-      ['export-seed', '--database', './data.db', '--with-content=all', '--pretty'],
+      ['export-seed', '--database', databasePath, '--with-content=all', '--pretty'],
       { cwd: cmsDirectory, stdio: ['ignore', 'pipe', 'inherit'] },
     );
     let output = '';

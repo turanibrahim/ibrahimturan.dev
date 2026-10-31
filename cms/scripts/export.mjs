@@ -14,6 +14,13 @@ import {
 
 const cmsDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const projectDirectory = path.resolve(cmsDirectory, '..');
+
+try {
+  process.loadEnvFile(path.resolve(cmsDirectory, '.env'));
+} catch {
+  // No local overrides to load.
+}
+
 const databasePath = process.env.EMDASH_DATABASE_URL
   ? path.resolve(cmsDirectory, process.env.EMDASH_DATABASE_URL.replace(/^file:/, ''))
   : path.resolve(cmsDirectory, 'data.db');
@@ -31,7 +38,7 @@ const runExport = () =>
   new Promise((resolve, reject) => {
     const child = spawn(
       emdashBinary,
-      ['export-seed', '--database', './data.db', '--with-content=all', '--pretty'],
+      ['export-seed', '--database', databasePath, '--with-content=all', '--pretty'],
       { cwd: cmsDirectory, stdio: ['ignore', 'pipe', 'inherit'] },
     );
     let output = '';
@@ -61,7 +68,7 @@ const pickNonTranslatable = ({ data, collection }) => {
   const picked = {};
 
   for (const field of fields) {
-    if (data?.[field] !== undefined && data[field] !== null) {
+    if (data?.[field] !== undefined && data[field] !== null && data[field] !== '') {
       picked[field] = data[field];
     }
   }
@@ -128,8 +135,8 @@ const localizeGroups = ({ groups, collection, fallbackToDefault = true }) =>
           ...source,
           locale,
           data: {
-            ...pickNonTranslatable({ collection, data: canonical?.data }),
             ...source.data,
+            ...pickNonTranslatable({ collection, data: canonical?.data }),
           },
         };
       });
@@ -155,6 +162,14 @@ const mediaByStorageKey = new Map(mediaRows.map((row) => [row.storage_key, row])
 const referencedMedia = new Map();
 
 const resolveMediaRow = (row) => {
+  const existing = referencedMedia.get(row.filename);
+
+  if (existing && existing.id !== row.id) {
+    throw new Error(
+      `Two media files share the filename "${row.filename}" and would collide in public/cms. Rename one of them in the CMS.`,
+    );
+  }
+
   referencedMedia.set(row.filename, row);
 
   return { row, url: `/cms/${encodeURIComponent(row.filename)}` };
