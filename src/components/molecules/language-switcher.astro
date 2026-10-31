@@ -1,0 +1,40 @@
+---
+import type { Dictionary } from '@/i18n/dictionary';
+import { localeNames, localeShortLabels } from '@/i18n';
+import { locales, type Locale } from '@/types/locale';
+
+interface Props {
+  current: Locale;
+  dictionary: Dictionary;
+  paths: Record<Locale, string>;
+}
+
+const { current, dictionary, paths } = Astro.props;
+---
+
+<ul
+  aria-label={dictionary.language.label}
+  class="flex items-center gap-1 font-mono text-xs text-base-content-muted"
+>
+  {
+    locales.map((locale) => (
+      <li>
+        <a
+          href={paths[locale]}
+          hreflang={locale}
+          lang={locale}
+          aria-current={locale === current ? 'true' : undefined}
+          aria-label={dictionary.language.switchTo(localeNames[locale])}
+          class:list={[
+            'rounded px-1.5 py-1 transition-colors',
+            locale === current
+              ? 'text-primary'
+              : 'hover:text-base-content focus-visible:text-base-content',
+          ]}
+        >
+          {localeShortLabels[locale]}
+        </a>
+      </li>
+    ))
+  }
+</ul>
