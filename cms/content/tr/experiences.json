@@ -1,0 +1,32 @@
+{
+  "experience-mobileaction": {
+    "title": "Frontend Mühendisi",
+    "location": "Ankara, Türkiye",
+    "summary": "Apple Ads yönetim konsolunun sahibiydim — modüler TypeScript mimarisi, yapay zekâ destekli geliştirme akışı ve ölçeklenebilir Vue 3 + Tailwind sistemi."
+  },
+  "experience-nmq-digital": {
+    "title": "Frontend Mühendisi",
+    "location": "İstanbul, Türkiye",
+    "summary": "Next.js, React ve Hono ile yapay zekâ ürünlerinin uçtan uca teslimini yönettim. Eski Vue 2 sistemlerini modernize ettim ve 100+ kurumsal CMS bileşeni geliştirdim."
+  },
+  "experience-hub21": {
+    "title": "Frontend Mühendisi",
+    "location": "Londra, Birleşik Krallık",
+    "summary": "Pazarlama sitesini Vue ile yeniden kurdum, Lighthouse skorunu 60'tan 90+'a çıkardım; veli ve öğrenci portallarını Sentry hata izlemesiyle yayına aldım."
+  },
+  "experience-vivense": {
+    "title": "Frontend Mühendisi",
+    "location": "İstanbul, Türkiye",
+    "summary": "Türkiye'nin en büyük e-ticaret platformlarından birinde müşteriye dönük akışların ve şirket içi ERP modüllerinin sahibiydim — sepet, ödeme, sipariş operasyonları ve entegrasyonlar."
+  },
+  "experience-reybex-cloud-erp": {
+    "title": "Frontend Mühendisi",
+    "location": "Sakarya, Türkiye",
+    "summary": "Sıfırdan üç şirket içi uygulama yayına aldım — mobil, el terminali ve B2B mağaza — ve platform genelinde 250+ merge request inceledim."
+  },
+  "experience-bgs-bireysel-gelisim": {
+    "title": "Fullstack Stajyer",
+    "location": "Sakarya, Türkiye",
+    "summary": "Phalcon + Vue üzerinde EYSIS kurumsal paketi için özellikler geliştirdim ve geliştirme ortamını Docker ile konteynerleştirdim."
+  }
+}

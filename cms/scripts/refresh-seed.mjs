@@ -3,6 +3,7 @@ import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
+import { normalizeTranslations } from './translations.mjs';
 
 const cmsDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -96,7 +97,17 @@ const toSeedValue = ({ key, value }) => {
 };
 
 const exported = JSON.parse(await runExport());
-const seed = { ...exported, content: toSeedValue({ key: 'content', value: exported.content }) };
+const rewrittenContent = toSeedValue({ key: 'content', value: exported.content });
+const seed = {
+  ...exported,
+  defaultLocale: exported.defaultLocale ?? 'en',
+  content: Object.fromEntries(
+    Object.entries(rewrittenContent).map(([collection, entries]) => [
+      collection,
+      normalizeTranslations({ defaultLocale: exported.defaultLocale ?? 'en', entries }),
+    ]),
+  ),
+};
 
 await mkdir(path.dirname(seedPath), { recursive: true });
 await writeFile(temporarySeedPath, `${JSON.stringify(seed, null, 2)}\n`, 'utf8');

@@ -11,6 +11,7 @@
     "cms:dev": "npm --prefix cms run dev",
     "cms:seed": "npm --prefix cms run seed",
     "cms:refresh-seed": "npm --prefix cms run seed:refresh && prettier --write cms/seed/seed.json",
+    "cms:translations": "npm --prefix cms run translations",
     "cms:export": "npm --prefix cms run export && prettier --write src/data/cms-content.json",
     "generate": "npm run cms:export && npm run build",
     "lint": "eslint . --ext .astro,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",

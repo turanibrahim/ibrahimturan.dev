@@ -1,0 +1,30 @@
+{
+  "documentation-first-ai-development": {
+    "title": "Dokümantasyon Odaklı Çalışmak Websitemi Yapay Zekâ ile Yeniden Kurmamı Nasıl Sağladı",
+    "excerpt": "Dokümantasyon odaklı bir planlama akışının; bağlamı, kaliteyi ve doğrulamayı kontrol altında tutarak websitemi yapay zekâ ile yeniden kurmama nasıl yardım ettiğini anlatıyorum."
+  },
+  "modular-frontend-architecture": {
+    "title": "Modüler Frontend Mimarisi",
+    "excerpt": "Küçük bir frontend projesinde aynı türden dosyaları aynı yerde tutmak iyi bir başlangıçtır. Peki proje büyüdüğünde bu düzen neden çöker? Kasa örneği üzerinden modüler mimariyi anlatıyorum."
+  },
+  "clean-architecture-in-modern-frontend-development": {
+    "title": "Modern Frontend Geliştirmede Clean Architecture: Kapsamlı Bir Rehber",
+    "excerpt": "İş mantığı, arayüz ve veri katmanı iç içe geçtiğinde frontend projeleri bakımı zor bir hâle gelir. Clean Architecture'ı modern frontend'e nasıl uygulayacağınızı anlatıyorum."
+  },
+  "parse-formdata-netlify-functions-v2": {
+    "title": "Netlify Functions V2'de FormData Değerleri Nasıl Ayrıştırılır?",
+    "excerpt": "Bunu anlamak için üç saat harcadım: konuyla ilgili blog yazılarının hiçbiri çalışmıyordu. Çözümü adım adım anlatıyorum."
+  },
+  "effortless-animations-autoanimate-vue-3": {
+    "title": "Vue 3'te AutoAnimate ile Zahmetsiz Animasyonlar",
+    "excerpt": "Bir startup'ta çalıştıysanız bir özelliği düzgün yapmaya neredeyse hiç zaman olmadığını bilirsiniz. AutoAnimate tam bu boşluğu dolduruyor."
+  },
+  "adding-pwa-to-vite-applications": {
+    "title": "Vite Uygulamalarına PWA Ekleme",
+    "excerpt": "Web siteme PWA özelliği eklemeye karar verdim ve hazır eklemişken bunu bir makale ile paylaşmak istedim."
+  },
+  "prevent-chrome-form-autofill-vue": {
+    "title": "Vue'da Chrome Form Otomatik Doldurmayı Nasıl Engellersiniz?",
+    "excerpt": "Siteye giriş yaptığınızda Chrome şifre kaydetmeyi önerir ve bu otomatik doldurma arayüzü bozabilir. Vue'da bunu nasıl engelleyeceğinizi anlatıyorum."
+  }
+}

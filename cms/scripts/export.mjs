@@ -11,6 +11,7 @@ import {
   TECHNOLOGIES_COLLECTION,
   collections,
 } from './content-model.mjs';
+import { groupEntriesByTranslation } from './translations.mjs';
 
 const cmsDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const projectDirectory = path.resolve(cmsDirectory, '..');
@@ -76,48 +77,18 @@ const pickNonTranslatable = ({ data, collection }) => {
   return picked;
 };
 
-const groupTranslations = (entries) => {
-  const parents = new Map(entries.map((entry) => [entry.id, entry.id]));
-  const find = (id) => {
-    let current = id;
+const groupTranslations = (entries) =>
+  groupEntriesByTranslation(entries).flatMap((group) => {
+    const byLocale = new Map();
 
-    while (parents.get(current) !== current) {
-      current = parents.get(current);
+    for (const entry of group) {
+      if (entry.status === 'published') {
+        byLocale.set(entry.locale ?? defaultLocale, entry);
+      }
     }
 
-    return current;
-  };
-  const union = (left, right) => {
-    const leftRoot = find(left);
-    const rightRoot = find(right);
-
-    if (leftRoot !== rightRoot) {
-      parents.set(rightRoot, leftRoot);
-    }
-  };
-
-  for (const entry of entries) {
-    if (entry.translationOf && parents.has(entry.translationOf)) {
-      union(entry.id, entry.translationOf);
-    }
-  }
-
-  const groups = new Map();
-
-  for (const entry of entries) {
-    const root = find(entry.id);
-    const group = groups.get(root) ?? new Map();
-
-    if (entry.status !== 'published') {
-      continue;
-    }
-
-    group.set(entry.locale ?? defaultLocale, entry);
-    groups.set(root, group);
-  }
-
-  return [...groups.values()];
-};
+    return byLocale.size > 0 ? [byLocale] : [];
+  });
 
 const localizeGroups = ({ groups, collection, fallbackToDefault = true }) =>
   Object.fromEntries(

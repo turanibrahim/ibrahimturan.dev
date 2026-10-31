@@ -194,7 +194,16 @@ const replaceMedia = ({ seed, mediaValues }) =>
     },
   });
 
-const seed = JSON.parse(await readFile(seedPath, 'utf8'));
+const commandArgs = process.argv.slice(2);
+const seedFlagIndex = commandArgs.indexOf('--seed');
+const inputSeedPath =
+  seedFlagIndex >= 0 ? path.resolve(cmsDirectory, commandArgs[seedFlagIndex + 1]) : seedPath;
+const cliArgs =
+  seedFlagIndex >= 0
+    ? [...commandArgs.slice(0, seedFlagIndex), ...commandArgs.slice(seedFlagIndex + 2)]
+    : commandArgs;
+
+const seed = JSON.parse(await readFile(inputSeedPath, 'utf8'));
 const filenames = collectMediaFilenames(seed);
 const schema = Object.fromEntries(Object.entries(seed).filter(([key]) => key !== 'content'));
 
@@ -208,7 +217,7 @@ try {
   const localSeed = replaceMedia({ seed, mediaValues });
 
   await writeFile(localSeedPath, `${JSON.stringify(localSeed, null, 2)}\n`, 'utf8');
-  await runSeed({ args: process.argv.slice(2), seedPath: localSeedPath });
+  await runSeed({ args: cliArgs, seedPath: localSeedPath });
 } finally {
   await rm(schemaSeedPath, { force: true });
   await rm(localSeedPath, { force: true });
