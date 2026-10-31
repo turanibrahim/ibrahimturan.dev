@@ -1,4 +1,5 @@
-const calendarValuePattern = /^(\d{4})-(\d{2})(?:-\d{2})?$/;
+const calendarValuePattern = /^(\d{4})-(\d{1,2})(?!\d)/;
+const timezoneOffsetPattern = /(?:Z|[+-]\d{2}:?\d{2})$/i;
 
 interface CalendarDate {
   year: number;
@@ -27,13 +28,19 @@ const parseCalendarDate = (value: string): CalendarDate => {
   const calendarMatch = calendarValuePattern.exec(value);
 
   if (calendarMatch) {
-    return { year: Number(calendarMatch[1]), month: Number(calendarMatch[2]) };
+    const calendarDate = { year: Number(calendarMatch[1]), month: Number(calendarMatch[2]) };
+
+    if (calendarDate.month < 1 || calendarDate.month > 12) {
+      throw new Error(`Unsupported date value: ${value}`);
+    }
+
+    return calendarDate;
   }
 
   const timestamp = new Date(value);
 
-  if (Number.isNaN(timestamp.getTime())) {
-    throw new Error(`Unsupported date value: ${value}`);
+  if (!timezoneOffsetPattern.test(value) || Number.isNaN(timestamp.getTime())) {
+    throw new Error(`Date value needs an explicit timezone: ${value}`);
   }
 
   return { year: timestamp.getUTCFullYear(), month: timestamp.getUTCMonth() + 1 };
@@ -83,8 +90,9 @@ export const formatDuration = ({
   locale?: string;
 }): string => {
   const labels = getDurationLabels(locale);
-  const years = Math.floor(months / 12);
-  const remainingMonths = months % 12;
+  const totalMonths = Math.max(0, months);
+  const years = Math.floor(totalMonths / 12);
+  const remainingMonths = totalMonths % 12;
   const parts: string[] = [];
 
   if (years > 0) {
