@@ -1,7 +1,10 @@
 import type { Experience } from '@/types/experience';
+import type { PortableTextBlock } from '@/types/portable-text';
 import type { Project } from '@/types/project';
 import type { Technology } from '@/types/technology';
 import type { UserInfo } from '@/types/user';
+
+export type Locale = 'en' | 'tr';
 
 export interface ContentImage {
   url: string;
@@ -16,10 +19,11 @@ export interface Post {
   slug: string;
   excerpt: string;
   bodyMarkdown: string;
+  bodyPortableText: readonly PortableTextBlock[];
   tags: readonly string[];
   publishedAt: string;
   readingTimeMinutes: number;
-  language: string;
+  language: Locale;
   image: ContentImage;
   sourceUrl?: string;
   order: number;
@@ -31,4 +35,10 @@ export interface PortfolioContent {
   projects: Project[];
   technologies: Technology[];
   posts: Post[];
+}
+
+export interface SiteContent {
+  defaultLocale: Locale;
+  locales: readonly Locale[];
+  content: Record<Locale, PortfolioContent>;
 }

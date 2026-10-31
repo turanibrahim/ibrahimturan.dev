@@ -52,7 +52,7 @@ const toBody = (markdown) =>
     })
     .map((block) => toImageBlock(block) ?? block);
 
-const profile = snapshot.profile;
+const { profile } = snapshot;
 
 const profileEntry = {
   id: 'profile',
@@ -73,7 +73,10 @@ const profileEntry = {
     twitter: profile.twitter,
     devto: profile.devto,
     location: profile.location,
-    profile_image: toMediaValue({ url: profile.profileImg, alt: `${profile.name} ${profile.surname}` }),
+    profile_image: toMediaValue({
+      url: profile.profileImg,
+      alt: `${profile.name} ${profile.surname}`,
+    }),
     education_university: profile.education.university,
     education_department: profile.education.department,
     education_start_year: profile.education.startYear,

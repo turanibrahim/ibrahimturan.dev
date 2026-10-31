@@ -25,12 +25,14 @@ pnpm-debug.log*
 # ENV
 .env
 
-# Local Payload CMS
+# Local EmDash CMS (authoring only, never deployed)
 /cms/.env*
 !/cms/.env.example
-/cms/.next/
-/cms/media/
-/cms/payload.db*
+/cms/.astro/
+/cms/.emdash/seed.*.json
+/cms/data.db*
+/cms/uploads/
+/cms/emdash-env.d.ts
 /public/.cms-export.*
 /src/data/cms-content.json.tmp
 

@@ -15,3 +15,4 @@ export * from './v-prism-background';
 export * from './v-section';
 export * from './v-tech-badge';
 export * from './experience-card';
+export * from './portable-text';
