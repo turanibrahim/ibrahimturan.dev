@@ -2,7 +2,7 @@
 
 Personal portfolio for **İbrahim Turan** — Full-Stack Engineer.
 English at the root, Turkish under `/tr`. Astro, React components and islands, Tailwind 4, DaisyUI, Motion. Dark theme only. PWA-ready.
-Live: [ibrahimturan.dev](https://ibrahimturan.dev)
+Live: [ibrahimturan.com](https://ibrahimturan.com)
 
 ## Develop
 

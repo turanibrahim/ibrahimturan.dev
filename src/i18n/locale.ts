@@ -18,11 +18,13 @@ export const localeShortLabels: Record<Locale, string> = {
 };
 
 export const localePath = ({ locale, path }: { locale: Locale; path: string }): string => {
+  const normalizedPath = path === '/' || path.endsWith('/') ? path : `${path}/`;
+
   if (locale === defaultLocale) {
-    return path;
+    return normalizedPath;
   }
 
-  return path === '/' ? `/${locale}` : `/${locale}${path}`;
+  return normalizedPath === '/' ? `/${locale}/` : `/${locale}${normalizedPath}`;
 };
 
 export const getHomePath = (locale: Locale): string => localePath({ locale, path: '/' });

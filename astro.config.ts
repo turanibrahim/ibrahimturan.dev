@@ -4,7 +4,8 @@ import AstroPWA from '@vite-pwa/astro';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://ibrahimturan.dev',
+  site: 'https://ibrahimturan.com',
+  trailingSlash: 'always',
   output: 'static',
   i18n: {
     defaultLocale: 'en',
