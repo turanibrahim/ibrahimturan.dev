@@ -38,11 +38,11 @@ const toBody = (markdown) =>
     };
   });
 
-const toDraft = ({ entry, data, id }) => ({
+const toTranslation = ({ entry, data, id, status = 'draft' }) => ({
   ...entry,
   id: id ?? `${entry.id}-tr`,
   locale: 'tr',
-  status: 'draft',
+  status,
   translationOf: entry.id,
   data,
 });
@@ -62,8 +62,9 @@ const [profileSource] = seed.content.profile.filter(isCanonical);
 const canonicalExperiences = seed.content.experiences.filter(isCanonical);
 const canonicalProjects = seed.content.projects.filter(isCanonical);
 const canonicalPosts = seed.content.posts.filter(isCanonical);
-const translatedProfile = toDraft({
+const translatedProfile = toTranslation({
   entry: profileSource,
+  status: 'published',
   data: {
     ...profileSource.data,
     ...Object.fromEntries(
@@ -79,8 +80,9 @@ const translatedExperiences = canonicalExperiences.map((experience) => {
     throw new Error(`Missing Turkish translation for experience: ${experience.id}`);
   }
 
-  return toDraft({
+  return toTranslation({
     entry: experience,
+    status: 'published',
     data: {
       ...experience.data,
       title: normalizeApostrophes(translation.title),
@@ -106,8 +108,9 @@ const translatedProjects = canonicalProjects.map((project) => {
     );
   }
 
-  return toDraft({
+  return toTranslation({
     entry: project,
+    status: 'published',
     data: {
       ...project.data,
       ownership: normalizeApostrophes(translation.ownership),
@@ -140,7 +143,7 @@ for (const post of canonicalPosts) {
   const markdown = await readFile(path.resolve(postsDirectory, `${post.slug}.md`), 'utf8');
 
   translatedPosts.push(
-    toDraft({
+    toTranslation({
       entry: post,
       id: existingPostTranslationIds.get(post.slug),
       data: {

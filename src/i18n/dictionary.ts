@@ -203,8 +203,7 @@ const english: Dictionary = {
 const turkish: Dictionary = {
   meta: {
     title: 'İbrahim Turan — Full-Stack Mühendisi',
-    description:
-      'Ölçeklenebilir web uygulamaları ve modern arayüzler geliştiren, 6+ yıl deneyimli full-stack mühendisi.',
+    description: 'Altı yıldır üretim ortamında web uygulamaları geliştiren full-stack mühendisi.',
   },
   nav: {
     about: 'hakkımda',
@@ -220,8 +219,8 @@ const turkish: Dictionary = {
     availability: 'ürün mühendisliği fırsatlarına açık',
     lineOne: 'Fikirleri',
     lineTwo: 'ürünlere dönüştürüyorum.',
-    seeExperience: 'Deneyime bak',
-    startConversation: 'Konuşma başlat',
+    seeExperience: 'Deneyimi gör',
+    startConversation: 'İletişime geç',
   },
   about: {
     basedIn: 'konum',
@@ -231,9 +230,9 @@ const turkish: Dictionary = {
   experience: {
     current: 'Şu an burada',
     disciplinesLabel: 'Temel disiplinler ve teknolojiler',
-    heading: 'Altı yıllık ürün mühendisliği.',
+    heading: 'Altı yıldır ürün geliştiriyorum.',
     intro:
-      'Startup’larda ve kurumsal şirketlerde web ve mobil ürünler geliştiriyorum — frontend, backend ve ikisinin arasındaki dikişler.',
+      'Startup’larda ve büyük şirketlerde web ve mobil ürünler geliştiriyorum; frontend, backend ve ikisini birleştiren her katman.',
     present: 'hâlen',
     techLabel: (company) => `${company} teknolojileri`,
     until: (label) => `${label}'ya kadar`,
@@ -241,19 +240,19 @@ const turkish: Dictionary = {
     yearsUnit: 'yıldır ürün',
   },
   projects: {
-    contributions: 'Başlıca katkılar',
+    contributions: 'Katkılarım',
     engagement: {
       Company: 'Şirket',
       Freelance: 'Serbest',
       Internal: 'Şirket içi',
     },
     heading: 'Proje geçmişi.',
-    hideDetails: 'Detayları gizle',
+    hideDetails: 'Detayları kapat',
     linkLabel: (label, name) => `${name} için ${label} (yeni sekmede açılır)`,
     linksLabel: (name) => `${name} bağlantıları`,
-    stack: 'Teknoloji yığını',
+    stack: 'Kullanılan teknolojiler',
     stackLabel: (name) => `${name} teknoloji yığını`,
-    viewDetails: 'Detayları gör',
+    viewDetails: 'Detayları aç',
   },
   technologies: {
     groups: {
@@ -267,25 +266,25 @@ const turkish: Dictionary = {
     },
     heading: 'Full-stack, frontend ağırlıklı.',
     intro:
-      'React, Vue, React Native ve Node.js — bir ürünü ayakta tutan build, test ve dağıtım sistemleriyle birlikte.',
+      'React, Vue, React Native ve Node.js ile çalışıyorum; build, test ve dağıtım tarafını da kuruyorum.',
     kicker: 'stack',
-    shipping: 'Şu anda ürettiğim',
+    shipping: 'Şu anda kullandığım',
     shippingStack: 'React · TypeScript · Node.js',
   },
   blog: {
     allWriting: 'Tüm yazılar',
     description: 'Frontend mühendisliği, mimari ve araçlar üzerine yazılar.',
-    empty: 'Henüz yayınlanmış bir yazı yok.',
+    empty: 'Henüz yazı yok.',
     heading: 'Yazılım geliştirme notları.',
     moreWriting: 'Diğer yazılar',
-    moreWritingBlurb: 'Pratik notlar, mimari kararlar ve hatırlanmaya değer çözümler.',
+    moreWritingBlurb: 'Pratik notlar, mimari kararlar ve işe yarayan çözümler.',
     opensInNewTab: '(yeni sekmede açılır)',
     readArticle: 'Yazıyı oku',
-    readOnDevto: 'dev.to üzerinde oku',
+    readOnDevto: 'dev.to’da oku',
     readTime: (minutes) => `${minutes} dk okuma`,
     readTimeShort: (minutes) => `${minutes} dk`,
     summary: (count) =>
-      `${count} yazı — frontend mimarisi, araçlar ve zaman zaman zor yoldan bulunmuş çözümler.`,
+      `${count} yazı: frontend mimarisi, araçlar ve zor yoldan öğrenilen çözümler.`,
     title: 'Yazılar — İbrahim Turan',
   },
   social: {

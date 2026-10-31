@@ -2,31 +2,31 @@
   "experience-mobileaction": {
     "title": "Frontend Mühendisi",
     "location": "Ankara, Türkiye",
-    "summary": "Apple Ads yönetim konsolunun sahibiydim — modüler TypeScript mimarisi, yapay zekâ destekli geliştirme akışı ve ölçeklenebilir Vue 3 + Tailwind sistemi."
+    "summary": "Apple Ads yönetim konsolunu Vue 3 ve Tailwind ile geliştirdim. Modüler TypeScript mimarisini kurdum, AI destekli akışla özellik teslimini hızlandırdım."
   },
   "experience-nmq-digital": {
     "title": "Frontend Mühendisi",
     "location": "İstanbul, Türkiye",
-    "summary": "Next.js, React ve Hono ile yapay zekâ ürünlerinin uçtan uca teslimini yönettim. Eski Vue 2 sistemlerini modernize ettim ve 100+ kurumsal CMS bileşeni geliştirdim."
+    "summary": "Next.js, React ve Hono ile geliştirilen AI ürünlerinin teslimini uçtan uca yönettim. Vue 2 ile yazılmış eski sistemleri yeniledim, 100'den fazla kurumsal CMS bileşeni geliştirdim."
   },
   "experience-hub21": {
     "title": "Frontend Mühendisi",
     "location": "Londra, Birleşik Krallık",
-    "summary": "Pazarlama sitesini Vue ile yeniden kurdum, Lighthouse skorunu 60'tan 90+'a çıkardım; veli ve öğrenci portallarını Sentry hata izlemesiyle yayına aldım."
+    "summary": "Pazarlama sitesini Vue ile sıfırdan kurdum; Lighthouse skorunu 60'tan 90'ın üzerine çıkardım. Veli ve öğrenci portallarını geliştirip Sentry ile hata izlemeyi kurdum."
   },
   "experience-vivense": {
     "title": "Frontend Mühendisi",
     "location": "İstanbul, Türkiye",
-    "summary": "Türkiye'nin en büyük e-ticaret platformlarından birinde müşteriye dönük akışların ve şirket içi ERP modüllerinin sahibiydim — sepet, ödeme, sipariş operasyonları ve entegrasyonlar."
+    "summary": "Türkiye'nin en büyük e-ticaret platformlarından birinde sepet, ödeme ve sipariş akışlarını geliştirdim. Şirket içi ERP modüllerini ve entegrasyonları da yazdım."
   },
   "experience-reybex-cloud-erp": {
     "title": "Frontend Mühendisi",
     "location": "Sakarya, Türkiye",
-    "summary": "Sıfırdan üç şirket içi uygulama yayına aldım — mobil, el terminali ve B2B mağaza — ve platform genelinde 250+ merge request inceledim."
+    "summary": "Sıfırdan üç uygulama yayına aldım: mobil, el terminali ve B2B mağaza. Platform genelinde 250'den fazla merge request inceledim."
   },
   "experience-bgs-bireysel-gelisim": {
-    "title": "Fullstack Stajyer",
+    "title": "Full-Stack Stajyer",
     "location": "Sakarya, Türkiye",
-    "summary": "Phalcon + Vue üzerinde EYSIS kurumsal paketi için özellikler geliştirdim ve geliştirme ortamını Docker ile konteynerleştirdim."
+    "summary": "Phalcon ve Vue ile EYSIS kurumsal paketine özellikler ekledim. Geliştirme ortamını Docker'a taşıdım."
   }
 }

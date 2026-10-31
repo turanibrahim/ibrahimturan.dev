@@ -1,187 +1,187 @@
 {
   "project-reybex-ready": {
-    "ownership": "Mobil uygulama geliştirme",
-    "summary": "Stok, ürün, konfigürasyon, raporlama ve müşteri ziyareti akışları için mobil ERP yardımcı uygulaması.",
+    "ownership": "Mobil uygulama",
+    "summary": "Stok, ürün, raporlama ve müşteri ziyareti süreçlerini telefondan yürüten mobil ERP uygulaması.",
     "contributions": [
-      "Reybex'in özellik odaklı modüler mimarisini React Native uygulamasına uyarladım.",
-      "Veritabanı verisinden grafik ve widget üreten, yetkiye duyarlı raporlama panelleri geliştirdim.",
-      "Yakındaki müşterileri detay, kullanım ve harcama bilgisiyle gösteren harita tabanlı müşteri keşfini teslim ettim."
+      "Reybex'in modüler mimarisini React Native'e uyarladım.",
+      "Yetkiye göre filtrelenen raporlama ekranları geliştirdim; grafik ve widget'lar doğrudan veritabanından besleniyor.",
+      "Haritada yakındaki müşterileri gösteren bir ekran geliştirdim; her müşteri için kullanım ve harcama bilgisi görünüyor."
     ],
     "linkLabels": ["Google Play'de gör", "App Store'da gör"]
   },
   "project-reybex": {
-    "ownership": "Performans, bakım ve sohbet özelliği sahipliği",
-    "summary": "Özellik odaklı modüler mimari etrafında kurgulanmış tek sayfalık ERP platformu.",
+    "ownership": "Performans ve sohbet özelliği",
+    "summary": "Özellik bazlı modüler mimariyle kurulmuş, tek sayfa ERP uygulaması.",
     "contributions": [
-      "Uygulama performansını iyileştirdim ve ürün hatalarını giderdim.",
-      "Sohbet özelliğini Vue frontend ve Feathers.js backend boyunca uçtan uca teslim ettim."
+      "Uygulama performansını iyileştirdim, ürün hatalarını giderdim.",
+      "Sohbet özelliğini uçtan uca geliştirdim: Vue arayüzü ve Feathers.js backend'i."
     ],
     "linkLabels": []
   },
   "project-reybex-e-commerce": {
-    "ownership": "Frontend e-ticaret geliştirme",
-    "summary": "Birden fazla müşteri kurulumu için Reybex ERP API'sine bağlanan, markaya göre uyarlanabilir B2B vitrin.",
+    "ownership": "Frontend e-ticaret",
+    "summary": "Reybex ERP'ye bağlanan, müşteriye göre markalanabilen B2B mağaza altyapısı.",
     "contributions": [
-      "Vitrini Vue Storefront üzerinde kurdum; arka uç olarak Reybex hizmet verdi.",
-      "Yeniden kullanılabilir bir müşteri kurulum modelini destekledim; Almanya'nın en büyük çanta üreticilerinden biri için devreye alma yaptım."
+      "Mağazayı Vue Storefront ile geliştirdim, veriyi Reybex API'si sağlıyor.",
+      "Her müşteri için yeniden kullanılabilen bir kurulum modeli kurdum; Almanya'nın en büyük çanta üreticilerinden biri de bu modelle yayına alındı."
     ],
     "linkLabels": []
   },
   "project-vivense-uk-website": {
-    "ownership": "Sepet, ödeme, hesap ve sipariş modülü sahipliği",
-    "summary": "Arama görünürlüğünü desteklemek için ön-render edilen Vue tek sayfa vitrini.",
+    "ownership": "Sepet, ödeme ve sipariş modülleri",
+    "summary": "Aramada görünmesi için ön-render edilen Vue vitrin sitesi.",
     "contributions": [
-      "Sepet, ödeme, sipariş geçmişi ve kullanıcı bilgileri modüllerinin sahibiydim.",
-      "ERP tarafından yönetilen, dinamik olarak açılıp kapatılabilen ödeme yöntemleri geliştirdim."
+      "Sepet, ödeme, sipariş geçmişi ve hesap ekranlarını geliştirdim.",
+      "Ödeme yöntemlerini ERP'den yönetilebilir hâle getirdim; açılıp kapanmaları tek yerden kontrol ediliyor."
     ],
     "linkLabels": []
   },
   "project-vivense-dragon-erp": {
-    "ownership": "Sipariş finansı, ödeme ve kullanıcı bilgileri modülü sahipliği",
-    "summary": "Vivense operasyonlarını destekleyen şirket içi tek sayfa ERP uygulaması.",
+    "ownership": "Sipariş finansı ve ödeme modülleri",
+    "summary": "Vivense'nin günlük operasyonunu yürüten şirket içi ERP uygulaması.",
     "contributions": [
-      "Şirket içi platformda sipariş finansı, ödeme ve kullanıcı bilgileri modüllerinin sahibiydim."
+      "Sipariş finansı, ödeme ve kullanıcı bilgileri modüllerini geliştirdim."
     ],
     "linkLabels": []
   },
   "project-hub21-website": {
-    "ownership": "Uçtan uca ürün ve teslim sahipliği",
-    "summary": "Arama görünürlüğü ve hızlı teslim için tasarlanmış, statik olarak üretilen pazarlama sitesi.",
+    "ownership": "Uçtan uca ürün geliştirme",
+    "summary": "Statik üretilen, aramada öne çıkmak için kurgulanmış pazarlama sitesi.",
     "contributions": [
       "Geliştirme, CI/CD, dağıtım, site yapılandırması ve SEO'yu yönettim.",
-      "İki site yeniden markalama sürecini yönettim.",
-      "Pazarlama sayfası oluşturmayı yaklaşık iki güne indiren CMS benzeri bileşenler geliştirdim."
+      "Siteyi iki kez yeniden markalayıp yayına aldım.",
+      "Pazarlama ekibinin yeni sayfayı iki günde çıkarabildiği CMS bileşenleri geliştirdim."
     ],
     "linkLabels": ["Hub21'i ziyaret et"]
   },
   "project-hub21-parent-and-student-projects": {
-    "ownership": "Uçtan uca ürün sahipliği",
-    "summary": "Ödeme, abonelik, paket ve öğrenme ilerlemesi için eşleşen veli ve öğrenci uygulamaları.",
+    "ownership": "Veli ve öğrenci uygulamaları",
+    "summary": "Ödeme, abonelik ve ders takibini birlikte yürüten veli ve öğrenci uygulamaları.",
     "contributions": [
-      "Hub21 web sitesinin mimarisini ve teknoloji yığınını iki uygulamada da kullandım.",
-      "Stripe ödemelerini, abonelikleri, paket yönetimini ve dinamik paket seçeneklerini entegre ettim.",
-      "İlerleme takibi ve yaklaşan ders bilgileri için öğrenci panelleri geliştirdim."
+      "Hub21 sitesindeki mimariyi ve teknoloji seçimlerini iki uygulamada da kullandım.",
+      "Stripe ile ödeme ve abonelik akışlarını, paket yönetimini ve dinamik paket seçimini kurdum.",
+      "Öğrenciler için ilerlemeyi ve yaklaşan dersleri gösteren paneller geliştirdim."
     ],
     "linkLabels": []
   },
   "project-okumak-guzeldir": {
-    "ownership": "Serbest frontend sahipliği",
-    "summary": "Eyüp Belediyesi için çevrim içi okuma yarışması platformu ve yönetim uygulaması.",
+    "ownership": "Frontend geliştirme",
+    "summary": "Eyüp Belediyesi'nin çevrim içi okuma yarışması ve yönetim paneli.",
     "contributions": [
-      "100.000'den fazla kullanıcıya hizmet veren ilk etkinliğin yarışma frontend'ini geliştirdim.",
-      "İkinci yıl üst üste düzenlenen yarışmada platformu küçük güncellemelerle ayakta tuttum.",
-      "Vue.js ve Vuetify ile yönetim raporlaması ve kullanıcı yönetimi teslim ettim."
+      "İlk dönemde 100.000'den fazla kullanıcının girdiği yarışmanın arayüzünü geliştirdim.",
+      "Ertesi yıl yarışma tekrar düzenlendiğinde küçük güncellemelerle platformu ayakta tuttum.",
+      "Vue ve Vuetify ile yönetim raporlarını ve kullanıcı yönetimini geliştirdim."
     ],
     "linkLabels": []
   },
   "project-fasterapply-ai": {
-    "ownership": "Serbest frontend geliştirme",
-    "summary": "Kullanıcıların hızlıca Upwork teklifi hazırlamasına yardım eden yapay zekâ ürünü.",
+    "ownership": "Frontend geliştirme",
+    "summary": "Upwork tekliflerini hızlıca hazırlamayı sağlayan AI ürünü.",
     "contributions": [
-      "Ürünün frontend'ini Vue 3 ile geliştirdim.",
-      "Arayüzü Tailwind CSS, Sentry, VeeValidate, Vue Router ve Pinia ile kurdum."
+      "Ürünün arayüzünü Vue 3 ile geliştirdim.",
+      "Arayüzü Tailwind CSS ile yazdım; Sentry, VeeValidate, Vue Router ve Pinia'yı entegre ettim."
     ],
     "linkLabels": []
   },
   "project-icerik-com-website": {
-    "ownership": "Serbest uçtan uca bakım ve teslim",
-    "summary": "DatoCMS ile beslenen, React uygulaması olarak sürdürülen içerik sitesi.",
+    "ownership": "Bakım ve geliştirme",
+    "summary": "İçeriği DatoCMS'ten gelen, React ile geliştirilmiş içerik sitesi.",
     "contributions": [
-      "Geliştirme, dağıtım, CI/CD süreçleri, güncellemeler ve sürekli bakımın sahibiydim."
+      "Geliştirme, dağıtım ve CI/CD süreçlerini kurdum; siteyi düzenli güncellemelerle ayakta tuttum."
     ],
     "linkLabels": []
   },
   "project-icerik-com-app": {
-    "ownership": "Serbest full-stack sahipliği",
-    "summary": "Yönetim, yazar ve yayıncı akışlarını tek uygulamada birleştiren içerik pazaryeri.",
+    "ownership": "Full-stack geliştirme",
+    "summary": "Yönetim, yazar ve yayıncı panellerini tek uygulamada buluşturan içerik pazaryeri.",
     "contributions": [
-      "FastAPI backend'ini ve Vue.js frontend'ini geliştirdim.",
-      "Admin, Yazar ve Yayıncı panellerini tek uygulamada birleştirdim ve Vue 2'den Vue 3'e taşıdım.",
-      "Yayıncıların site içeriği oluşturmasını, yazarların serbest içerik işlerine erişmesini sağladım."
+      "Backend'i FastAPI, arayüzü Vue ile geliştirdim.",
+      "Yönetim, yazar ve yayıncı panellerini tek uygulamada birleştirdim; Vue 2'den Vue 3'e taşıdım.",
+      "Yayıncılar siteleri için içerik üretiyor, yazarlar serbest içerik işlerine erişiyor."
     ],
     "linkLabels": []
   },
   "project-zeo-org-website": {
-    "ownership": "Serbest uçtan uca bakım ve teslim",
-    "summary": "Storyblok ile beslenen, React ile sürdürülen pazarlama sitesi.",
+    "ownership": "Bakım ve geliştirme",
+    "summary": "İçeriği Storyblok'tan gelen, React ile geliştirilmiş pazarlama sitesi.",
     "contributions": [
-      "Geliştirme, bakım, CI/CD süreçleri ve güvenliğin sahibiydim.",
-      "İhtiyaç duyuldukça kademeli site güncellemelerini teslim ettim."
+      "Geliştirme, bakım, CI/CD ve güvenlik tarafını yönettim.",
+      "İhtiyaç çıktıkça küçük güncellemeleri yayına aldım."
     ],
     "linkLabels": []
   },
   "project-jams-adr-website": {
-    "ownership": "Frontend CMS bileşen geliştirme ve müşteri iş birliği",
-    "summary": "ABD'nin en büyük alternatif uyuşmazlık çözümü sağlayıcılarından biri için Crownpeak CMS sitesi.",
+    "ownership": "CMS bileşenleri ve müşteri iletişimi",
+    "summary": "ABD'nin en büyük alternatif uyuşmazlık çözümü sağlayıcılarından JAMS için Crownpeak sitesi.",
     "contributions": [
-      "Yaklaşık bir yıl boyunca frontend CMS bileşenlerini geliştirdim ve sürdürdüm.",
-      "Müşteri toplantılarında güncellemeleri sundum ve talepleri uygulanabilir çözümlere dönüştürdüm.",
-      "Astro, React, Alpine.js ve Crownpeak içindeki özel Vite çıktı hattıyla çalıştım."
+      "Bir yıl boyunca Crownpeak CMS bileşenlerini geliştirdim ve bakımını yaptım.",
+      "Müşteri toplantılarına katıldım; talepleri doğrudan uygulanabilir çözümlere çevirdim.",
+      "Astro, React, Alpine.js ve Crownpeak için yazılmış özel Vite hattıyla çalıştım."
     ],
     "linkLabels": ["JAMS ADR'ı ziyaret et"]
   },
   "project-jams-pathways-website": {
-    "ownership": "Proje başlangıcından itibaren frontend sahipliği",
-    "summary": "Özel bir frontend teslim hattıyla sıfırdan kurulan Crownpeak CMS sitesi.",
+    "ownership": "Sıfırdan frontend geliştirme",
+    "summary": "Sıfırdan kurulan Crownpeak sitesi; frontend özel bir hat üzerinden derleniyor.",
     "contributions": [
-      "Projenin başından itibaren Crownpeak CMS bileşenlerinin tamamını geliştirdim.",
-      "Frontend'i Astro, Alpine.js ve özel bir Vite çıktı hattıyla oluşturdum."
+      "Projenin başından itibaren tüm Crownpeak bileşenlerini geliştirdim.",
+      "Frontend'i Astro, Alpine.js ve özel bir Vite hattıyla kurdum."
     ],
     "linkLabels": ["JAMS Pathways'i ziyaret et"]
   },
   "project-affinityfcu-website": {
-    "ownership": "Site bakımı ve CMS bileşen geliştirme",
-    "summary": "Affinity Federal Credit Union için Crownpeak CMS sitesi.",
+    "ownership": "Bakım ve CMS bileşenleri",
+    "summary": "Affinity Federal Credit Union'ın Crownpeak sitesi.",
     "contributions": [
-      "Mevcut siteyi sürdürdüm.",
-      "Astro, Alpine.js, saf JavaScript ve HTML ile yeni Crownpeak bileşenleri geliştirdim."
+      "Mevcut siteyi ayakta tuttum.",
+      "Astro, Alpine.js, vanilla JavaScript ve HTML ile yeni Crownpeak bileşenleri yazdım."
     ],
     "linkLabels": ["Affinity Federal Credit Union'ı ziyaret et"]
   },
   "project-crownpeak-ai-translation-tool": {
-    "ownership": "Proje devrinden sonra bakım ve dağıtım sahipliği",
-    "summary": "Crownpeak içerik akışları için geliştirilmiş yapay zekâ çeviri aracı.",
+    "ownership": "Bakım ve dağıtım",
+    "summary": "Crownpeak'in içerik akışlarında kullandığı AI çeviri aracı.",
     "contributions": [
-      "Ana geliştirici projeden ayrıldıktan sonra uygulama bakımını ve dağıtımını devraldım."
+      "Projenin asıl geliştiricisi ayrıldıktan sonra uygulamanın bakımını ve dağıtımını devraldım."
     ],
     "linkLabels": []
   },
   "project-philips-ai-projects": {
-    "ownership": "Uçtan uca ürün, altyapı ve teslim sahipliği",
-    "summary": "Philips pazarlama ekipleri için e-posta doğrulama, içerik üretimi ve alt metin üretimini kapsayan şirket içi yapay zekâ araçları.",
+    "ownership": "Ürün, altyapı ve teslim",
+    "summary": "Philips pazarlama ekibinin kullandığı AI araçları: e-posta doğrulama, içerik ve alt metin üretimi.",
     "contributions": [
-      "Ürünleri Philips yöneticilerine sundum.",
-      "Sunucuları, dağıtımı ve uygulama geliştirmeyi yönettim.",
-      "Pazarlama e-postalarını doğrulamak ve doğrulama raporları üretmek için ChatGPT API'sini kullandım."
+      "Araçları Philips yöneticilerine sundum.",
+      "Sunucuları, dağıtımı ve geliştirmeyi tek başıma yürüttüm.",
+      "Pazarlama e-postalarını doğrulamak için ChatGPT API'sini kullandım; sonuçları rapor olarak çıkardım."
     ],
     "linkLabels": []
   },
   "project-broadridge-website": {
-    "ownership": "Frontend CMS bileşen geliştirme ve dokümantasyon",
-    "summary": "Yeniden kullanılabilir özel web bileşenleriyle sıfırdan kurulan Crownpeak sitesi.",
+    "ownership": "CMS bileşenleri ve dokümantasyon",
+    "summary": "Sıfırdan kurulan Crownpeak sitesi; bileşenler yeniden kullanılabilir web bileşenleri olarak yazıldı.",
     "contributions": [
-      "20'den fazla frontend CMS bileşeni geliştirdim.",
-      "Frontend'i Astro, Lit özel elementleri ve özel bir Vite çıktı hattıyla oluşturdum.",
-      "Crownpeak geliştiricileri için bileşen davranışını ve kullanımını belgeledim."
+      "20'den fazla Crownpeak bileşeni geliştirdim.",
+      "Frontend'i Astro, Lit web bileşenleri ve özel bir Vite hattıyla kurdum.",
+      "Crownpeak geliştiricileri için bileşenlerin nasıl kullanılacağını belgeledim."
     ],
     "linkLabels": []
   },
   "project-nmq-website": {
-    "ownership": "Site bakımı ve yerelleştirme desteği",
-    "summary": "Saf frontend teknolojileriyle sürdürülen HubSpot CMS sitesi.",
+    "ownership": "Bakım ve yerelleştirme",
+    "summary": "HubSpot üzerinde çalışan, vanilla JS ile geliştirilmiş site.",
     "contributions": [
-      "Küçük güncellemeleri ve sürekli site bakımını teslim ettim.",
-      "Site genelindeki çeviri sorunlarını çözdüm."
+      "Küçük güncellemeleri yayına aldım, siteyi sürekli ayakta tuttum.",
+      "Site genelindeki çeviri hatalarını düzelttim."
     ],
     "linkLabels": ["NMQ'yu ziyaret et"]
   },
   "project-mobileaction-searchads": {
-    "ownership": "Kurumsal panel mimarisi ve özellik teslimi",
-    "summary": "Google ve Meta gibi yüksek değerli müşterileri destekleyen kurumsal SearchAds panel modülleri.",
+    "ownership": "Panel mimarisi ve özellik geliştirme",
+    "summary": "Google ve Meta gibi büyük müşterilerin kullandığı SearchAds paneli.",
     "contributions": [
-      "Advanced Filter ve Scheduled Reports modüllerini Vue 3, Pinia, Tailwind CSS ve AG Grid ile geliştirdim.",
-      "Özellik teslim süresini günlerden dakikalara indiren, yapay zekâ için optimize edilmiş modüler bir sistem tasarladım ve Change History'nin %90'ını yapay zekâ öncelikli bir akışla teslim ettim.",
-      "Tüm Yarn audit ve Dependabot güvenlik açıklarını kapatarak %100 güvenlik uyumunu korudum, kod tabanını ESLint 9'a taşıdım ve frontend ekibi için yapay zekâya hazır desenleri belgeledim."
+      "Advanced Filter ve Scheduled Reports modüllerini Vue 3, Pinia, Tailwind ve AG Grid ile geliştirdim.",
+      "AI ile çalışacak şekilde kurgulanmış modüler bir yapı kurdum; özellik teslimi günlerden dakikalara indi ve Change History'nin %90'ı bu akışla çıktı.",
+      "Yarn audit ve Dependabot uyarılarının tamamını kapatıp güvenlik uyumunu %100'de tuttum; kod tabanını ESLint 9'a taşıdım ve ekibin AI ile çalışırken kullandığı desenleri yazıya döktüm."
     ],
     "linkLabels": []
   }
