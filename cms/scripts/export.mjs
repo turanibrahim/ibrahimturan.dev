@@ -3,7 +3,6 @@ import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
-import { portableTextToMarkdown } from 'emdash/client';
 import {
   EXPERIENCES_COLLECTION,
   POSTS_COLLECTION,
@@ -223,7 +222,7 @@ const toPortableText = (blocks) =>
     return {
       ...block,
       alt: block.alt || row.alt || '',
-      asset: { ...block.asset, url },
+      asset: { url },
       width: row.width,
       height: row.height,
     };
@@ -331,7 +330,6 @@ const toPost = (entry) => {
     title: toText(data.title),
     slug: entry.slug,
     excerpt: toText(data.excerpt),
-    bodyMarkdown: portableTextToMarkdown(bodyPortableText),
     bodyPortableText,
     tags: (data.tags ?? []).map(({ name }) => name),
     publishedAt: toText(data.published_on),

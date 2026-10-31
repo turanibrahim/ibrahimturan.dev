@@ -18,7 +18,6 @@ export interface Post {
   title: string;
   slug: string;
   excerpt: string;
-  bodyMarkdown: string;
   bodyPortableText: readonly PortableTextBlock[];
   tags: readonly string[];
   publishedAt: string;

@@ -6,8 +6,8 @@
     "dev": "astro dev --port 3000",
     "build": "astro build",
     "preview": "astro preview --port 3000",
-    "build:seed": "node scripts/build-seed.mjs",
     "seed": "node scripts/seed.mjs",
+    "seed:refresh": "node scripts/refresh-seed.mjs",
     "export": "node scripts/export.mjs"
   },
   "dependencies": {

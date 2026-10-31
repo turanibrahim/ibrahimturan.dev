@@ -2,7 +2,7 @@
 import { posts } from '@/data/content';
 import DefaultLayout from '@/layouts/default.layout.astro';
 import { formatMonthYear } from '@/utils/date';
-import { renderMarkdown } from '@/utils/markdown';
+import { renderPortableText } from '@/utils/portable-text';
 
 export function getStaticPaths() {
   return posts.map((post) => ({
@@ -12,7 +12,7 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const bodyHtml = await renderMarkdown(post.bodyMarkdown);
+const bodyHtml = await renderPortableText(post.bodyPortableText);
 const pageTitle = `${post.title} — İbrahim Turan`;
 ---
 
@@ -295,11 +295,18 @@ const pageTitle = `${post.title} — İbrahim Turan`;
     color: var(--color-secondary);
   }
 
-  .blog-article p:has(> img:only-child),
-  .blog-article p:has(> a:only-child > img:only-child) {
+  .blog-article .post-image {
     width: min(60rem, calc(100vw - 2.5rem));
     margin: 2.75rem 50%;
     transform: translateX(-50%);
+  }
+
+  .blog-article .post-image figcaption {
+    margin-top: 0.75rem;
+    color: var(--color-base-content-muted);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    text-align: center;
   }
 
   .blog-article img {
@@ -365,7 +372,8 @@ const pageTitle = `${post.title} — İbrahim Turan`;
       font-size: 1.75rem;
     }
 
-    .blog-article .code-block {
+    .blog-article .code-block,
+    .blog-article .post-image {
       width: calc(100% + (var(--container-padding) * 2));
       margin-right: calc(var(--container-padding) * -1);
       margin-left: calc(var(--container-padding) * -1);

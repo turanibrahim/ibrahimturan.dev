@@ -26,10 +26,7 @@ export interface PortableTextImageBlock {
   _type: 'image';
   _key: string;
   asset: {
-    _type: 'reference';
-    _ref: string;
     url: string;
-    provider?: string;
   };
   alt?: string;
   caption?: string;
