@@ -1,0 +1,13 @@
+---
+import HomeTemplate from '@/components/templates/home-template.astro';
+import { getHomePath } from '@/i18n';
+import type { Locale, LocalizedPath } from '@/types/locale';
+
+const locale: Locale = 'tr';
+const alternates: LocalizedPath[] = [
+  { locale: 'en', path: getHomePath('en') },
+  { locale: 'tr', path: getHomePath('tr') },
+];
+---
+
+<HomeTemplate alternates={alternates} locale={locale} />

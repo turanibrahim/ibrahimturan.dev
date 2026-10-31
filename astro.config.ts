@@ -6,6 +6,13 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://ibrahimturan.dev',
   output: 'static',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'tr'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   integrations: [
     react(),
     AstroPWA({

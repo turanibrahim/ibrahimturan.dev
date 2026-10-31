@@ -1,0 +1,46 @@
+---
+import BlogPostTemplate from '@/components/templates/blog-post-template.astro';
+import { getContent } from '@/data/content';
+import { getBlogPath, getPostPath } from '@/i18n';
+import type { Post } from '@/types/content';
+import type { Locale, LocalizedPath } from '@/types/locale';
+
+const locale: Locale = 'tr';
+const alternateLocale: Locale = 'en';
+
+export const getStaticPaths = () =>
+  getContent('tr').posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const translation = getContent(alternateLocale).posts.find(
+  (candidate) => candidate.slug === post.slug,
+);
+const alternates: LocalizedPath[] = [
+  { locale, path: getPostPath({ locale, slug: post.slug }) },
+  ...(translation
+    ? [
+        {
+          locale: alternateLocale,
+          path: getPostPath({ locale: alternateLocale, slug: translation.slug }),
+        },
+      ]
+    : []),
+];
+const languagePaths: Record<Locale, string> = {
+  [locale]: getPostPath({ locale, slug: post.slug }),
+  [alternateLocale]: translation
+    ? getPostPath({ locale: alternateLocale, slug: translation.slug })
+    : getBlogPath(alternateLocale),
+};
+---
+
+<BlogPostTemplate
+  alternates={alternates}
+  languagePaths={languagePaths}
+  locale={locale}
+  post={post}
+/>

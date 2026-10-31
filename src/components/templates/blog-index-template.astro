@@ -1,0 +1,167 @@
+---
+import LanguageSwitcher from '@/components/molecules/language-switcher';
+import PostCard from '@/components/molecules/post-card';
+import { getContent } from '@/data/content';
+import {
+  dateLocales,
+  getBlogPath,
+  getDictionary,
+  getHomePath,
+  getPostPath,
+  localeShortLabels,
+} from '@/i18n';
+import DefaultLayout from '@/layouts/default.layout.astro';
+import type { Locale, LocalizedPath } from '@/types/locale';
+import { formatMonthYear } from '@/utils/date';
+
+interface Props {
+  alternates: readonly LocalizedPath[];
+  locale: Locale;
+}
+
+const { alternates, locale } = Astro.props;
+const dictionary = getDictionary(locale);
+const { posts } = getContent(locale);
+const [featuredPost, ...remainingPosts] = posts;
+const blogPath = getBlogPath(locale);
+---
+
+<DefaultLayout
+  locale={locale}
+  path={blogPath}
+  title={dictionary.blog.title}
+  description={dictionary.blog.description}
+  alternates={alternates}
+>
+  <div class="container pb-24 pt-8 sm:pb-28 sm:pt-10 lg:pb-36">
+    <header class="flex items-center justify-between py-4 lg:py-6">
+      <a href="/" class="font-mono text-sm font-semibold tracking-tight text-base-content">
+        it<span class="text-primary">.</span>
+      </a>
+      <nav
+        aria-label={dictionary.nav.primaryLabel}
+        class="flex items-center gap-5 font-mono text-xs text-base-content-muted sm:gap-8"
+      >
+        <a href={getHomePath(locale)} class="transition-colors hover:text-primary">
+          {dictionary.nav.home}
+        </a>
+        <a href={blogPath} class="text-primary transition-colors">{dictionary.nav.blog}</a>
+        <LanguageSwitcher
+          current={locale}
+          dictionary={dictionary}
+          paths={{
+            en: getBlogPath('en'),
+            tr: getBlogPath('tr'),
+          }}
+        />
+      </nav>
+    </header>
+
+    <section
+      aria-labelledby="blog-heading"
+      class="mt-14 grid items-end gap-8 sm:mt-20 lg:mt-24 lg:grid-cols-12 lg:gap-12"
+    >
+      <h1
+        id="blog-heading"
+        class="max-w-4xl text-balance text-5xl font-extrabold leading-[1.02] tracking-[-0.04em] text-base-content sm:text-6xl lg:col-span-8 lg:text-7xl"
+      >
+        {dictionary.blog.heading}
+      </h1>
+      <p
+        class="max-w-xl text-lg leading-relaxed text-base-content-muted lg:col-span-4 lg:justify-self-end"
+      >
+        {dictionary.blog.summary(posts.length)}
+      </p>
+    </section>
+
+    {
+      featuredPost && (
+        <section
+          aria-labelledby={`post-${featuredPost.slug}`}
+          class="mt-14 border-y border-base-300 py-8 sm:mt-16 sm:py-10 lg:mt-20 lg:py-12"
+        >
+          <a
+            href={getPostPath({ locale, slug: featuredPost.slug })}
+            class="group grid items-center gap-8 lg:grid-cols-12 lg:gap-12 xl:gap-16"
+          >
+            <div class="overflow-hidden rounded-md border border-base-300 bg-base-200 p-2 lg:col-span-7">
+              <img
+                src={featuredPost.image.url}
+                alt={featuredPost.image.alt}
+                width={featuredPost.image.width}
+                height={featuredPost.image.height}
+                class="aspect-[1200/630] w-full rounded-sm object-cover transition-transform duration-300 group-hover:scale-[1.015] group-focus-visible:scale-[1.015]"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </div>
+
+            <div class="lg:col-span-5">
+              <div class="flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-base-content-muted">
+                <time datetime={featuredPost.publishedAt}>
+                  {formatMonthYear({
+                    locale: dateLocales[locale],
+                    value: featuredPost.publishedAt,
+                  })}
+                </time>
+                <span aria-hidden="true">/</span>
+                <span>{dictionary.blog.readTime(featuredPost.readingTimeMinutes)}</span>
+                <span aria-hidden="true">/</span>
+                <span lang={featuredPost.language}>{localeShortLabels[featuredPost.language]}</span>
+              </div>
+              <h2
+                id={`post-${featuredPost.slug}`}
+                class="mt-5 text-balance text-3xl font-extrabold leading-tight tracking-[-0.03em] text-base-content transition-colors group-hover:text-primary group-focus-visible:text-primary sm:text-4xl"
+              >
+                {featuredPost.title}
+              </h2>
+              <p class="mt-5 max-w-2xl text-base leading-relaxed text-base-content-muted">
+                {featuredPost.excerpt}
+              </p>
+              <div class="mt-6 flex flex-wrap gap-x-3 gap-y-2 font-mono text-xs text-secondary">
+                {featuredPost.tags.map((tag) => (
+                  <span>#{tag}</span>
+                ))}
+              </div>
+              <span class="mt-8 inline-flex border-b border-primary pb-1 font-mono text-xs text-primary">
+                {dictionary.blog.readArticle}
+              </span>
+            </div>
+          </a>
+        </section>
+      )
+    }
+
+    {
+      remainingPosts.length > 0 && (
+        <section aria-labelledby="archive-heading" class="mt-16 sm:mt-20 lg:mt-24">
+          <div class="mb-6 flex items-end justify-between gap-6 sm:mb-8">
+            <h2
+              id="archive-heading"
+              class="text-2xl font-bold tracking-[-0.02em] text-base-content sm:text-3xl"
+            >
+              {dictionary.blog.moreWriting}
+            </h2>
+            <p class="hidden max-w-sm text-right text-sm leading-relaxed text-base-content-muted sm:block">
+              {dictionary.blog.moreWritingBlurb}
+            </p>
+          </div>
+          <div>
+            {remainingPosts.map((post) => (
+              <PostCard dictionary={dictionary} locale={locale} post={post} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    {
+      posts.length === 0 && (
+        <section class="mt-16 border-y border-base-300 py-16 text-center">
+          <p class="mx-auto text-base text-base-content-muted">{dictionary.blog.empty}</p>
+        </section>
+      )
+    }
+  </div>
+</DefaultLayout>

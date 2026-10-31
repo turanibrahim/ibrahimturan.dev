@@ -1,0 +1,13 @@
+---
+import BlogIndexTemplate from '@/components/templates/blog-index-template.astro';
+import { getBlogPath } from '@/i18n';
+import type { Locale, LocalizedPath } from '@/types/locale';
+
+const locale: Locale = 'tr';
+const alternates: LocalizedPath[] = [
+  { locale: 'en', path: getBlogPath('en') },
+  { locale: 'tr', path: getBlogPath('tr') },
+];
+---
+
+<BlogIndexTemplate alternates={alternates} locale={locale} />

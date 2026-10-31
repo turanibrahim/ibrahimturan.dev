@@ -1,5 +1,6 @@
 import contentData from '@/data/cms-content.json';
-import type { Locale, PortfolioContent, SiteContent } from '@/types/content';
+import type { PortfolioContent, SiteContent } from '@/types/content';
+import type { Locale } from '@/types/locale';
 
 const snapshot = contentData as SiteContent;
 const { content, defaultLocale, locales } = snapshot;
@@ -9,4 +10,4 @@ export { defaultLocale, locales };
 export const getContent = (locale: Locale = defaultLocale): PortfolioContent =>
   content[locale] ?? content[defaultLocale];
 
-export const { experiences, posts, profile, projects, technologies } = getContent();
+export const getProfile = (locale: Locale) => getContent(locale).profile;

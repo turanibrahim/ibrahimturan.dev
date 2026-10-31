@@ -1,31 +1,35 @@
 import type { ReactElement } from 'react';
 import VIcon from '@/components/atoms/v-icon';
-import { profile } from '@/data/content';
+import type { Dictionary } from '@/i18n/dictionary';
+import type { UserInfo } from '@/types/user';
 
 interface Props {
   className?: string;
+  labels: Dictionary['social'];
+  profile: UserInfo;
 }
 
-const userInfo = profile;
-const socialLinks = [
-  { name: 'github', label: 'GitHub profile', url: userInfo.github, icon: 'fa-github' },
-  { name: 'linkedin', label: 'LinkedIn profile', url: userInfo.linkedin, icon: 'fa-linkedin' },
-  { name: 'devto', label: 'Dev.to profile', url: userInfo.devto, icon: 'fa-dev' },
-  { name: 'twitter', label: 'X (Twitter) profile', url: userInfo.twitter, icon: 'fa-twitter' },
-];
+const socialNetworks = ['github', 'linkedin', 'devto', 'twitter'] as const;
 
-export const SocialLinks = ({ className }: Props): ReactElement => (
+const socialIcons: Record<(typeof socialNetworks)[number], string> = {
+  devto: 'fa-dev',
+  github: 'fa-github',
+  linkedin: 'fa-linkedin',
+  twitter: 'fa-twitter',
+};
+
+export const SocialLinks = ({ className, labels, profile }: Props): ReactElement => (
   <div className={['flex items-center gap-2', className].filter(Boolean).join(' ')}>
-    {socialLinks.map((link) => (
+    {socialNetworks.map((network) => (
       <a
-        key={link.name}
-        href={link.url}
+        key={network}
+        href={profile[network]}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={link.label}
+        aria-label={labels[network]}
         className="btn btn-circle btn-ghost"
       >
-        <VIcon name={link.icon} className="h-5 w-5" />
+        <VIcon name={socialIcons[network]} className="h-5 w-5" />
       </a>
     ))}
   </div>

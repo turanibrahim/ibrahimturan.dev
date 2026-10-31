@@ -1,10 +1,9 @@
 import type { Experience } from '@/types/experience';
+import type { Locale } from '@/types/locale';
 import type { PortableTextBlock } from '@/types/portable-text';
 import type { Project } from '@/types/project';
 import type { Technology } from '@/types/technology';
 import type { UserInfo } from '@/types/user';
-
-export type Locale = 'en' | 'tr';
 
 export interface ContentImage {
   url: string;

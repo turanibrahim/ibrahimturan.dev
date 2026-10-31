@@ -14,5 +14,5 @@ export * from './v-icon';
 export * from './v-prism-background';
 export * from './v-section';
 export * from './v-tech-badge';
-export * from './experience-card';
+export * from './locale';
 export * from './portable-text';

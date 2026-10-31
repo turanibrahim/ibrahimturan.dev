@@ -1,0 +1,174 @@
+---
+import VAvatar from '@/components/atoms/v-avatar';
+import LanguageSwitcher from '@/components/molecules/language-switcher';
+import SocialLinks from '@/components/molecules/social-links';
+import ExperienceSection from '@/components/organisms/experience-section';
+import ProjectsSection from '@/components/organisms/projects-section';
+import TechnologiesSection from '@/components/organisms/technologies-section';
+import { getContent } from '@/data/content';
+import { getBlogPath, getDictionary, getHomePath } from '@/i18n';
+import DefaultLayout from '@/layouts/default.layout.astro';
+import type { Locale, LocalizedPath } from '@/types/locale';
+
+interface Props {
+  alternates: readonly LocalizedPath[];
+  locale: Locale;
+}
+
+const { alternates, locale } = Astro.props;
+const dictionary = getDictionary(locale);
+const { experiences, profile, projects, technologies } = getContent(locale);
+const fullName = `${profile.name} ${profile.surname}`;
+---
+
+<DefaultLayout
+  locale={locale}
+  path={getHomePath(locale)}
+  title={dictionary.meta.title}
+  description={dictionary.meta.description}
+  alternates={alternates}
+>
+  <div class="portfolio-shell">
+    <header class="container flex items-center justify-between py-6 lg:py-8">
+      <a href="#home" class="font-mono text-sm font-semibold tracking-tight text-base-content">
+        it<span class="text-primary">.</span>
+      </a>
+      <nav
+        aria-label={dictionary.nav.primaryLabel}
+        class="flex items-center gap-5 font-mono text-xs text-base-content-muted sm:gap-8"
+      >
+        <a href="#work" class="transition-colors hover:text-primary">{dictionary.nav.work}</a>
+        <a href="#projects" class="transition-colors hover:text-primary">
+          {dictionary.nav.projects}
+        </a>
+        <a href="#about" class="transition-colors hover:text-primary">{dictionary.nav.about}</a>
+        <a href="#contact" class="transition-colors hover:text-primary">{dictionary.nav.contact}</a>
+        <a href={getBlogPath(locale)} class="transition-colors hover:text-primary">
+          {dictionary.nav.blog}
+        </a>
+        <LanguageSwitcher
+          current={locale}
+          dictionary={dictionary}
+          paths={{
+            en: getHomePath('en'),
+            tr: getHomePath('tr'),
+          }}
+        />
+      </nav>
+    </header>
+
+    <section id="home" class="container hero-layout py-16 sm:py-24 lg:py-32">
+      <div class="hero-copy">
+        <p class="mb-5 font-mono text-xs text-primary">
+          {profile.title} / {profile.location}
+        </p>
+        <h1
+          class="max-w-4xl text-balance text-5xl font-black leading-[0.98] tracking-[-0.05em] text-base-content sm:text-7xl lg:text-8xl"
+        >
+          {dictionary.hero.lineOne}<br /><span class="text-primary">{dictionary.hero.lineTwo}</span>
+        </h1>
+        <p class="mt-8 max-w-xl text-lg leading-relaxed text-base-content-muted sm:text-xl">
+          {profile.tagline}
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <a
+            href={`mailto:${profile.email}`}
+            class="rounded-md bg-primary px-5 py-3 font-semibold text-primary-content transition-transform hover:-translate-y-0.5"
+          >
+            {dictionary.hero.startConversation}
+          </a>
+          <a
+            href="#work"
+            class="rounded-md border border-base-300 px-5 py-3 font-semibold text-base-content transition-colors hover:border-primary hover:text-primary"
+          >
+            {dictionary.hero.seeExperience}
+          </a>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <div class="portrait-frame">
+          <VAvatar src={profile.profileImg} alt={fullName} size="xl" shape="rounded" priority />
+        </div>
+        <div class="portrait-note font-mono text-xs text-base-content-muted">
+          <span class="text-primary">●</span>
+          {dictionary.hero.availability}
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container about-strip border-y border-base-300 py-12 lg:py-16">
+      <p class="max-w-3xl text-xl leading-relaxed text-base-content sm:text-2xl">
+        {profile.introduction}
+      </p>
+      <div class="mt-8 grid gap-8 text-sm sm:grid-cols-2 lg:grid-cols-3">
+        <div>
+          <p class="font-mono text-xs text-primary">{dictionary.about.basedIn}</p>
+          <p class="mt-2 text-base-content">{profile.location}</p>
+        </div>
+        <div>
+          <p class="font-mono text-xs text-primary">{dictionary.about.education}</p>
+          <p class="mt-2 text-base-content">{profile.education.university}</p>
+          <p class="text-base-content-muted">{profile.education.department}</p>
+        </div>
+        <div id="contact">
+          <p class="font-mono text-xs text-primary">{dictionary.about.reachMe}</p>
+          <p class="mt-2 text-base-content">{profile.email}</p>
+          <SocialLinks className="mt-3" labels={dictionary.social} profile={profile} />
+        </div>
+      </div>
+    </section>
+
+    <ExperienceSection dictionary={dictionary} experiences={experiences} locale={locale} />
+    <ProjectsSection dictionary={dictionary} projects={projects} />
+    <TechnologiesSection dictionary={dictionary} technologies={technologies} />
+  </div>
+</DefaultLayout>
+
+<style is:global>
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
+    gap: clamp(2rem, 8vw, 9rem);
+    align-items: end;
+  }
+
+  .hero-portrait {
+    justify-self: end;
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .portrait-frame {
+    border: 1px solid var(--color-primary);
+    padding: 0.75rem;
+    transform: rotate(3deg);
+    background: var(--color-base-300);
+    width: 100%;
+  }
+
+  .portrait-frame .avatar,
+  .portrait-frame .avatar > div,
+  .portrait-frame img {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .portrait-note {
+    margin-top: 1.25rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 640px) {
+    .hero-layout {
+      grid-template-columns: 1fr;
+      gap: clamp(2rem, 8vw, 5rem);
+    }
+
+    .hero-portrait {
+      justify-self: start;
+      max-width: 260px;
+    }
+  }
+</style>
