@@ -11,6 +11,7 @@ interface Props {
   description?: string;
   path?: string;
   locale?: Locale;
+  language?: Locale;
   alternates?: readonly LocalizedPath[];
   image?: ContentImage;
   openGraphType?: 'article' | 'website';
@@ -31,6 +32,7 @@ const {
   description,
   path = Astro.url.pathname,
   locale = 'en',
+  language,
   alternates = [],
   image = defaultSocialImage,
   openGraphType = 'website',
@@ -38,6 +40,7 @@ const {
   tags = [],
 } = Astro.props;
 const dictionary = getDictionary(locale);
+const documentLanguage = language ?? locale;
 const { profile } = getContent(locale);
 const pageTitle = title ?? dictionary.meta.title;
 const pageDescription = description ?? dictionary.meta.description;
@@ -53,7 +56,7 @@ const defaultAlternate = alternatesWithUrls.find((alternate) => alternate.locale
 ---
 
 <!doctype html>
-<html lang={locale} data-theme="ibrahimturan-dark">
+<html lang={documentLanguage} data-theme="ibrahimturan-dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -69,7 +72,7 @@ const defaultAlternate = alternatesWithUrls.find((alternate) => alternate.locale
 
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
-    <meta property="og:locale" content={locale === 'tr' ? 'tr_TR' : 'en_US'} />
+    <meta property="og:locale" content={documentLanguage === 'tr' ? 'tr_TR' : 'en_US'} />
     <meta property="og:image" content={socialImageUrl} />
     <meta property="og:image:secure_url" content={socialImageUrl} />
     <meta property="og:image:type" content={image.mimeType} />

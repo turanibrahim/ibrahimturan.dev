@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
@@ -38,9 +38,9 @@ const toBody = (markdown) =>
     };
   });
 
-const toDraft = ({ entry, data }) => ({
+const toDraft = ({ entry, data, id }) => ({
   ...entry,
-  id: `${entry.id}-tr`,
+  id: id ?? `${entry.id}-tr`,
   locale: 'tr',
   status: 'draft',
   translationOf: entry.id,
@@ -56,7 +56,12 @@ const [profileTranslation, experienceTranslations, projectTranslations, postTran
     readJson(path.resolve(translationsDirectory, 'posts.json')),
   ]);
 
-const [profileSource] = seed.content.profile;
+const isCanonical = (entry) => (entry.locale ?? 'en') === 'en';
+
+const [profileSource] = seed.content.profile.filter(isCanonical);
+const canonicalExperiences = seed.content.experiences.filter(isCanonical);
+const canonicalProjects = seed.content.projects.filter(isCanonical);
+const canonicalPosts = seed.content.posts.filter(isCanonical);
 const translatedProfile = toDraft({
   entry: profileSource,
   data: {
@@ -67,7 +72,7 @@ const translatedProfile = toDraft({
   },
 });
 
-const translatedExperiences = seed.content.experiences.map((experience) => {
+const translatedExperiences = canonicalExperiences.map((experience) => {
   const translation = experienceTranslations[experience.id];
 
   if (!translation) {
@@ -85,7 +90,7 @@ const translatedExperiences = seed.content.experiences.map((experience) => {
   });
 });
 
-const translatedProjects = seed.content.projects.map((project) => {
+const translatedProjects = canonicalProjects.map((project) => {
   const translation = projectTranslations[project.id];
 
   if (!translation) {
@@ -119,8 +124,13 @@ const translatedProjects = seed.content.projects.map((project) => {
 });
 
 const translatedPosts = [];
+const existingPostTranslationIds = new Map(
+  seed.content.posts
+    .filter((entry) => (entry.locale ?? 'en') !== 'en')
+    .map((entry) => [entry.slug, entry.id]),
+);
 
-for (const post of seed.content.posts) {
+for (const post of canonicalPosts) {
   const translation = postTranslations[post.slug];
 
   if (!translation) {
@@ -132,8 +142,10 @@ for (const post of seed.content.posts) {
   translatedPosts.push(
     toDraft({
       entry: post,
+      id: existingPostTranslationIds.get(post.slug),
       data: {
         ...post.data,
+        language: 'tr',
         title: normalizeApostrophes(translation.title),
         excerpt: normalizeApostrophes(translation.excerpt),
         body: toBody(markdown),
@@ -142,14 +154,27 @@ for (const post of seed.content.posts) {
   );
 }
 
+const mergeTranslations = ({ entries, translated }) => {
+  const byId = new Map(entries.map((entry) => [entry.id, entry]));
+
+  for (const entry of translated) {
+    byId.set(entry.id, entry);
+  }
+
+  return [...byId.values()];
+};
+
 const translationsSeed = {
   ...seed,
   content: {
     ...seed.content,
-    experiences: [...seed.content.experiences, ...translatedExperiences],
-    posts: [...seed.content.posts, ...translatedPosts],
-    profile: [...seed.content.profile, translatedProfile],
-    projects: [...seed.content.projects, ...translatedProjects],
+    experiences: mergeTranslations({
+      entries: seed.content.experiences,
+      translated: translatedExperiences,
+    }),
+    posts: mergeTranslations({ entries: seed.content.posts, translated: translatedPosts }),
+    profile: mergeTranslations({ entries: seed.content.profile, translated: [translatedProfile] }),
+    projects: mergeTranslations({ entries: seed.content.projects, translated: translatedProjects }),
   },
 };
 
@@ -167,14 +192,18 @@ const child = spawn(
     '--seed',
     outputSeedPath,
     '--on-conflict',
-    'skip',
+    'update',
   ],
   { cwd: cmsDirectory, stdio: 'inherit' },
 );
 
-await new Promise((resolve, reject) => {
-  child.on('error', reject);
-  child.on('exit', (code) =>
-    code === 0 ? resolve() : reject(new Error(`seed exited with code ${code}`)),
-  );
-});
+try {
+  await new Promise((resolve, reject) => {
+    child.on('error', reject);
+    child.on('exit', (code) =>
+      code === 0 ? resolve() : reject(new Error(`seed exited with code ${code}`)),
+    );
+  });
+} finally {
+  await rm(outputSeedPath, { force: true });
+}

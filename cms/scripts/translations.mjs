@@ -36,17 +36,24 @@ export const groupEntriesByTranslation = (entries) => {
 };
 
 export const normalizeTranslations = ({ entries, defaultLocale }) =>
-  groupEntriesByTranslation(entries).flatMap((group) => {
-    const canonical =
-      group.find((entry) => (entry.locale ?? defaultLocale) === defaultLocale) ?? group[0];
+  groupEntriesByTranslation(entries)
+    .map((group) => {
+      const canonical =
+        group.find((entry) => (entry.locale ?? defaultLocale) === defaultLocale) ?? group[0];
+      const canonicalEntry = { ...canonical };
 
-    const canonicalEntry = { ...canonical };
+      delete canonicalEntry.translationOf;
 
-    delete canonicalEntry.translationOf;
+      const translations = group
+        .filter((entry) => entry.id !== canonical.id)
+        .map((entry) => ({ ...entry, translationOf: canonical.id }));
 
-    const translations = group
-      .filter((entry) => entry.id !== canonical.id)
-      .map((entry) => ({ ...entry, translationOf: canonical.id }));
+      return [canonicalEntry, ...translations];
+    })
+    .sort(({ 0: left }, { 0: right }) => {
+      const leftOrder = Number(left.data?.order ?? Number.MAX_SAFE_INTEGER);
+      const rightOrder = Number(right.data?.order ?? Number.MAX_SAFE_INTEGER);
 
-    return [canonicalEntry, ...translations];
-  });
+      return leftOrder - rightOrder || left.id.localeCompare(right.id);
+    })
+    .flat();

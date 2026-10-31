@@ -320,7 +320,7 @@ const toPost = (entry) => {
     tags: (data.tags ?? []).map(({ name }) => name),
     publishedAt: toText(data.published_on),
     readingTimeMinutes: data.reading_time,
-    language: locale,
+    language: data.language ?? locale,
     image: toImage(data.cover),
     ...(data.source_url ? { sourceUrl: data.source_url } : {}),
     order: data.order,

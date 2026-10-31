@@ -49,8 +49,10 @@ npm run cms:refresh-seed  # rewrite seed/seed.json from the current database
 the root package — no `cms/`, no database, no credentials, no running server.
 
 Schema changes are made in the admin under **Content Types**. After changing a collection or field,
-run `npm run cms:refresh-seed` so the bootstrap seed keeps matching the database. `cms:seed` with
-`--on-conflict update` updates existing entries instead of skipping them.
+run `npm run cms:refresh-seed` so the bootstrap seed keeps matching the database.
+
+`npm run cms:seed` only fills an empty database; `npm run cms:seed:update` overwrites existing entries
+from `cms/seed/seed.json` instead of skipping them.
 
 Media lives in EmDash's media library. Post covers and inline images are uploaded there; the exporter
 copies only referenced files into `public/cms/` and rewrites their paths, so the static site never
@@ -65,6 +67,9 @@ is drafted from the files in `cms/content/tr/` and seeded as **drafts**:
 ```bash
 npm run cms:translations   # build Turkish drafts from cms/content/tr/ and seed them
 ```
+
+That command treats `cms/content/tr/` as the source of truth: re-running it rewrites the Turkish drafts
+in the database, so edit the Markdown/JSON files (or stop using it and edit in the admin).
 
 Nothing Turkish reaches the site until you review it in the admin and publish it — the exporter only
 reads published entries. Until then `/tr/` shows Turkish chrome with English résumé copy and an empty

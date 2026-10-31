@@ -8,7 +8,7 @@ Geçenlerde, işleri neredeyse hiç zahmet çekmeden animasyona çevirmeyi amaç
 
 `auto-animate`’in nasıl eklendiğini ve kullanıldığını göstermek için Vue 3, Vite, typescript ve tailwind kullanacağım. Vue şart değil; `auto-animate`’in desteklediği tüm yaygın frontend framework’lerinde kullanabilirsiniz.
 
-Hadi Vue ekibinin geliştirdiği **[create-vue](https://github.com/vuejs/create-vue)** kütüphanesiyle bir Vue 3 uygulaması oluşturalım. Projeyi oluştururken seçtiğim seçenekler şunlar.
+Hadi Vue ekibinin geliştirdiği [create-vue](https://github.com/vuejs/create-vue) kütüphanesiyle bir Vue 3 uygulaması oluşturalım. Projeyi oluştururken seçtiğim seçenekler şunlar.
 
 ```bash
 ✔ **Project name:** … auto-animate-example

@@ -9,5 +9,3 @@ export { defaultLocale, locales };
 
 export const getContent = (locale: Locale = defaultLocale): PortfolioContent =>
   content[locale] ?? content[defaultLocale];
-
-export const getProfile = (locale: Locale) => getContent(locale).profile;

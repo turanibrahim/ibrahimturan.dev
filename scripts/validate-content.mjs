@@ -112,6 +112,10 @@ const validatePortableText = ({ blocks, label }) => {
         fail(`${blockLabel} has an unsupported span type.`);
       }
 
+      if (/\]\([^)]+\)/.test(span.text ?? '')) {
+        fail(`${blockLabel} contains raw Markdown link syntax instead of a link mark.`);
+      }
+
       for (const mark of span.marks ?? []) {
         if (!knownMarks.has(mark) && !markDefinitions.has(mark)) {
           fail(`${blockLabel} references an undefined mark: ${mark}`);
@@ -135,7 +139,7 @@ const validateExperienceDates = ({ experience, label }) => {
   }
 };
 
-const validatePost = ({ locale, post, label }) => {
+const validatePost = ({ post, label }) => {
   if (typeof post.title !== 'string' || post.title.length === 0) {
     fail(`${label} is missing a title.`);
   }
@@ -155,8 +159,8 @@ const validatePost = ({ locale, post, label }) => {
     fail(`${label} must have a positive reading time.`);
   }
 
-  if (post.language !== locale) {
-    fail(`${label} is labelled "${post.language}" inside the "${locale}" content.`);
+  if (!content.locales.includes(post.language)) {
+    fail(`${label} is labelled with an unknown language: ${String(post.language)}`);
   }
 
   if (!Array.isArray(post.tags) || post.tags.length === 0) {
@@ -209,7 +213,7 @@ for (const locale of locales ?? []) {
       slugs.add(post.slug);
     }
 
-    validatePost({ label, locale, post });
+    validatePost({ label, post });
   }
 }
 

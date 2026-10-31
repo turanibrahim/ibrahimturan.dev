@@ -210,6 +210,13 @@ export const collections = [
     fields: [
       { slug: 'title', label: 'Title', type: 'string', required: true },
       { slug: 'excerpt', label: 'Excerpt', type: 'text', required: true },
+      {
+        slug: 'language',
+        label: 'Language',
+        type: 'select',
+        required: true,
+        validation: { options: ['en', 'tr'] },
+      },
       { slug: 'body', label: 'Body', type: 'portableText', required: true },
       {
         slug: 'published_on',
