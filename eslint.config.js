@@ -67,12 +67,11 @@ export default defineConfig(
   {
     ignores: [
       '.astro/**',
-      '.next/**',
+      'cms/.astro/**',
+      'cms/.emdash/**',
       'dist/**',
       'node_modules/**',
       '.vscode/**',
-      'cms/.next/**',
-      'cms/payload-types.ts',
     ],
   },
 );
